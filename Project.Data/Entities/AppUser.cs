@@ -19,6 +19,8 @@ namespace Project.Data.Entities
 
             public List<Order> Orders { get; set; }
 
+            public bool disable { get; set; }
+
             //public List<Transaction> Transactions { get; set; }
         }
     

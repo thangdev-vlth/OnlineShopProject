@@ -27,15 +27,18 @@ namespace Project.ViewModels.User
         public string Address { get; set; }
         [Display(Name = "Ngày sinh")]
         public DateTime Birthday { get; set; }
+        [Display(Name ="Trạng thái kích hoạt")]
+        public string EmailConfirmed { get; set; }
+        public string Disable { get; set; }
         /*
-        Id
-        UserName
-        Email
-        PhoneNumber
-        Address
-        Fullname
-        Birthday
-         */
+Id
+UserName
+Email
+PhoneNumber
+Address
+Fullname
+Birthday
+*/
 
     }
 }

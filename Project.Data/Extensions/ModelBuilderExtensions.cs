@@ -46,29 +46,168 @@ namespace Project.Data.Extensions
                    Price = 200000,
                    Stock = 0,
                    ViewCount = 0
-               },
-                new Product()
-                {
-                    Id = 2,
-                    DateCreated = DateTime.Now,
-                    Name = "Áo sơ mi nữ trắng Việt Tiến",
-                    Description = "Áo sơ mi nữ trắng Việt Tiến",
-                    Details = "Áo sơ mi nữ trắng Việt Tiến",
-                    Price = 200000,
-                    Stock = 0,
-                    ViewCount = 0
+               }, new Product()
+               {
+                   Id = 2,
+                   DateCreated = DateTime.Now,
+                   Name = "Áo sơ mi nữ trắng Việt Tiến",
+                   Description = "Áo sơ mi nữ trắng Việt Tiến",
+                   Details = "Áo sơ mi nữ trắng Việt Tiến",
+                   Price = 200000,
+                   Stock = 0,
+                   ViewCount = 0
+               }, new Product()
+                    {
+                        Id = 6,
+                        DateCreated = DateTime.Now,
+                        Name = "Áo sơ mi nữ trắng Việt Tiến",
+                        Description = "Áo sơ mi nữ trắng Việt Tiến",
+                        Details = "Áo sơ mi nữ trắng Việt Tiến",
+                        Price = 200000,
+                        Stock = 0,
+                        ViewCount = 0
                 });
             
             modelBuilder.Entity<ProductInCategory>().HasData(
                 new ProductInCategory() { ProductId = 1, CategoryId = 1 }
                 );
-
             
+            //8D04DCE3-969A-435D-BBA4-DF3F325983DC
+            //// any guid
+            //string roleId ="8D04DCE2-969A-435D-BBA4-DF3F325983DC";
+            //string adminId = "69BD714F-9576-45BA-B5B7-F00649BE00DE";
+            modelBuilder.Entity<IdentityRole>().HasData(
+                new IdentityRole
+                {
+                    Id = "8D04DCE3-969A-435D-BBA4-DF3F325983DC",
+                    Name = "admin",
+                    NormalizedName = "ADMIN",
+                }, new IdentityRole
+                {
+                    Id = "8D04DCE2-969A-435D-BBA4-DF3F325983DC",
+                    Name = "editor",
+                    NormalizedName = "EDITOR",
+                });
 
+                var hasher = new PasswordHasher<AppUser>();
+                modelBuilder.Entity<AppUser>().HasData(new AppUser
+                {
+                    Id = "69BD714F-9576-45BA-B5B7-F00649BE00DE",
+                    UserName = "Thang-dev",
+                    NormalizedUserName = "admin",
+                    Email = "thangnguyenquyetvlth@gmail.com",
+                    NormalizedEmail = "thangnguyenquyetvlth@gmail.com",
+                    EmailConfirmed = true,
+                    PasswordHash = hasher.HashPassword(null, "123456"),
+                    SecurityStamp = string.Empty,
+                    Birthday = DateTime.Now
+                }, new AppUser
+                {
+                    Id = "69BD711F-9576-45BA-B5B7-F00649BE00DE",
+                    UserName = "raw-account1",
+                    NormalizedUserName = "raw-account1",
+                    Email = "thangnguyenquyetvlth1@gmail.com",
+                    NormalizedEmail = "thangnguyenquyetvlth1@gmail.com",
+                    EmailConfirmed = true,
+                    PasswordHash = hasher.HashPassword(null, "123456"),
+                    SecurityStamp = string.Empty,
+                    Birthday = DateTime.Now
+                }, new AppUser
+                {
+                    Id = "69BD712F-9576-45BA-B5B7-F00649BE00DE",
+                    UserName = "raw-account2",
+                    NormalizedUserName = "raw-account2",
+                    Email = "thangnguyenquyetvlth2@gmail.com",
+                    NormalizedEmail = "thangnguyenquyetvlth2@gmail.com",
+                    EmailConfirmed = true,
+                    PasswordHash = hasher.HashPassword(null, "123456"),
+                    SecurityStamp = string.Empty,
+                    Birthday = DateTime.Now
+                }, new AppUser
+                {
+                    Id = "61BD714F-9576-45BA-B5B7-F00649BE00DE",
+                    UserName = "raw-account3",
+                    NormalizedUserName = "raw-account3",
+                    Email = "thangnguyenquyetvlth3@gmail.com",
+                    NormalizedEmail = "thangnguyenquyetvlth3@gmail.com",
+                    EmailConfirmed = true,
+                    PasswordHash = hasher.HashPassword(null, "123456"),
+                    SecurityStamp = string.Empty,
+                    Birthday = DateTime.Now
+                }, new AppUser
+                {
+                    Id = "19BD714F-9576-45BA-B5B7-F00649BE00DE",
+                    UserName = "raw-account4",
+                    NormalizedUserName = "raw-account4",
+                    Email = "thangnguyenquyetvlth4@gmail.com",
+                    NormalizedEmail = "thangnguyenquyetvlth4@gmail.com",
+                    EmailConfirmed = true,
+                    PasswordHash = hasher.HashPassword(null, "123456"),
+                    SecurityStamp = string.Empty,
+                    Birthday = DateTime.Now
+                }, new AppUser
+                {
+                    Id = "65BD710F-9576-45BA-B5B7-F00649BE00DE",
+                    UserName = "raw-account5",
+                    NormalizedUserName = "raw-account5",
+                    Email = "thangnguyenquyetvlth5@gmail.com",
+                    NormalizedEmail = "thangnguyenquyetvlth5@gmail.com",
+                    EmailConfirmed = true,
+                    PasswordHash = hasher.HashPassword(null, "123456"),
+                    SecurityStamp = string.Empty,
+                    Birthday = DateTime.Now
+                }, new AppUser
+                {
+                    Id = "69BD714F-9576-45BA-B5B6-F00649BE01DE",
+                    UserName = "raw-account6",
+                    NormalizedUserName = "raw-account6",
+                    Email = "thangnguyenquyetvlth6@gmail.com",
+                    NormalizedEmail = "thangnguyenquyetvlth6@gmail.com",
+                    EmailConfirmed = true,
+                    PasswordHash = hasher.HashPassword(null, "123456"),
+                    SecurityStamp = string.Empty,
+                    Birthday = DateTime.Now
+                }, new AppUser
+                {
+                    Id = "09BD714F-9576-45BA-B5B7-F00649BE04DE",
+                    UserName = "raw-account7",
+                    NormalizedUserName = "raw-account7",
+                    Email = "thangnguyenquyetvlth7@gmail.com",
+                    NormalizedEmail = "thangnguyenquyetvlth7@gmail.com",
+                    EmailConfirmed = true,
+                    PasswordHash = hasher.HashPassword(null, "123456"),
+                    SecurityStamp = string.Empty,
+                    Birthday = DateTime.Now
+                }, new AppUser
+                {
+                    Id = "69BD114F-9576-45BA-B4B7-F00649BE00DE",
+                    UserName = "raw-account8",
+                    NormalizedUserName = "raw-account8",
+                    Email = "thangnguyenquyetvlth8@gmail.com",
+                    NormalizedEmail = "thangnguyenquyetvlth8@gmail.com",
+                    EmailConfirmed = true,
+                    PasswordHash = hasher.HashPassword(null, "123456"),
+                    SecurityStamp = string.Empty,
+                    Birthday=DateTime.Now
+                });
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(
+                new IdentityUserRole<string>()
+                {
+                    RoleId = "8D04DCE3-969A-435D-BBA4-DF3F325983DC",
+                    UserId = "69BD714F-9576-45BA-B5B7-F00649BE00DE"
+                }, new IdentityUserRole<string>()
+                {
+                    RoleId = "8D04DCE2-969A-435D-BBA4-DF3F325983DC",
+                    UserId = "69BD714F-9576-45BA-B5B7-F00649BE00DE"
+                });
+            modelBuilder.Entity<IdentityRoleClaim<string>>().HasData(new IdentityRoleClaim<string>()
+            {
+                Id = -1,
+                RoleId = "8D04DCE3-969A-435D-BBA4-DF3F325983DC",
+                ClaimType = "permission",
+                ClaimValue = "manage.user"
+            }) ;
             /*
-
-
-
             // any guid
             var roleId = new Guid("8D04DCE2-969A-435D-BBA4-DF3F325983DC");
             var adminId = new Guid("69BD714F-9576-45BA-B5B7-F00649BE00DE");

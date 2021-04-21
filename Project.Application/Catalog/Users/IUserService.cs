@@ -1,4 +1,5 @@
-﻿using Project.ViewModels.User;
+﻿using Project.ViewModels.common;
+using Project.ViewModels.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace Project.Application.Catalog.Users
 {
     public interface IUserService
     {
-        Task<List<UserViewModel>> GetAllUser();
+        Task<PageResult<UserViewModel>> GetAllUser();
+        Task<UserViewModel> GetById(String id);
+        Task<bool> Delete(string id);
     }
 }

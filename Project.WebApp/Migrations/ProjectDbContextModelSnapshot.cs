@@ -44,6 +44,22 @@ namespace Project.WebApp.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "8D04DCE3-969A-435D-BBA4-DF3F325983DC",
+                            ConcurrencyStamp = "0e5e1d7a-6c3d-4dc8-858f-c4de1c192ee2",
+                            Name = "admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "8D04DCE2-969A-435D-BBA4-DF3F325983DC",
+                            ConcurrencyStamp = "9dc22be1-d546-4c8f-b554-8c0861e8dfb8",
+                            Name = "editor",
+                            NormalizedName = "EDITOR"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -68,6 +84,15 @@ namespace Project.WebApp.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("RoleClaims");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = -1,
+                            ClaimType = "permission",
+                            ClaimValue = "manage.user",
+                            RoleId = "8D04DCE3-969A-435D-BBA4-DF3F325983DC"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -129,6 +154,18 @@ namespace Project.WebApp.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("UserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "69BD714F-9576-45BA-B5B7-F00649BE00DE",
+                            RoleId = "8D04DCE3-969A-435D-BBA4-DF3F325983DC"
+                        },
+                        new
+                        {
+                            UserId = "69BD714F-9576-45BA-B5B7-F00649BE00DE",
+                            RoleId = "8D04DCE2-969A-435D-BBA4-DF3F325983DC"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -212,6 +249,11 @@ namespace Project.WebApp.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<bool>("disable")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -223,6 +265,170 @@ namespace Project.WebApp.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "69BD714F-9576-45BA-B5B7-F00649BE00DE",
+                            AccessFailedCount = 0,
+                            Birthday = new DateTime(2021, 4, 21, 16, 52, 43, 941, DateTimeKind.Local).AddTicks(5729),
+                            ConcurrencyStamp = "11074662-3ab4-4aa8-8c46-a6782d4dc91f",
+                            Email = "thangnguyenquyetvlth@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "thangnguyenquyetvlth@gmail.com",
+                            NormalizedUserName = "admin",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKYPQPPwAIspnn5gySLIPtlkXrV9AlUoRAIGPQmMWSKAJH157RRLiR37IANUlI63kQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "Thang-dev",
+                            disable = false
+                        },
+                        new
+                        {
+                            Id = "69BD711F-9576-45BA-B5B7-F00649BE00DE",
+                            AccessFailedCount = 0,
+                            Birthday = new DateTime(2021, 4, 21, 16, 52, 43, 954, DateTimeKind.Local).AddTicks(8141),
+                            ConcurrencyStamp = "d10c226b-9069-4503-9db5-02b85c6a0e28",
+                            Email = "thangnguyenquyetvlth1@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "thangnguyenquyetvlth1@gmail.com",
+                            NormalizedUserName = "raw-account1",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOP7bfHfX8ITG1tKZx9NHY4IpqDbMg6SnK5k44jxxwFVe0NnoSuM/tlE+hbvXVHtbQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "raw-account1",
+                            disable = false
+                        },
+                        new
+                        {
+                            Id = "69BD712F-9576-45BA-B5B7-F00649BE00DE",
+                            AccessFailedCount = 0,
+                            Birthday = new DateTime(2021, 4, 21, 16, 52, 43, 966, DateTimeKind.Local).AddTicks(7843),
+                            ConcurrencyStamp = "26114fce-2357-4a05-a45c-20fc5fb579be",
+                            Email = "thangnguyenquyetvlth2@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "thangnguyenquyetvlth2@gmail.com",
+                            NormalizedUserName = "raw-account2",
+                            PasswordHash = "AQAAAAEAACcQAAAAENiPClXMtKTVJYR28tXxlqmz0Tp1QNsyvdKeMq/OJhlUlUn9MbXatRewSYBHhmQtGA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "raw-account2",
+                            disable = false
+                        },
+                        new
+                        {
+                            Id = "61BD714F-9576-45BA-B5B7-F00649BE00DE",
+                            AccessFailedCount = 0,
+                            Birthday = new DateTime(2021, 4, 21, 16, 52, 43, 981, DateTimeKind.Local).AddTicks(865),
+                            ConcurrencyStamp = "0c9fe468-5065-4385-9017-f12d682d133a",
+                            Email = "thangnguyenquyetvlth3@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "thangnguyenquyetvlth3@gmail.com",
+                            NormalizedUserName = "raw-account3",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJ3TvLHx9CjnwLKz8h/1FAod0F69IHc7UKj6OaGMqVNqu5UIAi43AFuSY1mToegGhQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "raw-account3",
+                            disable = false
+                        },
+                        new
+                        {
+                            Id = "19BD714F-9576-45BA-B5B7-F00649BE00DE",
+                            AccessFailedCount = 0,
+                            Birthday = new DateTime(2021, 4, 21, 16, 52, 43, 994, DateTimeKind.Local).AddTicks(2824),
+                            ConcurrencyStamp = "385d28a5-00be-4d05-8344-8c422c0cc0d6",
+                            Email = "thangnguyenquyetvlth4@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "thangnguyenquyetvlth4@gmail.com",
+                            NormalizedUserName = "raw-account4",
+                            PasswordHash = "AQAAAAEAACcQAAAAEO7O1MQzEepViDom4M92EZdZmOyk6vLdXq4MhJdJu5YRkkpGxps6vzUsh/RD/7UDEA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "raw-account4",
+                            disable = false
+                        },
+                        new
+                        {
+                            Id = "65BD710F-9576-45BA-B5B7-F00649BE00DE",
+                            AccessFailedCount = 0,
+                            Birthday = new DateTime(2021, 4, 21, 16, 52, 44, 7, DateTimeKind.Local).AddTicks(4995),
+                            ConcurrencyStamp = "12b9e24d-44d0-46b4-ba8d-88a034ee5d9b",
+                            Email = "thangnguyenquyetvlth5@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "thangnguyenquyetvlth5@gmail.com",
+                            NormalizedUserName = "raw-account5",
+                            PasswordHash = "AQAAAAEAACcQAAAAEL5NaBgD7tyn/YSUyPqun/5Skw8D1TmTfO7SiM484vOlnMJnOmzh3wdowA7qq039Iw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "raw-account5",
+                            disable = false
+                        },
+                        new
+                        {
+                            Id = "69BD714F-9576-45BA-B5B6-F00649BE01DE",
+                            AccessFailedCount = 0,
+                            Birthday = new DateTime(2021, 4, 21, 16, 52, 44, 20, DateTimeKind.Local).AddTicks(8268),
+                            ConcurrencyStamp = "f76dc31c-0bb5-4909-b001-db6a3d21e0a0",
+                            Email = "thangnguyenquyetvlth6@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "thangnguyenquyetvlth6@gmail.com",
+                            NormalizedUserName = "raw-account6",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEJID3FhuL/TSdfOKdKWsz99Hy6ONHu04CruOGRrmid+Ycg2Is/q+9QY9fN5+hi+Ig==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "raw-account6",
+                            disable = false
+                        },
+                        new
+                        {
+                            Id = "09BD714F-9576-45BA-B5B7-F00649BE04DE",
+                            AccessFailedCount = 0,
+                            Birthday = new DateTime(2021, 4, 21, 16, 52, 44, 34, DateTimeKind.Local).AddTicks(9371),
+                            ConcurrencyStamp = "68310544-f2a4-4d79-a19c-217204ba067b",
+                            Email = "thangnguyenquyetvlth7@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "thangnguyenquyetvlth7@gmail.com",
+                            NormalizedUserName = "raw-account7",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPnxx6dZzpf560y6bqKVtrT/O00qhsorOJlh9+7lQsZwDYVoU9qwczhEkRmwO8Rx3g==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "raw-account7",
+                            disable = false
+                        },
+                        new
+                        {
+                            Id = "69BD114F-9576-45BA-B4B7-F00649BE00DE",
+                            AccessFailedCount = 0,
+                            Birthday = new DateTime(2021, 4, 21, 16, 52, 44, 47, DateTimeKind.Local).AddTicks(9798),
+                            ConcurrencyStamp = "2ddf5415-8770-4ad9-bbb3-f9dc926f12cb",
+                            Email = "thangnguyenquyetvlth8@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "thangnguyenquyetvlth8@gmail.com",
+                            NormalizedUserName = "raw-account8",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMgWz24ygUeae2U9B5Xc43RHYm9ZkSWpijZHwHvwP4V5F0CBNr+rTodG+yiaERMGOQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "raw-account8",
+                            disable = false
+                        });
                 });
 
             modelBuilder.Entity("Project.Data.Entities.Cart", b =>
@@ -429,7 +635,7 @@ namespace Project.WebApp.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2021, 4, 20, 16, 20, 25, 246, DateTimeKind.Local).AddTicks(3723),
+                            DateCreated = new DateTime(2021, 4, 21, 16, 52, 43, 921, DateTimeKind.Local).AddTicks(1920),
                             Description = "Áo sơ mi nam trắng Việt Tiến",
                             Details = "Áo sơ mi nam trắng Việt Tiến",
                             Name = "Áo sơ mi nam trắng Việt Tiến",
@@ -440,7 +646,18 @@ namespace Project.WebApp.Migrations
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2021, 4, 20, 16, 20, 25, 248, DateTimeKind.Local).AddTicks(8124),
+                            DateCreated = new DateTime(2021, 4, 21, 16, 52, 43, 923, DateTimeKind.Local).AddTicks(1589),
+                            Description = "Áo sơ mi nữ trắng Việt Tiến",
+                            Details = "Áo sơ mi nữ trắng Việt Tiến",
+                            Name = "Áo sơ mi nữ trắng Việt Tiến",
+                            Price = 200000m,
+                            Stock = 0,
+                            ViewCount = 0
+                        },
+                        new
+                        {
+                            Id = 6,
+                            DateCreated = new DateTime(2021, 4, 21, 16, 52, 43, 923, DateTimeKind.Local).AddTicks(1645),
                             Description = "Áo sơ mi nữ trắng Việt Tiến",
                             Details = "Áo sơ mi nữ trắng Việt Tiến",
                             Name = "Áo sơ mi nữ trắng Việt Tiến",

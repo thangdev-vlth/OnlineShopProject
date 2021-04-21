@@ -19,8 +19,4 @@
     <ProjectReference Include="..\Project.WebApp\Project.WebApp.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\User\" />
-  </ItemGroup>
-
 </Project>

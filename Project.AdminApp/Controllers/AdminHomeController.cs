@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Project.AdminApp.Models;
 using System;
@@ -9,11 +10,12 @@ using System.Threading.Tasks;
 
 namespace Project.AdminApp.Controllers
 {
-    public class HomeController : Controller
+    
+    public class AdminHomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<AdminHomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public AdminHomeController(ILogger<AdminHomeController> logger)
         {
             _logger = logger;
         }

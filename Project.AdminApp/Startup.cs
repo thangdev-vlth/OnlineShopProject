@@ -1,9 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Project.Application.Catalog.Users;
+using Project.Data.EF;
+using Project.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +29,15 @@ namespace Project.AdminApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            var connectionString = Configuration.GetConnectionString("ProjectOnlineShopDb");
+            services.AddDbContext<ProjectDbContext>(options =>
+                    options.UseSqlServer(connectionString, b => b.MigrationsAssembly("Project.WebApp")));
+
+            services.AddRazorPages();
+            services.AddIdentity<AppUser, IdentityRole>()
+                .AddEntityFrameworkStores<ProjectDbContext>()
+                .AddDefaultTokenProviders();
+            services.AddTransient<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,14 +57,13 @@ namespace Project.AdminApp
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=AdminHome}/{action=Index}/{id?}");
             });
         }
     }
