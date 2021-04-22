@@ -1,4 +1,6 @@
-﻿@*
+﻿
+@model LoginRequest
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -26,30 +28,35 @@
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                 <div class="card-body">
-                                    <form>
+                                    <form asp-action="Login" asp-controller="User" method="post">
+                                        <hr />
+                                        <div asp-validation-summary="All" class="text-danger"></div>
                                         <div class="form-group">
-                                            <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                            <input class="form-control py-4" id="inputEmailAddress" type="email" placeholder="Enter email address" />
+                                            <label class="small mb-1" asp-for="@Model.Email">Email</label>
+                                            <input class="form-control py-4" asp-for="@Model.Email" type="email" placeholder="Enter email address" />
+                                            <span asp-validation-for="@Model.Email" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label class="small mb-1" for="inputPassword">Password</label>
-                                            <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" />
+                                            <label class="small mb-1" asp-for="@Model.Password">Password</label>
+                                            <input class="form-control py-4" asp-for="@Model.Password" type="password" placeholder="Enter password" />
+                                            <span asp-validation-for="@Model.Password" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
-                                            <div class="custom-control custom-checkbox">
-                                                <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
-                                                <label class="custom-control-label" for="rememberPasswordCheck">Remember password</label>
-                                            </div>
+                                            <label asp-for="@Model.RememberMe">
+                                                <input asp-for="@Model.RememberMe" />
+                                                @Html.DisplayNameFor(m => m.RememberMe)
+                                            </label>
+                                            
                                         </div>
                                         <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <a class="small" href="password.html">Forgot Password?</a>
-                                            <a class="btn btn-primary" href="index.html">Login</a>
+                                            <button type="submit" class="btn btn-primary">Đăng nhập</button>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="card-footer text-center">
+                                @*<div class="card-footer text-center">
                                     <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
-                                </div>
+                                </div>*@
                             </div>
                         </div>
                     </div>

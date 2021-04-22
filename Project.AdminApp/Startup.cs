@@ -2,11 +2,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Project.Application.Catalog.Users;
+using Project.Application.Mail;
 using Project.Data.EF;
 using Project.Data.Entities;
 using System;
@@ -38,10 +40,55 @@ namespace Project.AdminApp
                 .AddEntityFrameworkStores<ProjectDbContext>()
                 .AddDefaultTokenProviders();
             services.AddTransient<IUserService, UserService>();
+            services.ConfigureApplicationCookie(options => {
+                // options.Cookie.HttpOnly = true;
+                // options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+                options.LoginPath = $"/User/Login";
+                options.LogoutPath = $"/User/Logout";
+                options.AccessDeniedPath = $"/User/Login";
+            });
+            // truy cap IdentityOptions
+            services.Configure<IdentityOptions>(options => {
+                // thiet lap ve  Password
+                options.Password.RequireDigit = false; // khong bat phai co so
+                options.Password.RequireLowercase = false; // khong bat phai co chu thuong
+                options.Password.RequireNonAlphanumeric = false; // khong bat co ki tu dac biet
+                options.Password.RequireUppercase = false; // khong bat buoc chu in
+                options.Password.RequiredLength = 3; // so ki tu toi thieu cua password
+                options.Password.RequiredUniqueChars = 1; // so ki tu rieng biet
+
+                //Cau hinh lockout -khoa user
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1); // khoa 5 phut
+                options.Lockout.MaxFailedAccessAttempts = 5; // that bai 5 lan thi khoa
+                options.Lockout.AllowedForNewUsers = true;
+
+                // cau hinh ve User.
+                options.User.AllowedUserNameCharacters = // cac ki tu dat ten cho user
+                    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                options.User.RequireUniqueEmail = true;  // Email la duy nhat
+
+                // cau hinh dang nhap
+                options.SignIn.RequireConfirmedEmail = true;            // cau hinh xac thuc dia chi email (email phai ton tai)
+                options.SignIn.RequireConfirmedPhoneNumber = false;     // xac thuc so dien thoai
+
+            });
+            services.AddOptions();                                        // kich hoat Options
+            var mailsettings = Configuration.GetSection("MailSettings");  // doc config
+            services.Configure<MailSettings>(mailsettings);               // dang ki de  Inject
+
+            services.AddTransient<IEmailSender, SendMailService>();        // dang ki dich vu Mail
+            
+            services.Configure<SecurityStampValidatorOptions>(options =>
+            {
+                // tren 30 s truy cap lai se nap lai thong tin  User (Role)
+                // SecurityStamp trong bang User doi -> nap lai thong tin  Security
+                options.ValidationInterval = TimeSpan.FromSeconds(30);
+            });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+            public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
