@@ -4,40 +4,58 @@ using Project.Data.EF;
 using Project.Data.Entities;
 using Project.ViewModels.common;
 using Project.ViewModels.User;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Project.Application.Catalog.Users
 {
     public class UserService : IUserService
     {
-        
+
         private readonly UserManager<AppUser> _userManager;
-        public UserService(UserManager<AppUser> userManager)
+        private readonly SignInManager<AppUser> _signInManager;
+        
+        private readonly ProjectDbContext _projectDbContext;
+        public UserService(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,  ProjectDbContext projectDbContext)
         {
-            
+            _signInManager = signInManager;
             _userManager = userManager;
+            
+            _projectDbContext = projectDbContext;
         }
 
-        
 
-        public async Task<PageResult<UserViewModel>> GetAllUser()
+
+        public async Task<PageResult<UserViewModel>> GetAllUser(string role)
         {
-            var User = _userManager.Users.Where(x=>x.disable==false);
-            var data = await User.Select(user => new UserViewModel()
-            {
-                Id = user.Id,
-                UserName = user.UserName,
-                Email = user.Email,
-                PhoneNumber = user.PhoneNumber ?? "",
-                Fullname = user.FullName,
-                Birthday = user.Birthday,
-                Address = user.Address,
-                Disable = user.disable?"Đang Hoạt động":"Đã bị vô hiệu hóa"
-            }).ToListAsync();
+            var data =await (from user in _userManager.Users
+                         join userRoles in _projectDbContext.UserRoles on user.Id equals userRoles.UserId
+                         join roles in _projectDbContext.Roles on userRoles.RoleId equals roles.Id
+                         where roles.Name == role
+                         select user).Select(user => new UserViewModel()
+                         {
+                             Id = user.Id,
+                             UserName = user.UserName,
+                             Email = user.Email,
+                             PhoneNumber = user.PhoneNumber ?? "",
+                             Fullname = user.FullName,
+                             Birthday = user.Birthday,
+                             Address = user.Address,
+                             Disable = user.disable ? "Đang Hoạt động" : "Đã bị vô hiệu hóa"
+                         }).ToListAsync();
+            
+             
+            //var data =  query.Select(user => new UserViewModel()
+            //{
+            //    Id = user.Id,
+            //    UserName = user.UserName,
+            //    Email = user.Email,
+            //    PhoneNumber = user.PhoneNumber ?? "",
+            //    Fullname = user.FullName,
+            //    Birthday = user.Birthday,
+            //    Address = user.Address,
+            //    Disable = user.disable ? "Đang Hoạt động" : "Đã bị vô hiệu hóa"
+            //});
             return new PageResult<UserViewModel>() { Items = data };
         }
 
@@ -54,7 +72,7 @@ namespace Project.Application.Catalog.Users
                 Fullname = user.FullName,
                 Birthday = user.Birthday,
                 Address = user.Address,
-                EmailConfirmed=user.EmailConfirmed?"Đã Xác Nhận":"Chưa Xác Nhận"
+                EmailConfirmed = user.EmailConfirmed ? "Đã Xác Nhận" : "Chưa Xác Nhận"
             };
             return result;
         }
@@ -64,7 +82,7 @@ namespace Project.Application.Catalog.Users
             if (user != null)
             {
                 user.disable = true;
-                var result =await _userManager.UpdateAsync(user);
+                var result = await _userManager.UpdateAsync(user);
                 return result.Succeeded;
             }
             return false;

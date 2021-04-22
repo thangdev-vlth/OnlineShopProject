@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 namespace Project.AdminApp.Controllers
 {
     
+    [Authorize]
     public class AdminHomeController : Controller
     {
         private readonly ILogger<AdminHomeController> _logger;

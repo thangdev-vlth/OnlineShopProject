@@ -87,10 +87,66 @@ namespace Project.Data.Extensions
                     Id = "8D04DCE2-969A-435D-BBA4-DF3F325983DC",
                     Name = "editor",
                     NormalizedName = "EDITOR",
+                }, new IdentityRole
+                {
+                    Id = "8D04DCC2-969A-435D-BBA4-DF3F315983DC",
+                    Name = "customer",
+                    NormalizedName = "CUSTOMER",
+                }, new IdentityRole
+                {
+                    Id = "1D04DCC2-969A-435D-BBA4-DF3F315983DC",
+                    Name = "staff",
+                    NormalizedName = "STAFF",
                 });
 
                 var hasher = new PasswordHasher<AppUser>();
-                modelBuilder.Entity<AppUser>().HasData(new AppUser
+                for (int i = 0; i < 10; i++)
+                {
+                    modelBuilder.Entity<AppUser>().HasData(new AppUser
+                    {
+                        Id = "10BD711F-9576-45BA-B5B7-F00649BE0" + i + "DE",
+                        UserName = "raw-account-customer" + i,
+                        NormalizedUserName = "raw-account-customer" + i,
+                        Email = "rawaccountcustomer" + i + "@gmail.com",
+                        NormalizedEmail = "rawaccountcustomer" + i + "@gmail.com",
+                        EmailConfirmed = true,
+                        PasswordHash = hasher.HashPassword(null, "123456"),
+                        SecurityStamp = string.Empty,
+                        Birthday = DateTime.Now
+
+                    });
+                    modelBuilder.Entity<IdentityUserRole<string>>().HasData(
+                    new IdentityUserRole<string>()
+                    {
+                       RoleId = "8D04DCC2-969A-435D-BBA4-DF3F315983DC",
+                       UserId = "10BD711F-9576-45BA-B5B7-F00649BE0" + i + "DE"
+                    });
+                    
+                }
+                for (int i = 0; i < 10; i++)
+                {
+                    modelBuilder.Entity<AppUser>().HasData(new AppUser
+                    {
+                        Id = "11BD711F-95" + i + "6-45BA-B5B7-F00649BE0" + i + "DE",
+                        UserName = "raw-account-staff" + i,
+                        NormalizedUserName = "raw-account-staff" + i,
+                        Email = "rawaccountstaff" + i + "@gmail.com",
+                        NormalizedEmail = "rawaccountstaff" + i + "@gmail.com",
+                        EmailConfirmed = true,
+                        PasswordHash = hasher.HashPassword(null, "123456"),
+                        SecurityStamp = string.Empty,
+                        Birthday = DateTime.Now
+
+                    });
+                    modelBuilder.Entity<IdentityUserRole<string>>().HasData(
+                    new IdentityUserRole<string>()
+                    {
+                        RoleId = "1D04DCC2-969A-435D-BBA4-DF3F315983DC",
+                        UserId = "11BD711F-95" + i + "6-45BA-B5B7-F00649BE0" + i + "DE"
+                    });
+
+                }
+            modelBuilder.Entity<AppUser>().HasData(new AppUser
                 {
                     Id = "69BD714F-9576-45BA-B5B7-F00649BE00DE",
                     UserName = "Thang-dev",
