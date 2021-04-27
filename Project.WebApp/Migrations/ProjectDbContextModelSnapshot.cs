@@ -49,28 +49,28 @@ namespace Project.WebApp.Migrations
                         new
                         {
                             Id = "8D04DCE3-969A-435D-BBA4-DF3F325983DC",
-                            ConcurrencyStamp = "19f9f28f-4c0d-418b-8fe0-1a2df2735d0e",
+                            ConcurrencyStamp = "eea3da27-ceed-4d8e-95cb-4875d0b0d05b",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "8D04DCE2-969A-435D-BBA4-DF3F325983DC",
-                            ConcurrencyStamp = "855d7d21-32ce-4a6e-90b0-b258bfc63fac",
+                            ConcurrencyStamp = "d1d2e55c-50b5-42d0-9463-d132bddded50",
                             Name = "editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
                             Id = "8D04DCC2-969A-435D-BBA4-DF3F315983DC",
-                            ConcurrencyStamp = "aa420699-4c75-4413-8cb0-d6d8dff73ab0",
+                            ConcurrencyStamp = "1dbaf56a-dc38-480e-8cbe-89733dd8f30c",
                             Name = "customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
                             Id = "1D04DCC2-969A-435D-BBA4-DF3F315983DC",
-                            ConcurrencyStamp = "fee95fb6-85bd-45e0-9b52-ecc0585cd74e",
+                            ConcurrencyStamp = "381634ac-2636-42e3-8a7d-4a0aa5911de8",
                             Name = "staff",
                             NormalizedName = "STAFF"
                         });
@@ -329,6 +329,11 @@ namespace Project.WebApp.Migrations
                     b.Property<string>("FullName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("LastSignIn")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2021, 4, 23, 17, 53, 53, 826, DateTimeKind.Local).AddTicks(6781));
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -385,14 +390,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 429, DateTimeKind.Local).AddTicks(2902),
-                            ConcurrencyStamp = "6b290b2d-065a-412d-9d6a-bd525649958b",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 53, 877, DateTimeKind.Local).AddTicks(1645),
+                            ConcurrencyStamp = "5e41430e-f9b3-462a-b078-45642d40fe79",
                             Email = "rawaccountcustomer0@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer0@gmail.com",
                             NormalizedUserName = "raw-account-customer0",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOi8m1pmaJdJFz0t7ErerqI76UJVgi+jb+8pD0quFs7lQUc3W8XFj9zNlAYwpgZ5zg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEB42aqbLRAs5xsTNtvc4JXkwfmZLq9qhKHK+UbZ9YSmSUZ46b2pt0vJUXuABOl4uXQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -403,14 +409,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE01DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 438, DateTimeKind.Local).AddTicks(7297),
-                            ConcurrencyStamp = "3bf0fc88-0b21-47ef-bfda-89e9a2f501c1",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 53, 888, DateTimeKind.Local).AddTicks(9088),
+                            ConcurrencyStamp = "f3c53f56-1837-4886-866e-00fd866c4a9f",
                             Email = "rawaccountcustomer1@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer1@gmail.com",
                             NormalizedUserName = "raw-account-customer1",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEwtkuJC0Mp+BPTMY2SDAYUsMb5hswh0FlcIUqX9YAiMXmRpsE2GNjvzTsDg0oGbxA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKfZmjS/1dSGMeKnh+XJA9BUGRTiZhm5du1LWhvBuNiPaZIpv1SVLHUCErnINJAfWw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -421,14 +428,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE02DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 447, DateTimeKind.Local).AddTicks(689),
-                            ConcurrencyStamp = "c1579171-678e-473e-86eb-43d8288e9089",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 53, 900, DateTimeKind.Local).AddTicks(4168),
+                            ConcurrencyStamp = "24904b68-f559-4afd-8941-bdaf4c8933aa",
                             Email = "rawaccountcustomer2@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer2@gmail.com",
                             NormalizedUserName = "raw-account-customer2",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMylsi9+jMpUOOuH7WN/DHVonUdeKnlhH47VpWqqN2EArggZL3rvodUw8DkxsK8S/Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOOgAAhU5XJFo2Om0lJsel0fjnQQ0UvTaR4HBisvxkHj7I/QsMn74yFeZ+EcHwF66g==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -439,14 +447,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE03DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 454, DateTimeKind.Local).AddTicks(9830),
-                            ConcurrencyStamp = "ef2511fc-de17-42f9-9e78-06472bb3967b",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 53, 913, DateTimeKind.Local).AddTicks(9110),
+                            ConcurrencyStamp = "ba6bd6ad-796b-414e-8d9f-c32aed8bb5ce",
                             Email = "rawaccountcustomer3@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer3@gmail.com",
                             NormalizedUserName = "raw-account-customer3",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAypkgw5qfyiLQbpOW1a4IVeP4pgmkpjnq1d08AKU12x0eONZ1f4rTngqJQ7Qfc0YQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOCygDixtWnzYNI20AuoKlCaHCccUOiC94UL2Pldywdr8M90P2ZqSFoIKojl7slJtQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -457,14 +466,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE04DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 463, DateTimeKind.Local).AddTicks(7756),
-                            ConcurrencyStamp = "025867af-5b91-4be4-bb9e-fd5427c9bc94",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 53, 924, DateTimeKind.Local).AddTicks(5427),
+                            ConcurrencyStamp = "0b05db26-452b-4ea7-b005-61b0ab522af5",
                             Email = "rawaccountcustomer4@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer4@gmail.com",
                             NormalizedUserName = "raw-account-customer4",
-                            PasswordHash = "AQAAAAEAACcQAAAAEM/A/hIv2TARLl3Weeqkuiyd207V0rptWXKJWEyK+vLwj/ieEWAbeiY8PjSwdo5myA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENWk9LMiyvcAyoCCo/AqiVzYBOmyLH83UX9xwjQ7T/ihhsU5wQ3NqoIe4dlD7Wkixg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -475,14 +485,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE05DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 471, DateTimeKind.Local).AddTicks(8202),
-                            ConcurrencyStamp = "0374ecf3-9bfc-419f-9c82-69316fb467be",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 53, 934, DateTimeKind.Local).AddTicks(8154),
+                            ConcurrencyStamp = "12833121-8e26-4774-ab25-68d5319243d3",
                             Email = "rawaccountcustomer5@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer5@gmail.com",
                             NormalizedUserName = "raw-account-customer5",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMzyUVbG96wq3sCR56coAuu+0KS8RC/YnTHXXaNrUe6pT+0A5iEplrYBQ3arI4bCIg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEK1Rw3Nep6NaOOUcDYcLl2W76K2zt6xRBP2vXTCEEfn8MQfPBFWZrHVc8sIZbpZnXg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -493,14 +504,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE06DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 480, DateTimeKind.Local).AddTicks(4617),
-                            ConcurrencyStamp = "1b604a1d-6881-489c-bc00-f1ea8ea1dd69",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 53, 943, DateTimeKind.Local).AddTicks(7844),
+                            ConcurrencyStamp = "3291a731-ad8a-4c2d-b085-ffce883d838e",
                             Email = "rawaccountcustomer6@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer6@gmail.com",
                             NormalizedUserName = "raw-account-customer6",
-                            PasswordHash = "AQAAAAEAACcQAAAAEO7Fjgdl2FjXH6Fhjm3HqazDMsbUTHF1W3ikUtkPrtnqevByFHlLw4rZs/9L1Vs4dQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKUE8JeU2EU38i9eBMGVjZ37zB9DhrBbmRjjWjVtG6W2qY12BO9fDyAWHd21peCFxA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -511,14 +523,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE07DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 488, DateTimeKind.Local).AddTicks(1516),
-                            ConcurrencyStamp = "62c32711-6648-4c81-b784-1fd9c3ac2420",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 53, 952, DateTimeKind.Local).AddTicks(7483),
+                            ConcurrencyStamp = "9a40f282-4219-4bc4-af2e-27a3150006f0",
                             Email = "rawaccountcustomer7@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer7@gmail.com",
                             NormalizedUserName = "raw-account-customer7",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJpnARaRxfTTpxj0DmGdgQb9L12HDUIUrf1s2fddHtu1kRm0NhttOKqZoVEMUdHyCA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBVZRtLRHoWq6BlGQQo7g7HtuuGuPL3Cjp7isiTYgpaa4s5OR95vwA51VXGUJWsAxA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -529,14 +542,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE08DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 496, DateTimeKind.Local).AddTicks(9197),
-                            ConcurrencyStamp = "2a550ec4-273d-4f97-ae03-ad841b11e591",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 53, 965, DateTimeKind.Local).AddTicks(7783),
+                            ConcurrencyStamp = "dbed9f71-d984-402e-8af2-88683cd66d66",
                             Email = "rawaccountcustomer8@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer8@gmail.com",
                             NormalizedUserName = "raw-account-customer8",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGAGlNvSuiFr5v17K963hMt3sJ1gVpt+AzNtjkSJyl0RXGfKRBhNolIdUddbxN7AAw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEL/Rgv89vjN246/WVdvqmdoBRJEW0JSIKTdobdQwYkt2BXoxmMCKeim6lxmHo7bFIQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -547,14 +561,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE09DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 504, DateTimeKind.Local).AddTicks(6471),
-                            ConcurrencyStamp = "735ab7f4-a363-4e6d-94ec-25cab00ef9dd",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 53, 979, DateTimeKind.Local).AddTicks(6424),
+                            ConcurrencyStamp = "b049b5b8-53c9-4bb4-851c-3170669b1455",
                             Email = "rawaccountcustomer9@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer9@gmail.com",
                             NormalizedUserName = "raw-account-customer9",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEyvd23SSVlC26JVeAqssgdqia+vFb87/l9ujAXBWU9gUkq1s0vP+PzyDDCFOVssSQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFXPOiixJ7XBXPblD8uBX25mhbJ6RzhlkvzDAKFhvylVYmU8Vcr4mxbq3eUKAlTeGg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -565,14 +580,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "11BD711F-9506-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 513, DateTimeKind.Local).AddTicks(7178),
-                            ConcurrencyStamp = "a9a41f3f-7880-4178-9183-db5e0acd6566",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 53, 988, DateTimeKind.Local).AddTicks(3218),
+                            ConcurrencyStamp = "602c7e3e-6ff2-4cc2-abdd-a93f4bfff0bc",
                             Email = "rawaccountstaff0@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff0@gmail.com",
                             NormalizedUserName = "raw-account-staff0",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFwO94SkIqNR4Ql27/ryVO4jN0+RRK1sJnGN+Ib17nRHsLZL7UNEJlG2qkuBVP9ppg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMsTAWLTIQIail38dsjOWKjbvglV5qsV3fj9PnrCDO0h7tOh9UwUteamPRWdoVMVkg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -583,14 +599,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "11BD711F-9516-45BA-B5B7-F00649BE01DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 521, DateTimeKind.Local).AddTicks(4569),
-                            ConcurrencyStamp = "bb59d6ba-7a8e-443f-93a6-e6cc08a9f8b7",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 53, 999, DateTimeKind.Local).AddTicks(775),
+                            ConcurrencyStamp = "114dc0e9-51bb-4bde-8356-17bfa3f49547",
                             Email = "rawaccountstaff1@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff1@gmail.com",
                             NormalizedUserName = "raw-account-staff1",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMPhxKzpOeibIsmJd8mzgZPQxoVcnYRFT0++HZ0vSEPrE/rFg03arSAZScxFH9D6QA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGjfB0xAwAvIGX1j7HsVqyApBYiDNNRwr8XYf9emX4sDR3GsL6PyBSDVagCFX8+fKA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -601,14 +618,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "11BD711F-9526-45BA-B5B7-F00649BE02DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 529, DateTimeKind.Local).AddTicks(5953),
-                            ConcurrencyStamp = "a32511f0-2793-4e2f-ba72-9e482c7e5d92",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 54, 12, DateTimeKind.Local).AddTicks(5304),
+                            ConcurrencyStamp = "86a9c255-92fb-4b7e-9fac-9b4e4ed7b5c3",
                             Email = "rawaccountstaff2@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff2@gmail.com",
                             NormalizedUserName = "raw-account-staff2",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBD+BKLUul6nSEZVnEp6RAh2GpBN8WDg0gpmYmMKELOsUNFDu4iu2PsV5nv2D+5tpA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEH9XcrbH6unGka6eTSKFUENZblCspNZhzdkgQPeRILRUCmNtdMbGIJUpa+XXI7XGjQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -619,14 +637,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "11BD711F-9536-45BA-B5B7-F00649BE03DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 537, DateTimeKind.Local).AddTicks(7039),
-                            ConcurrencyStamp = "79aef824-eba6-4f02-a26d-bb3ea2ab3e39",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 54, 26, DateTimeKind.Local).AddTicks(6883),
+                            ConcurrencyStamp = "db9e2bfc-c2c1-4a5e-b668-2e67c16b6c47",
                             Email = "rawaccountstaff3@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff3@gmail.com",
                             NormalizedUserName = "raw-account-staff3",
-                            PasswordHash = "AQAAAAEAACcQAAAAENIaXlrnc+MUARddbqMezJI/1HQAICOhspxJpwjQwHhhVdZiN5466+EsJ5mooGku9w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEC70MOsqS7Gj5kzWBdPrdw10b54UApTMq0ZSJyM/6X4VgAqs0WUODq1wecOcPQ4oaQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -637,14 +656,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "11BD711F-9546-45BA-B5B7-F00649BE04DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 546, DateTimeKind.Local).AddTicks(7303),
-                            ConcurrencyStamp = "9eef9be6-f0a9-4901-98c7-25f88846f78e",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 54, 40, DateTimeKind.Local).AddTicks(6937),
+                            ConcurrencyStamp = "e82e86da-cb39-45ea-85a0-a720ba7c3b4c",
                             Email = "rawaccountstaff4@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff4@gmail.com",
                             NormalizedUserName = "raw-account-staff4",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFpOQg7mBICFqU/Ypn15VxWJYZj2lEs5YxfaALrocvlSMEpepkkv9E/ZiWE4CaQINw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENJ22PEybZACrIsCvd+XY0YNxrtrcbBU5efBJZm+4bf7DyiT7KOs0HAKO/wm1JNDyg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -655,14 +675,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "11BD711F-9556-45BA-B5B7-F00649BE05DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 555, DateTimeKind.Local).AddTicks(4685),
-                            ConcurrencyStamp = "3856574f-adc9-4ec4-a2cf-15d22831297d",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 54, 54, DateTimeKind.Local).AddTicks(2192),
+                            ConcurrencyStamp = "f57120d2-83eb-4877-a216-702663b216f2",
                             Email = "rawaccountstaff5@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff5@gmail.com",
                             NormalizedUserName = "raw-account-staff5",
-                            PasswordHash = "AQAAAAEAACcQAAAAEP7F7XhIU4mGMdkI38Id1KhXmHDylIUlLlBTXUXEMPhLvOxUagbYZ9KkU63NmIZLWA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFsfAoGcD3twel+X91/1dmkV546nDvjDqOtQFe8EjQFCxvL0jAy7RTNn/Im6S88XEQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -673,14 +694,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "11BD711F-9566-45BA-B5B7-F00649BE06DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 564, DateTimeKind.Local).AddTicks(1702),
-                            ConcurrencyStamp = "66d19ddb-4eb5-440a-ad86-eb0f539f8bab",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 54, 65, DateTimeKind.Local).AddTicks(8291),
+                            ConcurrencyStamp = "52fa2236-ac7e-42fb-b73b-b61616d22d6b",
                             Email = "rawaccountstaff6@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff6@gmail.com",
                             NormalizedUserName = "raw-account-staff6",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHYiyVOz0FsH/sANrmlZNkGuiisCOyxQuG/dexez/f/PIsRSDGncwxV8rpNho9CNcQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPWITJphTN+oE7D6MMvTNPJA9gLAE3Z+JCs+q3/Da5ls/nWT/ooz3JTaKL2lcS8XlQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -691,14 +713,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "11BD711F-9576-45BA-B5B7-F00649BE07DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 572, DateTimeKind.Local).AddTicks(3743),
-                            ConcurrencyStamp = "1ba2dac8-fa2f-45fd-ba46-15bd99a3525c",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 54, 80, DateTimeKind.Local).AddTicks(3128),
+                            ConcurrencyStamp = "d1ef46e1-7b3f-4d73-b361-549460b828e9",
                             Email = "rawaccountstaff7@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff7@gmail.com",
                             NormalizedUserName = "raw-account-staff7",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMqjb31Zd08lB5I3Y4RzOOJOZ1FKnKasEE+X5MwnZjHasu3c8LOYsena5f4i6uB5+A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJwwfIxKyefzbWODk+QEREiGRDqMeBo5Ws3BUOgqncHFdoV/HNtoqXnnlKFgq8RprQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -709,14 +732,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "11BD711F-9586-45BA-B5B7-F00649BE08DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 580, DateTimeKind.Local).AddTicks(3819),
-                            ConcurrencyStamp = "548df25e-6d4c-46af-9761-c40fc1112343",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 54, 100, DateTimeKind.Local).AddTicks(5800),
+                            ConcurrencyStamp = "9486c6f6-4364-466b-a704-5403c82f0eff",
                             Email = "rawaccountstaff8@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff8@gmail.com",
                             NormalizedUserName = "raw-account-staff8",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFIdLvc3p4ET3KOcWbbj378hyxQszwFVK5I8lgKZxiR8HSRBS+uX3kSTOXYAy815Kg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGGGva6r6dJkbP37EJ6CgFviZNXnU0cXgrr7VhY+vuN+cIBWcBCuteTFsELecKXo7Q==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -727,14 +751,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "11BD711F-9596-45BA-B5B7-F00649BE09DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 588, DateTimeKind.Local).AddTicks(7130),
-                            ConcurrencyStamp = "01e83e78-1270-47d6-a7bf-8c1be3736355",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 54, 117, DateTimeKind.Local).AddTicks(5445),
+                            ConcurrencyStamp = "261f0a40-f7c8-4e6c-802e-9158c9798203",
                             Email = "rawaccountstaff9@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff9@gmail.com",
                             NormalizedUserName = "raw-account-staff9",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBXu88r38mu+AH1pjisteEpsu0XkbXaDgb5sz3X6BJz49uZnG0Akr+WTA5YPzt9mGg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELNGkT3a2jqptwnkWEtDU9ylMI/zd/u4bopLpKz2h0D+W/bJu4vW4PqVuOEqHYT6Yg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -745,14 +770,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "69BD714F-9576-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 597, DateTimeKind.Local).AddTicks(2873),
-                            ConcurrencyStamp = "da4e465c-fef4-4568-ae67-8ff3cacd3db8",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 54, 129, DateTimeKind.Local).AddTicks(3317),
+                            ConcurrencyStamp = "941ef112-b184-4b50-8e23-d0a1f2e208a8",
                             Email = "thangnguyenquyetvlth@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "thangnguyenquyetvlth@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAELid9pBTl14K7UycfBkyK8M/ToXIabp9W+2GZQsz6hvQYJ+G3i6CvNFQR9L/31J79g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECs6hOdn5Y9KI6n3jmIaGbLfcnsl7CANLsYXfUxOrCpsn1cEHH78f+OaCbObrd1GAg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -763,14 +789,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "69BD711F-9576-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 607, DateTimeKind.Local).AddTicks(76),
-                            ConcurrencyStamp = "f4d8dd1e-adc5-49b9-9107-1857efa7b225",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 54, 140, DateTimeKind.Local).AddTicks(6961),
+                            ConcurrencyStamp = "1c618345-abc4-41fd-8cb3-0393963a49d3",
                             Email = "thangnguyenquyetvlth1@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "thangnguyenquyetvlth1@gmail.com",
                             NormalizedUserName = "raw-account1",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEIO3TAeX4tmG2ltajyVNR1cegHxftMf9EK3jEu2BQYOYK++RxSbco2yzV+9L54zFA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBpm6v/NenmQ17jxETGUWy3kgNvWqTtpyazR3A4+jRzWnoA3g9vT3i3JWu93i1oUmA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -781,14 +808,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "69BD712F-9576-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 615, DateTimeKind.Local).AddTicks(5296),
-                            ConcurrencyStamp = "cf9c6101-cb44-4eac-82ce-45d6c851036c",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 54, 152, DateTimeKind.Local).AddTicks(9123),
+                            ConcurrencyStamp = "8e32e150-2032-416c-afc9-742f81be7e73",
                             Email = "thangnguyenquyetvlth2@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "thangnguyenquyetvlth2@gmail.com",
                             NormalizedUserName = "raw-account2",
-                            PasswordHash = "AQAAAAEAACcQAAAAELns8zoJclkWXK8lRRtotpHJ4cYBVSnHsM1laHrqsvMAgPMXkq/AXUu64SLVa0Ymsw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBjnh81x7mALz0jEuMOcpdMZWs0YLpEM8L3eYotgpBrh6oTbJ5NJS3/bwIpuTQ3eSw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -799,14 +827,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "61BD714F-9576-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 623, DateTimeKind.Local).AddTicks(5391),
-                            ConcurrencyStamp = "a7865b46-7a8d-4548-84f2-d8d835d12d19",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 54, 167, DateTimeKind.Local).AddTicks(1917),
+                            ConcurrencyStamp = "e0637154-6244-44fa-a61d-04ee24281d65",
                             Email = "thangnguyenquyetvlth3@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "thangnguyenquyetvlth3@gmail.com",
                             NormalizedUserName = "raw-account3",
-                            PasswordHash = "AQAAAAEAACcQAAAAEID3mYZ+gtOsZuIXsRzZU62JQgMp0xjnNsA6nkQwYL0zPnQad/dlkjCjyaPTG9gMMQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEI7i5LCCLl0FpcmDB5urDv7K/1aUm+J0T27SidovyAUCbgoo09ZPxkjOlxKzuGOftA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -817,14 +846,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "19BD714F-9576-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 632, DateTimeKind.Local).AddTicks(4398),
-                            ConcurrencyStamp = "d4155755-4630-41f9-8fcd-52296c5902eb",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 54, 179, DateTimeKind.Local).AddTicks(673),
+                            ConcurrencyStamp = "3f660723-a903-430a-a39b-2638fab7c6f7",
                             Email = "thangnguyenquyetvlth4@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "thangnguyenquyetvlth4@gmail.com",
                             NormalizedUserName = "raw-account4",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDgVn16cfH+akAeMIxGaj5/1dbWcM8OzYeY5EsNC68lAzuc8jgK9WBXnE52tZ4+DCw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEC/a7oxM8Zevveh+HQBoX5mU6DRWWlnYsCcv16u986LfaKwkcNXbfYNl0K0FgBuWlA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -835,14 +865,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "65BD710F-9576-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 641, DateTimeKind.Local).AddTicks(5605),
-                            ConcurrencyStamp = "8baae519-6b56-44cd-954f-8b410dd2d61f",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 54, 191, DateTimeKind.Local).AddTicks(1591),
+                            ConcurrencyStamp = "11898508-9f2b-4a72-92eb-8e7e14cb2183",
                             Email = "thangnguyenquyetvlth5@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "thangnguyenquyetvlth5@gmail.com",
                             NormalizedUserName = "raw-account5",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKZgqd3GdVoFjAlwP/oYrAd0eZv9RHI9GJvGNptMIBdAcvWqWCiCZdccqk785P4XTA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECfjk0qU5DNDRDGraFyR7VovAsMZ9xaf56xq0IXrPqvKYpp+ChHEAYqBBA411VEJZQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -853,14 +884,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "69BD714F-9576-45BA-B5B6-F00649BE01DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 650, DateTimeKind.Local).AddTicks(1923),
-                            ConcurrencyStamp = "179e8de7-22c9-4e65-857d-9e4887f6a2e3",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 54, 200, DateTimeKind.Local).AddTicks(4981),
+                            ConcurrencyStamp = "31a598f4-f357-4441-8186-0d224fc99828",
                             Email = "thangnguyenquyetvlth6@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "thangnguyenquyetvlth6@gmail.com",
                             NormalizedUserName = "raw-account6",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPH9oqihFxPqo3kbWlriXLqShWbuV5QfcZbSTYEtxIfUzOe+dVh3lI+CHYjG5aH2lg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAbpVZCAKqQGIeDLqj5HFUFdQFr4MyABgjjEh1L56l8LXNGDTglMjwsJr+SURX5meA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -871,14 +903,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "09BD714F-9576-45BA-B5B7-F00649BE04DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 658, DateTimeKind.Local).AddTicks(6675),
-                            ConcurrencyStamp = "48aa566d-edad-459e-86a8-144d9fb2adcb",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 54, 213, DateTimeKind.Local).AddTicks(9504),
+                            ConcurrencyStamp = "0a0403d1-d79f-4355-9f9d-3299a4ba82d8",
                             Email = "thangnguyenquyetvlth7@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "thangnguyenquyetvlth7@gmail.com",
                             NormalizedUserName = "raw-account7",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPX4muj/cfcahaJD1CJuSsvr0R0wgUpuZnTuEYHjDbU5A2E2WyKBjw/TIy0mKS9eHA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEI3qelUebSbZ5rB7U0m0Kr8LgfB63YFx4Z0harocadTo0TMqrICaZDIAsD64+G+94Q==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -889,14 +922,15 @@ namespace Project.WebApp.Migrations
                         {
                             Id = "69BD114F-9576-45BA-B4B7-F00649BE00DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 4, 22, 10, 6, 26, 667, DateTimeKind.Local).AddTicks(4297),
-                            ConcurrencyStamp = "3b8c17df-e804-4177-aef5-f00df04a783c",
+                            Birthday = new DateTime(2021, 4, 23, 17, 53, 54, 228, DateTimeKind.Local).AddTicks(1064),
+                            ConcurrencyStamp = "977ae3fb-f066-4c76-8ecf-c23b90f45b3d",
                             Email = "thangnguyenquyetvlth8@gmail.com",
                             EmailConfirmed = true,
+                            LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "thangnguyenquyetvlth8@gmail.com",
                             NormalizedUserName = "raw-account8",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEZRMvY/Ijpjx9Q0d+m/qrpxcS8p8fjVAMxG2ywtvd7CTDXIvvDsdvvSvMuGuEUnUw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFIt03y6jpXpgE+wVdO5YR1ILNY6GKioTc4Hujyn4dnGGcTEktaIoM6NpheXH0Jclg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -995,6 +1029,36 @@ namespace Project.WebApp.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Project.Data.Entities.Colors", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("color")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("normalizeColor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Colors");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            color = "Trắng"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            color = "Đen"
+                        });
+                });
+
             modelBuilder.Entity("Project.Data.Entities.Order", b =>
                 {
                     b.Property<int>("Id")
@@ -1071,6 +1135,10 @@ namespace Project.WebApp.Migrations
                         .HasAnnotation("SqlServer:IdentitySeed", 1)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("ColorId")
+                        .HasColumnType("int")
+                        .HasDefaultValue(1);
+
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
@@ -1091,6 +1159,10 @@ namespace Project.WebApp.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("SizeId")
+                        .HasColumnType("int")
+                        .HasDefaultValue(1);
+
                     b.Property<int>("Stock")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
@@ -1101,7 +1173,14 @@ namespace Project.WebApp.Migrations
                         .HasColumnType("int")
                         .HasDefaultValue(0);
 
+                    b.Property<int>("sold")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ColorId");
+
+                    b.HasIndex("SizeId");
 
                     b.ToTable("Products");
 
@@ -1109,35 +1188,58 @@ namespace Project.WebApp.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2021, 4, 22, 10, 6, 26, 415, DateTimeKind.Local).AddTicks(9628),
-                            Description = "Áo sơ mi nam trắng Việt Tiến",
-                            Details = "Áo sơ mi nam trắng Việt Tiến",
-                            Name = "Áo sơ mi nam trắng Việt Tiến",
+                            ColorId = 1,
+                            DateCreated = new DateTime(2021, 4, 23, 17, 53, 53, 861, DateTimeKind.Local).AddTicks(144),
+                            Description = "99% Cotton, 1% Elastane . Bền Vững Khi Giặt Máy . Skinny Ôm Sát Và Tôn Lên Những Đường Nét Quyến Rũ Của Bạn",
+                            Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                            Name = "SKINNY",
                             Price = 200000m,
+                            SizeId = 1,
                             Stock = 0,
-                            ViewCount = 0
+                            ViewCount = 0,
+                            sold = 0
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2021, 4, 22, 10, 6, 26, 417, DateTimeKind.Local).AddTicks(3917),
-                            Description = "Áo sơ mi nữ trắng Việt Tiến",
-                            Details = "Áo sơ mi nữ trắng Việt Tiến",
-                            Name = "Áo sơ mi nữ trắng Việt Tiến",
+                            ColorId = 1,
+                            DateCreated = new DateTime(2021, 4, 23, 17, 53, 53, 861, DateTimeKind.Local).AddTicks(4723),
+                            Description = "100% Cotton . Sản Phẩm Mang Đậm Phong Cách Cá Tính Và Không Kém Phần Quyến Rũ. Orginal Được Thiết Kế Để Có Thể Ôm Sát Vòng Ba Và Tôn Lên Làn Da Của Bạn",
+                            Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                            Name = "ORGINAL SHORT",
                             Price = 200000m,
+                            SizeId = 1,
                             Stock = 0,
-                            ViewCount = 0
+                            ViewCount = 0,
+                            sold = 0
                         },
                         new
                         {
-                            Id = 6,
-                            DateCreated = new DateTime(2021, 4, 22, 10, 6, 26, 417, DateTimeKind.Local).AddTicks(3934),
-                            Description = "Áo sơ mi nữ trắng Việt Tiến",
-                            Details = "Áo sơ mi nữ trắng Việt Tiến",
-                            Name = "Áo sơ mi nữ trắng Việt Tiến",
+                            Id = -1,
+                            ColorId = 1,
+                            DateCreated = new DateTime(2021, 4, 23, 17, 53, 53, 861, DateTimeKind.Local).AddTicks(4733),
+                            Description = "100% Cotton . TOPS Với Thiết Kế Cạp Cao Sẽ Mang Lại Cho Bạn Cảm Giác Tự tin , Thích Hợp Để Phối Với Những Dạng Áo ONTOP cá tính",
+                            Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                            Name = "TOPS",
                             Price = 200000m,
+                            SizeId = 1,
                             Stock = 0,
-                            ViewCount = 0
+                            ViewCount = 0,
+                            sold = 0
+                        },
+                        new
+                        {
+                            Id = -2,
+                            ColorId = 1,
+                            DateCreated = new DateTime(2021, 4, 23, 17, 53, 53, 861, DateTimeKind.Local).AddTicks(4736),
+                            Description = "Vâng , Đúng Như Cái Tên Của Nó, BoyFriend Sẽ Là Người Bạn Đồng Hành Của Bạn Trong Mọi Thời Điểm Của Cuộc Sống, BOYFRIEND Được Thiết Kết Để Tạo Cho Bạn Cảm Giác Thoải Mái, Sang Trọng Và An Toàn",
+                            Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                            Name = "BOYFRIEND",
+                            Price = 200000m,
+                            SizeId = 1,
+                            Stock = 0,
+                            ViewCount = 0,
+                            sold = 0
                         });
                 });
 
@@ -1200,6 +1302,75 @@ namespace Project.WebApp.Migrations
                         {
                             CategoryId = 1,
                             ProductId = 1
+                        });
+                });
+
+            modelBuilder.Entity("Project.Data.Entities.Reviews", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("rating")
+                        .HasColumnType("int");
+
+                    b.Property<string>("review")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Reviews");
+                });
+
+            modelBuilder.Entity("Project.Data.Entities.Sizes", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("normalizeSize")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("size")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sizes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            size = "XS"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            size = "S"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            size = "M"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            size = "L"
                         });
                 });
 
@@ -1299,6 +1470,25 @@ namespace Project.WebApp.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Project.Data.Entities.Product", b =>
+                {
+                    b.HasOne("Project.Data.Entities.Colors", "currentColor")
+                        .WithMany("Products")
+                        .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Project.Data.Entities.Sizes", "currentSize")
+                        .WithMany("Products")
+                        .HasForeignKey("SizeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("currentColor");
+
+                    b.Navigation("currentSize");
+                });
+
             modelBuilder.Entity("Project.Data.Entities.ProductImage", b =>
                 {
                     b.HasOne("Project.Data.Entities.Product", "Product")
@@ -1329,6 +1519,17 @@ namespace Project.WebApp.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Project.Data.Entities.Reviews", b =>
+                {
+                    b.HasOne("Project.Data.Entities.Product", "product")
+                        .WithMany("Reviews")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("product");
+                });
+
             modelBuilder.Entity("Project.Data.Entities.AppUser", b =>
                 {
                     b.Navigation("Carts");
@@ -1339,6 +1540,11 @@ namespace Project.WebApp.Migrations
             modelBuilder.Entity("Project.Data.Entities.Category", b =>
                 {
                     b.Navigation("ProductInCategories");
+                });
+
+            modelBuilder.Entity("Project.Data.Entities.Colors", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("Project.Data.Entities.Order", b =>
@@ -1355,6 +1561,13 @@ namespace Project.WebApp.Migrations
                     b.Navigation("ProductImages");
 
                     b.Navigation("ProductInCategories");
+
+                    b.Navigation("Reviews");
+                });
+
+            modelBuilder.Entity("Project.Data.Entities.Sizes", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.ViewModels.Products;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,6 @@ namespace Project.ViewModels.common
     public class PageResult<T>
     {
         public List<T> Items { set; get; }
+        public List<CategoryViewModel> categories { get; set; }
     }
 }

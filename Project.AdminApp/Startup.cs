@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Project.Application.Catalog.Products;
 using Project.Application.Catalog.Users;
 using Project.Application.Mail;
 using Project.Data.EF;
@@ -84,6 +85,7 @@ namespace Project.AdminApp
                 // SecurityStamp trong bang User doi -> nap lai thong tin  Security
                 options.ValidationInterval = TimeSpan.FromSeconds(30);
             });
+            services.AddTransient<IProductService, ProductService>();
             
         }
 

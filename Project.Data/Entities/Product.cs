@@ -12,6 +12,9 @@ namespace Project.Data.Entities
 
             public string Description { set; get; }
 
+            public int SizeId { get; set; }
+            public int ColorId { get; set; }
+            public int sold { get; set; }
             public string Details { set; get; }
 
             public decimal Price { set; get; }
@@ -23,6 +26,11 @@ namespace Project.Data.Entities
             public DateTime DateCreated { set; get; }
 
             public bool? IsFeatured { get; set; }
+
+            public Sizes currentSize { get; set; }
+            public Colors currentColor { get; set; }
+
+            public List<Reviews> Reviews { get; set; }
 
             public List<ProductInCategory> ProductInCategories { get; set; }
 

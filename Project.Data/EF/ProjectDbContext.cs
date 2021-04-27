@@ -25,7 +25,9 @@ namespace Project.Data.EF
             modelBuilder.ApplyConfiguration(new ProductImageConfiguration());
             modelBuilder.ApplyConfiguration(new ProductInCategoryConfiguration());
             modelBuilder.ApplyConfiguration(new CartConfiguration());
-            
+            modelBuilder.ApplyConfiguration(new ColorConfiguration());
+            modelBuilder.ApplyConfiguration(new SizeConfiguration());
+            modelBuilder.ApplyConfiguration(new ReviewConfiguration());
             modelBuilder.Seed();
             base.OnModelCreating(modelBuilder);
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
@@ -51,6 +53,8 @@ namespace Project.Data.EF
 
         public DbSet<ProductImage> ProductImages { get; set; }
 
-       
+        public DbSet<Sizes> Sizes { get; set; }
+        
+        public DbSet<Colors> Colors { get; set; }
     }
 }

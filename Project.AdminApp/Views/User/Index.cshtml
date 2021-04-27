@@ -19,11 +19,11 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="background-color:white;color:black">
                             <thead>
                                 <tr>
-                                <tr>
-                                    <th>Id</th>
+                                
+                                    
                                     <th>UserName</th>
                                     <th>Email</th>
                                     <th>PhoneNumber</th>
@@ -31,11 +31,11 @@
                                     <th>Fullname</th>
                                     <th>Birthday</th>
                                 </tr>
-                                </tr>
+                                
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>Id</th>
+                                    
                                     <th>UserName</th>
                                     <th>Email</th>
                                     <th>PhoneNumber</th>
@@ -49,11 +49,10 @@
                                 @foreach (var item in Model.Items)
                                 {
                                     <tr>
+                                        
                                         <td>
-                                            @Html.ActionLink(item.Id, "Details", new { id = item.Id ,role=ViewData["role"]})
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.UserName)
+                                            @Html.ActionLink(item.UserName, "Details", new { id = item.Id, role = ViewData["role"] })
+                                            
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Email)
