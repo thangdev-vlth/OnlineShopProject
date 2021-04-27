@@ -35,33 +35,18 @@ namespace Project.Data.Extensions
                      Name = "Áo nam",
                      Description = "Sản phẩm áo thời trang nam",
 
+                 }, new Category()
+                 {
+                     Id = 3,
+                     IsShowOnHome = false,
+                     ParentId = null,
+                     SortOrder = 3,
+                     Status = Status.Active,
+                     Name = "Áo nam",
+                     Description = "Sản phẩm áo thời trang nam",
+
                  });
-            modelBuilder.Entity<Colors>().HasData(new Colors()
-            {
-                Id=1,
-                color = "Trắng",
-            }, new Colors()
-            {
-                Id = 2,
-                color = "Đen",
-            });
-            modelBuilder.Entity<Sizes>().HasData(new Sizes()
-            {
-                Id = 1,
-                size = "XS",
-            }, new Sizes()
-            {
-                Id = 2,
-                size = "S",
-            }, new Sizes()
-            {
-                Id = 4,
-                size = "M",
-            }, new Sizes()
-            {
-                Id = 3,
-                size = "L",
-            });
+           
             modelBuilder.Entity<Product>().HasData(
                new Product()
                {
@@ -69,52 +54,52 @@ namespace Project.Data.Extensions
                    DateCreated = DateTime.Now,
                    Name = "SKINNY",
                    Description = "99% Cotton, 1% Elastane . Bền Vững Khi Giặt Máy . Skinny Ôm Sát Và Tôn Lên Những Đường Nét Quyến Rũ Của Bạn",
-                   Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                   //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
                    Price = 200000,
                    Stock = 0,
                    ViewCount = 0,
-                   ColorId=1,
-                   SizeId=1
+                   
                }, new Product()
                {
                    Id = 2,
                    DateCreated = DateTime.Now,
                    Name = "ORGINAL SHORT",
                    Description = "100% Cotton . Sản Phẩm Mang Đậm Phong Cách Cá Tính Và Không Kém Phần Quyến Rũ. Orginal Được Thiết Kế Để Có Thể Ôm Sát Vòng Ba Và Tôn Lên Làn Da Của Bạn",
-                   Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                   //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
                    Price = 200000,
                    Stock = 0,
                    ViewCount = 0,
-                   ColorId = 1,
-                   SizeId = 1
+                  
                }, new Product()
                     {
                         Id = -1,
                         DateCreated = DateTime.Now,
                         Name = "TOPS",
                         Description = "100% Cotton . TOPS Với Thiết Kế Cạp Cao Sẽ Mang Lại Cho Bạn Cảm Giác Tự tin , Thích Hợp Để Phối Với Những Dạng Áo ONTOP cá tính",
-                        Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                        //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
                         Price = 200000,
                         Stock = 0,
                         ViewCount = 0,
-                       ColorId = 1,
-                       SizeId = 1
+                     
                }, new Product()
                {
                    Id = -2,
                    DateCreated = DateTime.Now,
                    Name = "BOYFRIEND",
                    Description = "Vâng , Đúng Như Cái Tên Của Nó, BoyFriend Sẽ Là Người Bạn Đồng Hành Của Bạn Trong Mọi Thời Điểm Của Cuộc Sống, BOYFRIEND Được Thiết Kết Để Tạo Cho Bạn Cảm Giác Thoải Mái, Sang Trọng Và An Toàn",
-                   Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                   //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
                    Price = 200000,
                    Stock = 0,
                    ViewCount = 0,
-                   ColorId = 1,
-                   SizeId = 1
+                   
                });
             
             modelBuilder.Entity<ProductInCategory>().HasData(
-                new ProductInCategory() { ProductId = 1, CategoryId = 1 }
+                new ProductInCategory() { ProductId = 1, CategoryId = 1 },
+                 new ProductInCategory() { ProductId = 1, CategoryId = 2 },
+                 new ProductInCategory() { ProductId = 1, CategoryId = 3 },
+                  new ProductInCategory() { ProductId = 2, CategoryId = 1 },
+                   new ProductInCategory() { ProductId = 2, CategoryId = 2 }
                 );
             
             //8D04DCE3-969A-435D-BBA4-DF3F325983DC

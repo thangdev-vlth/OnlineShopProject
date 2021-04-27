@@ -6,17 +6,14 @@
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Dashboard</li>
         </ol>
-        <form action="/" method="get">
-            <div class="row container d-inline-flex justify-content-center mb-4">
-                <input id="id-target" name="idTarget" placeholder="id" class="mr-3 col-6 col-md-3 col-lg-2">
-                <input id="product-name-target" name="nameTarget" placeholder="name" class="mr-3 col-6 col-md-3 col-lg-2">
-                <div class="form-group mb-0 col-6 col-md-3 col-lg-2">
-                    <label for="categoryTarget">Danh mục</label>
-                    <select name="categories" id="selectCategory" style="align-items:center">
-                        @foreach (var item in Model.categories)
-                        {
-                            <option value=@item.Name>@item.Name</option>
-                        }
+        <form asp-action="index" asp-controller="Products" method="get" >
+            <div class="row container d-inline-flex justify-content-center mb-4 ">
+                <input id="id-target" name="id" placeholder="Mã sản phẩm" value=@ViewBag.id class="mr-3 col-6 col-md-3 col-lg-2 ">
+                <input id="product-name-target" name="keyword" placeholder="Tên sản phẩm" value=@ViewBag.keyword class="mr-3 col-6 col-md-3 col-lg-2">
+                <div class="form-group mb-0 mr-3 col-6 col-md-4 col-lg-3 d-inline-flex justify-content-center">
+                    <label for="categoryTarget" style="min-width:100px;padding:6px 12px" class="mb-0">Danh mục</label>
+                    <select name="categoryId"  asp-items="@ViewBag.Categories" class="form-control" style="align-items:center">
+                        
                     </select>
                 </div>
                 <div asp-validation-summary="All" class="text-danger"></div>
@@ -59,14 +56,7 @@
             </tbody>
         </table>
         <div class="row container d-inline-flex justify-content-end mb-4">
-            <!-- Thêm mã phân trang -->
-            @*<br />
-            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
-
-            @Html.PagedListPager(Model, page => Url.Action("Index",
-                new { page }))*@
-            <!-- Kết thúc -->
-            <!-- Kết thúc -->
+            @await Component.InvokeAsync("Pager", Model)
         </div>
     </div>
 </main>

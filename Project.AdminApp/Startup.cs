@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Project.Application.Catalog.Categories;
 using Project.Application.Catalog.Products;
 using Project.Application.Catalog.Users;
 using Project.Application.Mail;
@@ -86,7 +87,7 @@ namespace Project.AdminApp
                 options.ValidationInterval = TimeSpan.FromSeconds(30);
             });
             services.AddTransient<IProductService, ProductService>();
-            
+            services.AddTransient<ICategoryService, CategoryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

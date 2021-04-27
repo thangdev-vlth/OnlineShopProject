@@ -25,12 +25,7 @@ namespace Project.Data.Configurations
 
             builder.Property(x => x.ViewCount).IsRequired().HasDefaultValue(0);
 
-            builder.Property(x => x.SizeId).IsRequired().HasDefaultValue(1);
-            builder.Property(x => x.ColorId).IsRequired().HasDefaultValue(1);
-
-            builder.HasOne(x => x.currentSize).WithMany(x => x.Products).HasForeignKey(x => x.SizeId);
-
-            builder.HasOne(x => x.currentColor).WithMany(x => x.Products).HasForeignKey(x => x.ColorId);
+          
 
         }
     }

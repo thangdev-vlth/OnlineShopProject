@@ -14,8 +14,7 @@ namespace Project.ViewModels.Products
         public int ViewCount { set; get; }
         public DateTime DateCreated { set; get; }
 
-        public string size { get; set; }
-        public string color { get; set; }
+       
         public int sold { get; set; }
         public string Name { set; get; }
         public string Description { set; get; }

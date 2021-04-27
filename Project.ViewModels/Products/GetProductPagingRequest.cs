@@ -8,8 +8,13 @@ namespace Project.ViewModels.Products
 {
     public class GetProductPagingRequest
     {
-        public string Keyword { get; set; }
+        public int PageIndex { get; set; }
 
-        public int? CategoryId { get; set; }
+        public int PageSize { get; set; }
+
+        public string keyword { get; set; }
+
+        public int? id { get; set; }
+        public int? categoryId { get; set; }
     }
 }

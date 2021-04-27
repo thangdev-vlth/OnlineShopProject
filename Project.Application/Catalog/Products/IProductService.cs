@@ -12,7 +12,7 @@ namespace Project.Application.Catalog.Products
     public interface IProductService
     {
         Task<int> Create(CreateProductRequest createProductRequest);
-        Task<PageResult<ProductViewModel>> GetAll();
+        Task<PageResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request);
         //Task<ProductViewModel> GetById(String id);
     }
 }
