@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Data.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,7 +10,14 @@ namespace Project.ViewModels.Categories
         public int Id { get; set; }
 
         public string Name { get; set; }
+        public string Description { set; get; }
+        public int SortOrder { set; get; }
 
-        public int? ParentId { get; set; }
+        public bool IsShowOnHome { set; get; }
+
+        public int? ParentId { set; get; }
+
+        public Status Status { set; get; }
+        
     }
 }

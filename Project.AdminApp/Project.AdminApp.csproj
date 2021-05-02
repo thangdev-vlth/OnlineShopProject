@@ -19,4 +19,9 @@
     <ProjectReference Include="..\Project.WebApp\Project.WebApp.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Area\" />
+    <Folder Include="wwwroot\user-content\" />
+  </ItemGroup>
+
 </Project>

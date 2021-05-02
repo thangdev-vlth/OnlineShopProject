@@ -1,23 +1,26 @@
 ﻿@model PageResult<ProductViewModel>
-
+    
 <main>
-    <div class="container-fluid">
-        <h1 class="mt-4">Dashboard</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Dashboard</li>
+    <div class="container-fluid"style="background:white">
+        <h1 class="mt-4">Trang chủ</h1>
+        <ol class="breadcrumb mb-4" >
+            <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+            
         </ol>
-        <form asp-action="index" asp-controller="Products" method="get" >
-            <div class="row container d-inline-flex justify-content-center mb-4 ">
-                <input id="id-target" name="id" placeholder="Mã sản phẩm" value=@ViewBag.id class="mr-3 col-6 col-md-3 col-lg-2 ">
-                <input id="product-name-target" name="keyword" placeholder="Tên sản phẩm" value=@ViewBag.keyword class="mr-3 col-6 col-md-3 col-lg-2">
-                <div class="form-group mb-0 mr-3 col-6 col-md-4 col-lg-3 d-inline-flex justify-content-center">
+        <form asp-action="index" asp-controller="Products" method="get">
+
+            <div class="row container d-inline-flex justify-content-around mb-4 ">
+                <a class="btn btn-success mr-5  mb-2" asp-action="Create" asp-controller="Products">Tạo mới</a>
+                <input id="id-target" name="id" placeholder="Mã sản phẩm" value=@ViewBag.id class="mr-3 col-12 col-md-3 col-lg-2 col-sm-12 mb-2">
+                <input id="product-name-target" name="keyword" placeholder="Tên sản phẩm" value=@ViewBag.keyword class="mr-3 col-12 col-md-3 col-lg-2 mb-2">
+                <div class="form-group mb-2 mr-3 col-12 col-md-4 col-lg-3 d-inline-flex justify-content-center">
                     <label for="categoryTarget" style="min-width:100px;padding:6px 12px" class="mb-0">Danh mục</label>
-                    <select name="categoryId"  asp-items="@ViewBag.Categories" class="form-control" style="align-items:center">
-                        
+                    <select name="categoryId" asp-items="@ViewBag.Categories" class="form-control" style="align-items:center">
+                        <option value="0">Tất Cả</option>
                     </select>
                 </div>
                 <div asp-validation-summary="All" class="text-danger"></div>
-                <button type="submit" class="btn btn-danger">Lọc</button>
+                <button type="submit" class="btn btn-danger  mb-2">Lọc</button>
             </div>
         </form>
 
@@ -38,7 +41,7 @@
                     <tr>
 
                         <td>
-                            @Html.ActionLink(item.Name, "Details", new { id = item.Id, role = ViewData["role"] })
+                            @Html.ActionLink(item.Name, "Detail", new { id = item.Id })
 
                         </td>
                         <td>

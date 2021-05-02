@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Project.Application.Catalog.Categories;
 using Project.Application.Catalog.Products;
 using Project.Application.Catalog.Users;
+using Project.Application.Common;
 using Project.Application.Mail;
 using Project.Data.EF;
 using Project.Data.Entities;
@@ -88,6 +89,7 @@ namespace Project.AdminApp
             });
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IStorageService, FileStorageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -114,6 +116,7 @@ namespace Project.AdminApp
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=AdminHome}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }

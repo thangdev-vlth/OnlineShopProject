@@ -21,7 +21,7 @@ namespace Project.AdminApp.Controllers
             _productService = productService;
             _categoryService = categoryService;
         }
-        public async Task<IActionResult> Index(string keyword, int? categoryId,int? id,int pageIndex = 1, int pageSize = 1)
+        public async Task<IActionResult> Index(string keyword, int? categoryId,int? id,int pageIndex = 1, int pageSize = 10)
         {
             var request = new GetProductPagingRequest()
             {
@@ -45,6 +45,72 @@ namespace Project.AdminApp.Controllers
             //var result=
             
         }
-        
+        [HttpGet]
+        public async  Task<IActionResult> Create(int? categoryId)
+        {
+            var categories = await _categoryService.GetAll();
+
+            ViewBag.Categories = categories.Select(x => new SelectListItem()
+            {
+                Text = x.Name,
+                Value = x.Id.ToString(),
+                Selected = categoryId.HasValue && categoryId.Value == x.Id
+            });
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create([FromForm] ProductCreateRequest request)
+        {
+            if (!ModelState.IsValid)
+                return View(request);
+
+            var result = await _productService.Create(request);
+            if (result)
+            {
+                TempData["result"] = "Thêm mới sản phẩm thành công";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Thêm sản phẩm thất bại");
+            return View(request);
+            
+        }
+        [HttpGet]
+        public async Task<IActionResult> Detail(int id)
+        {
+            var result = await _productService.GetById(id);
+            return View(result);
+        }
+        [HttpGet]
+        public async Task<IActionResult> Update(int id)
+        {
+            var product = await _productService.GetById(id);
+            var UpdateViewModel = new ProductUpdateRequest()
+            {
+                Id = product.Id,
+                Description = product.Description,
+                Details = product.Details,
+                Name = product.Name,
+                Stock=product.Stock,
+                Price=product.Price
+            };
+            return View(UpdateViewModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Update([FromForm] ProductUpdateRequest request)
+        {
+            if (!ModelState.IsValid)
+                return View(request);
+
+            var result = await _productService.UpdateProduct(request);
+            if (result)
+            {
+                TempData["result"] = "Cập nhật sản phẩm thành công";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Cập nhật sản phẩm thất bại");
+            return View(request);
+        }
     }
 }

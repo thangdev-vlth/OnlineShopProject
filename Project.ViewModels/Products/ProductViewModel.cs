@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Project.Data.Entities;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +18,9 @@ namespace Project.ViewModels.Products
 
        
         public int sold { get; set; }
+        [Display(Name = "Tên Sản phẩm")]
         public string Name { set; get; }
+        [Display(Name = "Mô Tả Sản phẩm")]
         public string Description { set; get; }
         public string Details { set; get; }
         

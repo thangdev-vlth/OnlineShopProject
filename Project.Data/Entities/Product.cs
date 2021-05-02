@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Data.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -26,7 +27,7 @@ namespace Project.Data.Entities
 
             public bool? IsFeatured { get; set; }
 
-            
+            public ProductStatus productStatus { get; set; }
             public List<Reviews> Reviews { get; set; }
 
             public List<ProductInCategory> ProductInCategories { get; set; }

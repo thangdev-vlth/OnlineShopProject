@@ -27,7 +27,9 @@ namespace Project.Application.Catalog.Categories
             {
                 Id = x.Id,
                 Name = x.Name,
-                
+                IsShowOnHome=x.IsShowOnHome,
+                Status=x.Status,
+                SortOrder=x.SortOrder
             }).ToListAsync();
         }
 

@@ -108,10 +108,11 @@ namespace Project.AdminApp.Controllers
             return RedirectToAction("Error", "Home");
         }
         [HttpGet]
-        public async Task<IActionResult> Details(string id,string role)
+        public async Task<IActionResult> Details(string id,string role,string returnUrl)
         {
             var result = await _userService.GetById(id);
             ViewData["role"] = role;
+            ViewData["returnUrl"] = returnUrl;
             return View(result);
         }
         [HttpPost]
@@ -122,6 +123,7 @@ namespace Project.AdminApp.Controllers
                 return View();
             var result=await _userService.Delete(id);
             ViewData["result"] = result;
+            
             return View();
         }
     }

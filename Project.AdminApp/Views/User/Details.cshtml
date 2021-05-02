@@ -9,7 +9,15 @@
     </ol>
     <div class="card mb-4">
         <div class="card-header">
-            <a class="btn btn-success" asp-action="Index" asp-controller="User" asp-route-role=@ViewData["role"]>Về danh sách</a>
+            @if (@ViewData["returnUrl"] != null)
+            {
+                <a class="btn btn-success" href=@ViewData["returnUrl"]>Về danh sách</a>
+            }
+            else
+            {
+                <a class="btn btn-success" asp-action="Index" asp-controller="User" asp-route-role=@ViewData["role"]>Về danh sách</a>
+            }
+
         </div>
 
         <div class="card-body">
