@@ -26,7 +26,7 @@ namespace Project.Areas.Admin.Pages.Role {
       [Required]
       public string ID { set; get; }
       public string Name { set; get; }
-
+      [Display(Name ="Quyền Truy Cập")]
       public string[] RoleNames  {set; get;}
 
     }

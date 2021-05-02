@@ -13,6 +13,7 @@ namespace Project.Data.Extensions
        
         public static void Seed(this ModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<Category>().HasData(
                 new Category()
                 {
@@ -34,42 +35,71 @@ namespace Project.Data.Extensions
                      Name = "Áo nam",
                      Description = "Sản phẩm áo thời trang nam",
 
+                 }, new Category()
+                 {
+                     Id = 3,
+                     IsShowOnHome = false,
+                     ParentId = null,
+                     SortOrder = 3,
+                     Status = Status.Active,
+                     Name = "Áo nam",
+                     Description = "Sản phẩm áo thời trang nam",
+
                  });
+           
             modelBuilder.Entity<Product>().HasData(
                new Product()
                {
                    Id = 1,
                    DateCreated = DateTime.Now,
-                   Name = "Áo sơ mi nam trắng Việt Tiến",
-                   Description = "Áo sơ mi nam trắng Việt Tiến",
-                   Details = "Áo sơ mi nam trắng Việt Tiến",
+                   Name = "SKINNY",
+                   Description = "99% Cotton, 1% Elastane . Bền Vững Khi Giặt Máy . Skinny Ôm Sát Và Tôn Lên Những Đường Nét Quyến Rũ Của Bạn",
+                   //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
                    Price = 200000,
                    Stock = 0,
-                   ViewCount = 0
+                   ViewCount = 0,
+                   
                }, new Product()
                {
                    Id = 2,
                    DateCreated = DateTime.Now,
-                   Name = "Áo sơ mi nữ trắng Việt Tiến",
-                   Description = "Áo sơ mi nữ trắng Việt Tiến",
-                   Details = "Áo sơ mi nữ trắng Việt Tiến",
+                   Name = "ORGINAL SHORT",
+                   Description = "100% Cotton . Sản Phẩm Mang Đậm Phong Cách Cá Tính Và Không Kém Phần Quyến Rũ. Orginal Được Thiết Kế Để Có Thể Ôm Sát Vòng Ba Và Tôn Lên Làn Da Của Bạn",
+                   //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
                    Price = 200000,
                    Stock = 0,
-                   ViewCount = 0
+                   ViewCount = 0,
+                  
                }, new Product()
                     {
-                        Id = 6,
+                        Id = -1,
                         DateCreated = DateTime.Now,
-                        Name = "Áo sơ mi nữ trắng Việt Tiến",
-                        Description = "Áo sơ mi nữ trắng Việt Tiến",
-                        Details = "Áo sơ mi nữ trắng Việt Tiến",
+                        Name = "TOPS",
+                        Description = "100% Cotton . TOPS Với Thiết Kế Cạp Cao Sẽ Mang Lại Cho Bạn Cảm Giác Tự tin , Thích Hợp Để Phối Với Những Dạng Áo ONTOP cá tính",
+                        //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
                         Price = 200000,
                         Stock = 0,
-                        ViewCount = 0
-                });
+                        ViewCount = 0,
+                     
+               }, new Product()
+               {
+                   Id = -2,
+                   DateCreated = DateTime.Now,
+                   Name = "BOYFRIEND",
+                   Description = "Vâng , Đúng Như Cái Tên Của Nó, BoyFriend Sẽ Là Người Bạn Đồng Hành Của Bạn Trong Mọi Thời Điểm Của Cuộc Sống, BOYFRIEND Được Thiết Kết Để Tạo Cho Bạn Cảm Giác Thoải Mái, Sang Trọng Và An Toàn",
+                   //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                   Price = 200000,
+                   Stock = 0,
+                   ViewCount = 0,
+                   
+               });
             
             modelBuilder.Entity<ProductInCategory>().HasData(
-                new ProductInCategory() { ProductId = 1, CategoryId = 1 }
+                new ProductInCategory() { ProductId = 1, CategoryId = 1 },
+                 new ProductInCategory() { ProductId = 1, CategoryId = 2 },
+                 new ProductInCategory() { ProductId = 1, CategoryId = 3 },
+                  new ProductInCategory() { ProductId = 2, CategoryId = 1 },
+                   new ProductInCategory() { ProductId = 2, CategoryId = 2 }
                 );
             
             //8D04DCE3-969A-435D-BBA4-DF3F325983DC

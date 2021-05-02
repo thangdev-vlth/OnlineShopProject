@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Project.Data.Entities;
+using Project.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +17,7 @@ namespace Project.Data.Configurations
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Name).IsRequired().HasMaxLength(200);
-
+            builder.HasAlternateKey(x => x.Name);
             builder.Property(x => x.Id).UseIdentityColumn();
 
             builder.Property(x => x.Price).IsRequired();
@@ -25,6 +26,7 @@ namespace Project.Data.Configurations
 
             builder.Property(x => x.ViewCount).IsRequired().HasDefaultValue(0);
 
+            builder.Property(x => x.productStatus).HasDefaultValue(ProductStatus.New);
 
         }
     }

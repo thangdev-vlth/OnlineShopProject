@@ -46,6 +46,7 @@ namespace Project.AdminApp.Controllers
         
         public async Task<IActionResult> Login([FromForm]LoginRequest model, [FromRoute] string returnUrl = null)
         {
+            if (ModelState.IsValid) { 
             IdentityUser user = await _userManager.FindByEmailAsync(model.Email);
             if (user == null)
                 user = await _userManager.FindByNameAsync(model.Email);
@@ -65,8 +66,8 @@ namespace Project.AdminApp.Controllers
 
             if (result.Succeeded)
             {
-                var User =await _userService.GetById(user.Id);
-                return RedirectToAction("Index");
+                
+                    return RedirectToAction("Index", "AdminHome", new { area = "" });
             }
             
             else
@@ -75,6 +76,8 @@ namespace Project.AdminApp.Controllers
                 ModelState.AddModelError(string.Empty, "Sai tên đăng nhập hoặc mật khẩu");
                 return View();
             }
+            }
+            return View();
         }
         [HttpGet]
         public async Task<IActionResult> Logout()
@@ -105,10 +108,11 @@ namespace Project.AdminApp.Controllers
             return RedirectToAction("Error", "Home");
         }
         [HttpGet]
-        public async Task<IActionResult> Details(string id,string role)
+        public async Task<IActionResult> Details(string id,string role,string returnUrl)
         {
             var result = await _userService.GetById(id);
             ViewData["role"] = role;
+            ViewData["returnUrl"] = returnUrl;
             return View(result);
         }
         [HttpPost]
@@ -119,6 +123,7 @@ namespace Project.AdminApp.Controllers
                 return View();
             var result=await _userService.Delete(id);
             ViewData["result"] = result;
+            
             return View();
         }
     }

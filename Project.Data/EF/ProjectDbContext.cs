@@ -26,6 +26,7 @@ namespace Project.Data.EF
             modelBuilder.ApplyConfiguration(new ProductInCategoryConfiguration());
             modelBuilder.ApplyConfiguration(new CartConfiguration());
             
+            modelBuilder.ApplyConfiguration(new ReviewConfiguration());
             modelBuilder.Seed();
             base.OnModelCreating(modelBuilder);
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
