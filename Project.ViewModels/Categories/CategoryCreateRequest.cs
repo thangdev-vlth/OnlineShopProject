@@ -2,19 +2,21 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Project.ViewModels.Categories
 {
-    public class CategoryViewModel
+    public class CategoryCreateRequest
     {
-
-        public int Id { get; set; }
-        [Display(Name="Tên Danh Mục" )]
+        [Required(ErrorMessage ="Hãy Nhập Tên Danh Mục")]
+        [Display(Name = "Tên Danh Mục")]
         public string Name { get; set; }
-        [Display(Name ="Mô Tả")]
+
+        [Display(Name = "Mô Tả")]
         public string Description { set; get; }
-        [Display(Name = "Độ Ưu Tiên")]
+        [Display(Name = "Độ Ưu Tiên (Mặc Định là 1)")]
         public int SortOrder { set; get; }
         [Display(Name = "Hiển Thị Ở Trang Chủ")]
         public bool IsShowOnHome { set; get; }
@@ -22,6 +24,5 @@ namespace Project.ViewModels.Categories
         public int? ParentId { set; get; }
         [Display(Name = "Trạng Thái")]
         public Status Status { set; get; }
-        
     }
 }

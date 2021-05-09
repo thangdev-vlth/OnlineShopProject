@@ -11,7 +11,7 @@ namespace Project.Application.Catalog.Products
 {
     public interface IProductService
     {
-        Task<bool> Create(ProductCreateRequest request);
+        Task<RequestResult<bool>> Create(ProductCreateRequest request);
         Task<PageResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request);
 
         Task<ProductViewModel> GetById(int productId);

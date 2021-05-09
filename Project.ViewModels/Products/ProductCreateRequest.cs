@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
+using Project.Data.Enums;
 
 namespace Project.ViewModels.Products
 {
@@ -27,6 +28,7 @@ namespace Project.ViewModels.Products
         public int categoryId { set; get; }
         public bool? IsFeatured { get; set; }
 
+        public ProductStatus status { get; set; }
         public IFormFile ThumbnailImage { get; set; }
     }
 }

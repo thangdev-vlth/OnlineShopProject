@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Project.Application.Binder;
 using Project.Application.Catalog.Categories;
 using Project.Application.Catalog.Products;
+using Project.Data.Enums;
 using Project.ViewModels.common;
 using Project.ViewModels.Products;
 using System;
@@ -28,7 +30,8 @@ namespace Project.AdminApp.Controllers
                 keyword = keyword,
                 PageIndex = pageIndex,
                 PageSize = pageSize,
-                categoryId = categoryId
+                categoryId = categoryId,
+                id=id
             };
             PageResult<ProductViewModel> products = await _productService.GetAllPaging(request);
             var categories = await _categoryService.GetAll();
@@ -40,7 +43,7 @@ namespace Project.AdminApp.Controllers
             });
             ViewBag.Keyword = keyword;
             ViewBag.id = id;
-
+            ViewBag.categoryid=categoryId;
             return View(products);
             //var result=
             
@@ -65,13 +68,13 @@ namespace Project.AdminApp.Controllers
                 return View(request);
 
             var result = await _productService.Create(request);
-            if (result)
+            if (result.IsSuccessed)
             {
                 TempData["result"] = "Thêm mới sản phẩm thành công";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Thêm sản phẩm thất bại");
+            ModelState.AddModelError("", result.Message);
             return View(request);
             
         }
@@ -79,6 +82,8 @@ namespace Project.AdminApp.Controllers
         public async Task<IActionResult> Detail(int id)
         {
             var result = await _productService.GetById(id);
+            result.status = result.productStatus.DisplayName();
+           
             return View(result);
         }
         [HttpGet]
@@ -94,23 +99,32 @@ namespace Project.AdminApp.Controllers
                 Stock=product.Stock,
                 Price=product.Price
             };
+            ViewBag.ProductStatus = Enum.GetValues(typeof(ProductStatus)).Cast<ProductStatus>().Select(v => new SelectListItem
+            {
+                Text = v.DisplayName(),
+                Value = ((int)v).ToString(),
+                Selected = product.productStatus == v
+            }).ToList();
             return View(UpdateViewModel);
         }
         [HttpPost]
-        public async Task<IActionResult> Update([FromForm] ProductUpdateRequest request)
+        public async Task<JsonResult> Update([FromForm] ProductUpdateRequest request)
         {
             if (!ModelState.IsValid)
-                return View(request);
+                return Json(new { result = "theerrror" });
 
             var result = await _productService.UpdateProduct(request);
             if (result)
             {
                 TempData["result"] = "Cập nhật sản phẩm thành công";
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
+
+                return Json(new { result = "Success" });
             }
 
             ModelState.AddModelError("", "Cập nhật sản phẩm thất bại");
-            return View(request);
+            //return View(request);
+            return Json(new { result = "theerrror" });
         }
     }
 }

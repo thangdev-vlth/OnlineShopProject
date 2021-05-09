@@ -30,7 +30,8 @@ namespace Project.Data.Entities
             public ProductStatus productStatus { get; set; }
             public List<Reviews> Reviews { get; set; }
 
-            public List<ProductInCategory> ProductInCategories { get; set; }
+           public List<Category> Categories { get; set; }
+
 
             public List<OrderDetail> OrderDetails { get; set; }
 

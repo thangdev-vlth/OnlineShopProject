@@ -15,6 +15,17 @@ namespace Project.Data.EF
         public ProjectDbContext(DbContextOptions<ProjectDbContext> options) : base(options)
         {
         }
+        public DbSet<Product> Products { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Cart> Carts { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+
+        public DbSet<ProductImage> ProductImages { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
@@ -23,7 +34,7 @@ namespace Project.Data.EF
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
             modelBuilder.ApplyConfiguration(new ProductImageConfiguration());
-            modelBuilder.ApplyConfiguration(new ProductInCategoryConfiguration());
+           
             modelBuilder.ApplyConfiguration(new CartConfiguration());
             
             modelBuilder.ApplyConfiguration(new ReviewConfiguration());
@@ -38,19 +49,7 @@ namespace Project.Data.EF
                 }
             }
         }
-        public DbSet<Product> Products { get; set; }
-
-        public DbSet<Category> Categories { get; set; }
-
-        public DbSet<Cart> Carts { get; set; }
        
-        public DbSet<ProductInCategory> ProductInCategories { get; set; }
-
-        public DbSet<Order> Orders { get; set; }
-
-        public DbSet<OrderDetail> OrderDetails { get; set; }
-
-        public DbSet<ProductImage> ProductImages { get; set; }
 
        
     }

@@ -1,4 +1,6 @@
 ﻿using Project.Data.Entities;
+using Project.Data.Enums;
+using Project.ViewModels.Categories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -27,7 +29,10 @@ namespace Project.ViewModels.Products
         public bool? IsFeatured { get; set; }
 
         public string ThumbnailImage { get; set; }
-
+        public string category { get; set; }
+        public ProductStatus productStatus { get; set; }
+        public string status { get; set; }
+        public List<CategoryViewModel> CategoriesVm { get; set; } 
         public List<string> Categories { get; set; } = new List<string>();
         /*
          Id

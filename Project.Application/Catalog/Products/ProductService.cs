@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Http;
 using System.Net.Http.Headers;
 using System.IO;
 using Project.Utilities.Exceptions;
+using Project.ViewModels.Categories;
 
 namespace Project.Application.Catalog.Products
 {
@@ -27,24 +28,26 @@ namespace Project.Application.Catalog.Products
             _storageService = storageService;
         }
 
-        public async Task<bool> Create(ProductCreateRequest request)
+        public async Task<RequestResult<bool>> Create(ProductCreateRequest request)
         {
+            try
+            {
+                var product = new Product()
+                {
+                    Price = request.Price,
+                    Stock = request.Stock,
+                    ViewCount = 0,
+                    DateCreated = DateTime.Now,
+                    Name = request.Name,
+                    Description = request.Description,
+                    Details = request.Details,
+                    productStatus = request.status
+                };
 
-            var product = new Product()
-            {
-                Price = request.Price,
-                Stock = request.Stock,
-                ViewCount = 0,
-                DateCreated = DateTime.Now,
-                Name = request.Name,
-                Description = request.Description,
-                Details = request.Details,
-            };
-            
-            //Save image
-            if (request.ThumbnailImage != null)
-            {
-                product.ProductImages = new List<ProductImage>()
+                //Save image
+                if (request.ThumbnailImage != null)
+                {
+                    product.ProductImages = new List<ProductImage>()
                 {
                     new ProductImage()
                     {
@@ -56,25 +59,22 @@ namespace Project.Application.Catalog.Products
                         SortOrder = 1
                     }
                 };
+                }
+                _context.Products.Add(product);
+                await _context.SaveChangesAsync();
+                return new RequestSuccessResult<bool>();
             }
-            _context.Products.Add(product);
-            var productInCategory = new ProductInCategory()
+            catch (Exception e)
             {
-                Product=product,
-                CategoryId = request.categoryId
-            };
-            _context.ProductInCategories.Add(productInCategory);
-             
-            await _context.SaveChangesAsync();
-            return true;
+                return new RequestErrorResult<bool>(e.Message);
+            }
+           
         }
         public async Task<ProductViewModel> GetById(int productId)
         {
             var product = await _context.Products.FindAsync(productId);
-            var categories = await (from c in _context.Categories
-                                    join pic in _context.ProductInCategories on c.Id equals pic.CategoryId
-                                    where pic.ProductId == productId 
-                                    select c.Name).ToListAsync();
+            var categories = _context.Products.Where(c => c.Id == productId).SelectMany(c => c.Categories);
+
 
             var image = await _context.ProductImages.Where(x => x.ProductId == productId && x.IsDefault == true).FirstOrDefaultAsync();
 
@@ -88,7 +88,16 @@ namespace Project.Application.Catalog.Products
                 Price = product.Price,
                 Stock = product.Stock,
                 ViewCount = product.ViewCount,
-                Categories = categories,
+                productStatus=product.productStatus,
+                CategoriesVm = categories.Select(category => new CategoryViewModel()
+                {
+                    Id = category.Id,
+                    Name = category.Name,
+                    IsShowOnHome = category.IsShowOnHome,
+                    Status = category.Status,
+                    SortOrder = category.SortOrder
+                }).ToList(),
+                category=string.Join(",", categories.Select(category=>category.Name).ToList()),
                 ThumbnailImage = image != null ? image.ImagePath : "no-image.jpg"
             };
             return productViewModel;
@@ -109,48 +118,62 @@ namespace Project.Application.Catalog.Products
              pageSize
              categoryId ?
              */
-            
-
-            var query = from product in _context.Products
-                        join productInCategory in _context.ProductInCategories on product.Id equals productInCategory.ProductId into productCategory
-                        from productInCategory in productCategory.DefaultIfEmpty()
-                        join category in _context.Categories on productInCategory.CategoryId equals category.Id into categories
-                        from category in categories.DefaultIfEmpty()
-                        select new { product, productInCategory, category };
-
-            var queryc = from c in _context.Categories select c;
+            var query =from product in _context.Products.Include(x => x.Categories)
+                        select product;
 
             //2. filter
-            if (!string.IsNullOrEmpty(request.keyword))
-                query = query.Where(x => x.product.Name.Contains(request.keyword) ||x.product.Id.Equals(request.keyword));
-            if (request.id != null && request.id != 0)
-            {
-                query = query.Where(p => p.product.Id == request.id);
-            }
-            if (request.categoryId != null && request.categoryId != 0 )
-            {
-                query = query.Where(p => p.productInCategory.CategoryId== request.categoryId);
-            }
-            //3. Paging
+                //by productId
+                    if (request.id != null && request.id != 0)
+                        {
+                            query = query.Where(p => p.Id == request.id);
+                        }
+                //by keyword
+                    if (!string.IsNullOrEmpty(request.keyword))
+                        query = query.Where(x => x.Name.Contains(request.keyword) || x.Id.Equals(request.keyword));
+                //by category
+                    if (request.categoryId != null && request.categoryId != 0)
+                    {
+                        query = query.Where(p => p.Categories.Any(category=>category.Id==request.categoryId));
+                    }
+            ////3. Paging
             int totalRow = await query.CountAsync();
+            var data = await query.Select(p => new ProductViewModel()
+            {
+                Id = p.Id,
+                Price = p.Price,
+                Stock = p.Stock,
+                ViewCount = p.ViewCount,
+                DateCreated = p.DateCreated,
+                Name = p.Name,
+                Description = p.Description,
+                Details = p.Details,
+                sold = p.sold,
+                productStatus=p.productStatus,
+                CategoriesVm=p.Categories.Select(category=> new CategoryViewModel() {
+                    Id = category.Id,
+                    Name = category.Name,
+                    IsShowOnHome = category.IsShowOnHome,
+                    Status = category.Status,
+                    SortOrder = category.SortOrder
+                }).ToList()
+            }).ToListAsync();
+            //var data = await query.Skip((request.PageIndex - 1) * request.PageSize)
+            //    .Take(request.PageSize)
+            //    .Select(p => new ProductViewModel()
+            //    {
+            //        Id = p.product.Id,
+            //        Price = p.product.Price,
+            //        Stock = p.product.Stock,
+            //        ViewCount = p.product.ViewCount,
+            //        DateCreated = p.product.DateCreated,
+            //        Name = p.product.Name,
+            //        Description = p.product.Description,
+            //        Details = p.product.Details,
+            //        sold = p.product.sold
+            //    }).ToListAsync();
 
-            var data = await query.Skip((request.PageIndex - 1) * request.PageSize)
-                .Take(request.PageSize)
-                .Select(p => new ProductViewModel()
-                {
-                    Id = p.product.Id,
-                    Price = p.product.Price,
-                    Stock = p.product.Stock,
-                    ViewCount = p.product.ViewCount,
-                    DateCreated = p.product.DateCreated,
-                    Name = p.product.Name,
-                    Description = p.product.Description,
-                    Details = p.product.Details,
-                    sold = p.product.sold
-                }).ToListAsync();
 
-           
-          
+
             //4. Select and projection
             var pagedResult = new PageResult<ProductViewModel>()
             {
@@ -165,30 +188,32 @@ namespace Project.Application.Catalog.Products
 
         public async Task<bool> UpdateProduct(ProductUpdateRequest request)
         {
-            var product = await _context.Products.FindAsync(request.Id);
-            
-
-            if (product == null ) throw new ProjectException($"Cannot find a product with id: {request.Id}");
-
-            product.Name = request.Name;
-            product.Price = request.Price;
-            product.Stock = request.Stock;
-            product.Description = request.Description;
-            
-
-            //Save image
-            if (request.ThumbnailImage != null)
+            try
             {
-                var thumbnailImage = await _context.ProductImages.FirstOrDefaultAsync(i => i.IsDefault == true && i.ProductId == request.Id);
-                if (thumbnailImage != null)
+                var product = await _context.Products.FindAsync(request.Id);
+
+
+                if (product == null) throw new ProjectException($"Cannot find a product with id: {request.Id}");
+
+                product.Name = request.Name;
+                product.Price = request.Price;
+                product.Stock = request.Stock;
+                product.Description = request.Description;
+                product.productStatus = request.productStatus;
+
+                //Save image
+                if (request.ThumbnailImage != null)
                 {
-                    thumbnailImage.FileSize = request.ThumbnailImage.Length;
-                    thumbnailImage.ImagePath = await this.SaveFile(request.ThumbnailImage);
-                    _context.ProductImages.Update(thumbnailImage);
-                }
-                else
-                {
-                    product.ProductImages = new List<ProductImage>()
+                    var thumbnailImage = await _context.ProductImages.FirstOrDefaultAsync(i => i.IsDefault == true && i.ProductId == request.Id);
+                    if (thumbnailImage != null)
+                    {
+                        thumbnailImage.FileSize = request.ThumbnailImage.Length;
+                        thumbnailImage.ImagePath = await this.SaveFile(request.ThumbnailImage);
+                        _context.ProductImages.Update(thumbnailImage);
+                    }
+                    else
+                    {
+                        product.ProductImages = new List<ProductImage>()
                     {
                         new ProductImage()
                         {
@@ -200,29 +225,21 @@ namespace Project.Application.Catalog.Products
                             SortOrder = 1
                         }
                     };
+                    }
                 }
-            }
-            await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
 
-            return true;
+                return true;
+            }
+            catch (Exception e)
+            {
+                var xx = e.Message;
+                var x = 1;
+                return false;
+                throw;
+            }
+            return false;
         }
 
-        //public async Task<UserViewModel> GetById(string id)
-        //{
-        //    var user = await _userManager.FindByIdAsync(id);
-
-        //    var result = new UserViewModel()
-        //    {
-        //        Id = user.Id,
-        //        UserName = user.UserName,
-        //        Email = user.Email,
-        //        PhoneNumber = user.PhoneNumber ?? "",
-        //        Fullname = user.FullName,
-        //        Birthday = user.Birthday,
-        //        Address = user.Address,
-        //        EmailConfirmed = user.EmailConfirmed ? "Đã Xác Nhận" : "Chưa Xác Nhận"
-        //    };
-        //    return result;
-        //}
     }
 }
