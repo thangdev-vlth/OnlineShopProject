@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Project.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +17,7 @@ namespace Project.ViewModels.Products
         public int Stock { set; get; }
 
         public bool? IsFeatured { get; set; }
-
+        public ProductStatus productStatus { get; set; }
         public IFormFile ThumbnailImage { get; set; }
     }
 }

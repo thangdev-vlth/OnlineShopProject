@@ -11,11 +11,13 @@ namespace Project.Application.Catalog.Products
 {
     public interface IProductService
     {
-        Task<bool> Create(ProductCreateRequest request);
+        Task<RequestResult<bool>> Create(ProductCreateRequest request);
         Task<PageResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request);
 
         Task<ProductViewModel> GetById(int productId);
         Task<bool> UpdateProduct(ProductUpdateRequest request);
+        Task<RequestResult<bool>> AssignCategory(int productId,int CategoryId );
+        Task<RequestResult<bool>> UnAssignCategory(int productId, int CategoryId);
         //Task<ProductViewModel> GetById(String id);
     }
 }

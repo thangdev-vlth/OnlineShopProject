@@ -14,3 +14,75 @@
     .pagination a:hover:not(.active) {
         background-color: #ddd;
     }
+.cus-iframe-css {
+   width:1000px;
+   height:600px;
+}
+@media(min-width: 500px) {
+    .cus-iframe-css {
+        width: 420px;
+        height: 550px;
+    }
+
+    .simplemodal-container {
+        left: 5% !important;
+        top: 12.5% !important;
+    }
+}
+@media(min-width: 576px) {
+    .cus-iframe-css {
+        width: 500px;
+        height: 550px;
+    }
+
+    .simplemodal-container {
+        left: 5% !important;
+        top: 12.5% !important;
+    }
+}
+@media(min-width: 768px) {
+    .cus-iframe-css {
+        width: 650px;
+        height: 550px;
+    }
+
+    .simplemodal-container {
+        left: 6% !important;
+        top: 12.5% !important;
+    }
+}
+@media(min-width: 992px) {
+    .cus-iframe-css {
+        width: 600px;
+        height: 600px;
+    }
+    .simplemodal-container {
+
+        left: 30% !important;
+        top: 12.5% !important;
+    }
+}
+@media(min-width: 1224px) {
+    .cus-iframe-css {
+        width: 920px;
+        height: 600px;
+    }
+
+    .simplemodal-container {
+        left: 20% !important;
+        z-index:1200 !important;
+        /*top: 12.5% !important;*/
+    }
+}
+@media(min-width: 1400px) {
+    .cus-iframe-css {
+        width: 1000px;
+        height: 600px;
+    }
+
+    .simplemodal-container {
+        left: 20% !important;
+        z-index: 1200 !important;
+        top: 12.5% !important;
+    }
+}

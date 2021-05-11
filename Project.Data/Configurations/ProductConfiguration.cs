@@ -17,7 +17,7 @@ namespace Project.Data.Configurations
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Name).IsRequired().HasMaxLength(200);
-            builder.HasAlternateKey(x => x.Name);
+            builder.HasIndex(x => x.Name).IsUnique();
             builder.Property(x => x.Id).UseIdentityColumn();
 
             builder.Property(x => x.Price).IsRequired();
@@ -27,7 +27,9 @@ namespace Project.Data.Configurations
             builder.Property(x => x.ViewCount).IsRequired().HasDefaultValue(0);
 
             builder.Property(x => x.productStatus).HasDefaultValue(ProductStatus.New);
-
+            builder.HasMany<Category>(left => left.Categories)
+                .WithMany(right => right.Products); 
+                
         }
     }
 }

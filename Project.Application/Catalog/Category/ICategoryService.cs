@@ -1,5 +1,6 @@
 ﻿
 using Project.ViewModels.Categories;
+using Project.ViewModels.common;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,5 +13,7 @@ namespace Project.Application.Catalog.Categories
         Task<List<CategoryViewModel>> GetAll();
 
         Task<CategoryViewModel> GetById(int id);
+        Task<RequestResult<bool>> UpdateCategory(CategoryUpdateRequest request);
+        Task<RequestResult<bool>> Create(CategoryCreateRequest request);
     }
 }

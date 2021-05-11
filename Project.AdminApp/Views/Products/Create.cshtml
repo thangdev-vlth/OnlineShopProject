@@ -9,9 +9,9 @@
         <div class="card-header">
             <a class="btn btn-success" asp-action="Index" asp-controller="Products">Về danh sách</a>
         </div>
-
+        <div asp-validation-summary="All" class="text-danger"></div>
         <div class="card-body">
-            
+
             <form asp-action="Create" enctype="multipart/form-data" method="post">
                 <div class="row">
                     <div class="col-12 col-md-6">
@@ -71,7 +71,6 @@
                                             <label class="col-5 col-form-label text-lg-right">Trạng thái</label>
                                             <div class="col-7 pl-lg-0">
                                                 <select name="status" id="status" class="form-control">
-                                                    <option value="">--</option>
                                                     <option value="1" selected="selected">Mới</option>
                                                     <option value="2">Đang bán</option>
                                                     <option value="3">Ngừng bán</option>
@@ -149,8 +148,8 @@
                                     <label class="col-5 col-lg-3 col-form-label">Kích thước (cm)</label>
                                     <div class="col-7 col-lg-9">
                                         <div class="input-group">
-                                            <input type="text" name="length" maxlength="255" placeholder="Dài" class="text-right form-control" id="length" autocomplete="off" value="" disabled> 
-                                            <input type="text" name="width" maxlength="255" placeholder="Rộng" class="text-right form-control" id="width" autocomplete="off" value="" disabled> 
+                                            <input type="text" name="length" maxlength="255" placeholder="Dài" class="text-right form-control" id="length" autocomplete="off" value="" disabled>
+                                            <input type="text" name="width" maxlength="255" placeholder="Rộng" class="text-right form-control" id="width" autocomplete="off" value="" disabled>
                                             <input type="text" name="height" maxlength="255" placeholder="Cao" class="text-right form-control" id="height" autocomplete="off" value="" disabled>
                                         </div>
                                     </div>
@@ -164,11 +163,11 @@
                                             <input asp-for="ThumbnailImage" type="file" id="imageUpload">
                                             <span asp-validation-for="ThumbnailImage" class="text-danger"></span>
                                         </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                     <div class="col-12 col-md-12 ">
                         <div class="form-group">
                             <label asp-for="Description" class="control-label"></label>
@@ -176,7 +175,7 @@
                             <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
                     </div>
-                 </div>
+                </div>
                 <div class="form-group mt-5">
                     <input type="submit" value="Tạo mới" class="btn btn-primary" />
                 </div>

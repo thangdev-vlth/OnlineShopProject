@@ -46,7 +46,6 @@ namespace Project.Data.Extensions
                      Description = "Sản phẩm áo thời trang nam",
 
                  });
-           
             modelBuilder.Entity<Product>().HasData(
                new Product()
                {
@@ -58,7 +57,7 @@ namespace Project.Data.Extensions
                    Price = 200000,
                    Stock = 0,
                    ViewCount = 0,
-                   
+                   //Categories=categories
                }, new Product()
                {
                    Id = 2,
@@ -69,7 +68,7 @@ namespace Project.Data.Extensions
                    Price = 200000,
                    Stock = 0,
                    ViewCount = 0,
-                  
+                   //Categories = categories
                }, new Product()
                     {
                         Id = -1,
@@ -80,7 +79,7 @@ namespace Project.Data.Extensions
                         Price = 200000,
                         Stock = 0,
                         ViewCount = 0,
-                     
+                   //Categories = categories
                }, new Product()
                {
                    Id = -2,
@@ -91,17 +90,17 @@ namespace Project.Data.Extensions
                    Price = 200000,
                    Stock = 0,
                    ViewCount = 0,
-                   
+                   //Categories = categories
                });
-            
-            modelBuilder.Entity<ProductInCategory>().HasData(
-                new ProductInCategory() { ProductId = 1, CategoryId = 1 },
-                 new ProductInCategory() { ProductId = 1, CategoryId = 2 },
-                 new ProductInCategory() { ProductId = 1, CategoryId = 3 },
-                  new ProductInCategory() { ProductId = 2, CategoryId = 1 },
-                   new ProductInCategory() { ProductId = 2, CategoryId = 2 }
-                );
-            
+            modelBuilder.Entity("CategoryProduct").HasData(
+                      new Dictionary<string, object> { ["ProductsId"] = 1, ["CategoriesId"] = 1 },
+                      new Dictionary<string, object> { ["ProductsId"] = 1, ["CategoriesId"] = 2 },
+                      new Dictionary<string, object> { ["ProductsId"] = -2, ["CategoriesId"] = 1 },
+                      new Dictionary<string, object> { ["ProductsId"] = -1, ["CategoriesId"] = 1 },
+                      new Dictionary<string, object> { ["ProductsId"] = -1, ["CategoriesId"] = 2 }
+                    );
+
+
             //8D04DCE3-969A-435D-BBA4-DF3F325983DC
             //// any guid
             //string roleId ="8D04DCE2-969A-435D-BBA4-DF3F325983DC";
