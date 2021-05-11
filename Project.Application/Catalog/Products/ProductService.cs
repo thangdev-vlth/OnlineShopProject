@@ -66,7 +66,12 @@ namespace Project.Application.Catalog.Products
             }
             catch (Exception e)
             {
-                return new RequestErrorResult<bool>(e.Message);
+                string error = null;
+                if (e.InnerException.Message.Contains("Cannot insert duplicate key row in object "))
+                {
+                    error = "Tên Sản Phẩm Đã Tồn Tại Trong Hệ Thống";
+                }
+                return new RequestErrorResult<bool>(error==null? e.InnerException.Message:error);
             }
            
         }
@@ -97,7 +102,7 @@ namespace Project.Application.Catalog.Products
                     Status = category.Status,
                     SortOrder = category.SortOrder
                 }).ToList(),
-                category=string.Join(",", categories.Select(category=>category.Name).ToList()),
+                category=string.Join(" , ", categories.Select(category=>category.Name).ToList()),
                 ThumbnailImage = image != null ? image.ImagePath : "no-image.jpg"
             };
             return productViewModel;
@@ -238,8 +243,48 @@ namespace Project.Application.Catalog.Products
                 return false;
                 throw;
             }
-            return false;
         }
 
+        public async Task<RequestResult<bool>> AssignCategory(int productId, int CategoryId)
+        {
+            try
+            {
+                var product = await _context.Products.Include(c => c.Categories).SingleOrDefaultAsync(product => product.Id == productId);
+                var category = await _context.Categories.FindAsync(CategoryId);
+                product.Categories.Add(category);
+                await _context.SaveChangesAsync();
+                return new RequestSuccessResult<bool>();
+            }
+            catch (Exception e)
+            {
+
+                return new RequestErrorResult<bool>(e.InnerException.Message);
+            }
+            
+
+        }
+
+        public async Task<RequestResult<bool>> UnAssignCategory(int productId, int CategoryId)
+        {
+            var product = await _context.Products.Include(c=>c.Categories).SingleOrDefaultAsync(product=>product.Id==productId);
+
+            try
+            {
+                if (product != null)
+                {
+                    var category = product.Categories.Where(category => category.Id == CategoryId).FirstOrDefault();
+                        product.Categories.Remove(category);
+                    
+                    await _context.SaveChangesAsync();
+                }
+                return new RequestSuccessResult<bool>();
+            }
+            catch (Exception e)
+            {
+
+                return new RequestErrorResult<bool>(e.InnerException.Message);
+            }
+            
+        }
     }
 }

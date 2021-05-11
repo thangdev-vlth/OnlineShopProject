@@ -16,6 +16,8 @@ namespace Project.Application.Catalog.Products
 
         Task<ProductViewModel> GetById(int productId);
         Task<bool> UpdateProduct(ProductUpdateRequest request);
+        Task<RequestResult<bool>> AssignCategory(int productId,int CategoryId );
+        Task<RequestResult<bool>> UnAssignCategory(int productId, int CategoryId);
         //Task<ProductViewModel> GetById(String id);
     }
 }

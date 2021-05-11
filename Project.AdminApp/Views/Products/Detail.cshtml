@@ -11,11 +11,12 @@
         </ol>
         <div class="container d-inline-flex justify-content-end">
             <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-primary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Thao tác
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" asp-action="Update" asp-controller="Products" asp-route-id=@Model.Id>Cập nhật</a>
+                    <a class="dropdown-item" asp-action="AssignCategory" asp-controller="Products" asp-route-id=@Model.Id>Phân Loại Danh Mục Sản Phẩm</a>
                 </div>
             </div>
         </div>

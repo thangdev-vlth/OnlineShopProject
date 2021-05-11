@@ -1,4 +1,5 @@
 ﻿using Project.Data.Enums;
+using Project.ViewModels.Products;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -22,6 +23,19 @@ namespace Project.ViewModels.Categories
         public int? ParentId { set; get; }
         [Display(Name = "Trạng Thái")]
         public Status Status { set; get; }
-        
+        public List<ProductViewModel> productViewModels { get; set; }
+        public List<string> Products { get; set; } = new List<string>();
+       
+        public bool asigned(int id)
+        {
+            foreach (var item in productViewModels)
+            {
+                if (item.Id==id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

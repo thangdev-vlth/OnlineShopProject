@@ -12,9 +12,7 @@
         <div class="card-header">
             <a class="btn btn-success" asp-action="Detail" asp-controller="Products" asp-route-id="@Model.Id">Về Trang Trước</a>
         </div>
-
         <div class="card-body">
-
             <form asp-action="Update" asp-controller="Products" method="post" enctype="multipart/form-data" id="updateProductForm">
                 <input asp-for="Id" class="form-control required" hidden />
                 <div class="row">

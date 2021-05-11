@@ -7,7 +7,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Project.Application.Catalog.Categories;
 using Project.Application.Catalog.Products;
+using Project.Application.Common;
 using Project.Application.Mail;
 using Project.Data.EF;
 using Project.Data.Entities;
@@ -116,7 +118,9 @@ namespace Project.WebApp
                 });
             });
             services.AddTransient<IProductService, ProductService>();
-            
+           
+            services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IStorageService, FileStorageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

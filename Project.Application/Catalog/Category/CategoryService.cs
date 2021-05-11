@@ -10,6 +10,7 @@ using Project.ViewModels.Categories;
 using Project.Utilities.Exceptions;
 using Project.ViewModels.common;
 using Project.Data.Entities;
+using Project.ViewModels.Products;
 
 namespace Project.Application.Catalog.Categories
 {
@@ -50,15 +51,28 @@ namespace Project.Application.Catalog.Categories
 
         public async Task<List<CategoryViewModel>> GetAll()
         {
-            var query = from c in _context.Categories
+            var query = from c in _context.Categories.Include(category => category.Products)
                         select c;
-            return await query.Select(x => new CategoryViewModel()
+            return await query.Select(category => new CategoryViewModel()
             {
-                Id = x.Id,
-                Name = x.Name,
-                IsShowOnHome=x.IsShowOnHome,
-                Status=x.Status,
-                SortOrder=x.SortOrder
+                Id = category.Id,
+                Name = category.Name,
+                IsShowOnHome= category.IsShowOnHome,
+                Status= category.Status,
+                SortOrder= category.SortOrder,
+                productViewModels= category.Products.Select(p => new ProductViewModel()
+                {
+                    Id = p.Id,
+                    Price = p.Price,
+                    Stock = p.Stock,
+                    ViewCount = p.ViewCount,
+                    DateCreated = p.DateCreated,
+                    Name = p.Name,
+                    Description = p.Description,
+                    Details = p.Details,
+                    sold = p.sold,
+                    productStatus = p.productStatus
+                }).ToList()
             }).ToListAsync();
         }
 

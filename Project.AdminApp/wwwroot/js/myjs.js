@@ -40,7 +40,7 @@
 
     });
 });
-jQuery(function ($) {
+/*jQuery(function ($) {
     function adjustIframes() {
         $('iframe').each(function () {
             var
@@ -60,4 +60,42 @@ jQuery(function ($) {
         });
     }
     $(window).on('resize load', adjustIframes);
+});*/
+jQuery(function ($) {
+    
+    $(".assignRequest").click(function (e) {
+        event.preventDefault(); 
+        var targetBtn = $(this);
+        $.ajax({
+            url: $(this).attr("href"),
+            type: "Post",
+            dataType: "JSON",
+            data: "abbababab",
+            processData: false,
+            contentType: false,
+            success: function (data, status) {
+                
+                if (data["result"]=="true") {
+                    if (data["method"] == "assign") {
+                        var href = targetBtn.attr("href");
+                        href = href.replace('Assign', 'Unassign')
+                        targetBtn.attr("class","btn btn-danger assignRequest unassign");
+                        targetBtn.attr("href", href);
+                        targetBtn.text("Bỏ Chọn Danh Mục");
+                    } else {
+                        var href = targetBtn.attr("href");
+                        href = href.replace('Unassign', 'Assign')
+                        targetBtn.attr("class","btn btn-primary assignRequest assign");
+                        targetBtn.attr("href", href);
+                        targetBtn.text("Chọn Danh Mục");
+                        
+                    }
+                }
+            },
+            error: function (xhr, desc, err) {
+                console.log("fuck");
+            }
+        });
+        
+    });
 });

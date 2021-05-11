@@ -126,5 +126,24 @@ namespace Project.AdminApp.Controllers
             //return View(request);
             return Json(new { result = "theerrror" });
         }
+        [HttpGet]
+        public async Task<IActionResult> AssignCategory(int id)
+        {
+            ViewBag.productId=id;
+            var categories = await _categoryService.GetAll();
+            return View(categories);
+        }
+        [HttpPost]
+        public async Task<JsonResult> Assign(int productId,int categoryId)
+        {
+           var result= await _productService.AssignCategory( productId,  categoryId);
+            return Json(new { result = "true",method="assign" });
+        }
+        [HttpPost]
+        public async Task<JsonResult> Unassign(int productId, int categoryId)
+        {
+            var result = await _productService.UnAssignCategory(productId, categoryId);
+            return Json(new { result = "true", method = "unassign" });
+        }
     }
 }
