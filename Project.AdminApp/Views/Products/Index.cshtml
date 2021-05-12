@@ -35,30 +35,34 @@
                     <th scope="col">Tồn</th>
                     <th scope="col">Lượt Xem</th>
                     <th scope="col">Trạng Thái</th>
+                    <th scope="col">Sản Phẩm Nổi Bật</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model.Items)
                 {
-                    <tr>
+                <tr>
 
-                        <td>
-                            @Html.ActionLink(item.Name, "Detail", new { id = item.Id }, new { @class = "openIframeDetail" })
+                    <td>
+                        @Html.ActionLink(item.Name, "Detail", new { id = item.Id }, new { @class = "openIframeDetail" })
 
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.sold)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Stock)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ViewCount)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.productStatus)
-                        </td>
-                    </tr>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sold)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stock)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ViewCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.productStatus)
+                    </td>
+                    <td>
+                        @(item.IsFeatured?"Có":"Không")
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>

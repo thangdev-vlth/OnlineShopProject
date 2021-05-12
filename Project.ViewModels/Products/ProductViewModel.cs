@@ -4,7 +4,7 @@ using Project.ViewModels.Categories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
+using Project.ViewModels.ProductImage;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,10 +25,11 @@ namespace Project.ViewModels.Products
         [Display(Name = "Mô Tả Sản phẩm")]
         public string Description { set; get; }
         public string Details { set; get; }
-        
-        public bool? IsFeatured { get; set; }
-
+        [Display(Name = "Sản Phẩm Nổi Bật")]
+        public bool IsFeatured { get; set; }
+        public List<string> imagesPath { get; set; }
         public string ThumbnailImage { get; set; }
+        public List<ProductImageViewModel> ProductImages { get; set; }
         public string category { get; set; }
         public ProductStatus productStatus { get; set; }
         public string status { get; set; }

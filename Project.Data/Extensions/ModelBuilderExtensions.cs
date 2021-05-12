@@ -57,6 +57,7 @@ namespace Project.Data.Extensions
                    Price = 200000,
                    Stock = 0,
                    ViewCount = 0,
+                   IsFeatured=true
                    //Categories=categories
                }, new Product()
                {
@@ -68,6 +69,7 @@ namespace Project.Data.Extensions
                    Price = 200000,
                    Stock = 0,
                    ViewCount = 0,
+                   IsFeatured = true
                    //Categories = categories
                }, new Product()
                     {
@@ -79,6 +81,7 @@ namespace Project.Data.Extensions
                         Price = 200000,
                         Stock = 0,
                         ViewCount = 0,
+                        IsFeatured = true
                    //Categories = categories
                }, new Product()
                {
@@ -90,6 +93,7 @@ namespace Project.Data.Extensions
                    Price = 200000,
                    Stock = 0,
                    ViewCount = 0,
+                   IsFeatured = true
                    //Categories = categories
                });
             modelBuilder.Entity("CategoryProduct").HasData(

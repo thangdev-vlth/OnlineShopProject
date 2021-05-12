@@ -19,7 +19,7 @@ namespace Project.Data.Configurations
             builder.Property(x => x.Name).IsRequired().HasMaxLength(200);
             builder.HasIndex(x => x.Name).IsUnique();
             builder.Property(x => x.Id).UseIdentityColumn();
-
+            builder.Property(x => x.IsFeatured).HasDefaultValue(false);
             builder.Property(x => x.Price).IsRequired();
 
             builder.Property(x => x.Stock).IsRequired().HasDefaultValue(0);

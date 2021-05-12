@@ -25,7 +25,7 @@ namespace Project.Data.Entities
 
             public DateTime DateCreated { set; get; }
 
-            public bool? IsFeatured { get; set; }
+            public bool IsFeatured { get; set; }
 
             public ProductStatus productStatus { get; set; }
             public List<Reviews> Reviews { get; set; }

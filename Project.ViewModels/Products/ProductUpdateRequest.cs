@@ -2,6 +2,7 @@
 using Project.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Project.ViewModels.Products
@@ -15,8 +16,8 @@ namespace Project.ViewModels.Products
 
         public decimal Price { set; get; }
         public int Stock { set; get; }
-
-        public bool? IsFeatured { get; set; }
+        [Display(Name="Sản Phẩm Nổi Bật")]
+        public bool IsFeatured { get; set; }
         public ProductStatus productStatus { get; set; }
         public IFormFile ThumbnailImage { get; set; }
     }
