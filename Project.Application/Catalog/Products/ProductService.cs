@@ -14,6 +14,7 @@ using System.Net.Http.Headers;
 using System.IO;
 using Project.Utilities.Exceptions;
 using Project.ViewModels.Categories;
+using Project.ViewModels.ProductImage;
 
 namespace Project.Application.Catalog.Products
 {
@@ -41,7 +42,8 @@ namespace Project.Application.Catalog.Products
                     Name = request.Name,
                     Description = request.Description,
                     Details = request.Details,
-                    productStatus = request.status
+                    productStatus = request.status,
+                    IsFeatured=request.IsFeatured
                 };
 
                 //Save image
@@ -79,7 +81,7 @@ namespace Project.Application.Catalog.Products
         {
             var product = await _context.Products.FindAsync(productId);
             var categories = _context.Products.Where(c => c.Id == productId).SelectMany(c => c.Categories);
-
+            var productImages = _context.Products.Where(c => c.Id == productId).SelectMany(c => c.ProductImages);
 
             var image = await _context.ProductImages.Where(x => x.ProductId == productId && x.IsDefault == true).FirstOrDefaultAsync();
 
@@ -94,6 +96,19 @@ namespace Project.Application.Catalog.Products
                 Stock = product.Stock,
                 ViewCount = product.ViewCount,
                 productStatus=product.productStatus,
+                IsFeatured = product.IsFeatured,
+                price=  String.Format("{0:0,0 vnđ}", product.Price),
+                ProductImages =productImages.Select(image => new ProductImageViewModel()
+                {
+                    Caption = image.Caption,
+                    DateCreated = image.DateCreated,
+                    FileSize = image.FileSize,
+                    Id = image.Id,
+                    ImagePath = image.ImagePath,
+                    IsDefault = image.IsDefault,
+                    ProductId = image.ProductId,
+                    SortOrder = image.SortOrder
+                }).ToList(),
                 CategoriesVm = categories.Select(category => new CategoryViewModel()
                 {
                     Id = category.Id,
@@ -122,10 +137,13 @@ namespace Project.Application.Catalog.Products
              pageIndex
              pageSize
              categoryId ?
-             */
-            var query =from product in _context.Products.Include(x => x.Categories)
-                        select product;
+             var filesPath = $"{this._hostingEnvironment.WebRootPath}/images";
 
+             */
+            var query =from product in _context.Products.Include(x => x.Categories).Include(x=> x.ProductImages)
+
+                        select product;
+            
             //2. filter
                 //by productId
                     if (request.id != null && request.id != 0)
@@ -142,10 +160,11 @@ namespace Project.Application.Catalog.Products
                     }
             ////3. Paging
             int totalRow = await query.CountAsync();
-            var data = await query.Select(p => new ProductViewModel()
+            var data = await query.Select( p => new ProductViewModel()
             {
                 Id = p.Id,
                 Price = p.Price,
+                price = String.Format("{0:0,0 vnđ}", p.Price),
                 Stock = p.Stock,
                 ViewCount = p.ViewCount,
                 DateCreated = p.DateCreated,
@@ -153,7 +172,18 @@ namespace Project.Application.Catalog.Products
                 Description = p.Description,
                 Details = p.Details,
                 sold = p.sold,
-                productStatus=p.productStatus,
+                ProductImages=p.ProductImages.Select(image=> new ProductImageViewModel() {
+                    Caption = image.Caption,
+                    DateCreated = image.DateCreated,
+                    FileSize = image.FileSize,
+                    Id = image.Id,
+                    ImagePath = image.ImagePath,
+                    IsDefault = image.IsDefault,
+                    ProductId = image.ProductId,
+                    SortOrder = image.SortOrder
+                }).ToList(),
+                productStatus =p.productStatus,
+                IsFeatured=p.IsFeatured,
                 CategoriesVm=p.Categories.Select(category=> new CategoryViewModel() {
                     Id = category.Id,
                     Name = category.Name,
@@ -196,8 +226,6 @@ namespace Project.Application.Catalog.Products
             try
             {
                 var product = await _context.Products.FindAsync(request.Id);
-
-
                 if (product == null) throw new ProjectException($"Cannot find a product with id: {request.Id}");
 
                 product.Name = request.Name;
@@ -205,7 +233,7 @@ namespace Project.Application.Catalog.Products
                 product.Stock = request.Stock;
                 product.Description = request.Description;
                 product.productStatus = request.productStatus;
-
+                product.IsFeatured = request.IsFeatured;
                 //Save image
                 if (request.ThumbnailImage != null)
                 {
@@ -238,10 +266,9 @@ namespace Project.Application.Catalog.Products
             }
             catch (Exception e)
             {
-                var xx = e.Message;
-                var x = 1;
+                
                 return false;
-                throw;
+               
             }
         }
 
@@ -285,6 +312,177 @@ namespace Project.Application.Catalog.Products
                 return new RequestErrorResult<bool>(e.InnerException.Message);
             }
             
+        }
+
+        public async Task<List<ProductViewModel>> GetFeaturedProducts()
+        {
+            var query = from product in _context.Products.Include(x => x.Categories).Include(x => x.ProductImages)
+                        where product.IsFeatured==true
+                        select product;
+            var data = await query.Select(p => new ProductViewModel()
+            {
+                Id = p.Id,
+                Price = p.Price,
+                price = String.Format("{0:0,0 vnđ}", p.Price),
+                Stock = p.Stock,
+                ViewCount = p.ViewCount,
+                DateCreated = p.DateCreated,
+                Name = p.Name,
+                Description = p.Description,
+                Details = p.Details,
+                sold = p.sold,
+                ProductImages = p.ProductImages.Select(image => new ProductImageViewModel()
+                {
+                    Caption = image.Caption,
+                    DateCreated = image.DateCreated,
+                    FileSize = image.FileSize,
+                    Id = image.Id,
+                    ImagePath = image.ImagePath,
+                    IsDefault = image.IsDefault,
+                    ProductId = image.ProductId,
+                    SortOrder = image.SortOrder
+                }).ToList(),
+                productStatus = p.productStatus,
+                IsFeatured = p.IsFeatured,
+                CategoriesVm = p.Categories.Select(category => new CategoryViewModel()
+                {
+                    Id = category.Id,
+                    Name = category.Name,
+                    IsShowOnHome = category.IsShowOnHome,
+                    Status = category.Status,
+                    SortOrder = category.SortOrder
+                }).ToList()
+            }).ToListAsync();
+            return data;
+        }
+
+        public async Task<List<ProductViewModel>> GetLatestProducts()
+        {
+            var query = from product in _context.Products.Include(x => x.Categories).Include(x => x.ProductImages)
+                        select product;
+            query = query.OrderByDescending(x => x.DateCreated);
+            var data = await query.Select(p => new ProductViewModel()
+            {
+                Id = p.Id,
+                Price = p.Price,
+                price = String.Format("{0:0,0 vnđ}", p.Price),
+                Stock = p.Stock,
+                ViewCount = p.ViewCount,
+                DateCreated = p.DateCreated,
+                Name = p.Name,
+                Description = p.Description,
+                Details = p.Details,
+                sold = p.sold,
+                ProductImages = p.ProductImages.Select(image => new ProductImageViewModel()
+                {
+                    Caption = image.Caption,
+                    DateCreated = image.DateCreated,
+                    FileSize = image.FileSize,
+                    Id = image.Id,
+                    ImagePath = image.ImagePath,
+                    IsDefault = image.IsDefault,
+                    ProductId = image.ProductId,
+                    SortOrder = image.SortOrder
+                }).ToList(),
+                productStatus = p.productStatus,
+                IsFeatured = p.IsFeatured,
+                CategoriesVm = p.Categories.Select(category => new CategoryViewModel()
+                {
+                    Id = category.Id,
+                    Name = category.Name,
+                    IsShowOnHome = category.IsShowOnHome,
+                    Status = category.Status,
+                    SortOrder = category.SortOrder
+                }).ToList()
+            }).ToListAsync();
+            return data;
+        }
+
+        public async Task<RequestResult<bool>> AddImages(ProductUpdateRequest request)
+        {
+            try
+            {
+                var product = await _context.Products.Include(c => c.ProductImages).SingleOrDefaultAsync(product => product.Id == request.Id);
+                foreach (var image in request.Images)
+                {
+                   // product.ProductImages.Add(image);
+                    //Save image
+                    /*if (request.ThumbnailImage != null)
+                    {
+                        var thumbnailImage = await _context.ProductImages.FirstOrDefaultAsync(i => i.IsDefault == true && i.ProductId == request.Id);
+                        if (thumbnailImage != null)
+                        {
+                            thumbnailImage.FileSize = request.ThumbnailImage.Length;
+                            thumbnailImage.ImagePath = await this.SaveFile(request.ThumbnailImage);
+                            _context.ProductImages.Update(thumbnailImage);
+                        }
+                        else {*/
+                                
+                               var productImage = new ProductImage(){
+                                    Caption = "Image",
+                                    DateCreated = DateTime.Now,
+                                    FileSize = image.Length,
+                                    ImagePath = await this.SaveFile(image),
+                                    IsDefault = true,
+                                    SortOrder = product.ProductImages.Count() + 1
+                               };
+                                 product.ProductImages.Add(productImage);
+                    //}
+                    //}
+                }
+                await _context.SaveChangesAsync();
+                return new RequestSuccessResult<bool>();
+            }
+            catch (Exception e)
+            {
+
+                return new RequestErrorResult<bool>(e.InnerException.Message);
+            }
+
+        }
+
+        public async Task<RequestResult<List<ProductImageViewModel>>> GetAllImageAsync(int productId)
+        {
+            try
+            {
+                var productImages =  _context.Products.Where(c => c.Id == productId).SelectMany(c => c.ProductImages);
+                var ProductImages = productImages.Select(image => new ProductImageViewModel()
+                {
+                    Caption = image.Caption,
+                    DateCreated = image.DateCreated,
+                    FileSize = image.FileSize,
+                    Id = image.Id,
+                    ImagePath = image.ImagePath,
+                    IsDefault = image.IsDefault,
+                    ProductId = image.ProductId,
+                    SortOrder = image.SortOrder
+                }).ToList();
+                return new RequestSuccessResult<List<ProductImageViewModel>> (ProductImages);
+            }
+            catch (Exception e)
+            {
+
+                return new RequestErrorResult<List<ProductImageViewModel>> (e.InnerException.Message);
+            }
+        }
+
+        public async Task<RequestResult<bool>> RemoveImageAsync(int productId, int imgId)
+        {
+            try
+            {
+                //deleteimg
+                var productImage = await _context.ProductImages.FindAsync(imgId);
+                if (productImage == null)
+                    throw new ProjectException($"Cannot find an image with id {imgId}");
+                _context.ProductImages.Remove(productImage);
+                await _context.SaveChangesAsync();
+                return new RequestSuccessResult<bool>();
+            }
+            catch (Exception e)
+            {
+
+                return new RequestErrorResult<bool>(e.InnerException.Message);
+            }
         }
     }
 }

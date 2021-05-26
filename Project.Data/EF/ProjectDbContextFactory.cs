@@ -21,7 +21,7 @@ namespace Project.Data.EF
             var connectionString = configuration.GetConnectionString("ProjectOnlineShopDb");
 
             var optionsBuilder = new DbContextOptionsBuilder<ProjectDbContext>();
-            optionsBuilder.UseSqlServer(connectionString, b => b.MigrationsAssembly("Project.WebApp"));
+            optionsBuilder.UseSqlServer(connectionString, b => b.MigrationsAssembly("Project.AdminApp"));
 
             return new ProjectDbContext(optionsBuilder.Options);
         }

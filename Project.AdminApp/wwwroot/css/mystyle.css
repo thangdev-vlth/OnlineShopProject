@@ -5,18 +5,29 @@
     text-decoration: none;
     transition: background-color .3s;
 }
-    /* thiết lập style cho class active */
-    .pagination a.active {
-        background-color: dodgerblue;
-        color: white;
-    }
-    /* thêm màu nền khi người dùng hover vào class không active */
-    .pagination a:hover:not(.active) {
-        background-color: #ddd;
-    }
+/* thiết lập style cho class active */
+.pagination a.active {
+    background-color: dodgerblue;
+    color: white;
+}
+/* thêm màu nền khi người dùng hover vào class không active */
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
 .cus-iframe-css {
    width:1000px;
    height:600px;
+}
+.table button.manageImage {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    text-align: center;
+    color: #ffffff;
+    background: #005CC8;
+    border: none;
+    border-radius: 4px;
 }
 @media(min-width: 500px) {
     .cus-iframe-css {
@@ -86,3 +97,5 @@
         top: 12.5% !important;
     }
 }
+
+

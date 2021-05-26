@@ -26,7 +26,8 @@ namespace Project.ViewModels.Products
         public string LanguageId { set; get; }
 
         public int categoryId { set; get; }
-        public bool? IsFeatured { get; set; }
+        [Display(Name ="Sản Phẩm Nổi Bật")]
+        public bool IsFeatured { get; set; }
 
         public ProductStatus status { get; set; }
         public IFormFile ThumbnailImage { get; set; }

@@ -15,5 +15,6 @@ namespace Project.Application.Catalog.Categories
         Task<CategoryViewModel> GetById(int id);
         Task<RequestResult<bool>> UpdateCategory(CategoryUpdateRequest request);
         Task<RequestResult<bool>> Create(CategoryCreateRequest request);
+       
     }
 }

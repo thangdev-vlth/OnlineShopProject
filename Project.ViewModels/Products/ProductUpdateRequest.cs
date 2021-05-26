@@ -2,12 +2,17 @@
 using Project.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Project.ViewModels.Products
 {
     public class ProductUpdateRequest
     {
+        public ProductUpdateRequest()
+        {
+            Images = new List<IFormFile>();
+        }
         public int Id { get; set; }
         public string Name { set; get; }
         public string Description { set; get; }
@@ -15,9 +20,11 @@ namespace Project.ViewModels.Products
 
         public decimal Price { set; get; }
         public int Stock { set; get; }
-
-        public bool? IsFeatured { get; set; }
+        [Display(Name="Sản Phẩm Nổi Bật")]
+        public bool IsFeatured { get; set; }
         public ProductStatus productStatus { get; set; }
         public IFormFile ThumbnailImage { get; set; }
+        public List<IFormFile> Images { get; set; }
+        
     }
 }

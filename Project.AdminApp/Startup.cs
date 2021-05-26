@@ -12,6 +12,7 @@ using Project.Application.Catalog.Products;
 using Project.Application.Catalog.Users;
 using Project.Application.Common;
 using Project.Application.Mail;
+using Project.Application.Sales;
 using Project.Data.EF;
 using Project.Data.Entities;
 using System;
@@ -36,7 +37,7 @@ namespace Project.AdminApp
             services.AddControllersWithViews();
             var connectionString = Configuration.GetConnectionString("ProjectOnlineShopDb");
             services.AddDbContext<ProjectDbContext>(options =>
-                    options.UseSqlServer(connectionString, b => b.MigrationsAssembly("Project.WebApp")));
+                    options.UseSqlServer(connectionString, b => b.MigrationsAssembly("Project.AdminApp")));
 
             services.AddRazorPages();
             services.AddIdentity<AppUser, IdentityRole>()
@@ -89,7 +90,53 @@ namespace Project.AdminApp
             });
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<ICartService, CartService>();
             services.AddTransient<IStorageService, FileStorageService>();
+            //sadhbashjdbasbhdasbj
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+            });
+            services.AddAuthentication().AddGoogle(googleOptions => {
+                //doc thong tin Authentication:Google tu appsettings.json
+                IConfigurationSection googleAuthNSection = Configuration.GetSection("Authentication:Google");
+
+                // thiet lap ClientID và ClientSecret de truy cap API google
+                googleOptions.ClientId = googleAuthNSection["ClientId"];
+                googleOptions.ClientSecret = googleAuthNSection["ClientSecret"];
+
+            });
+            services.Configure<SecurityStampValidatorOptions>(options =>
+            {
+                // tren 30 s truy cap lai se nap lai thong tin  User (Role)
+                // SecurityStamp trong bang User doi -> nap lai thong tin  Security
+                options.ValidationInterval = TimeSpan.FromSeconds(30);
+            });
+            services.AddAuthorization(options =>
+            {
+
+                //  Tao ra Policy co ten MyPolicy1 - nhung User co Role la Vip thi thoa man policy nay
+                //options.AddPolicy("MyPolicy1", policy => {
+                //    // policy kieu AuthorizationPolicyBuilder, co cac phuong thuc de them yeu cau nhu:
+                //    // RequireClaim - User phai co Claim nao do
+                //    // RequireRole  - User phai co Role nao do
+                //    // RequireUserName - User phai co ten chi ra
+                //    // AddRequirements ...
+                //    policy.RequireRole("Vip");
+                //});
+
+                options.AddPolicy("MyPolicy1", policy => {
+                    policy.RequireRole("Vip");
+                });
+
+                options.AddPolicy("CanViewTest", policy => {
+                    policy.RequireRole("VipMember", "Editor");
+                });
+                options.AddPolicy("AdminDropdown", policy => {
+                    policy.RequireClaim("permission", "manage.user");
+                });
+            });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -107,7 +154,7 @@ namespace Project.AdminApp
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
@@ -115,7 +162,7 @@ namespace Project.AdminApp
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=AdminHome}/{action=Index}/{id?}");
+                    pattern: "{controller=Homepage}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

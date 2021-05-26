@@ -27,7 +27,7 @@ jQuery(function ($) {
 				padding: 0,
 				width: 1000
 			},
-
+			
 			onShow: function (dialog) {
 				dialog.container.css({ "height": "auto", "width": "auto" });
             },

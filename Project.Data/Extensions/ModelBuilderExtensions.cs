@@ -57,6 +57,7 @@ namespace Project.Data.Extensions
                    Price = 200000,
                    Stock = 0,
                    ViewCount = 0,
+                   IsFeatured=true
                    //Categories=categories
                }, new Product()
                {
@@ -68,6 +69,7 @@ namespace Project.Data.Extensions
                    Price = 200000,
                    Stock = 0,
                    ViewCount = 0,
+                   IsFeatured = true
                    //Categories = categories
                }, new Product()
                     {
@@ -79,6 +81,7 @@ namespace Project.Data.Extensions
                         Price = 200000,
                         Stock = 0,
                         ViewCount = 0,
+                        IsFeatured = true
                    //Categories = categories
                }, new Product()
                {
@@ -90,6 +93,7 @@ namespace Project.Data.Extensions
                    Price = 200000,
                    Stock = 0,
                    ViewCount = 0,
+                   IsFeatured = true
                    //Categories = categories
                });
             modelBuilder.Entity("CategoryProduct").HasData(
@@ -292,6 +296,23 @@ namespace Project.Data.Extensions
                 ClaimType = "permission",
                 ClaimValue = "manage.user"
             }) ;
+            modelBuilder.Entity<Cart>().HasData(new Cart()
+            {
+                Id=1,
+                UserId= "11BD711F-9506-45BA-B5B7-F00649BE00DE",
+                ProductId=-2,
+                Quantity=2,
+                Price=20000,
+                DateCreated=DateTime.Now
+            }, new Cart()
+            {
+                Id = 1,
+                UserId = "11BD711F-9506-45BA-B5B7-F00649BE00DE",
+                ProductId = -1,
+                Quantity = 2,
+                Price = 20000,
+                DateCreated = DateTime.Now
+            });
             /*
             // any guid
             var roleId = new Guid("8D04DCE2-969A-435D-BBA4-DF3F325983DC");

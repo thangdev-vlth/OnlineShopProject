@@ -1,20 +1,4 @@
 ﻿jQuery(function ($) {
-    //$("#btnsubmit").click(function (e) {
-        
-    //    //Serialize the form datas.   
-    //    var valdata = $("#updateProductForm").serialize();
-        
-    //    //to get alert popup   
-    //    $.ajax({
-    //        url: "/Products/Update",
-    //        data: valdata,
-    //        dataType: "json",
-    //        type: "POST",
-    //        success: function (response) {
-    //            alert(1);
-    //        }
-    //    });
-    //});   
     $(document).on("submit", "form", function (event) {
         event.preventDefault();
         var data = new FormData(this);
@@ -26,14 +10,13 @@
             processData: false,
             contentType: false,
             success: function (data, status) {
-                console.log("ábdhjabshjbasdhbashjb");
+                
                 window.parent.location.reload();
                 window.close();
             },
             error: function (xhr, desc, err) {
                 console.log("action: " + $(this).attr("action"));
                 console.log("type: " + $(this).attr("method"));
-                
                 alert(data);
             }
         });
@@ -62,7 +45,6 @@
     $(window).on('resize load', adjustIframes);
 });*/
 jQuery(function ($) {
-    
     $(".assignRequest").click(function (e) {
         event.preventDefault(); 
         var targetBtn = $(this);

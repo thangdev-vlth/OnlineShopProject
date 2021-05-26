@@ -14,14 +14,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Project.Application\Project.Application.csproj" />
     <ProjectReference Include="..\Project.Data\Project.Data.csproj" />
     <ProjectReference Include="..\Project.ViewModels\Project.ViewModels.csproj" />
-    <ProjectReference Include="..\Project.WebApp\Project.WebApp.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Area\" />
     <Folder Include="wwwroot\user-content\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Areas\Identity\Pages\Account\Manage\ChangePassword - Copy.cshtml.cs">
+      <DependentUpon>ChangePassword.cshtml.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>
