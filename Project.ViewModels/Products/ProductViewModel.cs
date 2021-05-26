@@ -18,7 +18,7 @@ namespace Project.ViewModels.Products
         public int ViewCount { set; get; }
         public DateTime DateCreated { set; get; }
 
-       
+        public string price { get; set; }
         public int sold { get; set; }
         [Display(Name = "Tên Sản phẩm")]
         public string Name { set; get; }

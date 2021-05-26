@@ -88,9 +88,9 @@
                                 <i class="fa fa-heart"></i>
                                 <span>(0)</span>
                             </a>
-                            <a href="cart.html" class="btn cart">
+                            <a asp-controller="Cart" asp-action="Index" class="btn cart">
                                 <i class="fa fa-shopping-cart"></i>
-                                <span>(0)</span>
+                                <span id="lbl_number_of_items">(0)</span>
                             </a>
                         </div>
                     </div>
@@ -110,10 +110,10 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget">
-                        <h2>Get in Touch</h2>
+                        <h2>Liên Hệ Cửa Hàng</h2>
                         <div class="contact-info">
                             <p><i class="fa fa-map-marker"></i>123 E Store, Los Angeles, USA</p>
-                            <p><i class="fa fa-envelope"></i>email@example.com</p>
+                            <p><i class="fa fa-envelope"></i>project.contact.vtc@gmail.com</p>
                             <p><i class="fa fa-phone"></i>+123-456-7890</p>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget">
-                        <h2>Follow Us</h2>
+                        <h2>Theo Dõi Chúng Tôi</h2>
                         <div class="contact-info">
                             <div class="social">
                                 <a href=""><i class="fab fa-twitter"></i></a>
@@ -136,22 +136,22 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget">
-                        <h2>Company Info</h2>
+                        <h2>Cửa Hàng</h2>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Condition</a></li>
+                            <li><a href="#">Về Chúng Tôi</a></li>
+                            <li><a href="#">Chính Sách</a></li>
+                            <li><a href="#">Điều Khoản Sử Dụng</a></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget">
-                        <h2>Purchase Info</h2>
+                        <h2>Thông tin thanh toán</h2>
                         <ul>
-                            <li><a href="#">Pyament Policy</a></li>
-                            <li><a href="#">Shipping Policy</a></li>
-                            <li><a href="#">Return Policy</a></li>
+                            <li><a href="#">Chính Sách Thanh Toán</a></li>
+                            <li><a href="#">Chính Sách Vận Chuyển</a></li>
+                            <li><a href="#">Chính Sách Hoàn Trả</a></li>
                         </ul>
                     </div>
                 </div>
@@ -200,9 +200,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="/Client/lib/easing/easing.min.js"></script>
     <script src="/Client/lib/slick/slick.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="/Client/js/site.js"></script>
     <!-- Template Javascript -->
     <script src="/Client/js/main.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        var site = new SiteController();
+        site.initialize();
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

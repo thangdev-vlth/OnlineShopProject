@@ -15,5 +15,7 @@ namespace Project.AdminApp.Models
         public List<ProductViewModel> FeaturedProducts { get; set; }
 
         public List<ProductViewModel> LatestProducts { get; set; }
+        public ProductViewModel LandingProduct { get; set; }
+        public List<ProductViewModel> RelatedProducts { get; set; }
     }
 }

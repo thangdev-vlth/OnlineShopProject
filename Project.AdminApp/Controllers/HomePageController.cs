@@ -64,9 +64,14 @@ namespace Project.AdminApp.Controllers
         [HttpGet]
         public async Task<IActionResult> ProductDetail(int id)
         {
-            var result = await _productService.GetById(id);
-            result.status = result.productStatus.DisplayName();
-            return View(result);
+            var viewModel = new HomeViewModel
+            {
+                LandingProduct = await _productService.GetById(id)
+                
+            };
+
+            
+            return View(viewModel);
         }
     }
 }

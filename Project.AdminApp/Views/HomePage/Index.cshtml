@@ -187,7 +187,7 @@
     <div class="container-fluid">
         <div class="row align-items-center">
             <div class="col-md-6">
-                <h1>call us for any queries</h1>
+                <h1>Hãy Gọi Cho Chúng Tôi Để Được Tư Vấn</h1>
             </div>
             <div class="col-md-6">
                 <a href="tel:0389303301">+012-345-6789</a>
@@ -200,7 +200,7 @@
 <div class="featured-product product">
     <div class="container-fluid">
         <div class="section-header">
-            <h1>Featured Product</h1>
+            <h1>Sản Phẩm Nổi Bật</h1>
         </div>
         <div class="row align-items-center product-slider product-slider-4">
             @foreach (var item in Model.FeaturedProducts)
@@ -223,13 +223,13 @@
                                 <img src="@item.ThumbnailImage" alt="Product Image">
                             </a>
                             <div class="product-action">
-                                <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                <a class="btn btn-add-cart" data-id="@item.Id" href=""><i class="fa fa-cart-plus"></i></a>
                                 <a asp-action="ProductDetail" asp-controller="HomePage" asp-route-id="@item.Id"><i class="fa fa-info-circle"></i></a>
                                 <a href="#"><i class="fa fa-search"></i></a>
                             </div>
                         </div>
                         <div class="product-price">
-                            <h3>@item.Price</h3>
+                            <h3>@item.price</h3>
                             <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
                         </div>
                     </div>
@@ -246,7 +246,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-                <h1>Subscribe Our Newsletter</h1>
+                <h1>Đăng Kí Để Nhận Được Nhiều Thông Tin Ưu Đãi</h1>
             </div>
             <div class="col-md-6">
                 <div class="form">
@@ -262,7 +262,7 @@
 <div class="recent-product product">
     <div class="container-fluid">
         <div class="section-header">
-            <h1>Recent Product</h1>
+            <h1>Sản Phẩm Mới</h1>
         </div>
         <div class="row align-items-center product-slider product-slider-4">
             @foreach (var item in Model.LatestProducts)
@@ -291,7 +291,7 @@
                             </div>
                         </div>
                         <div class="product-price">
-                            <h3>@item.Price</h3>
+                            <h3>@item.price</h3>
                             <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
                         </div>
                     </div>

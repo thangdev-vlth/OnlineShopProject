@@ -83,7 +83,6 @@ namespace Project.AdminApp.Controllers
         {
             var result = await _productService.GetById(id);
             result.status = result.productStatus.DisplayName();
-           
             return View(result);
         }
         [HttpGet]
@@ -144,6 +143,62 @@ namespace Project.AdminApp.Controllers
         {
             var result = await _productService.UnAssignCategory(productId, categoryId);
             return Json(new { result = "true", method = "unassign" });
+        }
+        [HttpGet]
+        public  IActionResult AddImage(int productId)
+        {
+            ViewBag.ProductId = productId;
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddImages([FromForm] ProductUpdateRequest request)
+        {
+            if (!ModelState.IsValid)
+                return View();
+            if (request.Images.Count==0)
+            {
+                ModelState.AddModelError("", "Ảnh Trống!");
+                return View();
+            }
+            var result = await _productService.AddImages(request);
+            if (result.IsSuccessed)
+            {
+                TempData["result"] = "Tải Ảnh Lên Thành Công thành công";
+                return RedirectToAction("Detail",new {id= request.Id });
+            }
+
+            ModelState.AddModelError("", "Tải ảnh lên thất bại");
+            //return View(request);
+            return View();
+        }
+        [HttpGet]
+        public  IActionResult ManageImage(int productId)
+        {
+            ViewBag.ProductId = productId;
+
+            return View();
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetListImage(int productId)
+        {
+            ViewBag.ProductId = productId;
+            var result = await _productService.GetAllImageAsync(productId);
+            if (result.IsSuccessed)
+            {
+                return Ok(result.ResultObj);
+            }
+            return NoContent();
+        }
+        [HttpPost]
+        public async Task<JsonResult> RemoveImgAsync(int productId,int imgId)
+        {
+            ViewBag.ProductId = productId;
+            var result = await _productService.RemoveImageAsync(productId,imgId);
+            if (result.IsSuccessed)
+            {
+                return Json(new { result = "success", id = productId, imgid = imgId }); ;
+            }
+            return Json(new { result = "fasle",id= productId,imgid=imgId}); 
         }
     }
 }

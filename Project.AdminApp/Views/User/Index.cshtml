@@ -5,78 +5,83 @@
 @{
 
 }
+<main>
+    <div class="container-fluid" style="background:white">
+        <div class="container-fluid d-inline-flex justify-content-center mb-3"> <h2>Danh Sách Tải Khoản</h2></div>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
 
-    <main>
-        <div class="container-fluid">
-            <h1 class="mt-4">Quản Lí Tài Khoản</h1>
-            <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item active">Dòng này chưa có ý tưởng ^^</li>
-            </ol>
-            <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-table mr-1"></i>
-                    DataTable Example
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="background-color:white;color:black">
-                            <thead>
-                                <tr>
-                                
-                                    
-                                    <th>UserName</th>
-                                    <th>Email</th>
-                                    <th>PhoneNumber</th>
-                                    <th>Address</th>
-                                    <th>Fullname</th>
-                                    <th>Birthday</th>
-                                </tr>
-                                
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    
-                                    <th>UserName</th>
-                                    <th>Email</th>
-                                    <th>PhoneNumber</th>
-                                    <th>Address</th>
-                                    <th>Fullname</th>
-                                    <th>Birthday</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                
-                                @foreach (var item in Model.Items)
-                                {
-                                    <tr>
-                                        
-                                        <td>
-                                            @Html.ActionLink(item.UserName, "Details", new { id = item.Id, role = ViewData["role"] })
-                                            
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Email)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.PhoneNumber)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Address)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Fullname)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.Birthday)
-                                        </td>
-                                        
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+        </ol>
+        <partial name="_StatusMessage" model="@TempData["result"]" />
+        <form >
+
+            <div class="row container d-inline-flex justify-content-around mb-4 ">
+                <a class="btn btn-success mr-5  mb-2" onclick='alert("Tính Năng Này Chưa Được Phát triển!")'>Tạo mới</a>
+                
+                <input id="product-name-target" name="keyword" placeholder="Tên tài khoản" value=@ViewBag.keyword class="mr-3 col-12 col-md-3 col-lg-2 mb-2">
+                <input id="product-name-target" name="keyword" placeholder="email" value=@ViewBag.keyword class="mr-3 col-12 col-md-3 col-lg-2 mb-2">
+                
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <button  class="btn btn-danger  mb-2" onclick='alert("Tính Năng Này Chưa Được Phát triển!")'>Lọc</button>
             </div>
+        </form>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Tên Tài Khoản</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Số Điện Thoại</th>
+                    <th scope="col">Tên Người Dùng</th>
+                    <th scope="col">Birthday</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.ActionLink(item.UserName, "Details", new { id = item.Id, role = ViewData["role"] }, new { @class = "openIframeDetail" })
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fullname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Birthday)
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="row container d-inline-flex justify-content-end mb-4">
+            @await Component.InvokeAsync("Pager", Model)
         </div>
-    </main>
-     
+    </div>
+</main>
+
+
+</div>
+@section Scripts{
+    <script type='text/javascript' src='/js/jquery.simplemodal.js'></script>
+    <script type='text/javascript' src='/js/basic.js'></script>
+
+
+}
+@section Css{
+    <link type='text/css' href='/css/basic.css' rel='stylesheet' media='screen' />
+}
+
+
+

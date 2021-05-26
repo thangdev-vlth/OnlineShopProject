@@ -12,6 +12,7 @@ using Project.Application.Catalog.Products;
 using Project.Application.Catalog.Users;
 using Project.Application.Common;
 using Project.Application.Mail;
+using Project.Application.Sales;
 using Project.Data.EF;
 using Project.Data.Entities;
 using System;
@@ -89,9 +90,13 @@ namespace Project.AdminApp
             });
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<ICartService, CartService>();
             services.AddTransient<IStorageService, FileStorageService>();
             //sadhbashjdbasbhdasbj
-            
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+            });
             services.AddAuthentication().AddGoogle(googleOptions => {
                 //doc thong tin Authentication:Google tu appsettings.json
                 IConfigurationSection googleAuthNSection = Configuration.GetSection("Authentication:Google");
@@ -149,7 +154,7 @@ namespace Project.AdminApp
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
@@ -157,7 +162,7 @@ namespace Project.AdminApp
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=HomePage}/{action=Index}/{id?}");
+                    pattern: "{controller=Homepage}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
