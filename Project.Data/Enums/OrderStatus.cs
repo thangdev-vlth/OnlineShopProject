@@ -6,8 +6,9 @@ namespace Project.Data.Enums
 {
     public enum OrderStatus
     {
-        InProgress,
+        New,
         Confirmed,
+        InProgress,
         Shipping,
         Success,
         Canceled

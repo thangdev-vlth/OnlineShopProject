@@ -15,6 +15,11 @@ namespace Project.Data.Entities
         public string ShipEmail { set; get; }
         public string ShipPhoneNumber { set; get; }
         public OrderStatus Status { set; get; }
+        public string CityId { get; set; }
+        public string DistricstId { get; set; }
+        public string WardsId { get; set; }
+        public string CustomerNote { get; set; }
+        public string StaffNote { get; set; }
 
         public List<OrderDetail> OrderDetails { get; set; }
 

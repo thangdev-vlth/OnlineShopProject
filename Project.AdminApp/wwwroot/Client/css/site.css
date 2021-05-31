@@ -69,3 +69,90 @@ body {*/
   white-space: nowrap;
   line-height: 60px;*/ /* Vertically center the text there */
 /*}*/
+.address__heading--flex {
+    display: flex;
+    flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    font-size:15px;
+}
+b.name::after {
+    content: "";
+    width: 1px;
+    height: 15px;
+    background: rgb(224, 224, 224);
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.new a {
+    background-color: rgb(255, 255, 255);
+    font-size: 15px;
+    height: 60px;
+    border: 1px dashed rgb(216, 216, 216);
+    margin: 0px 0px 10px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.item {
+    background-color: rgb(255, 255, 255);
+    padding: 17px;
+    border-radius: 4px;
+    margin: 0px 0px 10px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    font-size: 13px;
+    line-height: 19px;
+}
+.item .name {
+    text-transform: uppercase;
+    margin: 0px 0px 10px;
+}
+.item .name > span svg {
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        top: -1px;
+}
+.item .name > span span {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0px 0px 0px 5px;
+}
+.item .name > span {
+        
+    margin: 0px 0px 0px 15px;
+    display: inline-block;
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(38, 188, 78);
+    text-transform: none;
+}
+.address-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 0px -20px -20px;
+}
+.hheNUT {
+     position: relative;
+     flex: 1 0 40%;
+     background-color: rgb(255, 255, 255); 
+     box-shadow: none; 
+     border-radius: 3px; 
+     border: 1px dashed rgb(0, 153, 0); 
+     margin: 0px 0px 20px 20px; 
+     max-width: calc(50% - 20px); 
+     padding: 10px 15px; 
+}
+.default {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    display: block;
+    font-size: 11px;
+    color: rgb(0, 153, 0);
+}

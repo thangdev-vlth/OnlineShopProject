@@ -66,8 +66,9 @@ namespace Project.AdminApp.Controllers
         {
             var viewModel = new HomeViewModel
             {
+                LatestProducts = await _productService.GetLatestProducts(),
+                FeaturedProducts = await _productService.GetFeaturedProducts(),
                 LandingProduct = await _productService.GetById(id)
-                
             };
 
             

@@ -126,5 +126,12 @@ namespace Project.AdminApp.Controllers
             
             return View();
         }
+        [AllowAnonymous]
+        [HttpGet]
+        public async Task<IActionResult> GetAddress()
+        {
+            
+            return View();
+        }
     }
 }

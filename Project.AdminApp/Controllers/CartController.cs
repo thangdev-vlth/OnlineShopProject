@@ -1,4 +1,5 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -14,6 +15,9 @@ using Project.Application.Exceptions;
 using Project.Data.Entities;
 using Project.ViewModels.Sales;
 using Project.Application.Sales;
+using System.IO;
+using Newtonsoft.Json.Linq;
+using Project.Application.Catalog.Users;
 
 namespace Project.AdminApp.Controllers
 {
@@ -23,26 +27,40 @@ namespace Project.AdminApp.Controllers
         private readonly ICartService _cartService;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly IUserService _userService;
 
-        public CartController(IProductService productService, ICartService cartService, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public CartController(IProductService productService, ICartService cartService, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IUserService userService)
         {
             _productService = productService;
             _signInManager = signInManager;
             _userManager = userManager;
             _cartService = cartService;
+            _userService = userService;
         }
 
         public IActionResult Index()
         {
-
-
-
+            ClaimsPrincipal principal = HttpContext.User as ClaimsPrincipal;
+            var result=_userService.GetAddressCard(0,_userManager.GetUserId(principal),"active");
+            if (result.IsSuccessed)
+            {
+                return View(result.ResultObj);
+            }
             return View();
         }
 
         public IActionResult Checkout()
         {
-            return View(GetCheckoutViewModel());
+            var model = new CheckoutViewModel();
+            ClaimsPrincipal principal = HttpContext.User as ClaimsPrincipal;
+            var result = _userService.GetAddressCard(0, _userManager.GetUserId(principal), "active");
+            if (result.IsSuccessed)
+            {
+                model.addressCardViewModel = result.ResultObj;
+                return View(model);
+            }
+            return View();
+
         }
 
         [HttpPost]
@@ -77,12 +95,12 @@ namespace Project.AdminApp.Controllers
             var session = HttpContext.Session.GetString(SystemConstants.CartSession);
             CartViewModel currentCart = new CartViewModel();
             ClaimsPrincipal principal = HttpContext.User as ClaimsPrincipal;
-            var result=_signInManager.IsSignedIn(principal);
+            var result = _signInManager.IsSignedIn(principal);
             if (result)//đã đăng nhập thì lấy cart ở trong db rồi đồng bộ với cart trong session
             {
                 //xử lí lấy cart từ db, 
                 var userid = _userManager.GetUserId(principal);
-                var getCartResult= _cartService.GetCart(userid);
+                var getCartResult = _cartService.GetCart(userid);
                 //end request db-cart
                 //get cart from sesion
                 CartViewModel SessionCart = new CartViewModel();
@@ -92,7 +110,7 @@ namespace Project.AdminApp.Controllers
                 if (getCartResult.IsSuccessed)
                 {
                     var UserCart = getCartResult.ResultObj;
-                    if (SessionCart.cartItem!=null)
+                    if (SessionCart.cartItem != null)
                     {
                         bool exist;
                         foreach (var sessionItem in SessionCart.cartItem)
@@ -150,15 +168,15 @@ namespace Project.AdminApp.Controllers
             }
             //ábdhjasbhjasbdhjasbdbasbhj
             int quantity = 1;
-            if (currentCart.cartItem.Any(x => x.ProductId == id))
+            if (currentCart.cartItem != null && currentCart.cartItem.Any(x => x.ProductId == id))
             {
-                currentCart.cartItem.First(x => x.ProductId == id).Quantity +=1;
+                currentCart.cartItem.First(x => x.ProductId == id).Quantity += 1;
                 if (signIn)
                 {
                     var request = new CartUpdateRequest()
                     {
                         id = currentCart.id,
-                        productId =id,
+                        productId = id,
                         Quantity = currentCart.cartItem.First(x => x.ProductId == id).Quantity,
                         UserId = _userManager.GetUserId(principal)
                     };
@@ -186,14 +204,14 @@ namespace Project.AdminApp.Controllers
                         productId = id,
                         Quantity = 1,
                         UserId = _userManager.GetUserId(principal),
-                        principal=principal,
+                        principal = principal,
                         Price = product.Price
                     };
                     _cartService.AddNewItemToCart(request);
                     return Ok(currentCart.cartItem);
                 }
             }
-            HttpContext.Session.SetString(SystemConstants.CartSession, JsonConvert.SerializeObject(currentCart));
+            HttpContext.Session.SetString(SystemConstants.CartSession, JsonConvert.SerializeObject(currentCart.cartItem));
             return Ok(currentCart.cartItem);
 
         }
@@ -206,7 +224,7 @@ namespace Project.AdminApp.Controllers
             CartViewModel currentCart = new CartViewModel();
             if (session != null)
                 currentCart.cartItem = JsonConvert.DeserializeObject<List<CartItemViewModel>>(session);
-            
+
             if (signIn)
             {
                 //xử lí lấy cart từ db, 
@@ -218,7 +236,7 @@ namespace Project.AdminApp.Controllers
                     currentCart = getCartResult.ResultObj;
                 }
             }
-            
+
             foreach (var item in currentCart.cartItem)
             {
                 if (item.ProductId == id)
@@ -240,10 +258,10 @@ namespace Project.AdminApp.Controllers
                         _cartService.UpdateQuantityInCart(request);
                         return Ok(currentCart);
                     }
-                    
+                    break;
                 }
             }
-            HttpContext.Session.SetString(SystemConstants.CartSession, JsonConvert.SerializeObject(currentCart));
+            HttpContext.Session.SetString(SystemConstants.CartSession, JsonConvert.SerializeObject(currentCart.cartItem));
             return Ok(currentCart);
         }
 
@@ -260,6 +278,27 @@ namespace Project.AdminApp.Controllers
             };
             return checkoutVm;
         }
-        
+
+        public IActionResult SelectAddressCard()
+        {
+            ClaimsPrincipal principal = HttpContext.User as ClaimsPrincipal;
+
+            var result = _userService.GetAddressCard(_userManager.GetUserId(principal),"status");
+            if (result.IsSuccessed)
+            {
+                return View(result.ResultObj);
+            }
+            return View();
+        }
+        public IActionResult SetActiveAddressCard(int AddressCardId) {
+
+            var result=_userService.SetActiveAddressCard(AddressCardId);
+            if (result.IsSuccessed)
+            {
+                return RedirectToAction("checkout");
+            }
+            TempData["result"] = "Error : Đã có lỗi xảy ra, vui lòng thử lại! ";
+            return RedirectToAction("SelectAddressCard");
+        }
     }
 }

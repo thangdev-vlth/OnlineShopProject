@@ -91,6 +91,7 @@ namespace Project.AdminApp
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<ICartService, CartService>();
+            
             services.AddTransient<IStorageService, FileStorageService>();
             //sadhbashjdbasbhdasbj
             services.AddSession(options =>

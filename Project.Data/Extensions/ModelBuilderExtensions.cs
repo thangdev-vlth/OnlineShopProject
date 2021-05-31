@@ -5,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
+using Newtonsoft.Json;
+using System.Linq;
 
 namespace Project.Data.Extensions
 {
@@ -35,7 +38,8 @@ namespace Project.Data.Extensions
                      Name = "Áo nam",
                      Description = "Sản phẩm áo thời trang nam",
 
-                 }, new Category()
+                 }, 
+                  new Category()
                  {
                      Id = 3,
                      IsShowOnHome = false,
@@ -59,7 +63,8 @@ namespace Project.Data.Extensions
                    ViewCount = 0,
                    IsFeatured=true
                    //Categories=categories
-               }, new Product()
+               }, 
+               new Product()
                {
                    Id = 2,
                    DateCreated = DateTime.Now,
@@ -71,7 +76,8 @@ namespace Project.Data.Extensions
                    ViewCount = 0,
                    IsFeatured = true
                    //Categories = categories
-               }, new Product()
+               }, 
+               new Product()
                     {
                         Id = -1,
                         DateCreated = DateTime.Now,
@@ -83,7 +89,8 @@ namespace Project.Data.Extensions
                         ViewCount = 0,
                         IsFeatured = true
                    //Categories = categories
-               }, new Product()
+               }, 
+               new Product()
                {
                    Id = -2,
                    DateCreated = DateTime.Now,
@@ -103,7 +110,6 @@ namespace Project.Data.Extensions
                       new Dictionary<string, object> { ["ProductsId"] = -1, ["CategoriesId"] = 1 },
                       new Dictionary<string, object> { ["ProductsId"] = -1, ["CategoriesId"] = 2 }
                     );
-
 
             //8D04DCE3-969A-435D-BBA4-DF3F325983DC
             //// any guid
@@ -313,40 +319,136 @@ namespace Project.Data.Extensions
                 Price = 20000,
                 DateCreated = DateTime.Now
             });
-            /*
-            // any guid
-            var roleId = new Guid("8D04DCE2-969A-435D-BBA4-DF3F325983DC");
-            var adminId = new Guid("69BD714F-9576-45BA-B5B7-F00649BE00DE");
-            var hasher = new PasswordHasher<AppUser>();
-            modelBuilder.Entity<AppUser>().HasData(new AppUser
+            
+            
+            //seed data for address
+            string json = string.Empty;
+            // read json string from file
+            using (StreamReader reader = new StreamReader("data.json"))
             {
-                Id = adminId,
-                UserName = "admin",
-                NormalizedUserName = "admin",
-                Email = "tedu.international@gmail.com",
-                NormalizedEmail = "tedu.international@gmail.com",
-                EmailConfirmed = true,
-                PasswordHash = hasher.HashPassword(null, "Abcd1234$"),
-                SecurityStamp = string.Empty,
-                FirstName = "Toan",
-                LastName = "Bach",
-                Dob = new DateTime(2020, 01, 31)
-            });
-
-            modelBuilder.Entity<IdentityUserRole<Guid>>().HasData(new IdentityUserRole<Guid>
+                json = reader.ReadToEnd();
+            }
+            List<City> cities = new List<City>();
+            var obj = JsonConvert.DeserializeObject<dynamic>(json);
+            int fuck = 1;
+            List<int> fuckLife = new List<int>();
+            List<Ward> DeadWard = new List<Ward>();
+            foreach (var cityite in obj)
             {
-                RoleId = roleId,
-                UserId = adminId
-            });
+                var city = new City();
+                city.CityId = cityite["Id"];
+                city.Name = cityite["Name"];
+                //seed data for city
+                modelBuilder.Entity<City>().HasData(new City
+                {
+                    CityId = city.CityId,
+                    Name = city.Name
+                });
+                //end seed for city
+                var JDistricts = cityite["Districts"];//danh sách các phường/huyện của tỉnh dạng Json
 
-            modelBuilder.Entity<Slide>().HasData(
-              new Slide() { Id = 1, Name = "Second Thumbnail label", Description = "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.", SortOrder = 1, Url = "#", Image = "/themes/images/carousel/1.png", Status = Status.Active },
-              new Slide() { Id = 2, Name = "Second Thumbnail label", Description = "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.", SortOrder = 2, Url = "#", Image = "/themes/images/carousel/2.png", Status = Status.Active },
-              new Slide() { Id = 3, Name = "Second Thumbnail label", Description = "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.", SortOrder = 3, Url = "#", Image = "/themes/images/carousel/3.png", Status = Status.Active },
-              new Slide() { Id = 4, Name = "Second Thumbnail label", Description = "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.", SortOrder = 4, Url = "#", Image = "/themes/images/carousel/4.png", Status = Status.Active },
-              new Slide() { Id = 5, Name = "Second Thumbnail label", Description = "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.", SortOrder = 5, Url = "#", Image = "/themes/images/carousel/5.png", Status = Status.Active },
-              new Slide() { Id = 6, Name = "Second Thumbnail label", Description = "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.", SortOrder = 6, Url = "#", Image = "/themes/images/carousel/6.png", Status = Status.Active }
-              );*/
+                List<District> Districts = new List<District>();
+                foreach (var districtIte in JDistricts)
+                {
+                    var district = new District();
+                    district.CityId = city.CityId;
+                    district.Id = districtIte["Id"];
+                    district.Name = districtIte["Name"];
+                    //seed data for district
+                    modelBuilder.Entity<District>().HasData(new District
+                    {
+                        CityId = district.CityId,
+                        Id = district.Id,
+                        Name = district.Name
+                    });
+                    //end seed for dustrict
+                    var JWards = districtIte["Wards"];//danh sách huyện/xã/tt của huyện dạng Json
+                    List<Ward> Wards = new List<Ward>();
+                    
+                    foreach (var wardite in JWards)
+                    {
+                        Ward ward = new Ward();
+                        ward.CityId = city.CityId;
+                        ward.DistrictId = district.Id;
+                        ward.Id = wardite["Id"];
+                        ward.Name = wardite["Name"];
+                        ward.Level = wardite["Level"];
+                        //duyệt xong 1 huyện/xã/thị trấn
+                        Wards.Add(ward);//thêm vào danh sách xã/thị trấn của 1 huyện
+                        //seed data ward
+                            modelBuilder.Entity<Ward>().HasData(new Ward
+                            {
+                                CityId = ward.CityId,
+                                DistrictId = ward.DistrictId,
+                                Id = ward.Id??(fuck++).ToString(),
+                                Name = ward.Name,
+                                Level = ward.Level,
+                            });
+                        if (!fuckLife.Any(x=>x==fuck))
+                        {
+                            fuckLife.Add(fuck);
+                            DeadWard.Add(ward);
+                        }
+                        //end seed ward
+                    }
+                    district.Wards = Wards;//gắn vào danh sách xã/tt của huyện
+                    Districts.Add(district);//thêm vào danh sách huyện  của tỉnh
+                    
+                }
+                city.Districts = Districts;//gắn vào  danh sách  huyện của tỉnh
+                cities.Add(city);//thêm thành phố/tỉnh này vào danh sách các thành phố tỉnh của quốc gia
+                
+            }
+            var count = cities.Count();//đếm thành phố
+            //end seed for address
+            //seed data for address card
+            modelBuilder.Entity<Address>().HasData(new Address()
+            {
+                AddressCardId=1,
+                UserId = "11BD711F-9506-45BA-B5B7-F00649BE00DE",
+                CityId= "01",
+                City= "Thành phố Hà Nội",
+                DistricstId="008",
+                Districst= "Quận Hoàng Mai",
+                WardsId= "00322",
+                Ward= "Phường Hoàng Văn Thụ",
+                FullName="Nguyễn Quyết Thắng",
+                phoneNumber="0328025122",
+                address="353 Đường Tam Trinh",
+                status=0,
+                isDefault=true
+            });
+            modelBuilder.Entity<OrderDetail>().HasData(new OrderDetail()
+            {
+                OrderId = 1,
+                ProductId = -2,
+                Quantity = 2,
+                Price = 20000,
+                size = "M"
+
+            }, new OrderDetail()
+            {
+                OrderId = 1,
+                ProductId = -1,
+                Quantity = 2,
+                Price = 20000,
+                size = "M"
+
+            });
+            modelBuilder.Entity<Order>().HasData(new Order()
+            {
+                Id = 1,
+                OrderDate = DateTime.Now,
+                UserId = "11BD711F-9506-45BA-B5B7-F00649BE00DE",
+                ShipName = "Nguyễn Quyết Thắng",
+                ShipAddress = "353 Đường Tam Trinh",
+                ShipEmail = "rawaccountstaff0@gmail.com",
+                ShipPhoneNumber = "0328025122",
+                Status = OrderStatus.New,
+                CityId = "01",
+                DistricstId = "008",
+                WardsId = "00322"
+            });
         }
     }
 }

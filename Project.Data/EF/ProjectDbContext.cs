@@ -22,6 +22,10 @@ namespace Project.Data.EF
         public DbSet<Cart> Carts { get; set; }
 
         public DbSet<Order> Orders { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<District> Districts { get; set; }
+        public DbSet<Ward> Wards { get; set; }
+        public DbSet<Address> Addresses { get; set; }
 
         public DbSet<OrderDetail> OrderDetails { get; set; }
 
@@ -34,9 +38,11 @@ namespace Project.Data.EF
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
             modelBuilder.ApplyConfiguration(new ProductImageConfiguration());
-           
+            modelBuilder.ApplyConfiguration(new CityConfiguration());
+            modelBuilder.ApplyConfiguration(new DistrictConfiguration());
+            modelBuilder.ApplyConfiguration(new WardConfiguration());
             modelBuilder.ApplyConfiguration(new CartConfiguration());
-            
+            modelBuilder.ApplyConfiguration(new AddressConfiguration());
             modelBuilder.ApplyConfiguration(new ReviewConfiguration());
             modelBuilder.Seed();
             base.OnModelCreating(modelBuilder);

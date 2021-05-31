@@ -81,7 +81,7 @@ namespace Project.Application.Catalog.Products
         {
             var product = await _context.Products.FindAsync(productId);
             var categories = _context.Products.Where(c => c.Id == productId).SelectMany(c => c.Categories);
-            var productImages = _context.Products.Where(c => c.Id == productId).SelectMany(c => c.ProductImages);
+            var productImages = _context.ProductImages.Where(c => c.ProductId == productId);
 
             var image = await _context.ProductImages.Where(x => x.ProductId == productId && x.IsDefault == true).FirstOrDefaultAsync();
 
@@ -331,6 +331,7 @@ namespace Project.Application.Catalog.Products
                 Description = p.Description,
                 Details = p.Details,
                 sold = p.sold,
+                ThumbnailImage= p.ProductImages.Where(img=> img.IsDefault==true).Select(img=>img.ImagePath).First(),
                 ProductImages = p.ProductImages.Select(image => new ProductImageViewModel()
                 {
                     Caption = image.Caption,
@@ -373,6 +374,7 @@ namespace Project.Application.Catalog.Products
                 Description = p.Description,
                 Details = p.Details,
                 sold = p.sold,
+                ThumbnailImage = p.ProductImages.Where(img => img.IsDefault == true).Select(img => img.ImagePath).First(),
                 ProductImages = p.ProductImages.Select(image => new ProductImageViewModel()
                 {
                     Caption = image.Caption,
