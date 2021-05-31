@@ -15,6 +15,7 @@ namespace Project.Areas.Identity.Pages.Account.Manage
         public static string Order => "Order";
 
         public static string ChangePassword => "ChangePassword";
+        public static string Address => "Address";
 
         public static string DownloadPersonalData => "DownloadPersonalData";
 
@@ -31,6 +32,7 @@ namespace Project.Areas.Identity.Pages.Account.Manage
         public static string EmailNavClass(ViewContext viewContext) => PageNavClass(viewContext, Email);
         public static string NotifycationNavClass(ViewContext viewContext) => PageNavClass(viewContext, Notifycation);
         public static string OrderNavClass(ViewContext viewContext) => PageNavClass(viewContext, Order);
+        public static string AddressNavClass(ViewContext viewContext) => PageNavClass(viewContext, Address);
 
         public static string ChangePasswordNavClass(ViewContext viewContext) => PageNavClass(viewContext, ChangePassword);
 

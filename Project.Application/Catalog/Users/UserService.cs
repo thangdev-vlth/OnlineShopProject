@@ -2,8 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using Project.Data.EF;
 using Project.Data.Entities;
+using Project.Data.Enums;
 using Project.ViewModels.common;
 using Project.ViewModels.User;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -87,5 +90,237 @@ namespace Project.Application.Catalog.Users
             }
             return false;
         }
+        public RequestResult<List<AddressCardViewModel>> GetAddressCard(string userId, string orderby = null)
+        {
+            try
+            {
+                var AddrCards = _projectDbContext.Addresses.Where(addr => addr.UserId == userId).OrderByDescending(addr=>addr.isDefault);
+                if (orderby != null)
+                {
+                    if (orderby=="status")
+                    {
+                        AddrCards= _projectDbContext.Addresses.Where(addr => addr.UserId == userId).OrderBy(addr => addr.status);
+                    }
+                }
+                var AddressCard =AddrCards.Select(AddrCard=>new AddressCardViewModel()
+                {
+                    AddressCardId=AddrCard.AddressCardId,
+                    UserId = userId,
+                    FullName = AddrCard.FullName,
+                    phoneNumber = AddrCard.phoneNumber,
+                    address = AddrCard.address,
+                    CityId = AddrCard.CityId,
+                    City = AddrCard.City,
+                    DistricstId = AddrCard.DistricstId,
+                    Districst = AddrCard.Districst,
+                    WardsId = AddrCard.WardsId,
+                    Ward = AddrCard.Ward,
+                    status = AddrCard.status,
+                    isDefault = AddrCard.isDefault
+                }).ToList();
+
+                return new RequestSuccessResult<List<AddressCardViewModel>> (AddressCard);
+            }
+            catch (Exception e)
+            {
+                return new RequestErrorResult<List<AddressCardViewModel>> (e.Message);
+            }
+        }
+        public RequestResult<List<AddressCardViewModel>> GetActiveAddressCard(string userId)
+        {
+            try
+            {
+                var AddrCards = _projectDbContext.Addresses.Where(addr => addr.UserId == userId&& addr.status==0).OrderByDescending(addr => addr.isDefault);
+                var AddressCard = AddrCards.Select(AddrCard => new AddressCardViewModel()
+                {
+                    AddressCardId = AddrCard.AddressCardId,
+                    UserId = userId,
+                    FullName = AddrCard.FullName,
+                    phoneNumber = AddrCard.phoneNumber,
+                    address = AddrCard.address,
+                    CityId = AddrCard.CityId,
+                    City = AddrCard.City,
+                    DistricstId = AddrCard.DistricstId,
+                    Districst = AddrCard.Districst,
+                    WardsId = AddrCard.WardsId,
+                    Ward = AddrCard.Ward,
+                    status = AddrCard.status,
+                    isDefault = AddrCard.isDefault
+                }).ToList();
+
+                return new RequestSuccessResult<List<AddressCardViewModel>>(AddressCard);
+            }
+            catch (Exception e)
+            {
+                return new RequestErrorResult<List<AddressCardViewModel>>(e.Message);
+            }
+        }
+
+        public async Task<RequestResult<bool>> CreateNewAddressCardAsync(AddressCardViewModel request)
+        {
+            try
+            {
+                var ward = _projectDbContext.Wards.Where(w => w.CityId == request.CityId && w.DistrictId == request.DistricstId&&w.Id==request.WardsId).Select(w=>w.Name).First();
+                var city = _projectDbContext.Cities.Where(c => c.CityId==request.CityId).Select(c => c.Name).First();
+                var district = _projectDbContext.Districts.Where(d=> d.CityId == request.CityId&&d.Id==request.DistricstId).Select(d => d.Name).First();
+                if (request.isDefault)
+                {
+                    setDefaultAddressCardAsync(request.UserId);
+                }
+                var addressCard = new Address()
+                {
+                    UserId = request.UserId,
+                    CityId = request.CityId,
+                    City = city,
+                    DistricstId = request.DistricstId,
+                    Districst = district,
+                    WardsId = request.WardsId,
+                    Ward = ward,
+                    FullName = request.FullName,
+                    phoneNumber = request.phoneNumber,
+                    address = request.address,
+                    isDefault = request.isDefault,
+                    status=AddressStatus.Inactive
+                };
+                _projectDbContext.Addresses.Add(addressCard);
+                await _projectDbContext.SaveChangesAsync();
+               
+                return new RequestSuccessResult<bool>();
+            }
+            catch (Exception e)
+            {
+
+                return new RequestErrorResult<bool>(e.Message);
+            }
+        }
+        public bool setDefaultAddressCardAsync(string UserId)
+        {
+            try
+            {
+                var AddrCards = _projectDbContext.Addresses.Where(addr => addr.UserId == UserId);
+                foreach (var item in AddrCards)
+                {
+                    item.isDefault = false;
+                }
+                 _projectDbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                
+            }
+        }
+        public bool setInactiveAddressCardAsync(string UserId)
+        {
+            try
+            {
+                var AddrCards = _projectDbContext.Addresses.Where(addr => addr.UserId == UserId);
+                foreach (var item in AddrCards)
+                {
+                    item.status = AddressStatus.Inactive;
+                }
+                _projectDbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+
+            }
+        }
+        public async Task<RequestResult<bool>> EditAddressCardAsync(AddressCardViewModel request)
+        {
+            try
+            {
+                var ward = _projectDbContext.Wards.Where(w => w.CityId == request.CityId && w.DistrictId == request.DistricstId && w.Id == request.WardsId).Select(w => w.Name).First();
+                var city = _projectDbContext.Cities.Where(c => c.CityId == request.CityId).Select(c => c.Name).First();
+                var district = _projectDbContext.Districts.Where(d => d.CityId == request.CityId && d.Id == request.DistricstId).Select(d => d.Name).First();
+                var addrCard = _projectDbContext.Addresses.Where(addr => addr.AddressCardId == request.AddressCardId).First();
+                if (request.isDefault)
+                {
+                    setDefaultAddressCardAsync(request.UserId);
+                }
+                addrCard.CityId = request.CityId;
+                addrCard.City = city;
+                addrCard.DistricstId = request.DistricstId;
+                addrCard.Districst = district;
+                addrCard.WardsId = request.WardsId;
+                addrCard.Ward = ward;
+                addrCard.FullName = request.FullName;
+                addrCard.phoneNumber = request.phoneNumber;
+                addrCard.address = request.address;
+                addrCard.isDefault = request.isDefault;
+                _projectDbContext.SaveChanges();
+                return new RequestSuccessResult<bool>();
+            }
+            catch (Exception e)
+            {
+
+                return new RequestErrorResult<bool>(e.Message);
+            }
+        }
+
+        public RequestResult<AddressCardViewModel> GetAddressCard(int addresscardId=0, string userId=null, string condition=null)
+        {
+            try
+            {
+                var AddrCard = new Address();
+                if (addresscardId != 0)
+                {
+                    AddrCard = _projectDbContext.Addresses.Where(add => add.AddressCardId == addresscardId).First();
+                }
+                else if (addresscardId==0&& condition!=null)
+                {
+                    if (condition=="active")
+                    {
+                        AddrCard = _projectDbContext.Addresses.Where(add => add.UserId==userId&&add.status==AddressStatus.Active).First();
+                    }
+                }
+
+                
+                var result = new AddressCardViewModel()
+                {
+                    AddressCardId = AddrCard.AddressCardId,
+                    UserId = AddrCard.UserId,
+                    FullName = AddrCard.FullName,
+                    phoneNumber = AddrCard.phoneNumber,
+                    address = AddrCard.address,
+                    CityId = AddrCard.CityId,
+                    City = AddrCard.City,
+                    DistricstId = AddrCard.DistricstId,
+                    Districst = AddrCard.Districst,
+                    WardsId = AddrCard.WardsId,
+                    Ward = AddrCard.Ward,
+                    status = AddrCard.status,
+                    isDefault = AddrCard.isDefault
+                };
+
+                return new RequestSuccessResult<AddressCardViewModel>(result);
+            }
+            catch (Exception e)
+            {
+                return new RequestErrorResult<AddressCardViewModel>(e.Message);
+            }
+        }
+
+        public RequestResult<bool> SetActiveAddressCard(int addressCardId)
+        {
+            try
+            {
+                var AddressCard = _projectDbContext.Addresses.Where(x => x.AddressCardId == addressCardId).FirstOrDefault();
+                setInactiveAddressCardAsync(AddressCard.UserId);
+                AddressCard.status = AddressStatus.Active;
+                _projectDbContext.SaveChanges();
+                return new RequestSuccessResult<bool>();
+            }
+            catch (Exception e)
+            {
+
+                return new RequestErrorResult<bool>(e.Message);
+            }
+        }
+
+       
     }
 }
