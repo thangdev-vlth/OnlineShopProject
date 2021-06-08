@@ -13,7 +13,7 @@ namespace Project.Application.Catalog.Products
     {
         Task<RequestResult<bool>> Create(ProductCreateRequest request);
         Task<PageResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request);
-
+        string getThumnailImg(int productId);
         Task<ProductViewModel> GetById(int productId);
         Task<bool> UpdateProduct(ProductUpdateRequest request);
         Task<RequestResult<bool>> AssignCategory(int productId,int CategoryId );

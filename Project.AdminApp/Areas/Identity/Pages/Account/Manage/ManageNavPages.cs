@@ -11,7 +11,7 @@ namespace Project.Areas.Identity.Pages.Account.Manage
         public static string Index => "Index";
 
         public static string Email => "Email";
-        public static string Notifycation => "Notifycation";
+        public static string Notification => "Notification";
         public static string Order => "Order";
 
         public static string ChangePassword => "ChangePassword";
@@ -30,7 +30,7 @@ namespace Project.Areas.Identity.Pages.Account.Manage
         public static string IndexNavClass(ViewContext viewContext) => PageNavClass(viewContext, Index);
 
         public static string EmailNavClass(ViewContext viewContext) => PageNavClass(viewContext, Email);
-        public static string NotifycationNavClass(ViewContext viewContext) => PageNavClass(viewContext, Notifycation);
+        public static string NotificationNavClass(ViewContext viewContext) => PageNavClass(viewContext, Notification);
         public static string OrderNavClass(ViewContext viewContext) => PageNavClass(viewContext, Order);
         public static string AddressNavClass(ViewContext viewContext) => PageNavClass(viewContext, Address);
 

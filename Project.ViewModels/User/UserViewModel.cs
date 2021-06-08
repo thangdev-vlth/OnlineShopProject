@@ -30,6 +30,7 @@ namespace Project.ViewModels.User
         [Display(Name ="Trạng thái kích hoạt")]
         public string EmailConfirmed { get; set; }
         public string Disable { get; set; }
+        public int totalOrder { get; set; }
         /*
 Id
 UserName

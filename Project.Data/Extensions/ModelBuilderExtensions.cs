@@ -20,36 +20,44 @@ namespace Project.Data.Extensions
             modelBuilder.Entity<Category>().HasData(
                 new Category()
                 {
-                    Id = 1,
+                    Id = -1,
                     IsShowOnHome = true,
                     ParentId = null,
                     SortOrder = 1,
                     Status = Status.Active,
-                    Name = "Áo nữ",
-                    Description = "Sản phẩm áo thời trang nam",
-                },
-                 new Category()
+                    Name = "Jean",
+                    Description = "Jean",
+                },new Category()
                  {
-                     Id = 2,
+                     Id = -2,
                      IsShowOnHome = true,
                      ParentId = null,
                      SortOrder = 2,
                      Status = Status.Active,
-                     Name = "Áo nam",
-                     Description = "Sản phẩm áo thời trang nam",
+                     Name = "Váy",
+                     Description = "Váy",
 
-                 }, 
-                  new Category()
+                 },new Category()
                  {
-                     Id = 3,
+                     Id = -3,
                      IsShowOnHome = false,
                      ParentId = null,
                      SortOrder = 3,
                      Status = Status.Active,
-                     Name = "Áo nam",
-                     Description = "Sản phẩm áo thời trang nam",
+                     Name = "StreetStyle",
+                     Description = "StreetStyle",
 
-                 });
+                 },new Category()
+                  {
+                      Id = -4,
+                      IsShowOnHome = false,
+                      ParentId = null,
+                      SortOrder = 3,
+                      Status = Status.Active,
+                      Name = "TShirt",
+                      Description = "Áo Phông",
+
+                  });
             modelBuilder.Entity<Product>().HasData(
                new Product()
                {
@@ -63,7 +71,7 @@ namespace Project.Data.Extensions
                    ViewCount = 0,
                    IsFeatured=true
                    //Categories=categories
-               }, 
+               },
                new Product()
                {
                    Id = 2,
@@ -76,20 +84,20 @@ namespace Project.Data.Extensions
                    ViewCount = 0,
                    IsFeatured = true
                    //Categories = categories
-               }, 
+               },
                new Product()
-                    {
-                        Id = -1,
-                        DateCreated = DateTime.Now,
-                        Name = "TOPS",
-                        Description = "100% Cotton . TOPS Với Thiết Kế Cạp Cao Sẽ Mang Lại Cho Bạn Cảm Giác Tự tin , Thích Hợp Để Phối Với Những Dạng Áo ONTOP cá tính",
-                        //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
-                        Price = 200000,
-                        Stock = 0,
-                        ViewCount = 0,
-                        IsFeatured = true
+               {
+                   Id = -1,
+                   DateCreated = DateTime.Now,
+                   Name = "TOPS",
+                   Description = "100% Cotton . TOPS Với Thiết Kế Cạp Cao Sẽ Mang Lại Cho Bạn Cảm Giác Tự tin , Thích Hợp Để Phối Với Những Dạng Áo ONTOP cá tính",
+                   //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                   Price = 200000,
+                   Stock = 0,
+                   ViewCount = 0,
+                   IsFeatured = true
                    //Categories = categories
-               }, 
+               },
                new Product()
                {
                    Id = -2,
@@ -102,15 +110,838 @@ namespace Project.Data.Extensions
                    ViewCount = 0,
                    IsFeatured = true
                    //Categories = categories
+               },
+               new Product()
+               {
+                   Id = -3,
+                   DateCreated = DateTime.Now,
+                   Name = "EmDay",
+                   Description = "Chủ nhật là Sunday \n Thứ hai là Monday \n Ngày nào cũng xinh đẹp là Emday",
+                   //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                   Price = 200000,
+                   Stock = 0,
+                   ViewCount = 0,
+                   IsFeatured = true
+                   //Categories=categories
+               },
+               new Product()
+               {
+                   Id = -4,
+                   DateCreated = DateTime.Now,
+                   Name = "Flash",
+                   Description = "Một thoáng hương tình dịu ngọt \n Một chút nhẹ nhàng bay bổng và hết sức yêu kiều \n Một item thật sự gây lưu luyến đó các tình iuuu",
+                   //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                   Price = 200000,
+                   Stock = 0,
+                   ViewCount = 0,
+                   IsFeatured = true
+                   //Categories=categories
+               },
+               new Product()
+               {
+                   Id = -5,
+                   DateCreated = DateTime.Now,
+                   Name = "EmWear",
+                   Description = "Emwear là thương hiệu quần jean và thời trang Nữ hằng ngày đa dụng . Sử dụng chính chất liệu co dãn cao cấp, thiết kế quyến rũ, sang trọng.",
+                   //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                   Price = 200000,
+                   Stock = 0,
+                   ViewCount = 0,
+                   IsFeatured = true
+                   //Categories=categories
+               },
+               new Product()
+               {
+                   Id = -6,
+                   DateCreated = DateTime.Now,
+                   Name = "Marid",
+                   Description = "Cá tính là yếu tố tạo nên sự cuốn hút của Marid \n Marid sẽ mang lại cho người mặc một cảm giác trẻ trung, tươi mát, năng động",
+                   //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                   Price = 200000,
+                   Stock = 0,
+                   ViewCount = 0,
+                   IsFeatured = true
+                   //Categories=categories
+               },
+               new Product()
+               {
+                   Id = -7,
+                   DateCreated = DateTime.Now,
+                   Name = "BELLE",
+                   Description = "Vẫn là một sản phẩm của bộ sưu tập jean tháng 7, BELLE sẽ ôm sát và tôn lên những đường cong quyến rũ của bạn. Bằng chất liệu co dãn ,BELLE sẽ không làm bạn bị khó chịu mất tự tin",
+                   //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                   Price = 200000,
+                   Stock = 0,
+                   ViewCount = 0,
+                   IsFeatured = true
+                   //Categories=categories
+               },
+               new Product()
+               {
+                   Id = -8,
+                   DateCreated = DateTime.Now,
+                   Name = "LIMMA Set",
+                   Description = "Set đồ được cung cấp từ hãng thời trang nổi tiếng Tartarus, Đây sẽ là set đồ nên xuất hiện trong tủ đồ của bạn",
+                   //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                   Price = 200000,
+                   Stock = 0,
+                   ViewCount = 0,
+                   IsFeatured = true
+                   //Categories=categories
+               },
+               new Product()
+               {
+                   Id = -9,
+                   DateCreated = DateTime.Now,
+                   Name = "BNW",
+                   Description = "Với tông màu trẻ trung, sản phẩm sẽ là người bạn đồng hành của bạn trong những buổi dạo phố cuối tuần",
+                   //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                   Price = 200000,
+                   Stock = 0,
+                   ViewCount = 0,
+                   IsFeatured = true
+                   //Categories=categories
+               },
+               new Product()
+               {
+                   Id = -10,
+                   DateCreated = DateTime.Now,
+                   Name = "MOON",
+                   Description = "Đúng như tên gọi của nó, MOON sẽ thu hút mọi ánh nhìn của những người xung quanh bằng sự quyến rũ nhẹ nhàng",
+                   //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                   Price = 200000,
+                   Stock = 0,
+                   ViewCount = 0,
+                   IsFeatured = true
+                   //Categories=categories
+               },
+               new Product()
+               {
+                   Id = -11,
+                   DateCreated = DateTime.Now,
+                   Name = "JAQUAIN",
+                   Description = "Sự kết hợp hài hòa các màu sắc với nhau, mang nét riêng đậm chất Pháp tạo nên sự rung cảm cho người nhìn",
+                   //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                   Price = 200000,
+                   Stock = 0,
+                   ViewCount = 0,
+                   IsFeatured = true
+                   //Categories=categories
+               },
+               new Product()
+               {
+                   Id = -12,
+                   DateCreated = DateTime.Now,
+                   Name = "ELiS",
+                   Description = "Là Một sản phẩm được cung cấp bởi thương hiệu thời trang phụ nữ Tartarus , ELiS vừa mang chất Ý vừa mang chất Việt. Chúng tôi đảm bảo đây sẽ là sản phẩm xu hướng trong tương lai",
+                   //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                   Price = 200000,
+                   Stock = 0,
+                   ViewCount = 0,
+                   IsFeatured = true
+                   //Categories=categories
+               },
+               new Product()
+               {
+                   Id = -13,
+                   DateCreated = DateTime.Now,
+                   Name = "Smooth",
+                   Description = "Mượn mà , mang lại cảm giác tươi mát, sản phẩm là lựa chọn hàng đâu cho mùa hè này ",
+                   //Details = "SẢN PHẨM ĐƯỢC CUNG CẤP BỞI TARTARUSS",
+                   Price = 200000,
+                   Stock = 0,
+                   ViewCount = 0,
+                   IsFeatured = true
+                   //Categories=categories
                });
             modelBuilder.Entity("CategoryProduct").HasData(
-                      new Dictionary<string, object> { ["ProductsId"] = 1, ["CategoriesId"] = 1 },
-                      new Dictionary<string, object> { ["ProductsId"] = 1, ["CategoriesId"] = 2 },
-                      new Dictionary<string, object> { ["ProductsId"] = -2, ["CategoriesId"] = 1 },
-                      new Dictionary<string, object> { ["ProductsId"] = -1, ["CategoriesId"] = 1 },
-                      new Dictionary<string, object> { ["ProductsId"] = -1, ["CategoriesId"] = 2 }
+                      new Dictionary<string, object> { ["ProductsId"] = 1, ["CategoriesId"] = -1 },
+                      new Dictionary<string, object> { ["ProductsId"] = 1, ["CategoriesId"] = -2 },
+                      new Dictionary<string, object> { ["ProductsId"] = -2, ["CategoriesId"] = -1 },
+                      new Dictionary<string, object> { ["ProductsId"] = -1, ["CategoriesId"] = -1 },
+                      new Dictionary<string, object> { ["ProductsId"] = 2, ["CategoriesId"] = -1 },
+                      new Dictionary<string, object> { ["ProductsId"] = -3, ["CategoriesId"] = -3 },
+                      new Dictionary<string, object> { ["ProductsId"] = -3, ["CategoriesId"] = -4 },
+                      new Dictionary<string, object> { ["ProductsId"] = -4, ["CategoriesId"] = -4 },
+                      new Dictionary<string, object> { ["ProductsId"] = -5, ["CategoriesId"] = -4 },
+                      new Dictionary<string, object> { ["ProductsId"] = -5, ["CategoriesId"] =-3 },
+                      new Dictionary<string, object> { ["ProductsId"] = -6, ["CategoriesId"] =-1 },
+                      new Dictionary<string, object> { ["ProductsId"] = -6, ["CategoriesId"] =-2 },
+                      new Dictionary<string, object> { ["ProductsId"] = -6, ["CategoriesId"] =-3 },
+                      new Dictionary<string, object> { ["ProductsId"] = -7, ["CategoriesId"] =-3 },
+                      new Dictionary<string, object> { ["ProductsId"] = -8, ["CategoriesId"] =-4 },
+                      new Dictionary<string, object> { ["ProductsId"] = -9, ["CategoriesId"] =-1 },
+                      new Dictionary<string, object> { ["ProductsId"] = -10, ["CategoriesId"] =-1 },
+                      new Dictionary<string, object> { ["ProductsId"] = -11, ["CategoriesId"] =-4},
+                      new Dictionary<string, object> { ["ProductsId"] = -12, ["CategoriesId"] =-4},
+                      new Dictionary<string, object> { ["ProductsId"] = -13, ["CategoriesId"] =-2},
+                      new Dictionary<string, object> { ["ProductsId"] = -1, ["CategoriesId"] = -2 }
                     );
+            modelBuilder.Entity<ProductImage>().HasData(
+                new ProductImage()
+                {
+                    Id = -1,
+                    ProductId = -1,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/jean/jean1.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -2,
+                    ProductId = -1,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/jean/jean2.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -3,
+                    ProductId = -1,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/jean/jean3.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -4,
+                    ProductId = -1,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/jean/jean4.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -5,
+                    ProductId = -1,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/jean/jean5.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -6,
+                    ProductId = -2,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/jean/jean6.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -7,
+                    ProductId = -2,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/jean/jean7.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -8,
+                    ProductId = -2,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/jean/jean8.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -9,
+                    ProductId = -2,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/jean/jean9.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -10,
+                    ProductId = -2,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/jean/jean10.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -11,
+                    ProductId = -3,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt1.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -12,
+                    ProductId = -3,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt2.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -13,
+                    ProductId = -3,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt3.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -14,
+                    ProductId = -3,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt4.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -15,
+                    ProductId = -3,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt5.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -16,
+                    ProductId = -4,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt6.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -17,
+                    ProductId = -4,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt7.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -18,
+                    ProductId = -4,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt8.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -19,
+                    ProductId = -4,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt8.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -20,
+                    ProductId = -4,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt9.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -21,
+                    ProductId = -4,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt10.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -22,
+                    ProductId = -5,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -23,
+                    ProductId = -5,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -24,
+                    ProductId = -5,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -25,
+                    ProductId = -5,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -26,
+                    ProductId = -5,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -27,
+                    ProductId = -6,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -28,
+                    ProductId = -6,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -29,
+                    ProductId = -6,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -30,
+                    ProductId = -6,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -31,
+                    ProductId = -6,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -32,
+                    ProductId = -7,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -33,
+                    ProductId = -7,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -34,
+                    ProductId = -7,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -35,
+                    ProductId = -7,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -36,
+                    ProductId = -7,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -37,
+                    ProductId = -8,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -38,
+                    ProductId = -8,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -39,
+                    ProductId = -8,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -40,
+                    ProductId = -8,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -41,
+                    ProductId = -8,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -42,
+                    ProductId = -9,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -43,
+                    ProductId = -9,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -44,
+                    ProductId = -9,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -45,
+                    ProductId = -9,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -46,
+                    ProductId = -9,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -47,
+                    ProductId = -10,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -48,
+                    ProductId = -10,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -49,
+                    ProductId = -10,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -50,
+                    ProductId = -10,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -51,
+                    ProductId = -10,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -52,
+                    ProductId = -11,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -53,
+                    ProductId = -11,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -54,
+                    ProductId = -11,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -55,
+                    ProductId = -11,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -56,
+                    ProductId = -11,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -57,
+                    ProductId = -12,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -58,
+                    ProductId = -12,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -59,
+                    ProductId = -12,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -60,
+                    ProductId = -12,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -61,
+                    ProductId = -12,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -62,
+                    ProductId = -13,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -63,
+                    ProductId = -13,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -64,
+                    ProductId = -13,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -65,
+                    ProductId = -13,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -66,
+                    ProductId = -13,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                    IsDefault = true,
+                    SortOrder = 0
+                }
+             );
 
+            
             //8D04DCE3-969A-435D-BBA4-DF3F325983DC
             //// any guid
             //string roleId ="8D04DCE2-969A-435D-BBA4-DF3F325983DC";
@@ -309,6 +1140,7 @@ namespace Project.Data.Extensions
                 ProductId=-2,
                 Quantity=2,
                 Price=20000,
+                size="M",
                 DateCreated=DateTime.Now
             }, new Cart()
             {
@@ -317,6 +1149,7 @@ namespace Project.Data.Extensions
                 ProductId = -1,
                 Quantity = 2,
                 Price = 20000,
+                size="M",
                 DateCreated = DateTime.Now
             });
             
@@ -424,7 +1257,8 @@ namespace Project.Data.Extensions
                 ProductId = -2,
                 Quantity = 2,
                 Price = 20000,
-                size = "M"
+                size = "M",
+                productName= "BOYFRIENDs"
 
             }, new OrderDetail()
             {
@@ -432,13 +1266,14 @@ namespace Project.Data.Extensions
                 ProductId = -1,
                 Quantity = 2,
                 Price = 20000,
-                size = "M"
-
+                size = "M",
+                productName= "TOPS"
             });
             modelBuilder.Entity<Order>().HasData(new Order()
             {
                 Id = 1,
                 OrderDate = DateTime.Now,
+                total=40000,
                 UserId = "11BD711F-9506-45BA-B5B7-F00649BE00DE",
                 ShipName = "Nguyễn Quyết Thắng",
                 ShipAddress = "353 Đường Tam Trinh",
@@ -446,8 +1281,193 @@ namespace Project.Data.Extensions
                 ShipPhoneNumber = "0328025122",
                 Status = OrderStatus.New,
                 CityId = "01",
+                City= "Thành phố Hà Nội",
                 DistricstId = "008",
-                WardsId = "00322"
+                Districst = "Quận Hoàng Mai",
+                WardsId = "00322",
+                Wards = "Phường Hoàng Văn Thụ"
+            });
+            modelBuilder.Entity<Notification>().HasData(new Notification()
+            {
+                Id = 1,
+                UserId = "11BD711F-9506-45BA-B5B7-F00649BE00DE",
+                date=DateTime.Now,
+                Type=NotificationType.Order,
+                Targetint=1,
+                content= "Đơn hàng #1 đã sẵn sàng để giao đến quý khách. Chúng tôi vừa bàn giao đơn hàng của quý khách đến đối tác vận chuyển eShops Team. Đơn hàng sẽ được giao trước 23:59 ngày 18/12/2020"
+            }, new Notification()
+            {
+                Id = 2,
+                UserId = "11BD711F-9506-45BA-B5B7-F00649BE00DE",
+                date = DateTime.Now,
+                Type = NotificationType.Promotion,
+                Targetint = 1,
+                content = "Bạn có một mã giảm giá chưa sử dụng"
+            });
+            modelBuilder.Entity<Promotion>().HasData(new Promotion() { 
+                Id=1,
+                ApplyCode= "11BD711F-9506-45BA-B5B7-F00649BE00DE",
+                ApplyForAll=true,
+                ApplyForProductIds=false,
+                ApplyForCategoryIds=false,
+                DiscountPercent=50,
+                DiscountAmount=null,
+                quantity=null,
+                FromDate=DateTime.Now,
+                ToDate=new DateTime(2022,12,31),
+                MaximumDiscountAmountForPecentCoupon = 50000,
+                Name = "Mã giảm giá 50% cho tất cả các sản phẩm trong cửa hàng",
+                Description="Giảm giá 50% giá trị sản phẩm không quá 50.000 vnđ"
+            }, new Promotion()
+            {
+                Id = 2,
+                ApplyCode = "11BD711F-9506-45BA-B5B7-F00649BE01DE",
+                ApplyForAll = true,
+                ApplyForProductIds = false,
+                ApplyForCategoryIds = false,
+                DiscountPercent = null,
+                DiscountAmount = null,
+                MaximumDiscountPercentForAmountCoupon = 25,
+                ProductsPromotionId = null,
+                quantity = null,
+                FromDate = DateTime.Now,
+                ToDate = new DateTime(2022, 12, 31),
+                Name = "Mã giảm giá 50.000 cho tất cả các sản phẩm trong cửa hàng",
+                Description = "Giảm giá 50.000vnđ trên giá trị sản phẩm không quá  25% giá trị sản phẩm"
+            }, new Promotion()
+            {
+                Id = 3,
+                ApplyCode = "11BD711F-9506-45BA-B5B7-F00649BE02DE",
+                ApplyForAll = false,
+                ApplyForProductIds = true,
+                ApplyForCategoryIds = false,
+                DiscountPercent = 50,
+                MaximumDiscountAmountForPecentCoupon=25000,
+                DiscountAmount = null,
+                ProductsPromotionId=null,
+                quantity = null,
+                FromDate = DateTime.Now,
+                ToDate = new DateTime(2022, 12, 31),
+                Name= "Mã giảm giá 50% cho  các sản phẩm có mã hợp lệ trong cửa hàng",
+                Description = "Giảm giá 50% trên giá trị của  sản phẩm có mã hợp lệ không quá  25.000vnđ trên giá trị sản phẩm"
+            }, new Promotion()
+            {
+                Id = 4,
+                ApplyCode = "11BD711F-9506-45BA-B5B7-F00649BE03DE",
+                ApplyForAll = false,
+                ApplyForProductIds = true,
+                ApplyForCategoryIds = false,
+                ApplyForOrderTotal = false,
+                DiscountPercent = null,
+                MaximumDiscountAmountForPecentCoupon = null,
+                DiscountAmount = 50000,
+                MaximumDiscountPercentForAmountCoupon=25,
+                ProductsPromotionId = null,
+                quantity = null,
+                FromDate = DateTime.Now,
+                ToDate = new DateTime(2022, 12, 31),
+                Name = "Mã giảm giá 50000 cho  các sản phẩm có mã hợp lệ trong cửa hàng",
+                Description = "Giảm giá 50000 trên giá trị của  sản phẩm có mã hợp lệ không quá  25% trên giá trị sản phẩm"
+            }, new Promotion()
+            {
+                Id = 5,
+                ApplyCode = "11BD711F-9506-45BA-B5B7-F00649BE04DE",
+                ApplyForAll = false,
+                ApplyForProductIds = false,
+                ApplyForCategoryIds = true,
+                ApplyForOrderTotal = false,
+                DiscountPercent = null,
+                MaximumDiscountAmountForPecentCoupon = null,
+                DiscountAmount = 50000,
+                MaximumDiscountPercentForAmountCoupon = 10,
+                ProductsPromotionId = null,
+                quantity = null,
+                FromDate = DateTime.Now,
+                ToDate = new DateTime(2022, 12, 31),
+                Name = "Mã giảm giá 50000 cho  các sản phẩm thuộc danh mục xxx trong cửa hàng",
+                Description = "Giảm giá 50000 trên giá trị của  sản phẩm thuộc danh mục xxx không quá  10% trên giá trị sản phẩm"
+            }, new Promotion()
+            {
+                Id = 6,
+                ApplyCode = "11BD711F-9506-45BA-B5B7-F00649BE06DE",
+                ApplyForAll = false,
+                ApplyForProductIds = false,
+                ApplyForCategoryIds = true,
+                ApplyForOrderTotal = false,
+                DiscountPercent = 50,
+                MaximumDiscountAmountForPecentCoupon = 10000,
+                DiscountAmount = null,
+                MaximumDiscountPercentForAmountCoupon = null,
+                ProductsPromotionId = null,
+                quantity = null,
+                FromDate = DateTime.Now,
+                ToDate = new DateTime(2022, 12, 31),
+                Name = "Mã giảm giá 50% cho  các sản phẩm thuộc danh mục xxx trong cửa hàng",
+                Description = "Giảm giá 50% trên giá trị của  sản phẩm thuộc danh mục xxx không quá  10000 trên giá trị sản phẩm"
+            }, new Promotion()
+            {
+                Id = 7,
+                ApplyCode = "11BD711F-9506-45BA-B5B7-F00649BE07DE",
+                ApplyForAll = false,
+                ApplyForProductIds = false,
+                ApplyForCategoryIds = false,
+                ApplyForOrderTotal=true,
+                MinimumTotalOrder=10000,
+                DiscountPercent = 50,
+                MaximumDiscountAmountForPecentCoupon = 10000,
+                DiscountAmount = null,
+                MaximumDiscountPercentForAmountCoupon = null,
+                ProductsPromotionId = null,
+                quantity = null,
+                FromDate = DateTime.Now,
+                ToDate = new DateTime(2022, 12, 31),
+                Name = "Mã giảm giá 50% cho  đơn hàng từ 10.000",
+                Description = "Giảm giá 50% trên giá trị của  đơn hàng từ 10.000 không quá 10.000"
+            }, new Promotion()
+            {
+                Id = 8,
+                ApplyCode = "11BD711F-9506-45BA-B5B7-F00649BE08DE",
+                ApplyForAll = false,
+                ApplyForProductIds = false,
+                ApplyForCategoryIds = false,
+                ApplyForOrderTotal = true,
+                MinimumTotalOrder = 10000,
+                DiscountPercent = null,
+                MaximumDiscountAmountForPecentCoupon = null,
+                DiscountAmount = 10000,
+                MaximumDiscountPercentForAmountCoupon = 100,
+                ProductsPromotionId = null,
+                quantity = null,
+                FromDate = DateTime.Now,
+                ToDate = new DateTime(2022, 12, 31),
+                Name = "Mã giảm giá 10.000vnđ cho  đơn hàng từ 10.000vnđ",
+                Description = "Giảm giá 10.000vđ trên giá trị của  đơn hàng từ 10.000vnđ "
+            });
+            modelBuilder.Entity<ProductPromotion>().HasData(new ProductPromotion()
+            {
+                ProductId=-1,
+                PromotionId=3
+            }, new ProductPromotion()
+            {
+                ProductId = -2,
+                PromotionId = 3
+            }, new ProductPromotion()
+            {
+                ProductId = -3,
+                PromotionId = 4
+            }, new ProductPromotion()
+            {
+                ProductId = -4,
+                PromotionId = 4
+            });
+            modelBuilder.Entity<CategoryPromotion>().HasData(new CategoryPromotion()
+            {
+                CategoryId = -1,
+                PromotionId = 5
+            }, new CategoryPromotion()
+            {
+                CategoryId = -4,
+                PromotionId = 6
             });
         }
     }

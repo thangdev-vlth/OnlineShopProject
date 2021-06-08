@@ -4,6 +4,7 @@ using Project.Data.EF;
 using Project.Data.Entities;
 using Project.Data.Enums;
 using Project.ViewModels.common;
+using Project.ViewModels.Notification;
 using Project.ViewModels.User;
 using System;
 using System.Collections.Generic;
@@ -65,7 +66,8 @@ namespace Project.Application.Catalog.Users
         public async Task<UserViewModel> GetById(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
-
+            var addressCard = GetAddressCard(0, id, "active");
+            var totalOrder = _projectDbContext.Orders.Where(x => x.UserId == id).Count();
             var result = new UserViewModel()
             {
                 Id = user.Id,
@@ -74,7 +76,8 @@ namespace Project.Application.Catalog.Users
                 PhoneNumber = user.PhoneNumber ?? "",
                 Fullname = user.FullName,
                 Birthday = user.Birthday,
-                Address = user.Address,
+                Address =addressCard.ResultObj.addressCDW??"",
+                totalOrder=totalOrder,
                 EmailConfirmed = user.EmailConfirmed ? "Đã Xác Nhận" : "Chưa Xác Nhận"
             };
             return result;
@@ -321,6 +324,76 @@ namespace Project.Application.Catalog.Users
             }
         }
 
-       
+        public RequestResult<List<NotificationViewModel>> GetNotification(string userId)
+        {
+            try
+            {
+                var result = _projectDbContext.Notifications.Where(n => n.UserId == userId).Select(n => n).OrderBy(n=>n.Status).ThenByDescending(n=>n.date);
+                var news = result.Select(n => new NotificationViewModel()
+                {
+                    Id = n.Id,
+                    UserId = n.UserId,
+                    date = n.date,
+                    Type = n.Type,
+                    Status=n.Status,
+                    Targetint = n.Targetint,
+                    Targetstr=n.Targetstr,
+                    content = n.content
+                }).ToList();
+                return new RequestSuccessResult<List<NotificationViewModel>>(news);
+            }
+            catch (Exception e)
+            {
+
+                return new RequestErrorResult<List<NotificationViewModel>>(e.Message);
+            }
+        }
+
+        public RequestResult<bool> UpdateNotificationStatus(int noticationId, bool ApplyforAll)
+        {
+            try
+            {
+                if (ApplyforAll)
+                {
+
+                }
+                else
+                {
+                    var result = _projectDbContext.Notifications.Where(n => n.Id == noticationId).Select(n => n).FirstOrDefault();
+                    result.Status = NotificationStatus.read;
+                    _projectDbContext.SaveChanges();
+                    return new RequestSuccessResult<bool>();
+                }
+                return new RequestErrorResult<bool>("false");
+            }
+            catch (Exception e)
+            {
+
+                return new RequestErrorResult<bool>(e.Message);
+            }
+        }
+
+        public RequestResult<bool> DeleteNotification(int noticationId, bool ApplyforAll)
+        {
+            try
+            {
+                if (ApplyforAll)
+                {
+
+                }
+                else
+                {
+                    var notify = _projectDbContext.Notifications.Where(n => n.Id == noticationId).Select(n => n).FirstOrDefault();
+                    _projectDbContext.Notifications.Remove(notify);
+                    _projectDbContext.SaveChanges();
+                }
+                return new RequestResult<bool>();
+            }
+            catch (Exception e)
+            {
+
+                return new RequestErrorResult<bool>(e.Message);
+            }
+        }
     }
 }

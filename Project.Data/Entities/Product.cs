@@ -32,7 +32,7 @@ namespace Project.Data.Entities
 
            public List<Category> Categories { get; set; }
 
-
+            public List<ProductPromotion> productPromotions { get; set; }
             public List<OrderDetail> OrderDetails { get; set; }
 
             public List<Cart> Carts { get; set; }

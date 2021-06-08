@@ -3,10 +3,9 @@
 /**********************************/
 body {
     color: #353535;
-    font-family: 'Open Sans', sans-serif;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
     font-weight: 400;
     background: #f3f6ff;
-    
 }
 
 a {
@@ -1475,7 +1474,7 @@ h2 {
     align-items: center;
 }
 
-.cart-page .table .img img {
+.cart-page .table .img img ,.checkoutimg{
     max-width: 60px;
     max-height: 60px;
     margin-right: 15px;

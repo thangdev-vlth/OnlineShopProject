@@ -22,6 +22,7 @@ namespace Project.Data.Configurations
             builder.Property(x => x.UserId).IsRequired();
             builder.Property(x => x.DistricstId).IsRequired();
             builder.Property(x => x.WardsId).IsRequired();
+            builder.HasOne(x => x.appUser).WithMany(x => x.Addresses).HasForeignKey(x => x.UserId);
         }
     }
 }
