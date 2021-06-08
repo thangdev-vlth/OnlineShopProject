@@ -28,20 +28,21 @@ namespace Project.Areas.Admin.Pages.Role {
         }
 
         public List<UserInList> users;
-        public int totalPages {set; get;}
+       
 
         [TempData] // Sử dụng Session
         public string StatusMessage { get; set; }
 
         [BindProperty(SupportsGet=true)]
         public int pageNumber {set;get;}
+        public int totalPages { set; get; }
 
         public IActionResult OnPost() => NotFound("Cấm post");
 
         public async Task<IActionResult> OnGet() {
 
             var cuser = await _userManager.GetUserAsync(User);
-            await _userManager.AddToRolesAsync(cuser, new string[] { "Editor"});
+            //await _userManager.AddToRolesAsync(cuser, new string[] { "Editor"});
         
             if (pageNumber == 0) 
                 pageNumber = 1; 

@@ -16,6 +16,7 @@ namespace Project.Data.Configurations
             builder.Property(x => x.Birthday).IsRequired();
             builder.Property(x => x.disable).HasDefaultValue(false);
             builder.Property(x => x.LastSignIn).HasDefaultValue(DateTime.Now);
+           
         }
     }
 }

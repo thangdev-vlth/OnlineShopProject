@@ -23,7 +23,8 @@ namespace Project.Data.Entities
             
             public DateTime LastSignIn { get; set; }
 
-
+            public List<Address> Addresses { get; set; }
+            public List<Notification> notifications { get; set; }
 
             //public List<Transaction> Transactions { get; set; }
         }

@@ -91,6 +91,7 @@ namespace Project.AdminApp
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<ICartService, CartService>();
+            services.AddTransient<IOrderService, OrderService>();
             
             services.AddTransient<IStorageService, FileStorageService>();
             //sadhbashjdbasbhdasbj
@@ -163,7 +164,10 @@ namespace Project.AdminApp
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Homepage}/{action=Index}/{id?}");
+                    pattern: "{controller=HomePage}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
+                    name: "admin",
+                    pattern: "{controller=AdminHome}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

@@ -392,6 +392,7 @@
 				s.d.overlay.bind('click.simplemodal', function (e) {
 					e.preventDefault();
 					s.close();
+					window.location.reload();
 				});
 			}
 

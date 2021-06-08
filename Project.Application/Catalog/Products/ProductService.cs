@@ -102,7 +102,7 @@ namespace Project.Application.Catalog.Products
                 {
                     Caption = image.Caption,
                     DateCreated = image.DateCreated,
-                    FileSize = image.FileSize,
+                    //FileSize = image.FileSize,
                     Id = image.Id,
                     ImagePath = image.ImagePath,
                     IsDefault = image.IsDefault,
@@ -175,7 +175,7 @@ namespace Project.Application.Catalog.Products
                 ProductImages=p.ProductImages.Select(image=> new ProductImageViewModel() {
                     Caption = image.Caption,
                     DateCreated = image.DateCreated,
-                    FileSize = image.FileSize,
+                    //FileSize = image.FileSize,
                     Id = image.Id,
                     ImagePath = image.ImagePath,
                     IsDefault = image.IsDefault,
@@ -336,7 +336,7 @@ namespace Project.Application.Catalog.Products
                 {
                     Caption = image.Caption,
                     DateCreated = image.DateCreated,
-                    FileSize = image.FileSize,
+                    //FileSize = image.FileSize,
                     Id = image.Id,
                     ImagePath = image.ImagePath,
                     IsDefault = image.IsDefault,
@@ -379,7 +379,7 @@ namespace Project.Application.Catalog.Products
                 {
                     Caption = image.Caption,
                     DateCreated = image.DateCreated,
-                    FileSize = image.FileSize,
+                    //FileSize = image.FileSize,
                     Id = image.Id,
                     ImagePath = image.ImagePath,
                     IsDefault = image.IsDefault,
@@ -452,7 +452,7 @@ namespace Project.Application.Catalog.Products
                 {
                     Caption = image.Caption,
                     DateCreated = image.DateCreated,
-                    FileSize = image.FileSize,
+                    //FileSize = image.FileSize,
                     Id = image.Id,
                     ImagePath = image.ImagePath,
                     IsDefault = image.IsDefault,
@@ -485,6 +485,12 @@ namespace Project.Application.Catalog.Products
 
                 return new RequestErrorResult<bool>(e.InnerException.Message);
             }
+        }
+
+        public string getThumnailImg(int productId)
+        {
+            var imgR = _context.ProductImages.Where(img => img.Id == productId && img.IsDefault == true).FirstOrDefault();
+            return imgR.ImagePath;
         }
     }
 }

@@ -3,12 +3,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Project.Application.Catalog.Users;
 using Project.Data.Entities;
+using Project.Data.Enums;
 using Project.ViewModels.common;
 using Project.ViewModels.User;
 using Project.Views.Shared.Components.MessagePage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Project.AdminApp.Controllers
@@ -88,24 +90,15 @@ namespace Project.AdminApp.Controllers
             
     
         [HttpGet]
-        public async Task<IActionResult> Edit(Guid id)
+        public IActionResult GetNotification()
         {
-            //var result = await _userService.GetById(id);
-            //if (result.IsSuccessed)
-            //{
-            //    var user = result.ResultObj;
-            //    var updateRequest = new UserUpdateRequest()
-            //    {
-            //        Dob = user.Dob,
-            //        Email = user.Email,
-            //        FirstName = user.FirstName,
-            //        LastName = user.LastName,
-            //        PhoneNumber = user.PhoneNumber,
-            //        Id = id
-            //    };
-            //    return View(updateRequest);
-            //}
-            return RedirectToAction("Error", "Home");
+            ClaimsPrincipal principal = HttpContext.User as ClaimsPrincipal;
+            var result = _userService.GetNotification(_userManager.GetUserId(principal));
+            if (result.IsSuccessed)
+            {
+                return Ok(result.ResultObj.Where(n => n.Status == NotificationStatus.New).ToList()); 
+            }
+            return BadRequest();
         }
         [HttpGet]
         public async Task<IActionResult> Details(string id,string role,string returnUrl)
@@ -125,6 +118,30 @@ namespace Project.AdminApp.Controllers
             ViewData["result"] = result;
             
             return View();
+        }
+        [HttpPost]
+        public IActionResult UpdateNotificationStatus(int noticationId,bool ApplyforAll=false)
+        {
+            var result = _userService.UpdateNotificationStatus(noticationId,ApplyforAll);
+            if (result.IsSuccessed)
+            {
+                return Json(new { result = "success" });
+            }
+            return Json(new { result = "theerrror" });
+
+
+        }
+        [HttpPost]
+        public IActionResult DeleteNotification(int noticationId,bool ApplyforAll=false)
+        {
+            var result = _userService.DeleteNotification(noticationId, ApplyforAll);
+            if (result.IsSuccessed)
+            {
+                return Json(new { result = "success" });
+            }
+            return Json(new { result = "theerrror" });
+
+
         }
         [AllowAnonymous]
         [HttpGet]

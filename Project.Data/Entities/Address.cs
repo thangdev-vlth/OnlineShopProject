@@ -23,5 +23,6 @@ namespace Project.Data.Entities
         public string WardsId { get; set; } 
         public string Ward { get; set; } 
         public bool isDefault { get; set; }
+        public AppUser appUser { get; set; }
     }
 }

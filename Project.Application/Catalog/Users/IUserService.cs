@@ -1,4 +1,5 @@
 ﻿using Project.ViewModels.common;
+using Project.ViewModels.Notification;
 using Project.ViewModels.User;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,8 @@ namespace Project.Application.Catalog.Users
         Task<RequestResult<bool>> CreateNewAddressCardAsync(AddressCardViewModel request);
         Task<RequestResult<bool>> EditAddressCardAsync(AddressCardViewModel request);
         RequestResult<bool> SetActiveAddressCard(int addressCardId);
-        
+        RequestResult<List<NotificationViewModel>> GetNotification(string userId);
+        RequestResult<bool> UpdateNotificationStatus(int noticationId,bool ApplyforAll);
+        RequestResult<bool> DeleteNotification(int noticationId, bool ApplyforAll);
     }
 }

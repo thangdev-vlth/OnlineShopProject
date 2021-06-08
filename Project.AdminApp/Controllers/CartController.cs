@@ -18,6 +18,7 @@ using Project.Application.Sales;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using Project.Application.Catalog.Users;
+using Project.ViewModels.common;
 
 namespace Project.AdminApp.Controllers
 {
@@ -112,13 +113,14 @@ namespace Project.AdminApp.Controllers
                     var UserCart = getCartResult.ResultObj;
                     if (SessionCart.cartItem != null)
                     {
+                        
                         bool exist;
                         foreach (var sessionItem in SessionCart.cartItem)
                         {
                             exist = false;
                             foreach (var userItem in UserCart.cartItem)
                             {
-                                if (userItem.ProductId == sessionItem.ProductId)
+                                if (userItem.ProductId == sessionItem.ProductId && userItem.Size==sessionItem.Size)
                                 {
                                     userItem.Quantity += sessionItem.Quantity;
                                     userItem.Price = sessionItem.Price;
@@ -145,7 +147,7 @@ namespace Project.AdminApp.Controllers
             return Ok(currentCart.cartItem);
         }
 
-        public async Task<IActionResult> AddToCart(int id)
+        public async Task<IActionResult> AddToCart(int id,string size)
         {
             var session = HttpContext.Session.GetString(SystemConstants.CartSession);
             ClaimsPrincipal principal = HttpContext.User as ClaimsPrincipal;
@@ -168,15 +170,16 @@ namespace Project.AdminApp.Controllers
             }
             //ábdhjasbhjasbdhjasbdbasbhj
             int quantity = 1;
-            if (currentCart.cartItem != null && currentCart.cartItem.Any(x => x.ProductId == id))
+            if (currentCart.cartItem != null && currentCart.cartItem.Any(x => x.ProductId == id && x.Size == size))
             {
-                currentCart.cartItem.First(x => x.ProductId == id).Quantity += 1;
+                currentCart.cartItem.First(x => x.ProductId == id && x.Size==size).Quantity += 1;
                 if (signIn)
                 {
                     var request = new CartUpdateRequest()
                     {
                         id = currentCart.id,
                         productId = id,
+                        size = size,
                         Quantity = currentCart.cartItem.First(x => x.ProductId == id).Quantity,
                         UserId = _userManager.GetUserId(principal)
                     };
@@ -193,6 +196,7 @@ namespace Project.AdminApp.Controllers
                     Image = product.ThumbnailImage,
                     Name = product.Name,
                     Price = product.Price,
+                    Size=size,
                     Quantity = quantity
                 };
                 currentCart.cartItem.Add(cartItem);
@@ -205,6 +209,7 @@ namespace Project.AdminApp.Controllers
                         Quantity = 1,
                         UserId = _userManager.GetUserId(principal),
                         principal = principal,
+                        Size = size,
                         Price = product.Price
                     };
                     _cartService.AddNewItemToCart(request);
@@ -216,7 +221,7 @@ namespace Project.AdminApp.Controllers
 
         }
 
-        public IActionResult UpdateCart(int id, int quantity)
+        public IActionResult UpdateCart(int id, int quantity,string size)
         {
             var session = HttpContext.Session.GetString(SystemConstants.CartSession);
             ClaimsPrincipal principal = HttpContext.User as ClaimsPrincipal;
@@ -239,7 +244,7 @@ namespace Project.AdminApp.Controllers
 
             foreach (var item in currentCart.cartItem)
             {
-                if (item.ProductId == id)
+                if (item.ProductId == id && item.Size==size)
                 {
                     if (quantity == 0)
                     {
@@ -251,6 +256,7 @@ namespace Project.AdminApp.Controllers
                         var request = new CartUpdateRequest()
                         {
                             id = currentCart.id,
+                            size=size,
                             productId = item.ProductId,
                             Quantity = quantity,
                             UserId = _userManager.GetUserId(principal)
@@ -278,7 +284,16 @@ namespace Project.AdminApp.Controllers
             };
             return checkoutVm;
         }
-
+        public IActionResult CreateOrder()
+        {
+            ClaimsPrincipal principal = HttpContext.User as ClaimsPrincipal;
+            RequestResult<bool> result= _cartService.CreateOrder(_userManager.GetUserId(principal));
+            if (result.IsSuccessed)
+            {
+                return Ok();
+            }
+            return NotFound();
+        }
         public IActionResult SelectAddressCard()
         {
             ClaimsPrincipal principal = HttpContext.User as ClaimsPrincipal;

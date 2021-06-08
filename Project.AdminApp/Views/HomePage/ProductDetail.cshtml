@@ -26,7 +26,7 @@
                                 }
 
                             </div>
-                            <div class="product-slider-single-nav normal-slider">
+                            <div class="product-slider-single-nav normal-slider border-0">
                                 @foreach (var item in Model.LandingProduct.ProductImages)
                                 {
                                     <img src="@item.ImagePath" alt="@item.Caption">
@@ -58,15 +58,15 @@
                                 <div class="p-size">
                                     <h4>Size:</h4>
                                     <div class="btn-group btn-group-sm">
-                                        <button type="button" class="btn">S</button>
-                                        <button type="button" class="btn">M</button>
-                                        <button type="button" class="btn">L</button>
-                                        <button type="button" class="btn">XL</button>
+                                        <button type="button" class="btn size" data-size="S">S</button>
+                                        <button type="button" class="btn size" data-size="M">M</button>
+                                        <button type="button" class="btn size" data-size="L">L</button>
+                                        <button type="button" class="btn size" data-size="XL">XL</button>
                                     </div>
                                 </div>
                                
                                 <div class="action">
-                                    <a class="btn btn-add-cart" data-id="@Model.LandingProduct.Id" href="#"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</a>
+                                    <a class="btn btn-add-cart" data-id="@Model.LandingProduct.Id" data-size="M"  href="#" id="addCart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</a>
                                     <a class="btn" href="#"><i class="fa fa-shopping-bag"></i>Mua Ngay</a>
                                 </div>
                             </div>
