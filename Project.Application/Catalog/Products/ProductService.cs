@@ -356,7 +356,48 @@ namespace Project.Application.Catalog.Products
             }).ToListAsync();
             return data;
         }
-
+        public async Task<List<ProductViewModel>> GetFeaturedProducts(int categoryId=0, int pageIndex = 1, int pageSize = 10)
+        {
+            var query = from product in _context.Products.Include(x => x.Categories).Include(x => x.ProductImages)
+                        where product.IsFeatured == true&& product.Categories.Any(c=>c.Id==categoryId)
+                        select product;
+            var data = await query.Select(p => new ProductViewModel()
+            {
+                Id = p.Id,
+                Price = p.Price,
+                price = String.Format("{0:0,0 vnđ}", p.Price),
+                Stock = p.Stock,
+                ViewCount = p.ViewCount,
+                DateCreated = p.DateCreated,
+                Name = p.Name,
+                Description = p.Description,
+                Details = p.Details,
+                sold = p.sold,
+                ThumbnailImage = p.ProductImages.Where(img => img.IsDefault == true).Select(img => img.ImagePath).First(),
+                ProductImages = p.ProductImages.Select(image => new ProductImageViewModel()
+                {
+                    Caption = image.Caption,
+                    DateCreated = image.DateCreated,
+                    //FileSize = image.FileSize,
+                    Id = image.Id,
+                    ImagePath = image.ImagePath,
+                    IsDefault = image.IsDefault,
+                    ProductId = image.ProductId,
+                    SortOrder = image.SortOrder
+                }).ToList(),
+                productStatus = p.productStatus,
+                IsFeatured = p.IsFeatured,
+                CategoriesVm = p.Categories.Select(category => new CategoryViewModel()
+                {
+                    Id = category.Id,
+                    Name = category.Name,
+                    IsShowOnHome = category.IsShowOnHome,
+                    Status = category.Status,
+                    SortOrder = category.SortOrder
+                }).ToList()
+            }).ToListAsync();
+            return data;
+        }
         public async Task<List<ProductViewModel>> GetLatestProducts()
         {
             var query = from product in _context.Products.Include(x => x.Categories).Include(x => x.ProductImages)
@@ -492,5 +533,23 @@ namespace Project.Application.Catalog.Products
             var imgR = _context.ProductImages.Where(img => img.Id == productId && img.IsDefault == true).FirstOrDefault();
             return imgR.ImagePath;
         }
+
+        public RequestResult<bool> AddViewCount(int id)
+        {
+            try
+            {
+                var p = _context.Products.Where(x => x.Id == id).Select(x =>x).FirstOrDefault();
+                p.ViewCount++;
+                _context.SaveChanges();
+                return new RequestSuccessResult<bool>();
+            }
+            catch (Exception e)
+            {
+
+                return new RequestErrorResult<bool>(e.Message);
+            }
+        }
+
+        
     }
 }

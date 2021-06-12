@@ -18,7 +18,7 @@ namespace Project.Application.Catalog.Users
         RequestResult<List<AddressCardViewModel>> GetAddressCard(string userId, string orderby = null);
         RequestResult<AddressCardViewModel> GetAddressCard(int addresscardId=0, string userId=null, string condition=null);
         Task<RequestResult<bool>> CreateNewAddressCardAsync(AddressCardViewModel request);
-        Task<RequestResult<bool>> EditAddressCardAsync(AddressCardViewModel request);
+        RequestResult<bool> EditAddressCard(AddressCardViewModel request);
         RequestResult<bool> SetActiveAddressCard(int addressCardId);
         RequestResult<List<NotificationViewModel>> GetNotification(string userId);
         RequestResult<bool> UpdateNotificationStatus(int noticationId,bool ApplyforAll);

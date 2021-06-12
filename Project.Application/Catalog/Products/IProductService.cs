@@ -19,10 +19,12 @@ namespace Project.Application.Catalog.Products
         Task<RequestResult<bool>> AssignCategory(int productId,int CategoryId );
         Task<RequestResult<bool>> UnAssignCategory(int productId, int CategoryId);
         Task<List<ProductViewModel>> GetFeaturedProducts();
+        Task<List<ProductViewModel>> GetFeaturedProducts(int categoryId=0 , int pageIndex = 1, int pageSize = 10);
         Task<List<ProductViewModel>> GetLatestProducts();
         Task<RequestResult<bool>> AddImages(ProductUpdateRequest request);
         Task<RequestResult<List<ProductImageViewModel>>> GetAllImageAsync(int productId);
         Task<RequestResult<bool>> RemoveImageAsync(int productId,int imgId);
+        RequestResult<bool> AddViewCount(int id);
         //Task<ProductViewModel> GetById(String id);
     }
 }

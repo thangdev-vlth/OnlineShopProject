@@ -40,12 +40,12 @@
             <div class="col-lg-4">
                 <div class="cart-page-inner">
                     <div class="row">
-                        @if (SignInManager.IsSignedIn(User))
+                        @if (SignInManager.IsSignedIn(User)&&Model!=null)
                         {
                             <div class="col-md-12">
                                 <div class="styles__StyledShippingAddress-sc-1sjj51k-0 cart-summary ">
                                     <p class="heading address__heading--flex"><span class="text">Địa chỉ nhận hàng</span><a data-view-id="cart_shipping_location.change" class="link"asp-controller="Cart" asp-action="SelectAddressCard">Thay đổi</a></p>
-                                    <p class="title"><b class="name">@Model.FullName</b><b class="phone">  @Model.phoneNumber</b></p>
+                                    <p class="title"><b class="name">(@Model.FullName)</b><b class="phone">  @Model.phoneNumber</b></p>
                                     <p class="address">@Model.addressCDW</p>
                                 </div>
                             </div>
@@ -68,7 +68,7 @@
                                     <div class="cart-btn">
                                         <button>Update Cart</button>
 
-                                        <button onclick="window.location.href='/Cart/Checkout'">Thanh Toán</button>
+                                        <button id="btn-checkout-drive">Thanh Toán</button>
 
                                     </div>
                                 </div>

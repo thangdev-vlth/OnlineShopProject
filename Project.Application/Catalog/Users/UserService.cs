@@ -214,7 +214,7 @@ namespace Project.Application.Catalog.Users
                 
             }
         }
-        public bool setInactiveAddressCardAsync(string UserId)
+        /*public bool setInactiveAddressCardAsync(string UserId)
         {
             try
             {
@@ -231,8 +231,8 @@ namespace Project.Application.Catalog.Users
                 return false;
 
             }
-        }
-        public async Task<RequestResult<bool>> EditAddressCardAsync(AddressCardViewModel request)
+        }*/
+        public  RequestResult<bool> EditAddressCard(AddressCardViewModel request)
         {
             try
             {
@@ -277,7 +277,7 @@ namespace Project.Application.Catalog.Users
                 {
                     if (condition=="active")
                     {
-                        AddrCard = _projectDbContext.Addresses.Where(add => add.UserId==userId&&add.status==AddressStatus.Active).First();
+                        AddrCard = _projectDbContext.Addresses.Where(add => add.UserId==userId&&add.isDefault==true).First();
                     }
                 }
 
@@ -312,8 +312,9 @@ namespace Project.Application.Catalog.Users
             try
             {
                 var AddressCard = _projectDbContext.Addresses.Where(x => x.AddressCardId == addressCardId).FirstOrDefault();
-                setInactiveAddressCardAsync(AddressCard.UserId);
-                AddressCard.status = AddressStatus.Active;
+                
+                setDefaultAddressCardAsync(AddressCard.UserId);
+                AddressCard.isDefault = true;
                 _projectDbContext.SaveChanges();
                 return new RequestSuccessResult<bool>();
             }

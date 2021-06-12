@@ -75,23 +75,33 @@
                 var html = 'Bạn Chưa Có Sản Phẩm Nào Trong Giỏ Hàng';
                 var total = 0;
                 if (res.length != 0) {
+                    $('body').on('click', '#btn-checkout-drive', function (e) {
+                        window.location = '/Cart/Checkout';
+                    });
+
                     html = "<thead class=\"thead-dark\"><tr><th>Sản Phẩm<\/th><th>Giá<\/th><th>Số Lượng<\/th><th>Tổng<\/th><th>Xóa<\/th><\/tr><\/thead><tbody class=\"align-middle\">";
-                        
+
                     $.each(res, function (i, item) {
 
                         var amount = item.price * item.quantity;
-                        html +="<tr>"
-                            + "<td><div class=\"img\"><a href=\"#\"><img src=\"" + item.image + "\" alt=\"Image\"><\/a><p>" + item.name+" - "+item.size + "<\/p><\/div><\/td>"
+                        html += "<tr>"
+                            + "<td><div class=\"img\"><a href=\"#\"><img src=\"" + item.image + "\" alt=\"Image\"><\/a><p>" + item.name + " - " + item.size + "<\/p><\/div><\/td>"
                             + "<td>" + numberWithCommas(item.price) + "<\/td>"
                             + "<td><div class=\"qty\">"
                             + "<button  data-id=\"" + item.productId + "\" data-size=\"" + item.size + "\" data-quantity=\"" + item.quantity + "\" class=\"btn-minus\"><i class=\"fa fa-minus\"><\/i><\/button>"
-                            + "<input id=\"txt_quantity_" + item.productId + "\" type=\"text\" value=\"" + item.quantity + "\" disabled>"
+                            + "<input class=\"border-0\" id=\"txt_quantity_" + item.productId + "\" type=\"text\" value=\"" + item.quantity + "\" disabled>"
                             + "<button  data-id=\"" + item.productId + "\" data-quantity=\"" + item.quantity + "\"  data-size=\"" + item.size + "\"   class=\"btn-plus\"><i class=\"fa fa-plus\"><\/i><\/button><\/div><\/td>"
                             + "<td>" + numberWithCommas(amount) + "<\/td>"
                             + "<td><button data-id=\"" + item.productId + "\"  data-size=\"" + item.size + "\"  data-quantity=\"" + item.quantity + "\" class=\"btn-remove\"><i class=\"fa fa-trash\"><\/i><\/button><\/td>"
                             + "<\/tr>"
                             + "<\/tbody>";
                         total += amount;
+                    });
+                } else {
+                    $('body').on('click', '#btn-checkout-drive', function (e) {
+                        swal("Không có sản phẩm nào trong giỏ hàng!", {
+                            icon: "error",
+                        });
                     });
                 }
                 $('#cart').html(html);

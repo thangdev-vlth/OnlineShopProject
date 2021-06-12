@@ -13,6 +13,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Project.Data.Entities;
 using Project.Views.Shared.Components.MessagePage;
+using Microsoft.AspNetCore.WebUtilities;
+using System.Text;
 
 namespace Project.Areas.Identity.Pages.Account
 {
@@ -22,14 +24,15 @@ namespace Project.Areas.Identity.Pages.Account
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
-
+        private readonly IEmailSender _emailSender;
         public LoginModel(SignInManager<AppUser> signInManager,
             ILogger<LoginModel> logger,
-            UserManager<AppUser> userManager)
+            UserManager<AppUser> userManager, IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _emailSender = emailSender;
         }
 
         [BindProperty]
@@ -128,6 +131,25 @@ namespace Project.Areas.Identity.Pages.Account
                    
                     if (!user.EmailConfirmed)
                     {
+                        // phát sinh token theo thông tin user để xác nhận email
+                        // mỗi user dựa vào thông tin sẽ có một mã riêng, mã này nhúng vào link
+                        // trong email gửi đi để người dùng xác nhận
+
+                        var code = await _userManager.GenerateEmailConfirmationTokenAsync((AppUser)user);
+                        code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+
+                        // callbackUrl = /Account/ConfirmEmail?userId=useridxx&code=codexxxx
+                        // Link trong email người dùng bấm vào, nó sẽ gọi Page: /Acount/ConfirmEmail để xác nhận
+                        var callbackUrl = Url.Page(
+                            "/Account/ConfirmEmail",
+                            pageHandler: null,
+                            values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
+                            protocol: Request.Scheme);
+
+                        // Gửi email    
+                        await _emailSender.SendEmailAsync(user.Email, "Xác nhận địa chỉ email",
+                            $"Hãy xác nhận địa chỉ email bằng cách <a href='{callbackUrl}'>Bấm vào đây</a>.");
+                        //$"Email được gửi từ ứng dụng cho chức năng đăng kí bằng email :)))))) <a href='{callbackUrl}'>Bấm vào đây</a>.");
                         return RedirectToPage("RegisterConfirmation", new { email = user.Email, returnUrl = returnUrl });
                     }
 

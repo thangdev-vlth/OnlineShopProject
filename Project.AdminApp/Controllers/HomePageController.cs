@@ -70,8 +70,24 @@ namespace Project.AdminApp.Controllers
                 FeaturedProducts = await _productService.GetFeaturedProducts(),
                 LandingProduct = await _productService.GetById(id)
             };
-
+            _productService.AddViewCount(id);
             
+            return View(viewModel);
+        }
+        [HttpGet]
+        public async Task<IActionResult> ListProduct(int? categoryId)
+        {
+            var viewModel = new HomeViewModel
+            {
+                LatestProducts = await _productService.GetLatestProducts(),
+                FeaturedProducts = await _productService.GetFeaturedProducts(),
+                
+            };
+
+            if (categoryId!=null)
+            {
+                viewModel.FeaturedProducts = await _productService.GetFeaturedProducts(categoryId??0);
+            }
             return View(viewModel);
         }
     }

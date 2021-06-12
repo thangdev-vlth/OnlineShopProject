@@ -2,7 +2,7 @@
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
-<ul class=" nav-pills flex-column">
+<ul class=" nav-pills flex-column" style="list-style-type:none">
     <li class="nav-item"><a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Cập Nhật Thông Tin Cá Nhân</a></li>
     <li class="nav-item"><a class="nav-link @ManageNavPages.NotificationNavClass(ViewContext)" id="notification" asp-page="./Notification">Thông báo của bạn</a></li>
     <li class="nav-item"><a class="nav-link @ManageNavPages.OrderNavClass(ViewContext)" id="order" asp-page="./ManageOrder">Đơn hàng của bạn</a></li>

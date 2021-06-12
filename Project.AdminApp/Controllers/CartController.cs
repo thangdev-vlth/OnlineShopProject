@@ -60,7 +60,12 @@ namespace Project.AdminApp.Controllers
                 model.addressCardViewModel = result.ResultObj;
                 return View(model);
             }
-            return View();
+            else
+            {
+                ViewBag.Message = "Trước Tiên Hãy Tạo Một Địa Chỉ Mới";
+                return Redirect("/customer/address/create");
+            }
+            
 
         }
 

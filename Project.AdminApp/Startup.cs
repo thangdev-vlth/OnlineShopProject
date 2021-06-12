@@ -82,12 +82,7 @@ namespace Project.AdminApp
 
             services.AddTransient<IEmailSender, SendMailService>();        // dang ki dich vu Mail
             
-            services.Configure<SecurityStampValidatorOptions>(options =>
-            {
-                // tren 30 s truy cap lai se nap lai thong tin  User (Role)
-                // SecurityStamp trong bang User doi -> nap lai thong tin  Security
-                options.ValidationInterval = TimeSpan.FromSeconds(30);
-            });
+           
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<ICartService, CartService>();
@@ -108,6 +103,7 @@ namespace Project.AdminApp
                 googleOptions.ClientSecret = googleAuthNSection["ClientSecret"];
 
             });
+            
             services.Configure<SecurityStampValidatorOptions>(options =>
             {
                 // tren 30 s truy cap lai se nap lai thong tin  User (Role)

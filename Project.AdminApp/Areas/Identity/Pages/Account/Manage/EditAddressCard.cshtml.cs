@@ -115,7 +115,7 @@ namespace Project.AdminApp.Areas.Identity.Pages.Account.Manage
                 isDefault = isDefault,
                 UserId = _userManager.GetUserId(User)
             };
-            var result = await _userService.EditAddressCardAsync(request);
+            var result =  _userService.EditAddressCard(request);
             if (result.IsSuccessed)
             {
                 StatusMessage = "Cập Nhật thành công";

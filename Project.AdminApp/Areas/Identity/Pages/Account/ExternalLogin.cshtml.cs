@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
@@ -65,6 +66,8 @@ namespace Project.Areas.Identity.Pages.Account
         // Provider = Google, Facebook ... 
         public async Task<IActionResult> OnPost(string provider, string returnUrl = null)
         {
+            HttpClient httpClient = new HttpClient();
+            httpClient.Timeout = TimeSpan.FromMinutes(10);
             // Kiểm tra yêu cầu dịch vụ provider tồn tại
             var listprovider = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             var provider_process = listprovider.Find((m) => m.Name == provider);
@@ -240,6 +243,7 @@ namespace Project.Areas.Identity.Pages.Account
                             values: new { area = "Identity", userId = userId, code = code },
                             protocol: Request.Scheme);
 
+                        // Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.
                         await _emailSender.SendEmailAsync(Input.Email, "Xác nhận địa chỉ email",
                             $"Hãy xác nhận địa chỉ email bằng cách <a href='{callbackUrl}'>bấm vào đây</a>.");
 

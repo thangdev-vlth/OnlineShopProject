@@ -22,33 +22,33 @@
             </div>
             <div>
                 <span asp-validation-for="cityId" class="text-danger"></span>
-                <select class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm" asp-for="cityId" required>
-                    <option value="" selected>Chọn tỉnh thành</option>
+                <select class="form-select form-select-sm mb-3 custom-select" id="city" aria-label=".form-select-sm" asp-for="cityId" required>
+                    <option value="@Model.addressCardViewModel.CityId" selected>@Model.addressCardViewModel.City</option>
                 </select>
             </div>
 
             <div>
                 <span asp-validation-for="districtId" class="text-danger"></span>
-                <select class="form-select form-select-sm mb-3" id="district" aria-label=".form-select-sm" asp-for="districtId" required>
-                    <option value="" selected>Chọn quận huyện</option>
+                <select class="form-select form-select-sm mb-3 custom-select" id="district" aria-label=".form-select-sm" asp-for="districtId" required>
+                    <option value="@Model.addressCardViewModel.DistricstId" selected>@Model.addressCardViewModel.Districst</option>
                 </select>
             </div>
 
             <div>
                 <span asp-validation-for="wardId" class="text-danger"></span>
-                <select class="form-select form-select-sm mb-3" id="ward" aria-label=".form-select-sm" asp-for="wardId" required>
-                    <option value="" selected>Chọn phường xã</option>
+                <select class="form-select form-select-sm mb-3 custom-select" id="ward" aria-label=".form-select-sm" asp-for="wardId" required>
+                    <option value="@Model.addressCardViewModel.WardsId" selected>@Model.addressCardViewModel.Ward</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label asp-for="Input.Address"></label>
-                <input asp-for="Input.Address" class="form-control" />
+                <input asp-for="Input.Address" class="form-control" value="@Model.addressCardViewModel.address" />
                 <span asp-validation-for="Input.Address" class="text-danger"></span>
             </div>
             <div>
                 <label class="Checkbox__StyledCheckbox-sc-75m08j-0 gkoeQY">
-                    @Html.CheckBox("IsDefault")<span class="checkbox-fake"></span><span class="label">Đặt làm địa chỉ mặc định</span>
+                    @Html.CheckBox("IsDefault")<span class="checkbox-fake mr-2"></span><span class=" label">Đặt làm địa chỉ mặc định</span>
                 </label>
             </div>
             <button id="update-profile-button" type="submit" class="btn btn-danger">Lưu hồ sơ</button>
