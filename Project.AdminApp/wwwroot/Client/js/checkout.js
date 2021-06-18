@@ -49,7 +49,7 @@
                             + "<td><div class=\"img d-inline-flex align-items-center\"><a href=\"#\"><img class=\"checkoutimg\" src=\"" + item.image + "\" alt=\"Image\"><\/a><p>" + item.name + " - " + item.size + "<\/p><\/div><\/td>"
                             + "<td>" + numberWithCommas(item.price) + "<\/td>"
                             + "<td><div class=\"qty\">"
-                            + "<input class=\"border-0\" id=\"txt_quantity_" + item.productId + "\" type=\"text\" value=\"" + item.quantity + "\" readonly/>"
+                            + "<input class=\"border-0\"  type=\"text\" value=\"" + item.quantity + "\" readonly/>"
                             + "<td>" + numberWithCommas(amount) + "<\/td>"
                             + "<\/tr>"
                             + "<\/tbody>";

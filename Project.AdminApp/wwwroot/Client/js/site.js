@@ -25,7 +25,8 @@ var SiteController = function () {
             type: "GET",
             url: "/User/GetNotification",
             success: function (res) {
-                    $("#news").text(" (" + res.length + ")");
+                    $(".news").text(" (" + res.length + ")");
+                    $("#nav-news").text(" (" + res.length + ")");
                
             }
         });

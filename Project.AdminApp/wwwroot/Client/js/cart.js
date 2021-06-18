@@ -1,5 +1,6 @@
 ﻿var CartController = function () {
     this.initialize = function () {
+        console.log(1);
         loadData();
         registerEvents();
     }
@@ -76,7 +77,13 @@
                 var total = 0;
                 if (res.length != 0) {
                     $('body').on('click', '#btn-checkout-drive', function (e) {
-                        window.location = '/Cart/Checkout';
+                        var locationUrl = '/Cart/Checkout';
+                        const isSigned = $("#is-signed-in").data("signed");
+                        console.log(isSigned);
+                            if (isSigned =="false"||isSigned==false) {
+                                locationUrl = "/login";
+                            }
+                        window.location = locationUrl;
                     });
 
                     html = "<thead class=\"thead-dark\"><tr><th>Sản Phẩm<\/th><th>Giá<\/th><th>Số Lượng<\/th><th>Tổng<\/th><th>Xóa<\/th><\/tr><\/thead><tbody class=\"align-middle\">";
@@ -89,7 +96,7 @@
                             + "<td>" + numberWithCommas(item.price) + "<\/td>"
                             + "<td><div class=\"qty\">"
                             + "<button  data-id=\"" + item.productId + "\" data-size=\"" + item.size + "\" data-quantity=\"" + item.quantity + "\" class=\"btn-minus\"><i class=\"fa fa-minus\"><\/i><\/button>"
-                            + "<input class=\"border-0\" id=\"txt_quantity_" + item.productId + "\" type=\"text\" value=\"" + item.quantity + "\" disabled>"
+                            + "<input class=\"border-0\"  type=\"text\" value=\"" + item.quantity + "\" disabled>"
                             + "<button  data-id=\"" + item.productId + "\" data-quantity=\"" + item.quantity + "\"  data-size=\"" + item.size + "\"   class=\"btn-plus\"><i class=\"fa fa-plus\"><\/i><\/button><\/div><\/td>"
                             + "<td>" + numberWithCommas(amount) + "<\/td>"
                             + "<td><button data-id=\"" + item.productId + "\"  data-size=\"" + item.size + "\"  data-quantity=\"" + item.quantity + "\" class=\"btn-remove\"><i class=\"fa fa-trash\"><\/i><\/button><\/td>"
@@ -106,8 +113,8 @@
                 }
                 $('#cart').html(html);
                 $('#lbl_number_of_items').text(res.length);
-                $('#lbl_total').text(numberWithCommas(total));
-                $('#lbl_grandTotal').text(numberWithCommas(total));
+                $('#lbl_total').text(numberWithCommas(total)+" vnđ");
+                $('#lbl_grandTotal').text(numberWithCommas(total) + " vnđ");
             }
         });
     }

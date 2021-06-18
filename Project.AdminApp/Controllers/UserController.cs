@@ -145,6 +145,19 @@ namespace Project.AdminApp.Controllers
         }
         [AllowAnonymous]
         [HttpGet]
+        public IActionResult IsSignedIn()
+        {
+            ClaimsPrincipal principal = HttpContext.User as ClaimsPrincipal;
+            if (_signInManager.IsSignedIn(principal))
+            {
+                return Json(new { result = "true" });
+            }
+            return Json(new { result = "theerrror" });
+
+
+        }
+        [AllowAnonymous]
+        [HttpGet]
         public async Task<IActionResult> GetAddress()
         {
             

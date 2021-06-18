@@ -23,7 +23,7 @@ namespace Project.AdminApp.Controllers
             _productService = productService;
             _categoryService = categoryService;
         }
-        public async Task<IActionResult> Index(string keyword, int? categoryId,int? id,int pageIndex = 1, int pageSize = 10)
+        public async Task<IActionResult> Index(string keyword, int? categoryId,int? id,int pageIndex = 1, int pageSize = 20)
         {
             var request = new GetProductPagingRequest()
             {
@@ -194,6 +194,17 @@ namespace Project.AdminApp.Controllers
         {
             ViewBag.ProductId = productId;
             var result = await _productService.RemoveImageAsync(productId,imgId);
+            if (result.IsSuccessed)
+            {
+                return Json(new { result = "success", id = productId, imgid = imgId }); ;
+            }
+            return Json(new { result = "fasle",id= productId,imgid=imgId}); 
+        }
+        [HttpPost]
+        public async Task<JsonResult> ChangeDefaultImage(int productId,int imgId)
+        {
+            ViewBag.ProductId = productId;
+            var result =  _productService.ChangeDefaultImage(productId,imgId);
             if (result.IsSuccessed)
             {
                 return Json(new { result = "success", id = productId, imgid = imgId }); ;

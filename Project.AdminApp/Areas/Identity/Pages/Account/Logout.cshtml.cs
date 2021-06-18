@@ -41,6 +41,23 @@ namespace Project.Areas.Identity.Pages.Account
                 }
             );
         }
+        public async Task<IActionResult> OnGet(string returnUrl = null)
+        {
+            if (!_signInManager.IsSignedIn(User)) return RedirectToPage("/Index");
+
+            await _signInManager.SignOutAsync();
+            _logger.LogInformation("Người dùng đăng xuất");
+
+
+            return ViewComponent(MessagePage.COMPONENTNAME,
+                new MessagePage.Message()
+                {
+                    title = "Đã đăng xuất",
+                    htmlcontent = "Đăng xuất thành công",
+                    urlredirect = (returnUrl != null) ? returnUrl : Url.Page("/Index")
+                }
+            );
+        }
     }
 } 
 

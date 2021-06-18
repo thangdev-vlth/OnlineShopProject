@@ -796,7 +796,7 @@ namespace Project.Data.Extensions
                     DateCreated = DateTime.Now,
                     FileSize = 0,
                     ImagePath = "/user-content/Tshirt/Tshirt11.png",
-                    IsDefault = true,
+                    IsDefault = false,
                     SortOrder = 0
                 }, new ProductImage()
                 {

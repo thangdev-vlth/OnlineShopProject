@@ -25,6 +25,7 @@ namespace Project.Application.Catalog.Products
         Task<RequestResult<List<ProductImageViewModel>>> GetAllImageAsync(int productId);
         Task<RequestResult<bool>> RemoveImageAsync(int productId,int imgId);
         RequestResult<bool> AddViewCount(int id);
+        RequestResult<bool> ChangeDefaultImage(int productId, int imgId);
         //Task<ProductViewModel> GetById(String id);
     }
 }
