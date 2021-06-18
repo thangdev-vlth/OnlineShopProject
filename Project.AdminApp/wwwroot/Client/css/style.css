@@ -7,7 +7,9 @@ body {
     font-weight: 400;
     background: #f3f6ff;
 }
-
+html {
+    font-family: Roboto, Helvetica, Arial, sans-serif !important;
+}
 a {
     color: #FF6F61;
 }
@@ -21,13 +23,13 @@ a:focus {
 }
 
 h1 {
-    font-family: 'Source Code Pro', monospace;
-    font-weight: 900;
+    font-family: Roboto, Helvetica, Arial, sans-serif !important;
+    font-weight: 700;
 }
 
 h2 {
-    font-family: 'Source Code Pro', monospace;
-    font-weight: 700;
+    font-family: Roboto, Helvetica, Arial, sans-serif !important;
+    font-weight: 500;
 }
 
 @media(min-width: 992px) {

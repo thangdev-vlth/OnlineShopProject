@@ -55,7 +55,7 @@
                         <div class="navbar-nav mr-auto">
                             <a href="/" class="nav-item nav-link active">Trang Chủ</a>
                             <a asp-controller="HomePage" asp-action="ListProduct" class="nav-item nav-link">Sản Phẩm</a>
-                            <a href="" class="nav-item nav-link">Hóa Đơn Của Bạn</a>
+                            <a asp-area="Identity" asp-page="/Account/Manage/ManageOrder" class="nav-item nav-link">Hóa Đơn Của Bạn</a>
 
                         </div>
                         @await Html.PartialAsync("_LoginPartial")
@@ -112,7 +112,7 @@
                     <div class="footer-widget">
                         <h2>Liên Hệ Cửa Hàng</h2>
                         <div class="contact-info">
-                            <p><i class="fa fa-map-marker"></i>123 E Store, Los Angeles, USA</p>
+                            <p><i class="fa fa-map-marker"></i>18 Tam Trinh, Hai Bà Trưng</p>
                             <p><i class="fa fa-envelope"></i>project.contact.vtc@gmail.com</p>
                             <p><i class="fa fa-phone"></i>+123-456-7890</p>
                         </div>
@@ -160,13 +160,13 @@
             <div class="row payment align-items-center">
                 <div class="col-md-6">
                     <div class="payment-method">
-                        <h2>We Accept:</h2>
+                        <h2>Thanh toán:</h2>
                         <img src="/Client/img/payment-method.png" alt="Payment Method" />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="payment-security">
-                        <h2>Secured By:</h2>
+                        <h2>Bảo hộ bởi:</h2>
                         <img src="/Client/img/godaddy.svg" alt="Payment Security" />
                         <img src="/Client/img/norton.svg" alt="Payment Security" />
                         <img src="/Client/img/ssl.svg" alt="Payment Security" />
@@ -181,11 +181,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 copyright">
-                    <p>Copyright &copy; <a href="https://htmlcodex.com">HTML Codex</a>. All Rights Reserved</p>
+                    <p>Copyright &copy; <a href="/">eShop</a>. Bản Quyền Đã Được Bảo Hộ</p>
                 </div>
 
                 <div class="col-md-6 template-by">
-                    <p>Template By <a href="https://htmlcodex.com">HTML Codex</a></p>
+                    <p>Sản Phẩm Được Cung Cấp Bởi <a href="/">ESHOP</a></p>
                 </div>
             </div>
         </div>

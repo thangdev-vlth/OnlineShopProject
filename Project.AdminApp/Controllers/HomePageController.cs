@@ -17,6 +17,7 @@ namespace Project.AdminApp.Controllers
 {
     public class HomePageController : Controller
     {
+        const int Product_PER_PAGE = 9;
         private readonly ILogger<HomePageController> _logger;
         private readonly IProductService _productService;
         private readonly ICategoryService _categoryService;
@@ -75,20 +76,40 @@ namespace Project.AdminApp.Controllers
             return View(viewModel);
         }
         [HttpGet]
-        public async Task<IActionResult> ListProduct(int? categoryId)
+        public async Task<IActionResult> ListProduct(string listType,string keyword ,decimal? StartPrice,decimal? EndPrice,int? categoryId, int pageIndex = 1, int pageSize = 9)
         {
-            var viewModel = new HomeViewModel
+            bool searchByRangePrice = false;
+            if (StartPrice!=null)
             {
-                LatestProducts = await _productService.GetLatestProducts(),
-                FeaturedProducts = await _productService.GetFeaturedProducts(),
+                searchByRangePrice = true;
+            }
+            var request = new GetProductPagingRequest()
+            {
+                keyword = keyword,
+                PageIndex = pageIndex,
+                PageSize = pageSize,
+                categoryId = categoryId,
+                StartPrice=StartPrice,
+                EndPrice=EndPrice,
+                searchByPrice=searchByRangePrice,
+                listType=listType
                 
             };
-
-            if (categoryId!=null)
+                ViewBag.listType = listType;
+                ViewBag.keyword = keyword;
+                ViewBag.StartPrice = StartPrice.ToString();
+                ViewBag.EndPrice = EndPrice.ToString(); 
+                ViewBag.categoryId = categoryId.ToString();
+                
+                
+            PageResult<ProductViewModel> products = await _productService.GetAllPaging(request);
+            List<ProductViewModel> FeaturedProducts =await _productService.GetFeaturedProducts();
+            ProductsPageViewModel productsPageViewModel = new ProductsPageViewModel()
             {
-                viewModel.FeaturedProducts = await _productService.GetFeaturedProducts(categoryId??0);
-            }
-            return View(viewModel);
+                FeaturedProducts = FeaturedProducts,
+                products = products
+            };
+            return View(productsPageViewModel);
         }
     }
 }

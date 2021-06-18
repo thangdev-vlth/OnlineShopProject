@@ -169,7 +169,7 @@
                                     <label class="col-5 col-lg-3 col-form-label">Ảnh đại diện</label>
                                     <div class="col-7 col-lg-9">
                                         <div class="uniform-uploader" id="uniform-imageUpload">
-                                            <input asp-for="ThumbnailImage" type="file" id="imageUpload">
+                                            <input asp-for="ThumbnailImage" type="file" id="imageUpload" required>
                                             <span asp-validation-for="ThumbnailImage" class="text-danger"></span>
                                         </div>
                                     </div>

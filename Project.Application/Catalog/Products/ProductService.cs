@@ -158,9 +158,35 @@ namespace Project.Application.Catalog.Products
                     {
                         query = query.Where(p => p.Categories.Any(category=>category.Id==request.categoryId));
                     }
+                //by range price
+                if (request.searchByPrice)
+                {
+                    query = query.Where(p => p.Price >= request.StartPrice);
+                    if (request.EndPrice!=null)
+                    {
+                        query = query.Where(p =>p.Price <= request.EndPrice);
+                    }
+                    
+                }
+                //by list type
+                if (!string.IsNullOrEmpty(request.listType))
+                {
+                    if (request.listType.Equals("New"))
+                    {
+                        query = query.Select(n => n).OrderByDescending(p => p.DateCreated);
+                    }else if (request.listType.Equals("bestSale"))
+                    {
+                        query= query.Select(n => n).OrderByDescending(p => p.sold);
+                    } else if (request.listType.Equals("View"))
+                    {
+                        query = query.Select(n => n).OrderByDescending(p => p.ViewCount);
+                    }
+                }
             ////3. Paging
             int totalRow = await query.CountAsync();
-            var data = await query.Select( p => new ProductViewModel()
+            var data = await query.Skip((request.PageIndex - 1) * request.PageSize)
+                .Take(request.PageSize)
+                .Select( p => new ProductViewModel()
             {
                 Id = p.Id,
                 Price = p.Price,
@@ -172,6 +198,7 @@ namespace Project.Application.Catalog.Products
                 Description = p.Description,
                 Details = p.Details,
                 sold = p.sold,
+                ThumbnailImage=p.ProductImages.Where(p=>p.IsDefault==true).Select(p=>p.ImagePath).FirstOrDefault(),
                 ProductImages=p.ProductImages.Select(image=> new ProductImageViewModel() {
                     Caption = image.Caption,
                     DateCreated = image.DateCreated,
@@ -550,6 +577,20 @@ namespace Project.Application.Catalog.Products
             }
         }
 
-        
+        public RequestResult<bool> ChangeDefaultImage(int productId, int imgId)
+        {
+            try
+            {
+                var img = _context.ProductImages.Where(img => img.Id == imgId).Select(img => img).FirstOrDefault();
+                img.IsDefault = !img.IsDefault;
+                _context.SaveChanges();
+                return new RequestSuccessResult<bool>();
+            }
+            catch (Exception e)
+            {
+
+                return new RequestErrorResult<bool>(e.Message);
+            }
+        }
     }
 }

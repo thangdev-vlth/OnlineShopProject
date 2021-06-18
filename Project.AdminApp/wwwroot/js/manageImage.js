@@ -26,6 +26,13 @@
             });
 
         });
+        $('body').on('change', '.isDefault-e', function (e) {
+            e.preventDefault();
+            const id = $("#productId").data('id');
+            const imgId = $(this).data("imgid");
+            console.log("imgId=" + imgId);
+            ChangeDefaultImage(id, imgId);
+        });
     }
     function loadData() {
         const id = $("#productId").data('id');
@@ -45,12 +52,12 @@
                         html += "<tr>"
                             + "<td class=\"w-25 h-25\">"
                             + "<img style=\"display:block;width: 175px; height: 230px; object-fit: cover;\" src='" + item.imagePath + "' alt=\"Alternate Text\" \/><\/td>"
-                            + "<td>"
-                            + "<div class=\"custom-checkbox\">" + item.caption + "<\/div><\/td>"
-                            + "<td>"
+                            + "<td style=\"vertical-align: middle;text-align: center;\">"
+                            + "<div >" + item.caption + "<\/div><\/td>"
+                            + "<td style=\"vertical-align: middle;text-align: center;\">"
                             + "<div>" + item.sortOrder + "<\/div><\/td>"
-                            + "<td style=\"margin:50%;\"><input " + checked + "class=\"" + classChecked + "\" data-val=\"true\" data-val-required=\"The IsDefault field is required.\" id=\"item_IsDefault\" name=\"item.IsDefault\" style=\"margin:50%;width:20px;height:20px;\" type=\"checkbox\" value=\"true\"><\/td>"
-                            + "<td>"
+                            + "<td style=\"margin:50%;\"><input " + checked + "class=\"isDefault-e " + classChecked + "\" data-val=\"true\" data-imgid=" + item.id + " data-val-required=\"The IsDefault field is required.\" id=\"item_IsDefault\" name=\"item.IsDefault\" style=\"margin:50%;width:20px;height:20px;\" type=\"checkbox\" value=\"true\"><\/td>"
+                            + "<td style=\"vertical-align: middle;text-align: center;\">"
                             + "<button data-imgId=\""+item.id +"\" class=\"btn-remove-img manageImage\"><i class=\"fa fa-trash\"><\/i><\/button><\/td>"
                             + "<\/tr>";
                     });
@@ -82,6 +89,23 @@
                         icon: "warning",
                     });
                 }
+            },
+            error: function (err) {
+                console.log(err);
+                return false;
+            }
+        });
+    }
+    function ChangeDefaultImage(id, imgId) {
+        $.ajax({
+            type: "POST",
+            url: "/Products/ChangeDefaultImage",
+            data: {
+                productId: id,
+                imgId: imgId
+            },
+            success: function (res) {
+                console.log(res);
             },
             error: function (err) {
                 console.log(err);

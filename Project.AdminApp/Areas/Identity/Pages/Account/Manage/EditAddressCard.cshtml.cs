@@ -93,6 +93,7 @@ namespace Project.AdminApp.Areas.Identity.Pages.Account.Manage
             if (resultRequest.IsSuccessed)
             {
                 addressCardViewModel = resultRequest.ResultObj;
+                isDefault = addressCardViewModel.isDefault;
             }
             await LoadAsync(user);
             return Page();
