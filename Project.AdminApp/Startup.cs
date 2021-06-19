@@ -141,7 +141,7 @@ namespace Project.AdminApp
                 options.ForwardLimit = 2;
                 options.ForwardedForHeaderName = "Header_Name_Used_By_Proxy_For_X-Forwarded-For_Header";
                 options.ForwardedProtoHeaderName = "Header_Name_Used_By_Proxy_For_X-Forwarded-Proto_Header";
-                options.KnownProxies.Add(IPAddress.Parse("103.137.184.108"));
+                //options.KnownProxies.Add(IPAddress.Parse("103.137.184.108"));
             });
         }
 
