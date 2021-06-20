@@ -36,7 +36,7 @@ namespace Project.AdminApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            var connectionString = Configuration.GetConnectionString("ProjectOnlineShopDb");
+            var connectionString = Configuration.GetConnectionString("ProjectOnlineShopDb2");
             services.AddDbContext<ProjectDbContext>(options =>
                     options.UseSqlServer(connectionString, b => b.MigrationsAssembly("Project.AdminApp")));
 
