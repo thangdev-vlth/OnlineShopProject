@@ -938,6 +938,106 @@ namespace Project.Data.Extensions
                     ImagePath = "/user-content/Tshirt/Tshirt14.png",
                     IsDefault = true,
                     SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -67,
+                    ProductId = 1,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/default/product-1.jpg",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -68,
+                    ProductId = 1,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/default/product-2.jpg",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -69,
+                    ProductId = 1,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/default/product-3.jpg",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -70,
+                    ProductId = 1,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/default/product-4.jpg",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -71,
+                    ProductId = 1,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/default/product-5.jpg",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -72,
+                    ProductId = 2,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/default/product-6.jpg",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -73,
+                    ProductId = 2,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/default/product-7.jpg",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -74,
+                    ProductId = 2,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/default/product-8.jpg",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -75,
+                    ProductId = 2,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/default/product-9.jpg",
+                    IsDefault = true,
+                    SortOrder = 0
+                }, new ProductImage()
+                {
+                    Id = -76,
+                    ProductId = 2,
+                    Caption = "Image",
+                    DateCreated = DateTime.Now,
+                    FileSize = 0,
+                    ImagePath = "/user-content/default/product-10.jpg",
+                    IsDefault = true,
+                    SortOrder = 0
                 }
              );
 
