@@ -18,7 +18,7 @@ namespace Project.Data.EF
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            var connectionString = configuration.GetConnectionString("ProjectOnlineShopDb2");
+            var connectionString = configuration.GetConnectionString("ProjectOnlineShopDb3");
 
             var optionsBuilder = new DbContextOptionsBuilder<ProjectDbContext>();
             optionsBuilder.UseSqlServer(connectionString, b => b.MigrationsAssembly("Project.AdminApp"));

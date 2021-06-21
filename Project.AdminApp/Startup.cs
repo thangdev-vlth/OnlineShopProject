@@ -19,6 +19,8 @@ using Project.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Security;
 using System.Threading.Tasks;
 
 namespace Project.AdminApp
@@ -28,6 +30,10 @@ namespace Project.AdminApp
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) =>
+            {
+                return (sslPolicyErrors & SslPolicyErrors.RemoteCertificateNotAvailable) != SslPolicyErrors.RemoteCertificateNotAvailable;
+            };
         }
 
         public IConfiguration Configuration { get; }
@@ -35,8 +41,9 @@ namespace Project.AdminApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
             services.AddControllersWithViews();
-            var connectionString = Configuration.GetConnectionString("ProjectOnlineShopDb2");
+            var connectionString = Configuration.GetConnectionString("ProjectOnlineShopDb3");
             services.AddDbContext<ProjectDbContext>(options =>
                     options.UseSqlServer(connectionString, b => b.MigrationsAssembly("Project.AdminApp")));
 
