@@ -100,7 +100,8 @@ namespace Project.AdminApp
             //sadhbashjdbasbhdasbj
             services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.IdleTimeout = new TimeSpan(0, 60, 0);
+                options.Cookie.Name = "yandere";
             });
             services.AddAuthentication().AddGoogle(googleOptions => {
                 //doc thong tin Authentication:Google tu appsettings.json
