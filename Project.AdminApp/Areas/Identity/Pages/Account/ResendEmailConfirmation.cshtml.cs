@@ -50,7 +50,7 @@ namespace Project.Areas.Identity.Pages.Account
             var user = await _userManager.FindByEmailAsync(Input.Email);
             if (user == null)
             {
-                ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
+                ModelState.AddModelError(string.Empty, "Kiểm tra lại email.");
                 return Page();
             }
 
@@ -64,10 +64,10 @@ namespace Project.Areas.Identity.Pages.Account
                 protocol: Request.Scheme);
             await _emailSender.SendEmailAsync(
                 Input.Email,
-                "Confirm your email",
-                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                "Xác nhận email",
+                $"Xác nhận email bằng cách <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Bám vào đây</a>.");
 
-            ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
+            ModelState.AddModelError(string.Empty, "Đã gửi email. Vui lòng xác nhận trong hòm thư của bạn");
             return Page();
         }
     }
