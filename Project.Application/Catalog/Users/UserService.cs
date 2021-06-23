@@ -32,6 +32,7 @@ namespace Project.Application.Catalog.Users
 
         public async Task<PageResult<UserViewModel>> GetAllUser(string role)
         {
+           
             var data =await (from user in _userManager.Users
                          join userRoles in _projectDbContext.UserRoles on user.Id equals userRoles.UserId
                          join roles in _projectDbContext.Roles on userRoles.RoleId equals roles.Id
@@ -47,8 +48,21 @@ namespace Project.Application.Catalog.Users
                              Address = user.Address,
                              Disable = user.disable ? "Đang Hoạt động" : "Đã bị vô hiệu hóa"
                          }).ToListAsync();
-            
-             
+            if (role == "customer")
+            {
+                data = await    _projectDbContext.Users.Select(user => new UserViewModel()
+                                  {
+                                      Id = user.Id,
+                                      UserName = user.UserName,
+                                      Email = user.Email,
+                                      PhoneNumber = user.PhoneNumber ?? "",
+                                      Fullname = user.FullName,
+                                      Birthday = user.Birthday,
+                                      Address = user.Address,
+                                      Disable = user.disable ? "Đang Hoạt động" : "Đã bị vô hiệu hóa"
+                                  }).ToListAsync();
+            }
+
             //var data =  query.Select(user => new UserViewModel()
             //{
             //    Id = user.Id,
@@ -76,7 +90,7 @@ namespace Project.Application.Catalog.Users
                 PhoneNumber = user.PhoneNumber ?? "",
                 Fullname = user.FullName,
                 Birthday = user.Birthday,
-                Address =addressCard.ResultObj.addressCDW??"",
+                //Address =addressCard.ResultObj.addressCDW??"",
                 totalOrder=totalOrder,
                 EmailConfirmed = user.EmailConfirmed ? "Đã Xác Nhận" : "Chưa Xác Nhận"
             };

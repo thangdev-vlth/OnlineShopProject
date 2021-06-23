@@ -67,7 +67,7 @@
                                
                                 <div class="action">
                                     <a class="btn btn-add-cart" data-id="@Model.LandingProduct.Id" data-size="M"  href="#" id="addCart"><i class="fa fa-shopping-cart"></i>Thêm Vào Giỏ Hàng</a>
-                                    <a class="btn" href="#"><i class="fa fa-shopping-bag"></i>Mua Ngay</a>
+                                    <a class="btn" href="#" onclick="return false;"><i class="fa fa-shopping-bag"></i>Mua Ngay</a>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="pill" href="#specification">Specification</a>
+                                <a class="nav-link" data-toggle="pill" href="#specification">Nội dung</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="pill" href="#reviews">Reviews (1)</a>
@@ -95,18 +95,18 @@
                                 <p> @Model.LandingProduct.Description </p>
                             </div>
                             <div id="specification" class="container tab-pane fade">
-                                <h4>Product specification</h4>
+                                <h4>Chưa Được Phát Triển</h4>
                                 <ul>
-                                    <li>Lorem ipsum dolor sit amet</li>
-                                    <li>Lorem ipsum dolor sit amet</li>
-                                    <li>Lorem ipsum dolor sit amet</li>
-                                    <li>Lorem ipsum dolor sit amet</li>
-                                    <li>Lorem ipsum dolor sit amet</li>
+                                    <li>Chưa Được Phát Triển</li>
+                                    <li>Chưa Được Phát Triển</li>
+                                    <li>Chưa Được Phát Triển</li>
+                                    <li>Chưa Được Phát Triển</li>
+                                    <li>Chưa Được Phát Triển</li>
                                 </ul>
                             </div>
                             <div id="reviews" class="container tab-pane fade">
                                 <div class="reviews-submitted">
-                                    <div class="reviewer">Phasellus Gravida - <span>01 Jan 2020</span></div>
+                                    <div class="reviewer">Phasellus Gravida - <span>01/01/2020</span></div>
                                     <div class="ratting">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -115,11 +115,11 @@
                                         <i class="fa fa-star"></i>
                                     </div>
                                     <p>
-                                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+                                        Chưa Được Phát Triển
                                     </p>
                                 </div>
                                 <div class="reviews-submit">
-                                    <h4>Give your Review:</h4>
+                                    <h4>Để Lại Đánh Giá của bạn</h4>
                                     <div class="ratting">
                                         <i class="far fa-star"></i>
                                         <i class="far fa-star"></i>
@@ -129,16 +129,16 @@
                                     </div>
                                     <div class="row form">
                                         <div class="col-sm-6">
-                                            <input type="text" placeholder="Name">
+                                            <input type="text" placeholder="Tên">
                                         </div>
                                         <div class="col-sm-6">
                                             <input type="email" placeholder="Email">
                                         </div>
                                         <div class="col-sm-12">
-                                            <textarea placeholder="Review"></textarea>
+                                            <textarea placeholder="Đánh giá của bạn"></textarea>
                                         </div>
                                         <div class="col-sm-12">
-                                            <button>Submit</button>
+                                            <button disabled>Đánh giá</button>
                                         </div>
                                     </div>
                                 </div>
@@ -180,6 +180,7 @@
                                     </div>
                                     <div class="product-price">
                                         <h3>@item.price</h3>
+                                        @*<a class="btn" asp-action="ProductDetail" asp-controller="HomePage" asp-route-id="@item.Id"><i class="fa fa-shopping-cart"></i>Mua Ngay</a>*@
                                     </div>
                                 </div>
                             </div>
@@ -253,6 +254,7 @@
                                     </div>
                                     <div class="product-price">
                                         <h3>@item.price</h3>
+                                        @*<a class="btn" asp-action="ProductDetail" asp-controller="HomePage" asp-route-id="@item.Id"><i class="fa fa-shopping-cart"></i>Buy Now</a>*@
                                     </div>
                                 </div>
                             </div>
