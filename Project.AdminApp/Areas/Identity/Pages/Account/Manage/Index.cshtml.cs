@@ -48,8 +48,11 @@ namespace Project.Areas.Identity.Pages.Account.Manage
             [Display(Name = "Địa chỉ")]
             public string Address { set; get; }
 
-            [DataType(DataType.Date)]
+            /* [DataType(DataType.Date)]
+             [Display(Name = "Ngày sinh d/m/y")]*/
             [Display(Name = "Ngày sinh d/m/y")]
+            [ModelBinder(BinderType = typeof(DayMonthYearBinder))]
+            [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
             public DateTime? Birthday { set; get; }
 
         }

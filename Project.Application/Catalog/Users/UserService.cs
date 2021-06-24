@@ -32,37 +32,63 @@ namespace Project.Application.Catalog.Users
 
         public async Task<PageResult<UserViewModel>> GetAllUser(string role)
         {
-           
-            var data =await (from user in _userManager.Users
-                         join userRoles in _projectDbContext.UserRoles on user.Id equals userRoles.UserId
-                         join roles in _projectDbContext.Roles on userRoles.RoleId equals roles.Id
-                         where roles.Name == role
-                         select user).Select(user => new UserViewModel()
-                         {
-                             Id = user.Id,
-                             UserName = user.UserName,
-                             Email = user.Email,
-                             PhoneNumber = user.PhoneNumber ?? "",
-                             Fullname = user.FullName,
-                             Birthday = user.Birthday,
-                             Address = user.Address,
-                             Disable = user.disable ? "Đang Hoạt động" : "Đã bị vô hiệu hóa"
-                         }).ToListAsync();
+
+            var data = await (from user in _userManager.Users
+                              join userRoles in _projectDbContext.UserRoles on user.Id equals userRoles.UserId
+                              join roles in _projectDbContext.Roles on userRoles.RoleId equals roles.Id
+                              where roles.Name == "staff"
+                              select user).Select(user => new UserViewModel()
+                              {
+                                  Id = user.Id,
+                                  UserName = user.UserName,
+                                  Email = user.Email,
+                                  PhoneNumber = user.PhoneNumber ?? "",
+                                  Fullname = user.FullName,
+                                  Birthday = user.Birthday,
+                                  Address = user.Address,
+                                  Disable = user.disable ? "Đang Hoạt động" : "Đã bị vô hiệu hóa"
+                              }).ToListAsync();
+            var staff = await (from user in _userManager.Users
+                               join userRoles in _projectDbContext.UserRoles on user.Id equals userRoles.UserId
+                               join roles in _projectDbContext.Roles on userRoles.RoleId equals roles.Id
+                               where roles.Name == "staff"
+                               select user).Select(user => new UserViewModel()
+                               {
+                                   Id = user.Id,
+                                   UserName = user.UserName,
+                                   Email = user.Email,
+                                   PhoneNumber = user.PhoneNumber ?? "",
+                                   Fullname = user.FullName,
+                                   Birthday = user.Birthday,
+                                   Address = user.Address,
+                                   Disable = user.disable ? "Đang Hoạt động" : "Đã bị vô hiệu hóa"
+                               }).ToListAsync();
+            var data2 = await _projectDbContext.Users.Select(user => new UserViewModel()
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber ?? "",
+                Fullname = user.FullName,
+                Birthday = user.Birthday,
+                Address = user.Address,
+                Disable = user.disable ? "Đang Hoạt động" : "Đã bị vô hiệu hóa"
+            }).ToListAsync();
             if (role == "customer")
             {
-                data = await    _projectDbContext.Users.Select(user => new UserViewModel()
-                                  {
-                                      Id = user.Id,
-                                      UserName = user.UserName,
-                                      Email = user.Email,
-                                      PhoneNumber = user.PhoneNumber ?? "",
-                                      Fullname = user.FullName,
-                                      Birthday = user.Birthday,
-                                      Address = user.Address,
-                                      Disable = user.disable ? "Đang Hoạt động" : "Đã bị vô hiệu hóa"
-                                  }).ToListAsync();
+               
+                foreach (var item in data2)
+                {
+                    foreach (var staffrole in staff)
+                    {
+                        if (item.Id == staffrole.Id)
+                        {
+                            data2.Remove(item);
+                        }
+                    }
+                }
             }
-
+            
             //var data =  query.Select(user => new UserViewModel()
             //{
             //    Id = user.Id,
@@ -74,7 +100,7 @@ namespace Project.Application.Catalog.Users
             //    Address = user.Address,
             //    Disable = user.disable ? "Đang Hoạt động" : "Đã bị vô hiệu hóa"
             //});
-            return new PageResult<UserViewModel>() { Items = data };
+            return new PageResult<UserViewModel>() { Items = data2 };
         }
 
         public async Task<UserViewModel> GetById(string id)
@@ -90,7 +116,7 @@ namespace Project.Application.Catalog.Users
                 PhoneNumber = user.PhoneNumber ?? "",
                 Fullname = user.FullName,
                 Birthday = user.Birthday,
-                //Address =addressCard.ResultObj.addressCDW??"",
+                Address =(addressCard.ResultObj !=null)?addressCard.ResultObj.addressCDW:"",
                 totalOrder=totalOrder,
                 EmailConfirmed = user.EmailConfirmed ? "Đã Xác Nhận" : "Chưa Xác Nhận"
             };
