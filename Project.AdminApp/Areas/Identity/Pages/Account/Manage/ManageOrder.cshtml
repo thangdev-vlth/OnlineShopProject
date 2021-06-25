@@ -8,6 +8,9 @@
         <h4 class="container-fluid d-inline-flex justify-content-center mb-3">Đơn hàng của bạn</h4>
         <hr />
     }*@
+@section Css{
+    <link href="/Client/css/Identity/Manage/manageOrder.css" rel="stylesheet" />
+ }
 <partial name="_StatusMessage" model="Model.StatusMessage" />
 <div class="Account__StyledAccountLayoutInner-sc-1d5h8iz-2 edAZXd">
     <div class="styles__StyledAccountListOrder-sc-6t66uv-0 glOjBk">
@@ -31,7 +34,7 @@
                             </div>
                             <div class="item-mo">
                                 <div class="title">Tổng tiền</div>
-                                <div class="value">@String.Format("{0:0,0 vnđ}", item.total)</div>
+                                <div class="value">@String.Format("{0:0,0 đ}", item.total)</div>
                             </div>
                         </div>
                         <div class="order-info">
@@ -94,7 +97,7 @@
                                 {
                                     <td>@item.ordertItem[0].Name</td>
                                 }
-                                <td>@String.Format("{0:0,0 vnđ}", @item.total)</td>
+                                <td>@String.Format("{0:0,0 đ}", @item.total)</td>
                                 <td>@item.Status.DisplayName()</td>
                             </tr>
                         }

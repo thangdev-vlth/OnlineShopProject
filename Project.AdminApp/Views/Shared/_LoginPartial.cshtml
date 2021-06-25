@@ -9,7 +9,7 @@
 {
     <div class="navbar-nav ml-auto">
         <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="is-signed-in" data-signed-in="true"><i class="fa fa-user"></i> @UserManager.GetUserName(User) <span id="news"></span></a>
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="is-signed-in" data-signed-in="true"><i class="fa fa-user" style="color: white;"></i> @UserManager.GetUserName(User) <span id="news"></span></a>
             <div class="dropdown-menu dropdown-menu-right">
                 <a id="manage" class="nav-link text-dark dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index" title="Hồ Sơ của bạn"> Tài khoản của tôi <span id="news"></span></a>
                 <a id="manage" class="nav-link text-dark dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Notification" title="Hồ Sơ của bạn"> Thông báo của tôi <span class="news"></span></a>
@@ -25,10 +25,10 @@ else
 {
     <div class="navbar-nav ml-auto">
         <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"  id="is-signed-in" data-signed="false">Tài Khoản</a>
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"  id="is-signed-in" data-signed="false"><i class="fa fa-user" style="color: white;"></i>Tài Khoản</a>
             <div class="dropdown-menu">
-                <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Đăng Kí</a>
-                <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Đăng Nhập</a>
+                <a class="nav-link text-dark dropdown-item" id="register" asp-area="Identity" asp-page="/Account/Register">Đăng Kí</a>
+                <a class="nav-link text-dark dropdown-item" id="login" asp-area="Identity" asp-page="/Account/Login">Đăng Nhập</a>
             </div>
         </div>
     </div>

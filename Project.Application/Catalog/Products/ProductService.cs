@@ -190,7 +190,7 @@ namespace Project.Application.Catalog.Products
             {
                 Id = p.Id,
                 Price = p.Price,
-                price = String.Format("{0:0,0 vnđ}", p.Price),
+                price = String.Format("{0:0,0 đ}", p.Price),
                 Stock = p.Stock,
                 ViewCount = p.ViewCount,
                 DateCreated = p.DateCreated,
@@ -350,7 +350,7 @@ namespace Project.Application.Catalog.Products
             {
                 Id = p.Id,
                 Price = p.Price,
-                price = String.Format("{0:0,0 vnđ}", p.Price),
+                price = String.Format("{0:0,0 đ}", p.Price),
                 Stock = p.Stock,
                 ViewCount = p.ViewCount,
                 DateCreated = p.DateCreated,
@@ -392,7 +392,7 @@ namespace Project.Application.Catalog.Products
             {
                 Id = p.Id,
                 Price = p.Price,
-                price = String.Format("{0:0,0 vnđ}", p.Price),
+                price = String.Format("{0:0,0 đ}", p.Price),
                 Stock = p.Stock,
                 ViewCount = p.ViewCount,
                 DateCreated = p.DateCreated,
@@ -434,7 +434,7 @@ namespace Project.Application.Catalog.Products
             {
                 Id = p.Id,
                 Price = p.Price,
-                price = String.Format("{0:0,0 vnđ}", p.Price),
+                price = String.Format("{0:0,0 đ}", p.Price),
                 Stock = p.Stock,
                 ViewCount = p.ViewCount,
                 DateCreated = p.DateCreated,
