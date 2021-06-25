@@ -11,8 +11,11 @@
     }
 
 }
+@section Css {
+    @await RenderSectionAsync("Css", required: false)
+}
 <main class="container-fluid">
-    
+
 
     <div>
         @await RenderSectionAsync("HtmlTitle", required: false)

@@ -22,7 +22,7 @@
     <!-- Template Stylesheet -->
     <link href="/Client/css/style.css" rel="stylesheet">
     <link href="/Client/css/site.css" rel="stylesheet" />
-
+    @await RenderSectionAsync("Css", required: false)
 </head>
 <body class="sb-nav-fixed">
     <header>
@@ -53,10 +53,19 @@
 
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
-                            <a href="/" class="nav-item nav-link active">Trang Chủ</a>
                             <a asp-controller="HomePage" asp-action="ListProduct" class="nav-item nav-link">Sản Phẩm</a>
-                            <a asp-area="Identity" asp-page="/Account/Manage/ManageOrder" class="nav-item nav-link">Hóa Đơn Của Bạn</a>
-
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Danh mục</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-controller="HomePage" asp-action="ListProduct" asp-route-listType="bestSale"><i class="fa fa-shopping-bag"></i>Sản phẩm HOT</a>
+                                    <a class="dropdown-item" asp-controller="HomePage" asp-action="ListProduct" asp-route-listType="View"><i class=" fa far fa-star"></i>Sản Phẩm Xem Nhiều</a>
+                                    <a class="dropdown-item" asp-controller="HomePage" asp-action="ListProduct" asp-route-listType="New"><i class="fa fa-plus-square"></i>Sản phẩm mới</a>
+                                    <a class="dropdown-item" asp-controller="HomePage" asp-action="ListProduct" asp-route-categoryId="-2"><i class="fa fa-female"></i>Váy</a>
+                                    <a class="dropdown-item" asp-controller="HomePage" asp-action="ListProduct" asp-route-categoryId="-3"><i class="fas fa fa-male"></i>Street Style</a>
+                                    <a class="dropdown-item" asp-controller="HomePage" asp-action="ListProduct" asp-route-categoryId="-4"><i class="fa fa-tshirt"></i>T-Shirt</a>
+                                    <a class="dropdown-item" asp-controller="HomePage" asp-action="ListProduct" asp-route-categoryId="-1"><i class="fa fa-mobile-alt"></i>Jean</a>
+                                </div>
+                            </div>
                         </div>
                         @await Html.PartialAsync("_LoginPartial")
 
@@ -69,10 +78,10 @@
         <div class="bottom-bar">
             <div class="container-fluid">
                 <div class="row align-items-center">
-                    <div class="col-md-3">
+                    <div class="col-md-3 ">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="212" height="53" viewBox="0 0 212 53">
                             <defs>
-                                <style>
+                                <style type="text/css">
                                     .cls-1 {
                                         clip-path: url(#clip-Custom_Size_1);
                                     }

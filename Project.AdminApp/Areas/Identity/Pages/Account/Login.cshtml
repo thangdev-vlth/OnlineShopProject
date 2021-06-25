@@ -73,9 +73,12 @@
             <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
                 <div>
                     <p>
+                        
                         @foreach (var provider in Model.ExternalLogins)
                         {
-                            <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Đăng nhập bằng tài khoản @provider.DisplayName ">@provider.DisplayName</button>}
+                            <button type="submit" value="@provider.Name" name="provider" title="Sử dụng tài khoản @provider.DisplayName của bạn" class=" btn--google__login"><span><i class="tikicon icon-google-white"></i></span>Đăng nhập bằng Google</button>
+                            }
+                        
                     </p>
                 </div>
             </form> } }
