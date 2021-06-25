@@ -56,6 +56,7 @@ namespace Project.Application.Mail
             {
                 smtp.Connect(mailSettings.Host, mailSettings.Port, SecureSocketOptions.StartTls);
                 smtp.Authenticate(mailSettings.Mail, mailSettings.Password);
+                logger.LogInformation("MailSetting : " + mailSettings.Mail + " Password: " + mailSettings.Password);
                 await smtp.SendAsync(message);
                 
             }
@@ -67,6 +68,7 @@ namespace Project.Application.Mail
                 await message.WriteToAsync(emailsavefile);
 
                 logger.LogInformation("Lỗi gửi mail, lưu tại - " + emailsavefile);
+
                 logger.LogError(ex.Message);
             }
 

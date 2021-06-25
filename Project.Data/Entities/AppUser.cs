@@ -19,6 +19,13 @@ namespace Project.Data.Entities
 
             public List<Order> Orders { get; set; }
 
+            public bool disable { get; set; }
+            
+            public DateTime LastSignIn { get; set; }
+
+            public List<Address> Addresses { get; set; }
+            public List<Notification> notifications { get; set; }
+
             //public List<Transaction> Transactions { get; set; }
         }
     

@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,5 +18,7 @@
     <ProjectReference Include="..\Project.Data\Project.Data.csproj" />
     <ProjectReference Include="..\Project.ViewModels\Project.ViewModels.csproj" />
   </ItemGroup>
-
+	<ItemGroup>
+		<Folder Include="\Project.AdminApp\user-content\"/>
+	</ItemGroup>
 </Project>

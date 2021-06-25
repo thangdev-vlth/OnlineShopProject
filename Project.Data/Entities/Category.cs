@@ -19,6 +19,7 @@ namespace Project.Data.Entities
 
         public Status Status { set; get; }
 
-        public List<ProductInCategory> ProductInCategories { get; set; }
+        public List<Product> Products { get; set; }
+        public List<CategoryPromotion> CategoryPromotions { get; set; }
     }
 }

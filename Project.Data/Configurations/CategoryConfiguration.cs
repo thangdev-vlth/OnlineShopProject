@@ -23,6 +23,8 @@ namespace Project.Data.Configurations
             builder.Property(x => x.Description).HasMaxLength(500);
 
             builder.Property(x => x.Status).HasDefaultValue(Status.Active);
+            builder.HasMany<Product>(s => s.Products)
+               .WithMany(c => c.Categories);
         }
     }
 }

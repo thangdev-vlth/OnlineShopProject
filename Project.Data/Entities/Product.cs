@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Data.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,6 +13,8 @@ namespace Project.Data.Entities
 
             public string Description { set; get; }
 
+            
+            public int sold { get; set; }
             public string Details { set; get; }
 
             public decimal Price { set; get; }
@@ -22,10 +25,14 @@ namespace Project.Data.Entities
 
             public DateTime DateCreated { set; get; }
 
-            public bool? IsFeatured { get; set; }
+            public bool IsFeatured { get; set; }
 
-            public List<ProductInCategory> ProductInCategories { get; set; }
+            public ProductStatus productStatus { get; set; }
+            public List<Reviews> Reviews { get; set; }
 
+           public List<Category> Categories { get; set; }
+
+            public List<ProductPromotion> productPromotions { get; set; }
             public List<OrderDetail> OrderDetails { get; set; }
 
             public List<Cart> Carts { get; set; }

@@ -14,7 +14,9 @@ namespace Project.Data.Configurations
             builder.ToTable("AppUsers");
             builder.Property(x => x.UserName).IsRequired();
             builder.Property(x => x.Birthday).IsRequired();
-
+            builder.Property(x => x.disable).HasDefaultValue(false);
+            builder.Property(x => x.LastSignIn).HasDefaultValue(DateTime.Now);
+           
         }
     }
 }

@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*!
 * Start Bootstrap - SB Admin v6.0.2 (https://startbootstrap.com/template/sb-admin)
 * Copyright 2013-2020 Start Bootstrap
@@ -88,7 +88,9 @@ p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
-
+select{
+    background-color:white;
+}
 abbr[title],
 abbr[data-original-title] {
   text-decoration: underline;
@@ -1658,12 +1660,14 @@ pre code {
 }
 .table th,
 .table td {
-  padding: 0.75rem;
-  vertical-align: top;
-  border-top: 1px solid #dee2e6;
+    padding: 0.75rem;
+    white-space: nowrap;
+    text-align:center;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
 }
 .table thead th {
-  vertical-align: bottom;
+  vertical-align: middle;
   border-bottom: 2px solid #dee2e6;
 }
 .table tbody + tbody {
