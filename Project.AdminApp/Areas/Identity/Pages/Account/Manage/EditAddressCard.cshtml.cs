@@ -27,10 +27,6 @@ namespace Project.AdminApp.Areas.Identity.Pages.Account.Manage
         [FromRoute]
         public int AddressCardId { get; set; }
 
-        [Display(Name = "Tên tài khoản")]
-        [BindProperty]
-        public string Username { get; set; }
-
         [BindProperty]
         [Required(ErrorMessage = "Vui Lòng chọn Tỉnh/Thành Phố")]
         public string cityId { get; set; }
@@ -71,15 +67,8 @@ namespace Project.AdminApp.Areas.Identity.Pages.Account.Manage
         }
         private async Task LoadAsync(AppUser user)
         {
-            var userName = await _userManager.GetUserNameAsync(user);
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-            Username = userName;
-            Input = new InputModel
-            {
-                PhoneNumber = phoneNumber,
-                Address = user.Address,
-                FullName = user.FullName
-            };
+           
+            Input = new InputModel();
         }
         public async Task<IActionResult> OnGetAsync()
         {
@@ -89,7 +78,7 @@ namespace Project.AdminApp.Areas.Identity.Pages.Account.Manage
             {
                 return NotFound($"Không tải được tài khoản ID = '{_userManager.GetUserId(User)}'.");
             }
-            var resultRequest= _userService.GetAddressCard(AddressCardId);
+            var resultRequest= _userService.GetAddressCard(AddressCardId, _userManager.GetUserId(User));
             if (resultRequest.IsSuccessed)
             {
                 addressCardViewModel = resultRequest.ResultObj;

@@ -11,7 +11,7 @@ namespace Project.Application.Sales
     public interface ICartService
     {
         RequestResult<CartViewModel> GetCart(string userId);
-        Task<RequestResult<bool>> UpdateQuantityInCart(CartUpdateRequest request);
+        RequestResult<bool> UpdateQuantityInCart(CartUpdateRequest request);
         RequestResult<bool> AddNewItemToCart(CartAddNewItemRequest request);
         RequestResult<bool> CreateOrder(string userId);
     }

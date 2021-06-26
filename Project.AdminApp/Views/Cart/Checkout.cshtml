@@ -10,6 +10,10 @@
         checkoutController.initialize();
     </script>
 }
+@section Css{
+    <link href="~/Client/css/Cart/Index.css" rel="stylesheet" />
+}
+
 <!-- Checkout Start -->
 <div class="checkout">
     <div class="container-fluid">
@@ -18,7 +22,7 @@
                 <div class="checkout-inner">
                     <div class="billing-address">
                         <h2>Địa chỉ giao hàng</h2> <div class="col-md-12">
-                        
+
                             <div class="styles__StyledShippingAddress-sc-1sjj51k-0 cart-summary ">
                                 <p class="heading address__heading--flex"><span class="text">Địa chỉ nhận hàng</span><a data-view-id="cart_shipping_location.change" class="link" asp-controller="Cart" asp-action="SelectAddressCard">Thay đổi</a></p>
                                 <p class="title"><b class="name">@Model.addressCardViewModel.FullName</b><b class="phone">  @Model.addressCardViewModel.phoneNumber</b></p>
@@ -31,7 +35,6 @@
                                 <div class="cart-page-inner">
                                     <div class="table-responsive">
                                         <table class="table table-bordered" id="cart-detail">
-                                           
                                         </table>
                                     </div>
                                 </div>
@@ -59,7 +62,7 @@
 
                             <div class="payment-method">
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="payment-5" name="payment" >
+                                    <input type="radio" class="custom-control-input" id="payment-5" name="payment">
                                     <label class="custom-control-label" for="payment-5">Thanh toán khi nhận hàng</label>
                                 </div>
                                 <div class="payment-content" id="payment-5-show">

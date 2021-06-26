@@ -167,7 +167,11 @@ h2 {
         background:  var(--color-branding);
         box-shadow: none;
     }
-
+.btn-active {
+    color: #ffffff;
+    background: var(--color-branding);
+    box-shadow: none;
+}
 
 /**********************************/
 /******* Normal Slider CSS ********/

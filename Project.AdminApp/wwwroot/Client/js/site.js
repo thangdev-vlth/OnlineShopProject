@@ -6,64 +6,173 @@ var SiteController = function () {
     this.initialize = function () {
         regsiterEvents();
         loadCart();
-        setInterval(loadNews(), 3000);
+        setInterval(loadNews(), 1000);
     }
     function loadCart() {
        // console.log("loading cart....");
-        $.ajax({
-            type: "GET",
-            url: "/Cart/GetListItems",
-            success: function (res) {
-                //console.log("loading cart.... success")
-                $('#lbl_number_of_items').text("(" + res.length + ")");
-            }
-        });
+        
+            $.ajax({
+                type: "GET",
+                url: "/Cart/GetListItems",
+                success: function (res) {
+                    console.log(res)
+                    $('#lbl_number_of_items').text("(" + res.length + ")");
+                }
+            });
+        
+       
     }
     function loadNews() {
         //console.log("loading news....");
-        $.ajax({
-            type: "GET",
-            url: "/User/GetNotification",
-            success: function (res) {
+        var isSigned = $("#is-signed-in").data("signed");
+        //console.log(isSigned);
+        if (isSigned == "true" || isSigned == true) {
+            $.ajax({
+                type: "GET",
+                url: "/User/GetNotification",
+                success: function (res) {
                     $(".news").text(" (" + res.length + ")");
                     $("#nav-news").text(" (" + res.length + ")");
-               
-            }
-        });
+
+                }
+            });
+        }
+       
     }
     function regsiterEvents() {
         // Write your JavaScript code.
         //console.log("add to cart......checked");
         $('body').on('click', '.btn-add-cart', function (e) {
             e.preventDefault();
+            var productId = $(this).data('id');
+            var size = $(".btn-active").data('size');
+            if (size == "null"||size==null) {
+                Swal.fire({
+                    title: 'Chọn size nào <3',
+                    input: 'select',
+                    inputOptions: {
+                        'S': 'Size S',
+                        'M': 'Size M',
+                        'L': 'Size L',
+                        'XL': 'Size XL'
+                    },
+                    inputPlaceholder: 'Chọn size sản phẩm',
+                    showCancelButton: true,
+                    inputValidator: function (value) {
+                        return new Promise(function (resolve, reject) {
+                            if (value !== '') {
+                                resolve();
+                            } else {
+                                resolve('Bạn cần chọn Size trước khi hoàn tất bước này');
+                            }
+                        });
+                    }
+                }).then(function (result) {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: "POST",
+                            url: "/Cart/AddToCart",
+                            data: {
+                                id: productId,
+                                size: result.value
+                            },
+                            success: function (res) {
+                                $('#lbl_number_of_items').text("(" + res.length + ")");
+                                Swal.fire({
+                                    icon: 'success',
+                                    html: "Thêm vào giỏ hàng thành công"
+                                });
+                            },
+                            error: function (err) {
+                                console.log(err);
+                            }
+                        });
+
+                    }
+                });
+            } else {
+                //console.log(size,id);
+                $.ajax({
+                    type: "POST",
+                    url: "/Cart/AddToCart",
+                    data: {
+                        id: productId,
+                        size: size
+                    },
+                    success: function (res) {
+                        $('#lbl_number_of_items').text("(" + res.length + ")");
+                        
+                        Swal.fire({
+                            title: "Đã Thêm Vào Giỏ Hàng!",
+                            text: "Tiếp Tục Mua Sắm Nào!",
+                            icon: "success",
+                            button: "Oki!"
+                        });
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            }
             
-            const id = $(this).data('id');
-            const size = $(this).data('size');
-            $.ajax({
-                type: "POST",
-                url: "/Cart/AddToCart",
-                data: {
-                    id: id,
-                    size:size
+        });
+        $('body').on('click', '.icon-add-cart', function (e) {
+            e.preventDefault();
+            var productId = $(this).data('id');
+            console.log(productId);
+            Swal.fire({
+                title: 'Chọn size nào <3',
+                input: 'select',
+                inputOptions: {
+                    'S': 'Size S',
+                    'M': 'Size M',
+                    'L': 'Size L',
+                    'XL': 'Size XL'
                 },
-                success: function (res) {
-                    $('#lbl_number_of_items').text("(" + res.length + ")");
-                    swal({
-                        title: "Đã Thêm Vào Giỏ Hàng!",
-                        text: "Tiếp Tục Mua Sắm Nào!",
-                        icon: "success",
-                        button: "Oki!",
+                inputPlaceholder: 'Chọn size sản phẩm',
+                showCancelButton: true,
+                inputValidator: function (value) {
+                    return new Promise(function (resolve, reject) {
+                        if (value !== '') {
+                            resolve();
+                        } else {
+                            resolve('Bạn cần chọn Size trước khi hoàn tất bước này');
+                        }
                     });
-                },
-                error: function (err) {
-                    console.log(err);
+                }
+            }).then(function (result) {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Cart/AddToCart",
+                        data: {
+                            id: productId,
+                            size: result.value
+                        },
+                        success: function (res) {
+                            $('#lbl_number_of_items').text("(" + res.length + ")");
+                            Swal.fire({
+                                icon: 'success',
+                                html: "Thêm vào giỏ hàng thành công"
+                            });
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    });
+                   
                 }
             });
         });
         $('body').on('click', '.size', function (e) {
-            var value = $(this).data('size');
-            //console.log(value);
-            $("#addCart").attr("data-size",value);
+            var button = $(this);
+            var button_active = $(".btn-active");
+            button_active.removeClass("btn-active");
+            button.addClass("btn-active")
+            var value = button.data('size');
+            ///console.log(value);
+            $("#addCart").attr("data-size", value);
+
         })
     }
 }

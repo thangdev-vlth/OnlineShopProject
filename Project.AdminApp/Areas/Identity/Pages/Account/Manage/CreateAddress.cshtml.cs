@@ -71,6 +71,7 @@ namespace Project.AdminApp.Areas.Identity.Pages.Account.Manage
                 PhoneNumber = phoneNumber,
                 Address = user.Address,
                 FullName = user.FullName
+                
             };
         }
         public async Task<IActionResult> OnGetAsync()
@@ -83,6 +84,7 @@ namespace Project.AdminApp.Areas.Identity.Pages.Account.Manage
             }
             _userService.GetAddressCard(_userManager.GetUserId(User));
             await LoadAsync(user);
+            isDefault = true;
             return Page();
         }
         public async Task<IActionResult> OnPostAsync()

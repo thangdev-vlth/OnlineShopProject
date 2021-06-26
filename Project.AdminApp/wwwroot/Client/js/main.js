@@ -200,7 +200,7 @@
     });
     
     
-    /*// Quantity
+    // Quantity
     $('.qty button').on('click', function () {
         var $button = $(this);
         var oldValue = $button.parent().find('input').val();
@@ -209,12 +209,15 @@
         } else {
             if (oldValue > 0) {
                 var newVal = parseFloat(oldValue) - 1;
+                if (newVal ==0) {
+                    newVal = 1;
+                }
             } else {
                 newVal = 0;
             }
         }
         $button.parent().find('input').val(newVal);
-    });*/
+    });
     
     
     // Shipping address show hide
