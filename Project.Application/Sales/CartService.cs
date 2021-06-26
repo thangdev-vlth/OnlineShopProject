@@ -173,7 +173,7 @@ namespace Project.Application.Sales
             }
         }
 
-        public async Task<RequestResult<bool>> UpdateQuantityInCart(CartUpdateRequest request)
+        public  RequestResult<bool> UpdateQuantityInCart(CartUpdateRequest request)
         {
             try
             {

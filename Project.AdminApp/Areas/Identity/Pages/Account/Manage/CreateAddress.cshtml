@@ -47,8 +47,11 @@
                 <span asp-validation-for="Input.Address" class="text-danger"></span>
             </div>
             <div>
-                <label class="Checkbox__StyledCheckbox-sc-75m08j-0 gkoeQY">
+                @*<label class="Checkbox__StyledCheckbox-sc-75m08j-0 gkoeQY">
                     @Html.CheckBox("IsDefault")<span class="checkbox-fake mr-2"></span><span class="label">Đặt làm địa chỉ mặc định</span>
+                </label>*@
+                <label class="Checkbox__StyledCheckbox-sc-75m08j-0 gkoeQY">
+                    <input class="" type="checkbox" asp-for="@Model.isDefault"><span class="checkbox-fake mr-2"></span><span class=" label">Đặt làm địa chỉ mặc định</span>
                 </label>
             </div>
             <button id="update-profile-button" type="submit" class="btn btn-danger">Lưu hồ sơ</button>

@@ -5,13 +5,13 @@
 
     function registerEvents() {
         $('body').on("click", ".notification--detail", function (e) {
-            const id = $(this).data("id");
+            var id = $(this).data("id");
             updateStatus(id);
         });
         $('body').on("click", ".adelete-no", function (e) {
             e.preventDefault();
-            const href = $(this).prop('href');
-            const id = $(this).data("id");
+            var href = $(this).prop('href');
+            var id = $(this).data("id");
            /* var strings = "#" + id;
             $(strings).hide();*/
             DeleteNotification(id, false);

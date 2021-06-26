@@ -84,14 +84,14 @@
                                         <img src="@item.ThumbnailImage" alt="Product Image" style="max-width:288px;max-height:288px;object-fit:cover">
                                     </a>
                                     <div class="product-action">
-                                        <a asp-action="ProductDetail" asp-controller="HomePage" asp-route-id="@item.Id"><i class="fa fa-cart-plus"></i></a>
-                                        <a asp-action="ProductDetail" asp-controller="HomePage" asp-route-id="@item.Id"><i class="fa fa-info-circle"></i></a>
-                                        <a href="#"><i class="fa fa-search"></i></a>
+                                        <a data-id="@item.Id" class="icon-add-cart" title="Thêm vào giỏ hàng"><i class="fa fa-cart-plus"></i></a>
+                                        <a asp-action="ProductDetail" asp-controller="HomePage" asp-route-id="@item.Id" title="Xem chi tiết"><i class="fa fa-info-circle"></i></a>
+                                        
                                     </div>
                                 </div>
                                 <div class="product-price">
                                     <h3>@item.price</h3>
-                                    <a class="btn" asp-action="ProductDetail" asp-controller="HomePage" asp-route-id="@item.Id"><i class="fa fa-shopping-cart"></i>Mua</a>
+                                    <a class="btn" asp-action="ProductDetail" asp-controller="HomePage" asp-route-id="@item.Id" title="Mua ngay"><i class="fa fa-shopping-cart"></i>Mua</a>
                                 </div>
                             </div>
                         </div>
@@ -166,14 +166,14 @@
                                             <img src="@item.ThumbnailImage" alt="Product Image">
                                         </a>
                                         <div class="product-action">
-                                            <a asp-action="ProductDetail" asp-controller="HomePage" asp-route-id="@item.Id"><i class="fa fa-cart-plus"></i></a>
-                                            <a asp-action="ProductDetail" asp-controller="HomePage" asp-route-id="@item.Id"><i class="fa fa-info-circle"></i></a>
-                                            <a href="#"><i class="fa fa-search"></i></a>
+                                            <a class="icon-add-cart"data-id="@item.Id"  title="Thêm vào giỏ hàng"><i class="fa fa-cart-plus"></i></a>
+                                            <a asp-action="ProductDetail" asp-controller="HomePage" asp-route-id="@item.Id" title="Xem chi tiết"><i class="fa fa-info-circle"></i></a>
+                                            
                                         </div>
                                     </div>
                                     <div class="product-price">
                                         <h3>@item.price</h3>
-                                        <a class="btn" asp-action="ProductDetail" asp-controller="HomePage" asp-route-id="@item.Id"><i class="fa fa-shopping-cart"></i>Mua ngay</a>
+                                        <a class="btn" asp-action="ProductDetail" asp-controller="HomePage" asp-route-id="@item.Id" title="Mua ngay"><i class="fa fa-shopping-cart"></i>Mua ngay</a>
                                     </div>
                                 </div>
                             </div>

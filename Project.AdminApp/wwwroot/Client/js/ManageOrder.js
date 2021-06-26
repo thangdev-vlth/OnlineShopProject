@@ -7,9 +7,9 @@
     function registerEvents() {
         $('body').on('click', '.cancle-order', function (e) {
             e.preventDefault();
-            var staus = $(this).data("status");
-            console.log(staus);
-            if (staus=="Shipping"||staus=="shipping") {
+            var status = $(this).data("status");
+            console.log(status);
+            if (status=="Shipping"||status=="shipping") {
                 Swal.fire({
                     icon: 'error',
                     html: 'Không thể hủy đơn hàng, Đơn hàng này đang được giao đến bạn. Vui lòng gọi hỗ trợ để được trợ giúp!'

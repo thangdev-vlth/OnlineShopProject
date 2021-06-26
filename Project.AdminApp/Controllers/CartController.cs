@@ -113,14 +113,14 @@ namespace Project.AdminApp.Controllers
                 if (session != null)
                     SessionCart.cartItem = JsonConvert.DeserializeObject<List<CartItemViewModel>>(session);//lấy cart từ session
                 //synchronize session cart with dbcart
-                if (getCartResult.IsSuccessed)
+                if (getCartResult.IsSuccessed) // đã đăng nhập và có cart trong db
                 {
-                    var UserCart = getCartResult.ResultObj;
-                    if (SessionCart.cartItem != null)
+                    var UserCart = getCartResult.ResultObj;//cart trong db
+                    if (SessionCart.cartItem != null)//đã có cart trong session
                     {
                         
                         bool exist;
-                        foreach (var sessionItem in SessionCart.cartItem)
+                        foreach (var sessionItem in SessionCart.cartItem)//đồng bộ cart
                         {
                             exist = false;
                             foreach (var userItem in UserCart.cartItem)
@@ -136,14 +136,47 @@ namespace Project.AdminApp.Controllers
                             if (!exist)
                             {
                                 UserCart.cartItem.Add(sessionItem);
+                                //thêm item này vào cart trong db
+                                var request = new CartAddNewItemRequest()
+                                {
+                                    
+                                    productId = sessionItem.ProductId,
+                                    Quantity = sessionItem.Quantity,
+                                    UserId = _userManager.GetUserId(principal),
+                                    principal = principal,
+                                    Size = sessionItem.Size,
+                                    Price = sessionItem.Price
+                                };
+                                _cartService.AddNewItemToCart(request);
                             }
                         }
+                        HttpContext.Session.SetString(SystemConstants.CartSession, JsonConvert.SerializeObject(null));//sau khi đồng bộ thì xóa cart
                     }
                     return Ok(UserCart.cartItem);
                 }
-                else
+                else // đã đăng nhập nhưng chưa có cart trong db
                 {
-                    return Ok(currentCart.cartItem);
+                    if (SessionCart.cartItem != null)//đã đăng nhập, chưa có cart trong db, đã có cart trong session
+                    {
+                        foreach (var sessionItem in SessionCart.cartItem)
+                        {
+
+                            var request = new CartAddNewItemRequest()
+                            {
+
+                                productId = sessionItem.ProductId,
+                                Quantity = sessionItem.Quantity,
+                                UserId = _userManager.GetUserId(principal),
+                                principal = principal,
+                                Size = sessionItem.Size,
+                                Price = sessionItem.Price
+                            };
+                            _cartService.AddNewItemToCart(request);//thêm cart từ session vào db
+                        }
+                        HttpContext.Session.SetString(SystemConstants.CartSession, JsonConvert.SerializeObject(null));//sau khi đồng bộ thì xóa cart
+                    }
+                   
+                    return Ok(SessionCart.cartItem);
                 }
             }
             //chưa đăng nhập, trả cart từ session 
@@ -188,7 +221,7 @@ namespace Project.AdminApp.Controllers
                         Quantity = currentCart.cartItem.First(x => x.ProductId == id).Quantity,
                         UserId = _userManager.GetUserId(principal)
                     };
-                    await _cartService.UpdateQuantityInCart(request);
+                     _cartService.UpdateQuantityInCart(request);
                     return Ok(currentCart.cartItem);
                 }
             }

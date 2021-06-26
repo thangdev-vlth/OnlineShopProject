@@ -8,8 +8,8 @@
     function registerEvents() {
         $('body').on('click', '.btn-plus', function (e) {
             e.preventDefault();
-            const id = $(this).data('id');
-            const size = $(this).data('size');
+            var id = $(this).data('id');
+            var size = $(this).data('size');
             var quantity = parseInt($(this).data('quantity')) + 1;
             console.log(quantity+" " + size + " " + id);
             updateCart(id, quantity,size);
@@ -17,16 +17,16 @@
 
         $('body').on('click', '.btn-minus', function (e) {
             e.preventDefault();
-            const id = $(this).data('id');
-            const size = $(this).data('size');
+            var id = $(this).data('id');
+            var size = $(this).data('size');
             var quantity = parseInt($(this).data('quantity')) - 1;
             console.log(quantity + " " + size + " " + id);
             updateCart(id, quantity,size);
         });
         $('body').on('click', '.btn-remove', function (e) {
             e.preventDefault();
-            const id = $(this).data('id');
-            const size = $(this).data('size');
+            var id = $(this).data('id');
+            var size = $(this).data('size');
             swal({
                 title: "Bạn Chắc Chứ?",
                 text: "Việc này sẽ bỏ sản phẩm này khỏi giỏ hàng của bạn!",
@@ -59,7 +59,7 @@
                 size:size
             },
             success: function (res) {
-                $('#lbl_number_of_items').text(res.length);
+                $('#lbl_number_of_items').text("("+res.length+")");
                 loadData();
             },
             error: function (err) {
@@ -112,9 +112,9 @@
                     });
                 }
                 $('#cart').html(html);
-                $('#lbl_number_of_items').text(res.length);
-                $('#lbl_total').text(numberWithCommas(total)+" vnđ");
-                $('#lbl_grandTotal').text(numberWithCommas(total) + " vnđ");
+                $('#lbl_number_of_items').text("(" + res.length + ")");
+                $('#lbl_total').text(numberWithCommas(total)+" đ");
+                $('#lbl_grandTotal').text(numberWithCommas(total) + " đ");
             }
         });
     }
