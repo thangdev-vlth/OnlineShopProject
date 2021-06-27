@@ -1,6 +1,6 @@
 ﻿var CartController = function () {
     this.initialize = function () {
-        console.log(1);
+        //console.log(1);
         loadData();
         registerEvents();
     }
@@ -27,7 +27,7 @@
             e.preventDefault();
             var id = $(this).data('id');
             var size = $(this).data('size');
-            swal({
+            swal.fire({
                 title: "Bạn Chắc Chứ?",
                 text: "Việc này sẽ bỏ sản phẩm này khỏi giỏ hàng của bạn!",
                 icon: "warning",
@@ -35,16 +35,41 @@
                 dangerMode: true,
             }).then((willDelete) => {
                     if (willDelete) {
-                        swal("Tiếp tục mua sắm thôi!", {
+                        swal.fire({
                             icon: "success",
+                            html: "Tiếp tục mua sắm thôi!"
                         });
                         console.log('id :'+id ,size);
                         updateCart(id, 0, size);
                     } else {
-                        swal("Cảm ơn bạn !");
+                        swal.fire({
+                            icon: "success",
+                            html: "Cảm ơn bạn!"
+                        });
                     }
                 });
            
+        });
+        $('body').on('click', '#btn-checkout-drive', function (e) {
+            e.preventDefault();
+            var hasItem = $("#has-item").data("has");
+            //console.log(hasItem);
+            if (hasItem != 0 || hasItem !=0) {
+                //console.log(hasItem);
+                var locationUrl = '/Cart/Checkout';
+                const isSigned = $("#is-signed-in").data("signed");
+                //console.log(isSigned);
+                if (isSigned == "false" || isSigned == false) {
+                    locationUrl = "/login";
+                }
+                window.location = locationUrl;
+            } else {
+                    swal.fire({
+                        icon: "error",
+                        html: "Không có sản phẩm nào trong giỏ hàng!"
+                    });
+            }
+            
         });
     }
 
@@ -76,18 +101,9 @@
                 var html = 'Bạn Chưa Có Sản Phẩm Nào Trong Giỏ Hàng';
                 var total = 0;
                 if (res.length != 0) {
-                    $('body').on('click', '#btn-checkout-drive', function (e) {
-                        var locationUrl = '/Cart/Checkout';
-                        const isSigned = $("#is-signed-in").data("signed");
-                        console.log(isSigned);
-                            if (isSigned =="false"||isSigned==false) {
-                                locationUrl = "/login";
-                            }
-                        window.location = locationUrl;
-                    });
-
+                    
                     html = "<thead class=\"thead-dark\"><tr><th>Sản Phẩm<\/th><th>Giá<\/th><th>Số Lượng<\/th><th>Tổng<\/th><th>Xóa<\/th><\/tr><\/thead><tbody class=\"align-middle\">";
-
+                    $("#has-item").attr('data-has', res.length);
                     $.each(res, function (i, item) {
 
                         var amount = item.price * item.quantity;
@@ -104,14 +120,9 @@
                             + "<\/tbody>";
                         total += amount;
                     });
-                } else {
-                    $('body').on('click', '#btn-checkout-drive', function (e) {
-                        swal("Không có sản phẩm nào trong giỏ hàng!", {
-                            icon: "error",
-                        });
-                    });
                 }
                 $('#cart').html(html);
+                
                 $('#lbl_number_of_items').text("(" + res.length + ")");
                 $('#lbl_total').text(numberWithCommas(total)+" đ");
                 $('#lbl_grandTotal').text(numberWithCommas(total) + " đ");

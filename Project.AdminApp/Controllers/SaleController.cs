@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Project.Application.Binder;
 using Project.Application.Catalog.Products;
@@ -23,6 +24,7 @@ namespace Project.AdminApp.Controllers
             _productService = productService;
             _orderService = orderService;
         }
+        [Authorize(Roles = "Admin,staff")]
         public IActionResult Order(int orderId,string username,string productName, int status = -1, int pageIndex = 1, int pageSize = 10)
         {
             RequestResult<PageResult<OrderViewModel>> result =_orderService.GetAllOrder(new GetOrderPagingRequest()

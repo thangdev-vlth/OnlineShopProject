@@ -14,6 +14,6 @@ namespace Project.Application.Sales
         RequestResult<List<OrderViewModel>> GetAllOrder(string userId);
         RequestResult<OrderViewModel> GetOrderById(int orderId);
         RequestResult<bool> UpdateStatus(int orderId, int selectedStatus, string reason=null);
-        
+        RequestResult<ReportViewModel> GetReport();
     }
 }

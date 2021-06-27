@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Project.AdminApp.Models;
+using Project.Application.Sales;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,14 +16,20 @@ namespace Project.AdminApp.Controllers
     public class AdminHomeController : Controller
     {
         private readonly ILogger<AdminHomeController> _logger;
-
-        public AdminHomeController(ILogger<AdminHomeController> logger)
+        private readonly IOrderService _orderService;
+        public AdminHomeController(ILogger<AdminHomeController> logger,IOrderService orderService)
         {
             _logger = logger;
+            _orderService = orderService;
         }
 
         public IActionResult Index()
         {
+            var result = _orderService.GetReport();
+            if (result.IsSuccessed)
+            {
+                return View(result.ResultObj);
+            }
             return View();
         }
 

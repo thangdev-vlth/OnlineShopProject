@@ -10,14 +10,13 @@
             processData: false,
             contentType: false,
             success: function (data, status) {
-                
                 window.parent.location.reload();
                 window.close();
             },
             error: function (xhr, desc, err) {
                 console.log("action: " + $(this).attr("action"));
                 console.log("type: " + $(this).attr("method"));
-                alert(data);
+                console.log(data);
             }
         });
 

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model ReportViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -11,36 +12,36 @@
         <div class="row">
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-primary text-white mb-4">
-                    <div class="card-body">Chưa được phát triển</div>
+                    <div class="card-body">Số đơn hàng được tạo mới</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">Xem chi tiết</a>
+                        <a class="small text-white stretched-link" href="#">@Model.NewOrder</a>
                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-warning text-white mb-4">
-                    <div class="card-body">Chưa được phát triển</div>
+                    <div class="card-body">Chưa được xử lý</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">Xem chi tiết</a>
+                        <a class="small text-white stretched-link" href="#">@Model.ProcessingOrder</a>
                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-success text-white mb-4">
-                    <div class="card-body">Success Card</div>
+                    <div class="card-body">Đã hoàn thành</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">Xem chi tiết</a>
+                        <a class="small text-white stretched-link" href="#">@Model.SuccessOrder</a>
                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     </div>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-danger text-white mb-4">
-                    <div class="card-body">Chưa được phát triển</div>
+                    <div class="card-body">Đơn hàng bị hủy</div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">Xem chi tiết</a>
+                        <a class="small text-white stretched-link" href="#">@Model.CancleOrder</a>
                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     </div>
                 </div>

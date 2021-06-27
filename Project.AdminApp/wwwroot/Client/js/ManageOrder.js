@@ -8,7 +8,7 @@
         $('body').on('click', '.cancle-order', function (e) {
             e.preventDefault();
             var status = $(this).data("status");
-            console.log(status);
+            //console.log(status);
             if (status=="Shipping"||status=="shipping") {
                 Swal.fire({
                     icon: 'error',
@@ -79,6 +79,7 @@
     }
 
     function updateStatus(orderId, reason) {
+        //console.log("test");
         $.ajax({
             type: "POST",
             url: "/Sale/UpdateOrderStatus",
@@ -86,7 +87,7 @@
                 OrderId: orderId,
                 selectedStatus: 5,
                 reason: reason,
-                returnUrl:"/ManageOrder"
+                
             },
             success: function (res) {
                 /*console.log("success");

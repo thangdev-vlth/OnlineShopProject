@@ -15,7 +15,7 @@ var SiteController = function () {
                 type: "GET",
                 url: "/Cart/GetListItems",
                 success: function (res) {
-                    console.log(res)
+                    //console.log(res)
                     $('#lbl_number_of_items').text("(" + res.length + ")");
                 }
             });

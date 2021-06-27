@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Project.Application.Binder;
 using Project.Application.Catalog.Categories;
@@ -23,6 +24,7 @@ namespace Project.AdminApp.Controllers
             _productService = productService;
             _categoryService = categoryService;
         }
+        [Authorize(Roles = "Admin,staff")]
         public async Task<IActionResult> Index(string keyword, int? categoryId,int? id,int pageIndex = 1, int pageSize = 20)
         {
             var request = new GetProductPagingRequest()

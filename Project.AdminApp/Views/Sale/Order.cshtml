@@ -35,6 +35,7 @@
                         <th scope="col">Hình thức vận chuyển</th>
                         <th scope="col">Tổng giá đơn hàng</th>
                         <th scope="col">Ghi chú</th>
+                        <th scope="col">Trạng thái</th>
                         
                     </tr>
                 </thead>
@@ -45,7 +46,7 @@
                         if (item.ordertItem.Count() > 0)
                         {
                             <tr>
-                                <td rowspan="@item.ordertItem.Count()">
+                                <td rowspan="@(item.ordertItem.Count()>5?5:item.ordertItem.Count())">
                                     @* @Html.ActionLink(item.OrderId.ToString(), "Detail", new { id = item.OrderId, rowspan = item.ordertItem.Count() }, new { @class = "openIframeDetail" })*@
                                     <div><a asp-controller="Sale" asp-action="OrderDetail" asp-route-orderId="@item.OrderId" class="openIframeDetail" rowspan="@item.ordertItem.Count()">@item.OrderId</a></div>
                                     <span class="font-size-sm" title="@item.OrderDate">@item.OrderDate</span>
@@ -58,7 +59,7 @@
                                     <p style="font-size:12px">@String.Join(",", item.Districst, item.City)</p>
                                 </td>
                                 <td style="max-width:220px; word-wrap:break-word">@String.Join(" - ", item.ordertItem[0].Name, item.ordertItem[0].Size)</td>
-                                <td class="text-right ">@String.Format("{0:0,0 vnđ}",@item.ordertItem[0].Price)</td>
+                                <td class="text-right ">@String.Format("{0:0,0 đ}", @item.ordertItem[0].Price)</td>
                                 <td class="text-right ">@item.ordertItem[0].Quantity</td>
                                 <td rowspan="@item.ordertItem.Count()" class="text-center align-content-center">
                                     TVC
@@ -71,11 +72,11 @@
                                         {
                                             total += price.Price;
                                         }
-                                        @String.Format("{0:0,0 vnđ}", total)
+                                        @String.Format("{0:0,0 đ}", total)
                                     }
                                     else
                                     {
-                                        @String.Format("{0:0,0 vnđ}", @item.total)
+                                        @String.Format("{0:0,0 đ}", @item.total)
                                     }
 
                                 </td>
@@ -91,7 +92,7 @@
                                             @item.Status.DisplayName()
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                            
+
                                             <a class="dropdown-item">Tạo hóa đơn bán lẻ</a>
                                             <a class="dropdown-item">In </a>
 
@@ -99,17 +100,18 @@
                                     </div>
                                 </td>
                             </tr>
-                            @if (item.ordertItem.Count() > 1)
+                            @if (item.ordertItem.Count() > 1 )
                             {
                                 for (int i = 1; i < item.ordertItem.Count(); i++)
                                 {
                                     <tr>
                                         <td style="max-width:220px; word-wrap:break-word;">@String.Join(" - ", item.ordertItem[i].Name, item.ordertItem[i].Size)</td>
-                                        <td class="text-right ">@item.ordertItem[i].Price</td>
+                                        <td class="text-right ">@String.Format("{0:0,0 đ}", @item.ordertItem[i].Price)</td>
                                         <td class="text-right ">@item.ordertItem[i].Quantity</td>
                                     </tr>
                                 }
                             }
+                            
                         }
 
                     }

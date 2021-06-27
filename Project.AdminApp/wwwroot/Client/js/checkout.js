@@ -19,8 +19,9 @@
             
             success: function (res) {
                 
-                swal("Tiếp tục mua sắm thôi!", {
+                swal.fire({
                     icon: "success",
+                    html: "Tiếp tục mua sắm thôi!"
                 }).then((willDelete) => {
                     window.location = "/";
                 });

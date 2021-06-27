@@ -99,7 +99,11 @@ namespace Project.AdminApp.Controllers
         public IActionResult GetListItems()
         {
             var session = HttpContext.Session.GetString(SystemConstants.CartSession);
-            CartViewModel currentCart = new CartViewModel();
+            //get cart from sesion
+            CartViewModel SessionCart = new CartViewModel();
+            CartViewModel ResetSessionCart = new CartViewModel();
+            if (session != null)
+                SessionCart.cartItem = JsonConvert.DeserializeObject<List<CartItemViewModel>>(session);//lấy cart từ session
             ClaimsPrincipal principal = HttpContext.User as ClaimsPrincipal;
             var result = _signInManager.IsSignedIn(principal);
             if (result)//đã đăng nhập thì lấy cart ở trong db rồi đồng bộ với cart trong session
@@ -108,10 +112,7 @@ namespace Project.AdminApp.Controllers
                 var userid = _userManager.GetUserId(principal);
                 var getCartResult = _cartService.GetCart(userid);
                 //end request db-cart
-                //get cart from sesion
-                CartViewModel SessionCart = new CartViewModel();
-                if (session != null)
-                    SessionCart.cartItem = JsonConvert.DeserializeObject<List<CartItemViewModel>>(session);//lấy cart từ session
+                
                 //synchronize session cart with dbcart
                 if (getCartResult.IsSuccessed) // đã đăng nhập và có cart trong db
                 {
@@ -150,7 +151,8 @@ namespace Project.AdminApp.Controllers
                                 _cartService.AddNewItemToCart(request);
                             }
                         }
-                        HttpContext.Session.SetString(SystemConstants.CartSession, JsonConvert.SerializeObject(null));//sau khi đồng bộ thì xóa cart
+                        
+                        HttpContext.Session.SetString(SystemConstants.CartSession, JsonConvert.SerializeObject(ResetSessionCart.cartItem));//sau khi đồng bộ thì xóa cart
                     }
                     return Ok(UserCart.cartItem);
                 }
@@ -173,16 +175,14 @@ namespace Project.AdminApp.Controllers
                             };
                             _cartService.AddNewItemToCart(request);//thêm cart từ session vào db
                         }
-                        HttpContext.Session.SetString(SystemConstants.CartSession, JsonConvert.SerializeObject(null));//sau khi đồng bộ thì xóa cart
+                        HttpContext.Session.SetString(SystemConstants.CartSession, JsonConvert.SerializeObject(ResetSessionCart.cartItem));//sau khi đồng bộ thì xóa cart
                     }
                    
                     return Ok(SessionCart.cartItem);
                 }
             }
             //chưa đăng nhập, trả cart từ session 
-            if (session != null)
-                currentCart.cartItem = JsonConvert.DeserializeObject<List<CartItemViewModel>>(session);
-            return Ok(currentCart.cartItem);
+            return Ok(SessionCart.cartItem);
         }
 
         public async Task<IActionResult> AddToCart(int id,string size)

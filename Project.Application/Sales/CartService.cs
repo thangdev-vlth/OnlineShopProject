@@ -91,13 +91,14 @@ namespace Project.Application.Sales
                     Quantity = cart.Cart.Quantity,
                     Price = cart.Cart.Price,
                     size = cart.Cart.size,
+                    productName=cart.Product.Name,
                     total = cart.Cart.Price * cart.Cart.Quantity
                 }).ToList();
                 decimal total = 0;
                 foreach (var item in orderDetail)
                 {
                     total += item.total;
-                    _context.Add(item);
+                    _context.OrderDetails.Add(item);
                 }
                 Order.total = total;
                 var carts = _context.Carts.Where(cart => cart.UserId == userId);

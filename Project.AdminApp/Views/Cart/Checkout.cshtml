@@ -12,6 +12,7 @@
 }
 @section Css{
     <link href="~/Client/css/Cart/Index.css" rel="stylesheet" />
+    <link href="~/Client/css/Cart/checkout.css" rel="stylesheet" />
 }
 
 <!-- Checkout Start -->
@@ -21,12 +22,13 @@
             <div class="col-lg-8">
                 <div class="checkout-inner">
                     <div class="billing-address">
-                        <h2>Địa chỉ giao hàng</h2> <div class="col-md-12">
+                        <h2>Thông tin Đơn hàng</h2> <div class="col-md-12">
 
-                            <div class="styles__StyledShippingAddress-sc-1sjj51k-0 cart-summary ">
-                                <p class="heading address__heading--flex"><span class="text">Địa chỉ nhận hàng</span><a data-view-id="cart_shipping_location.change" class="link" asp-controller="Cart" asp-action="SelectAddressCard">Thay đổi</a></p>
-                                <p class="title"><b class="name">@Model.addressCardViewModel.FullName</b><b class="phone">  @Model.addressCardViewModel.phoneNumber</b></p>
-                                <p class="address">@Model.addressCardViewModel.addressCDW</p>
+                            <div class="shipping-info cart-summary ">
+                                <p class="heading address__heading--flex"><span class="text">Địa chỉ nhận hàng&nbsp;:&nbsp;</span><a data-view-id="cart_shipping_location.change" class="link" asp-controller="Cart" asp-action="SelectAddressCard">Thay đổi</a></p>
+                                <p class=""> Tên người nhận&nbsp;:&nbsp;<b class="">@Model.addressCardViewModel.FullName</b></p>
+                                <p><b class="phone">Số điện thoại : @Model.addressCardViewModel.phoneNumber</b></p>
+                                <p class="address">Địa chỉ nhận hàng : @Model.addressCardViewModel.addressCDW</p>
                             </div>
                         </div>
                         <h2>Chi Tiết Đơn Hàng</h2>

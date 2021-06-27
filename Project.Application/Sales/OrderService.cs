@@ -29,7 +29,7 @@ namespace Project.Application.Sales
             try
             {
                 //get all order
-                var orderNTT = _context.Orders.Include(order=>order.OrderDetails).Include(order=>order.AppUser).OrderByDescending(o => o.OrderDate).Select(o=>o);
+                var orderNTT = _context.Orders.Include(order=>order.OrderDetails).Include(order=>order.AppUser).OrderBy(o=>o.Status).OrderByDescending(o => o.OrderDate).Select(o=>o);
                 //filter
                 //by status
                 if (request.status >-1)
@@ -115,7 +115,7 @@ namespace Project.Application.Sales
             try
             {
                 //get all order
-                var orderNTT = _context.Orders.Where(o=>o.UserId==userId).Include(order => order.OrderDetails).Include(order => order.AppUser).Select(o => o).OrderBy(o => o.Status);
+                var orderNTT = _context.Orders.Where(o=>o.UserId==userId).Include(order => order.OrderDetails).Include(order => order.AppUser).Select(o => o).OrderBy(o => o.Status).OrderByDescending(o => o.OrderDate);
                 ////3. Paging
                 int totalRow = orderNTT.Count();
                 var data = orderNTT.Select(order => new OrderViewModel()
@@ -224,6 +224,27 @@ namespace Project.Application.Sales
             {
 
                 return new RequestErrorResult<OrderViewModel>(e.Message);
+            }
+        }
+
+        public RequestResult<ReportViewModel> GetReport()
+        {
+            try
+            {
+                var order = _context.Orders.Select(o => o);
+                var newReportInfo = new ReportViewModel()
+                {
+                    NewOrder = order.Where(o => o.Status == OrderStatus.New).Count(),
+                    ProcessingOrder=order.Where(order=>order.Status!=OrderStatus.New||order.Status!=OrderStatus.Success||order.Status!=OrderStatus.Canceled).Count(),
+                    SuccessOrder=order.Where(o=>o.Status==OrderStatus.Success).Count(),
+                    CancleOrder=order.Where(o=>o.Status==OrderStatus.Canceled).Count()
+                };
+                return new RequestSuccessResult<ReportViewModel>(newReportInfo);
+            }
+            catch (Exception e)
+            {
+
+                return new RequestErrorResult<ReportViewModel>(e.Message);
             }
         }
 
