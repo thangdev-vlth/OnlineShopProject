@@ -170,10 +170,14 @@ namespace Project.AdminApp.Controllers
                     TempData["result"] = "Tải Ảnh Lên Thành Công thành công";
                     return RedirectToAction("Detail", new { id = request.Id });
                 }
+                else
+                {
+                    return Json(new { result = result.Message });
+                }
 
-                ModelState.AddModelError("", "Tải ảnh lên thất bại");
+               /* ModelState.AddModelError("", "Tải ảnh lên thất bại");
                 //return View(request);
-                return View();
+                return View();*/
             }
             catch (Exception e)
             {

@@ -506,7 +506,7 @@ namespace Project.Application.Catalog.Products
             catch (Exception e)
             {
 
-                return new RequestErrorResult<bool>(e.InnerException.Message);
+                return new RequestErrorResult<bool>(e.Message);
             }
 
         }
