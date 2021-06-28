@@ -123,8 +123,8 @@ var SiteController = function () {
         $('body').on('click', '.icon-add-cart', function (e) {
             e.preventDefault();
             var productId = $(this).data('id');
-            var quantity = $("#quantity").val();
-            console.log(productId);
+            //var quantity = $("#quantity").val();
+            //console.log(productId);
             Swal.fire({
                 title: 'Chọn size nào <3',
                 input: 'select',
@@ -152,8 +152,7 @@ var SiteController = function () {
                         url: "/Cart/AddToCart",
                         data: {
                             id: productId,
-                            size: result.value,
-                            quantity: quantity
+                            size: result.value
                         },
                         success: function (res) {
                             $('#lbl_number_of_items').text("(" + res.length + ")");
