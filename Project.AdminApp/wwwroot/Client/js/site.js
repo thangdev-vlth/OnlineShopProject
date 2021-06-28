@@ -123,6 +123,7 @@ var SiteController = function () {
         $('body').on('click', '.icon-add-cart', function (e) {
             e.preventDefault();
             var productId = $(this).data('id');
+            var quantity = $("#quantity").val();
             console.log(productId);
             Swal.fire({
                 title: 'Chọn size nào <3',

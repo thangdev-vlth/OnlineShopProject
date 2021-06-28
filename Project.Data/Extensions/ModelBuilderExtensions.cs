@@ -385,7 +385,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt1.png",
+                    ImagePath = "/user-content/tshirt/tshirt1.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -395,7 +395,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt2.png",
+                    ImagePath = "/user-content/tshirt/tshirt2.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -405,7 +405,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt3.png",
+                    ImagePath = "/user-content/tshirt/tshirt3.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -415,7 +415,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt4.png",
+                    ImagePath = "/user-content/tshirt/tshirt4.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -425,7 +425,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt5.png",
+                    ImagePath = "/user-content/tshirt/tshirt5.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -435,7 +435,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt6.png",
+                    ImagePath = "/user-content/tshirt/tshirt6.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -445,7 +445,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt7.png",
+                    ImagePath = "/user-content/tshirt/tshirt7.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -455,7 +455,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt8.png",
+                    ImagePath = "/user-content/tshirt/tshirt8.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -465,7 +465,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt8.png",
+                    ImagePath = "/user-content/tshirt/tshirt8.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -475,7 +475,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt9.png",
+                    ImagePath = "/user-content/tshirt/tshirt9.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -485,7 +485,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt10.png",
+                    ImagePath = "/user-content/tshirt/tshirt10.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -495,7 +495,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                    ImagePath = "/user-content/tshirt/tshirt11.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -505,7 +505,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                    ImagePath = "/user-content/tshirt/tshirt12.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -515,7 +515,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                    ImagePath = "/user-content/tshirt/tshirt13.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -525,7 +525,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                    ImagePath = "/user-content/tshirt/tshirt15.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -535,7 +535,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                    ImagePath = "/user-content/tshirt/tshirt14.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -545,7 +545,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                    ImagePath = "/user-content/tshirt/tshirt11.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -555,7 +555,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                    ImagePath = "/user-content/tshirt/tshirt12.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -565,7 +565,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                    ImagePath = "/user-content/tshirt/tshirt13.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -575,7 +575,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                    ImagePath = "/user-content/tshirt/tshirt15.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -585,7 +585,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                    ImagePath = "/user-content/tshirt/tshirt14.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -595,7 +595,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                    ImagePath = "/user-content/tshirt/tshirt11.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -605,7 +605,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                    ImagePath = "/user-content/tshirt/tshirt12.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -615,7 +615,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                    ImagePath = "/user-content/tshirt/tshirt13.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -625,7 +625,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                    ImagePath = "/user-content/tshirt/tshirt15.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -635,7 +635,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                    ImagePath = "/user-content/tshirt/tshirt14.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -645,7 +645,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                    ImagePath = "/user-content/tshirt/tshirt11.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -655,7 +655,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                    ImagePath = "/user-content/tshirt/tshirt12.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -665,7 +665,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                    ImagePath = "/user-content/tshirt/tshirt13.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -675,7 +675,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                    ImagePath = "/user-content/tshirt/tshirt15.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -685,7 +685,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                    ImagePath = "/user-content/tshirt/tshirt14.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -695,7 +695,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                    ImagePath = "/user-content/tshirt/tshirt11.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -705,7 +705,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                    ImagePath = "/user-content/tshirt/tshirt12.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -715,7 +715,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                    ImagePath = "/user-content/tshirt/tshirt13.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -725,7 +725,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                    ImagePath = "/user-content/tshirt/tshirt15.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -735,7 +735,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                    ImagePath = "/user-content/tshirt/tshirt14.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -745,7 +745,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                    ImagePath = "/user-content/tshirt/tshirt11.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -755,7 +755,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                    ImagePath = "/user-content/tshirt/tshirt12.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -765,7 +765,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                    ImagePath = "/user-content/tshirt/tshirt13.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -775,7 +775,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                    ImagePath = "/user-content/tshirt/tshirt15.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -785,7 +785,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                    ImagePath = "/user-content/tshirt/tshirt14.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -795,7 +795,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                    ImagePath = "/user-content/tshirt/tshirt11.png",
                     IsDefault = false,
                     SortOrder = 0
                 }, new ProductImage()
@@ -805,7 +805,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                    ImagePath = "/user-content/tshirt/tshirt12.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -815,7 +815,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                    ImagePath = "/user-content/tshirt/tshirt13.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -825,7 +825,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                    ImagePath = "/user-content/tshirt/tshirt15.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -835,7 +835,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                    ImagePath = "/user-content/tshirt/tshirt14.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -845,7 +845,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                    ImagePath = "/user-content/tshirt/tshirt11.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -855,7 +855,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                    ImagePath = "/user-content/tshirt/tshirt12.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -865,7 +865,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                    ImagePath = "/user-content/tshirt/tshirt13.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -875,7 +875,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                    ImagePath = "/user-content/tshirt/tshirt15.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -885,7 +885,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                    ImagePath = "/user-content/tshirt/tshirt14.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -895,7 +895,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                    ImagePath = "/user-content/tshirt/tshirt11.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -905,7 +905,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                    ImagePath = "/user-content/tshirt/tshirt12.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -915,7 +915,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                    ImagePath = "/user-content/tshirt/tshirt13.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -925,7 +925,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                    ImagePath = "/user-content/tshirt/tshirt15.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
@@ -935,7 +935,7 @@ namespace Project.Data.Extensions
                     Caption = "Image",
                     DateCreated = DateTime.Now,
                     FileSize = 0,
-                    ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                    ImagePath = "/user-content/tshirt/tshirt14.png",
                     IsDefault = true,
                     SortOrder = 0
                 }, new ProductImage()
