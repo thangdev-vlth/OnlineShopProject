@@ -10,6 +10,7 @@
             processData: false,
             contentType: false,
             success: function (data, status) {
+                console.log(data);
                 window.parent.location.reload();
                 window.close();
             },

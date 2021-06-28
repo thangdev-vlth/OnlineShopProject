@@ -155,23 +155,32 @@ namespace Project.AdminApp.Controllers
         [HttpPost]
         public async Task<IActionResult> AddImages([FromForm] ProductUpdateRequest request)
         {
-            if (!ModelState.IsValid)
-                return View();
-            if (request.Images.Count==0)
+            try
             {
-                ModelState.AddModelError("", "Ảnh Trống!");
-                return View();
-            }
-            var result = await _productService.AddImages(request);
-            if (result.IsSuccessed)
-            {
-                TempData["result"] = "Tải Ảnh Lên Thành Công thành công";
-                return RedirectToAction("Detail",new {id= request.Id });
-            }
+                if (!ModelState.IsValid)
+                    return View();
+                if (request.Images.Count == 0)
+                {
+                    ModelState.AddModelError("", "Ảnh Trống!");
+                    return View();
+                }
+                var result = await _productService.AddImages(request);
+                if (result.IsSuccessed)
+                {
+                    TempData["result"] = "Tải Ảnh Lên Thành Công thành công";
+                    return RedirectToAction("Detail", new { id = request.Id });
+                }
 
-            ModelState.AddModelError("", "Tải ảnh lên thất bại");
-            //return View(request);
-            return View();
+                ModelState.AddModelError("", "Tải ảnh lên thất bại");
+                //return View(request);
+                return View();
+            }
+            catch (Exception e)
+            {
+
+                return Json(new { result = e.Message});
+            }
+            
         }
         [HttpGet]
         public  IActionResult ManageImage(int productId)

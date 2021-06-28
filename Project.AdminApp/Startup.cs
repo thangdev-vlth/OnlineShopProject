@@ -43,7 +43,7 @@ namespace Project.AdminApp
         {
             ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
             services.AddControllersWithViews();
-            var connectionString = Configuration.GetConnectionString("ProjectOnlineShopDb3");
+            var connectionString = Configuration.GetConnectionString("ProjectOnlineShopDb2");
             services.AddDbContext<ProjectDbContext>(options =>
                     options.UseSqlServer(connectionString, b => b.MigrationsAssembly("Project.AdminApp")));
 
