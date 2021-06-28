@@ -185,7 +185,7 @@ namespace Project.AdminApp.Controllers
             return Ok(SessionCart.cartItem);
         }
 
-        public async Task<IActionResult> AddToCart(int id,string size)
+        public async Task<IActionResult> AddToCart(int id,string size,int quantity=1)
         {
             var session = HttpContext.Session.GetString(SystemConstants.CartSession);
             ClaimsPrincipal principal = HttpContext.User as ClaimsPrincipal;
@@ -207,7 +207,7 @@ namespace Project.AdminApp.Controllers
                 }
             }
             //ábdhjasbhjasbdhjasbdbasbhj
-            int quantity = 1;
+            
             if (currentCart.cartItem != null && currentCart.cartItem.Any(x => x.ProductId == id && x.Size == size))
             {
                 currentCart.cartItem.First(x => x.ProductId == id && x.Size==size).Quantity += 1;
@@ -244,7 +244,7 @@ namespace Project.AdminApp.Controllers
                     {
                         id = currentCart.id,
                         productId = id,
-                        Quantity = 1,
+                        Quantity = quantity,
                         UserId = _userManager.GetUserId(principal),
                         principal = principal,
                         Size = size,

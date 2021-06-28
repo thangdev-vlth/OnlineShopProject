@@ -110,10 +110,12 @@
 
                     </div>
                     <div class="col-md-5 ml-3">
-                        <div class="search">
-                            <input type="text" placeholder="Tìm Kiếm">
-                            <button><i class="fa fa-search"></i></button>
-                        </div>
+                        <form action="/HomePage/ListProduct" method="get">
+                            <div class="search">
+                                <input type="text" placeholder="Tìm Kiếm" name="keyword">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
                     </div>
                     <div class="col-md-3">
                         <div class="user">

@@ -46,6 +46,8 @@ var SiteController = function () {
             e.preventDefault();
             var productId = $(this).data('id');
             var size = $(".btn-active").data('size');
+            var quantity = $("#quantity").val();
+            console.log(quantity);
             if (size == "null"||size==null) {
                 Swal.fire({
                     title: 'Chọn size nào <3',
@@ -74,7 +76,8 @@ var SiteController = function () {
                             url: "/Cart/AddToCart",
                             data: {
                                 id: productId,
-                                size: result.value
+                                size: result.value,
+                                quantity:quantity
                             },
                             success: function (res) {
                                 $('#lbl_number_of_items').text("(" + res.length + ")");
@@ -97,7 +100,8 @@ var SiteController = function () {
                     url: "/Cart/AddToCart",
                     data: {
                         id: productId,
-                        size: size
+                        size: size,
+                        quantity: quantity
                     },
                     success: function (res) {
                         $('#lbl_number_of_items').text("(" + res.length + ")");
@@ -147,7 +151,8 @@ var SiteController = function () {
                         url: "/Cart/AddToCart",
                         data: {
                             id: productId,
-                            size: result.value
+                            size: result.value,
+                            quantity: quantity
                         },
                         success: function (res) {
                             $('#lbl_number_of_items').text("(" + res.length + ")");
