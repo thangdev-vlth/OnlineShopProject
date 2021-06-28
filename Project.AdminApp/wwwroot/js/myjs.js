@@ -1,6 +1,7 @@
 ﻿jQuery(function ($) {
     $(document).on("submit", "form", function (event) {
         event.preventDefault();
+        console.log("submit by js");
         var data = new FormData(this);
         $.ajax({
             url: $(this).attr("action"),
