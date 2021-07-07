@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
@@ -53,7 +54,9 @@ namespace Project.AdminApp
                 .AddDefaultTokenProviders();
             services.AddTransient<IUserService, UserService>();
             services.ConfigureApplicationCookie(options => {
-                // options.Cookie.HttpOnly = true;
+                options.Cookie.SameSite = SameSiteMode.None;
+                options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+                options.Cookie.HttpOnly = true;
                 // options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
                 options.LoginPath = $"/User/Login";
                 options.LogoutPath = $"/User/Logout";
