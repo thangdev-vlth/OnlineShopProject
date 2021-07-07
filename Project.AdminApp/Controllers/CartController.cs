@@ -42,10 +42,13 @@ namespace Project.AdminApp.Controllers
         public IActionResult Index()
         {
             ClaimsPrincipal principal = HttpContext.User as ClaimsPrincipal;
-            var result=_userService.GetAddressCard(0,_userManager.GetUserId(principal),"active");
-            if (result.IsSuccessed)
+            if (_signInManager.IsSignedIn(principal))
             {
-                return View(result.ResultObj);
+                var result = _userService.GetAddressCard(0, _userManager.GetUserId(principal), "active");
+                if (result.IsSuccessed)
+                {
+                    return View(result.ResultObj);
+                }
             }
             return View();
         }

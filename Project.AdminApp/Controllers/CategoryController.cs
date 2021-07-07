@@ -57,11 +57,11 @@ namespace Project.AdminApp.Controllers
             var result = await _categoryService.UpdateCategory(request);
             if (result.IsSuccessed)
             {
-                TempData["result"] = "Cập nhật sản phẩm thành công";
+                TempData["result"] = "Cập nhật danh mục thành công";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Cập nhật sản phẩm thất bại\n"+result.Message);
+            ModelState.AddModelError("", "Cập nhật danh mục thất bại\n"+result.Message);
             return RedirectToAction("Index");
         }
         [HttpGet]
@@ -83,11 +83,11 @@ namespace Project.AdminApp.Controllers
             var result = await _categoryService.Create(request);
             if (result.IsSuccessed)
             {
-                TempData["result"] = "Thêm mới sản phẩm thành công";
+                TempData["result"] = "Thêm mới danh mục thành công";
                 return RedirectToAction("Index");
             }
   
-            ModelState.AddModelError("", "Thêm sản phẩm thất bại");
+            ModelState.AddModelError("", "Thêm danh mục thất bại");
             return View(request);
 
         }

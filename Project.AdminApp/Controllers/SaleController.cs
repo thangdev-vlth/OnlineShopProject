@@ -80,7 +80,7 @@ namespace Project.AdminApp.Controllers
                     return Redirect(returnUrl);
                 }
                 
-                return Json(new { result = "success" }); ;
+                return Json(new { result = "success" }); 
             }
             return Json(new { result = "fasle"}); 
         }
