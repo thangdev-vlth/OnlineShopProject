@@ -22,7 +22,7 @@ namespace Project.AdminApp
                 {
                     webBuilder.UseStartup<Startup>();
                     webBuilder.UseKestrel();
-                    webBuilder.UseUrls("http://*");
+                    webBuilder.UseUrls("http://*:5000");
                     
                 });
     }
