@@ -18,10 +18,14 @@ namespace Project.Data.EF
                 .AddJsonFile("appsettings.json")
                 .Build();
 
+            /*var connectionString = configuration.GetConnectionString("ProjectOnlineShopDb3");
+
+            var optionsBuilder = new DbContextOptionsBuilder<ProjectDbContext>();
+            optionsBuilder.UseSqlServer(connectionString, b => b.MigrationsAssembly("Project.AdminApp"));*/
             var connectionString = configuration.GetConnectionString("ProjectOnlineShopDb3");
 
             var optionsBuilder = new DbContextOptionsBuilder<ProjectDbContext>();
-            optionsBuilder.UseSqlServer(connectionString, b => b.MigrationsAssembly("Project.AdminApp"));
+            optionsBuilder.UseSqlServer(connectionString);
 
             return new ProjectDbContext(optionsBuilder.Options);
         }
