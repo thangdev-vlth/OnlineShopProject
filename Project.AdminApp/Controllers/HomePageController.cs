@@ -37,7 +37,7 @@ namespace Project.AdminApp.Controllers
                 FeaturedProducts = await _productService.GetFeaturedProducts(),
                 LatestProducts = await _productService.GetLatestProducts(),
             };
-            foreach (var item in viewModel.FeaturedProducts)
+            /*foreach (var item in viewModel.FeaturedProducts)
             {
                 foreach (var image in item.ProductImages)
                 {
@@ -58,7 +58,7 @@ namespace Project.AdminApp.Controllers
                         break;
                     }
                 }
-            }
+            }*/
             return View(viewModel);
         }
 
