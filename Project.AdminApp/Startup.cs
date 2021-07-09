@@ -31,10 +31,10 @@ namespace Project.AdminApp
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) =>
+            /*ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) =>
             {
                 return (sslPolicyErrors & SslPolicyErrors.RemoteCertificateNotAvailable) != SslPolicyErrors.RemoteCertificateNotAvailable;
-            };
+            };*/
         }
 
         public IConfiguration Configuration { get; }
@@ -54,9 +54,9 @@ namespace Project.AdminApp
                 .AddDefaultTokenProviders();
             services.AddTransient<IUserService, UserService>();
             services.ConfigureApplicationCookie(options => {
+                /*options.Cookie.HttpOnly = true;
                 options.Cookie.SameSite = SameSiteMode.Lax;
-                options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-                options.Cookie.HttpOnly = true;
+                options.Cookie.SecurePolicy = CookieSecurePolicy.Always;*/
                 // options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
                 options.LoginPath = $"/User/Login";
                 options.LogoutPath = $"/User/Logout";
