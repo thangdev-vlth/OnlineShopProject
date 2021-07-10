@@ -149,9 +149,9 @@ namespace Project.AdminApp
             services.Configure<ForwardedHeadersOptions>(options =>
             {
                 options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
-                options.ForwardLimit = 2;
+                /*options.ForwardLimit = 2;
                 options.ForwardedForHeaderName = "Header_Name_Used_By_Proxy_For_X-Forwarded-For_Header";
-                options.ForwardedProtoHeaderName = "Header_Name_Used_By_Proxy_For_X-Forwarded-Proto_Header";
+                options.ForwardedProtoHeaderName = "Header_Name_Used_By_Proxy_For_X-Forwarded-Proto_Header";*/
                 //options.KnownProxies.Add(IPAddress.Parse("103.137.184.108"));
             });
         }
@@ -159,10 +159,11 @@ namespace Project.AdminApp
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
             public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseForwardedHeaders(new ForwardedHeadersOptions
+           /* app.UseForwardedHeaders(new ForwardedHeadersOptions
             {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-            });
+            });*/
+            app.UseForwardedHeaders();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -178,7 +179,7 @@ namespace Project.AdminApp
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
-            app.UseCookiePolicy();
+            //app.UseCookiePolicy();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
