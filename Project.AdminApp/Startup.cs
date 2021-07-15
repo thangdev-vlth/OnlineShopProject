@@ -148,6 +148,10 @@ namespace Project.AdminApp
                     policy.RequireClaim("permission", "manage.user");
                 });
             });
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.Secure = CookieSecurePolicy.Always;
+            });
             services.Configure<ForwardedHeadersOptions>(options =>
             {
                 options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
@@ -156,7 +160,7 @@ namespace Project.AdminApp
                 options.ForwardedProtoHeaderName = "Header_Name_Used_By_Proxy_For_X-Forwarded-Proto_Header";
                 //options.KnownProxies.Add(IPAddress.Parse("103.137.184.108"));
             });
-            services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(@"\\server\share\directory\"));
+            //services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(@"\\server\share\directory\"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -182,7 +186,7 @@ namespace Project.AdminApp
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
-            //app.UseCookiePolicy();
+            app.UseCookiePolicy();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
