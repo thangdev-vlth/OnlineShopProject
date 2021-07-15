@@ -56,9 +56,9 @@ namespace Project.AdminApp
                 .AddDefaultTokenProviders();
             services.AddTransient<IUserService, UserService>();
             services.ConfigureApplicationCookie(options => {
-                options.Cookie.HttpOnly = true;
-                options.Cookie.SameSite = SameSiteMode.Strict;
-                options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+                /*options.Cookie.HttpOnly = true;
+                options.Cookie.SameSite = SameSiteMode.Lax;
+                options.Cookie.SecurePolicy = CookieSecurePolicy.Always;*/
                 // options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
                 options.LoginPath = $"/User/Login";
                 options.LogoutPath = $"/User/Logout";
