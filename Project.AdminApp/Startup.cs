@@ -156,7 +156,7 @@ namespace Project.AdminApp
                 options.ForwardedProtoHeaderName = "Header_Name_Used_By_Proxy_For_X-Forwarded-Proto_Header";
                 //options.KnownProxies.Add(IPAddress.Parse("103.137.184.108"));
             });
-            services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(@"\\server\share\directory\"));
+            //services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(@"\\server\share\directory\"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

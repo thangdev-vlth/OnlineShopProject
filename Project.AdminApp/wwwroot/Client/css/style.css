@@ -44,13 +44,10 @@ h2 {
         padding-left: 60px;
     }
 }
-
-/*google service button*/
-.btn--google__login:hover {
-    opacity: 0.85;
-}
-
-.btn--google__login {
+/**********************************/
+/******external service button*****/
+/**********************************/
+.external--btn {
     display: inline-block;
     text-align: center;
     vertical-align: middle;
@@ -67,9 +64,18 @@ h2 {
     height: 41px;
     line-height: 41px;
     outline: none;
-    background: rgb(223, 74, 50);
     color: rgb(255, 255, 255);
     font-weight: 400;
+}
+/**********************************/
+/******google service button*******/
+/**********************************/
+.btn--google__login:hover {
+    opacity: 0.85;
+}
+
+.btn--google__login {
+    background: rgb(223, 74, 50);
 }
 
 .tikicon.icon-google-white {
@@ -84,12 +90,29 @@ h2 {
     vertical-align: middle;
 }
 
-.btn--google__login span {
+.btn--google__login span, .btn--facebook__login span {
     float: left;
     height: 41px;
     width: 41px;
     border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
+
+/**********************************/
+/******facebook service button*******/
+/**********************************/
+.btn--facebook__login {
+    background: rgb(59, 89, 152);
+}
+.tikicon.icon-facebook-white {
+    background-image: url("https://frontend.tikicdn.com/_desktop-next/static/img/sprite.png?v=100000000");
+    background-position: -290px -288px;
+    width: 24px;
+    height: 24px;
+}
+.btn--facebook__login:hover {
+    opacity: 0.85;
+}
+
 /**********************************/
 /******** Back to Top CSS *********/
 /**********************************/
@@ -1239,7 +1262,11 @@ h2 {
             background:  var(--color-branding);
             border-color:  var(--color-branding);
         }
-
+@media(max-width: 990px) {
+        .sidebar {
+            display:none;
+        }
+}
 
 
 /**********************************/

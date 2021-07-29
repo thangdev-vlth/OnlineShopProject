@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Project.AdminApp.Migrations
 {
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -112,7 +112,7 @@ namespace Project.AdminApp.Migrations
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Birthday = table.Column<DateTime>(type: "datetime2", nullable: false),
                     disable = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
-                    LastSignIn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 6, 21, 2, 41, 15, 634, DateTimeKind.Local).AddTicks(9952)),
+                    LastSignIn = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 7, 29, 15, 21, 19, 277, DateTimeKind.Local).AddTicks(7834)),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -533,15 +533,15 @@ namespace Project.AdminApp.Migrations
                 {
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
+                    size = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     productName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    size = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     total = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderDetails", x => new { x.OrderId, x.ProductId });
+                    table.PrimaryKey("PK_OrderDetails", x => new { x.OrderId, x.ProductId, x.size });
                     table.ForeignKey(
                         name: "FK_OrderDetails_Orders_OrderId",
                         column: x => x.OrderId,
@@ -649,21 +649,21 @@ namespace Project.AdminApp.Migrations
                 columns: new[] { "Id", "DateCreated", "Description", "Details", "IsFeatured", "Name", "Price", "sold" },
                 values: new object[,]
                 {
-                    { -13, new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5571), "Mượn mà , mang lại cảm giác tươi mát, sản phẩm là lựa chọn hàng đâu cho mùa hè này ", null, true, "Smooth", 200000m, 0 },
-                    { -12, new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5569), "Là Một sản phẩm được cung cấp bởi thương hiệu thời trang phụ nữ Tartarus , ELiS vừa mang chất Ý vừa mang chất Việt. Chúng tôi đảm bảo đây sẽ là sản phẩm xu hướng trong tương lai", null, true, "ELiS", 200000m, 0 },
-                    { -11, new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5567), "Sự kết hợp hài hòa các màu sắc với nhau, mang nét riêng đậm chất Pháp tạo nên sự rung cảm cho người nhìn", null, true, "JAQUAIN", 200000m, 0 },
-                    { -10, new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5565), "Đúng như tên gọi của nó, MOON sẽ thu hút mọi ánh nhìn của những người xung quanh bằng sự quyến rũ nhẹ nhàng", null, true, "MOON", 200000m, 0 },
-                    { -9, new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5562), "Với tông màu trẻ trung, sản phẩm sẽ là người bạn đồng hành của bạn trong những buổi dạo phố cuối tuần", null, true, "BNW", 200000m, 0 },
-                    { -8, new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5560), "Set đồ được cung cấp từ hãng thời trang nổi tiếng Tartarus, Đây sẽ là set đồ nên xuất hiện trong tủ đồ của bạn", null, true, "LIMMA Set", 200000m, 0 },
-                    { -6, new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5555), "Cá tính là yếu tố tạo nên sự cuốn hút của Marid \n Marid sẽ mang lại cho người mặc một cảm giác trẻ trung, tươi mát, năng động", null, true, "Marid", 200000m, 0 },
-                    { -5, new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5552), "Emwear là thương hiệu quần jean và thời trang Nữ hằng ngày đa dụng . Sử dụng chính chất liệu co dãn cao cấp, thiết kế quyến rũ, sang trọng.", null, true, "EmWear", 200000m, 0 },
-                    { -4, new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5550), "Một thoáng hương tình dịu ngọt \n Một chút nhẹ nhàng bay bổng và hết sức yêu kiều \n Một item thật sự gây lưu luyến đó các tình iuuu", null, true, "Flash", 200000m, 0 },
-                    { -3, new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5548), "Chủ nhật là Sunday \n Thứ hai là Monday \n Ngày nào cũng xinh đẹp là Emday", null, true, "EmDay", 200000m, 0 },
-                    { -2, new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5539), "Vâng , Đúng Như Cái Tên Của Nó, BoyFriend Sẽ Là Người Bạn Đồng Hành Của Bạn Trong Mọi Thời Điểm Của Cuộc Sống, BOYFRIEND Được Thiết Kết Để Tạo Cho Bạn Cảm Giác Thoải Mái, Sang Trọng Và An Toàn", null, true, "BOYFRIEND", 200000m, 0 },
-                    { -1, new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5536), "100% Cotton . TOPS Với Thiết Kế Cạp Cao Sẽ Mang Lại Cho Bạn Cảm Giác Tự tin , Thích Hợp Để Phối Với Những Dạng Áo ONTOP cá tính", null, true, "TOPS", 200000m, 0 },
-                    { 1, new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(553), "99% Cotton, 1% Elastane . Bền Vững Khi Giặt Máy . Skinny Ôm Sát Và Tôn Lên Những Đường Nét Quyến Rũ Của Bạn", null, true, "SKINNY", 200000m, 0 },
-                    { -7, new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5558), "Vẫn là một sản phẩm của bộ sưu tập jean tháng 7, BELLE sẽ ôm sát và tôn lên những đường cong quyến rũ của bạn. Bằng chất liệu co dãn ,BELLE sẽ không làm bạn bị khó chịu mất tự tin", null, true, "BELLE", 200000m, 0 },
-                    { 2, new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5518), "100% Cotton . Sản Phẩm Mang Đậm Phong Cách Cá Tính Và Không Kém Phần Quyến Rũ. Orginal Được Thiết Kế Để Có Thể Ôm Sát Vòng Ba Và Tôn Lên Làn Da Của Bạn", null, true, "ORGINAL SHORT", 200000m, 0 }
+                    { -13, new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1043), "Mượn mà , mang lại cảm giác tươi mát, sản phẩm là lựa chọn hàng đâu cho mùa hè này ", null, true, "Smooth", 200000m, 0 },
+                    { -12, new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1041), "Là Một sản phẩm được cung cấp bởi thương hiệu thời trang phụ nữ Tartarus , ELiS vừa mang chất Ý vừa mang chất Việt. Chúng tôi đảm bảo đây sẽ là sản phẩm xu hướng trong tương lai", null, true, "ELiS", 200000m, 0 },
+                    { -11, new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1039), "Sự kết hợp hài hòa các màu sắc với nhau, mang nét riêng đậm chất Pháp tạo nên sự rung cảm cho người nhìn", null, true, "JAQUAIN", 200000m, 0 },
+                    { -10, new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1037), "Đúng như tên gọi của nó, MOON sẽ thu hút mọi ánh nhìn của những người xung quanh bằng sự quyến rũ nhẹ nhàng", null, true, "MOON", 200000m, 0 },
+                    { -9, new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1035), "Với tông màu trẻ trung, sản phẩm sẽ là người bạn đồng hành của bạn trong những buổi dạo phố cuối tuần", null, true, "BNW", 200000m, 0 },
+                    { -8, new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1034), "Set đồ được cung cấp từ hãng thời trang nổi tiếng Tartarus, Đây sẽ là set đồ nên xuất hiện trong tủ đồ của bạn", null, true, "LIMMA Set", 200000m, 0 },
+                    { -6, new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1030), "Cá tính là yếu tố tạo nên sự cuốn hút của Marid \n Marid sẽ mang lại cho người mặc một cảm giác trẻ trung, tươi mát, năng động", null, true, "Marid", 200000m, 0 },
+                    { -5, new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1028), "Emwear là thương hiệu quần jean và thời trang Nữ hằng ngày đa dụng . Sử dụng chính chất liệu co dãn cao cấp, thiết kế quyến rũ, sang trọng.", null, true, "EmWear", 200000m, 0 },
+                    { -4, new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1024), "Một thoáng hương tình dịu ngọt \n Một chút nhẹ nhàng bay bổng và hết sức yêu kiều \n Một item thật sự gây lưu luyến đó các tình iuuu", null, true, "Flash", 200000m, 0 },
+                    { -3, new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1022), "Chủ nhật là Sunday \n Thứ hai là Monday \n Ngày nào cũng xinh đẹp là Emday", null, true, "EmDay", 200000m, 0 },
+                    { -2, new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1020), "Vâng , Đúng Như Cái Tên Của Nó, BoyFriend Sẽ Là Người Bạn Đồng Hành Của Bạn Trong Mọi Thời Điểm Của Cuộc Sống, BOYFRIEND Được Thiết Kết Để Tạo Cho Bạn Cảm Giác Thoải Mái, Sang Trọng Và An Toàn", null, true, "BOYFRIEND", 200000m, 0 },
+                    { -1, new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1018), "100% Cotton . TOPS Với Thiết Kế Cạp Cao Sẽ Mang Lại Cho Bạn Cảm Giác Tự tin , Thích Hợp Để Phối Với Những Dạng Áo ONTOP cá tính", null, true, "TOPS", 200000m, 0 },
+                    { 1, new DateTime(2021, 7, 29, 15, 21, 19, 334, DateTimeKind.Local).AddTicks(7093), "99% Cotton, 1% Elastane . Bền Vững Khi Giặt Máy . Skinny Ôm Sát Và Tôn Lên Những Đường Nét Quyến Rũ Của Bạn", null, true, "SKINNY", 200000m, 0 },
+                    { -7, new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1032), "Vẫn là một sản phẩm của bộ sưu tập jean tháng 7, BELLE sẽ ôm sát và tôn lên những đường cong quyến rũ của bạn. Bằng chất liệu co dãn ,BELLE sẽ không làm bạn bị khó chịu mất tự tin", null, true, "BELLE", 200000m, 0 },
+                    { 2, new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1009), "100% Cotton . Sản Phẩm Mang Đậm Phong Cách Cá Tính Và Không Kém Phần Quyến Rũ. Orginal Được Thiết Kế Để Có Thể Ôm Sát Vòng Ba Và Tôn Lên Làn Da Của Bạn", null, true, "ORGINAL SHORT", 200000m, 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -671,8 +671,8 @@ namespace Project.AdminApp.Migrations
                 columns: new[] { "Id", "ApplyCode", "ApplyForAll", "CategoriesPromotionId", "Description", "DiscountAmount", "DiscountPercent", "FromDate", "MaximumDiscountAmountForPecentCoupon", "MaximumDiscountPercentForAmountCoupon", "MinimumTotalOrder", "Name", "ProductsPromotionId", "Status", "ToDate", "quantity" },
                 values: new object[,]
                 {
-                    { 1, "11BD711F-9506-45BA-B5B7-F00649BE00DE", true, null, "Giảm giá 50% giá trị sản phẩm không quá 50.000 vnđ", null, 50, new DateTime(2021, 6, 21, 2, 41, 16, 290, DateTimeKind.Local).AddTicks(7855), 50000m, null, null, "Mã giảm giá 50% cho tất cả các sản phẩm trong cửa hàng", null, 0, new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 2, "11BD711F-9506-45BA-B5B7-F00649BE01DE", true, null, "Giảm giá 50.000vnđ trên giá trị sản phẩm không quá  25% giá trị sản phẩm", null, null, new DateTime(2021, 6, 21, 2, 41, 16, 291, DateTimeKind.Local).AddTicks(2745), null, 25, null, "Mã giảm giá 50.000 cho tất cả các sản phẩm trong cửa hàng", null, 0, new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
+                    { 1, "11BD711F-9506-45BA-B5B7-F00649BE00DE", true, null, "Giảm giá 50% giá trị sản phẩm không quá 50.000 vnđ", null, 50, new DateTime(2021, 7, 29, 15, 21, 19, 819, DateTimeKind.Local).AddTicks(2159), 50000m, null, null, "Mã giảm giá 50% cho tất cả các sản phẩm trong cửa hàng", null, 0, new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 2, "11BD711F-9506-45BA-B5B7-F00649BE01DE", true, null, "Giảm giá 50.000vnđ trên giá trị sản phẩm không quá  25% giá trị sản phẩm", null, null, new DateTime(2021, 7, 29, 15, 21, 19, 819, DateTimeKind.Local).AddTicks(6869), null, 25, null, "Mã giảm giá 50.000 cho tất cả các sản phẩm trong cửa hàng", null, 0, new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
                 });
 
             migrationBuilder.InsertData(
@@ -680,8 +680,8 @@ namespace Project.AdminApp.Migrations
                 columns: new[] { "Id", "ApplyCode", "ApplyForProductIds", "CategoriesPromotionId", "Description", "DiscountAmount", "DiscountPercent", "FromDate", "MaximumDiscountAmountForPecentCoupon", "MaximumDiscountPercentForAmountCoupon", "MinimumTotalOrder", "Name", "ProductsPromotionId", "Status", "ToDate", "quantity" },
                 values: new object[,]
                 {
-                    { 3, "11BD711F-9506-45BA-B5B7-F00649BE02DE", true, null, "Giảm giá 50% trên giá trị của  sản phẩm có mã hợp lệ không quá  25.000vnđ trên giá trị sản phẩm", null, 50, new DateTime(2021, 6, 21, 2, 41, 16, 291, DateTimeKind.Local).AddTicks(2761), 25000m, null, null, "Mã giảm giá 50% cho  các sản phẩm có mã hợp lệ trong cửa hàng", null, 0, new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 4, "11BD711F-9506-45BA-B5B7-F00649BE03DE", true, null, "Giảm giá 50000 trên giá trị của  sản phẩm có mã hợp lệ không quá  25% trên giá trị sản phẩm", 50000m, null, new DateTime(2021, 6, 21, 2, 41, 16, 291, DateTimeKind.Local).AddTicks(3353), null, 25, null, "Mã giảm giá 50000 cho  các sản phẩm có mã hợp lệ trong cửa hàng", null, 0, new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
+                    { 3, "11BD711F-9506-45BA-B5B7-F00649BE02DE", true, null, "Giảm giá 50% trên giá trị của  sản phẩm có mã hợp lệ không quá  25.000vnđ trên giá trị sản phẩm", null, 50, new DateTime(2021, 7, 29, 15, 21, 19, 819, DateTimeKind.Local).AddTicks(6881), 25000m, null, null, "Mã giảm giá 50% cho  các sản phẩm có mã hợp lệ trong cửa hàng", null, 0, new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 4, "11BD711F-9506-45BA-B5B7-F00649BE03DE", true, null, "Giảm giá 50000 trên giá trị của  sản phẩm có mã hợp lệ không quá  25% trên giá trị sản phẩm", 50000m, null, new DateTime(2021, 7, 29, 15, 21, 19, 819, DateTimeKind.Local).AddTicks(7555), null, 25, null, "Mã giảm giá 50000 cho  các sản phẩm có mã hợp lệ trong cửa hàng", null, 0, new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
                 });
 
             migrationBuilder.InsertData(
@@ -689,8 +689,8 @@ namespace Project.AdminApp.Migrations
                 columns: new[] { "Id", "ApplyCode", "ApplyForCategoryIds", "CategoriesPromotionId", "Description", "DiscountAmount", "DiscountPercent", "FromDate", "MaximumDiscountAmountForPecentCoupon", "MaximumDiscountPercentForAmountCoupon", "MinimumTotalOrder", "Name", "ProductsPromotionId", "Status", "ToDate", "quantity" },
                 values: new object[,]
                 {
-                    { 5, "11BD711F-9506-45BA-B5B7-F00649BE04DE", true, null, "Giảm giá 50000 trên giá trị của  sản phẩm thuộc danh mục xxx không quá  10% trên giá trị sản phẩm", 50000m, null, new DateTime(2021, 6, 21, 2, 41, 16, 291, DateTimeKind.Local).AddTicks(3364), null, 10, null, "Mã giảm giá 50000 cho  các sản phẩm thuộc danh mục xxx trong cửa hàng", null, 0, new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 6, "11BD711F-9506-45BA-B5B7-F00649BE06DE", true, null, "Giảm giá 50% trên giá trị của  sản phẩm thuộc danh mục xxx không quá  10000 trên giá trị sản phẩm", null, 50, new DateTime(2021, 6, 21, 2, 41, 16, 291, DateTimeKind.Local).AddTicks(3367), 10000m, null, null, "Mã giảm giá 50% cho  các sản phẩm thuộc danh mục xxx trong cửa hàng", null, 0, new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
+                    { 5, "11BD711F-9506-45BA-B5B7-F00649BE04DE", true, null, "Giảm giá 50000 trên giá trị của  sản phẩm thuộc danh mục xxx không quá  10% trên giá trị sản phẩm", 50000m, null, new DateTime(2021, 7, 29, 15, 21, 19, 819, DateTimeKind.Local).AddTicks(7564), null, 10, null, "Mã giảm giá 50000 cho  các sản phẩm thuộc danh mục xxx trong cửa hàng", null, 0, new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 6, "11BD711F-9506-45BA-B5B7-F00649BE06DE", true, null, "Giảm giá 50% trên giá trị của  sản phẩm thuộc danh mục xxx không quá  10000 trên giá trị sản phẩm", null, 50, new DateTime(2021, 7, 29, 15, 21, 19, 819, DateTimeKind.Local).AddTicks(7566), 10000m, null, null, "Mã giảm giá 50% cho  các sản phẩm thuộc danh mục xxx trong cửa hàng", null, 0, new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
                 });
 
             migrationBuilder.InsertData(
@@ -698,8 +698,8 @@ namespace Project.AdminApp.Migrations
                 columns: new[] { "Id", "ApplyCode", "ApplyForOrderTotal", "CategoriesPromotionId", "Description", "DiscountAmount", "DiscountPercent", "FromDate", "MaximumDiscountAmountForPecentCoupon", "MaximumDiscountPercentForAmountCoupon", "MinimumTotalOrder", "Name", "ProductsPromotionId", "Status", "ToDate", "quantity" },
                 values: new object[,]
                 {
-                    { 8, "11BD711F-9506-45BA-B5B7-F00649BE08DE", true, null, "Giảm giá 10.000vđ trên giá trị của  đơn hàng từ 10.000vnđ ", 10000m, null, new DateTime(2021, 6, 21, 2, 41, 16, 291, DateTimeKind.Local).AddTicks(4001), null, 100, 10000m, "Mã giảm giá 10.000vnđ cho  đơn hàng từ 10.000vnđ", null, 0, new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 7, "11BD711F-9506-45BA-B5B7-F00649BE07DE", true, null, "Giảm giá 50% trên giá trị của  đơn hàng từ 10.000 không quá 10.000", null, 50, new DateTime(2021, 6, 21, 2, 41, 16, 291, DateTimeKind.Local).AddTicks(3988), 10000m, null, 10000m, "Mã giảm giá 50% cho  đơn hàng từ 10.000", null, 0, new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
+                    { 8, "11BD711F-9506-45BA-B5B7-F00649BE08DE", true, null, "Giảm giá 10.000vđ trên giá trị của  đơn hàng từ 10.000vnđ ", 10000m, null, new DateTime(2021, 7, 29, 15, 21, 19, 819, DateTimeKind.Local).AddTicks(8155), null, 100, 10000m, "Mã giảm giá 10.000vnđ cho  đơn hàng từ 10.000vnđ", null, 0, new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 7, "11BD711F-9506-45BA-B5B7-F00649BE07DE", true, null, "Giảm giá 50% trên giá trị của  đơn hàng từ 10.000 không quá 10.000", null, 50, new DateTime(2021, 7, 29, 15, 21, 19, 819, DateTimeKind.Local).AddTicks(8146), 10000m, null, 10000m, "Mã giảm giá 50% cho  đơn hàng từ 10.000", null, 0, new DateTime(2022, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
                 });
 
             migrationBuilder.InsertData(
@@ -707,10 +707,10 @@ namespace Project.AdminApp.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "6578db15-87b9-4756-b961-f6093e4ed030", "staff", "STAFF" },
-                    { "8D04DCE3-969A-435D-BBA4-DF3F325983DC", "b6c6d301-fd34-4426-af29-6c6323fd3770", "admin", "ADMIN" },
-                    { "8D04DCE2-969A-435D-BBA4-DF3F325983DC", "12375434-ad70-482e-8924-7191477c9e51", "editor", "EDITOR" },
-                    { "8D04DCC2-969A-435D-BBA4-DF3F315983DC", "8827ddba-cf58-410c-9c14-967218c9ad8f", "customer", "CUSTOMER" }
+                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "def068a0-37cf-4845-a54c-5c269e8b359c", "staff", "STAFF" },
+                    { "8D04DCE3-969A-435D-BBA4-DF3F325983DC", "a766fb98-a05d-46a0-b7f7-1e818796932f", "admin", "ADMIN" },
+                    { "8D04DCE2-969A-435D-BBA4-DF3F325983DC", "7027e98f-8cf2-4672-8354-736ab1826e1f", "editor", "EDITOR" },
+                    { "8D04DCC2-969A-435D-BBA4-DF3F315983DC", "7810a3ff-ca66-489a-8527-8cb0d3cb423f", "customer", "CUSTOMER" }
                 });
 
             migrationBuilder.InsertData(
@@ -718,35 +718,35 @@ namespace Project.AdminApp.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Address", "Birthday", "ConcurrencyStamp", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "10BD711F-9576-45BA-B5B7-F00649BE00DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 710, DateTimeKind.Local).AddTicks(6500), "4282f94e-f1b0-4032-9151-a16bbcdb70e8", "rawaccountcustomer0@gmail.com", true, null, false, null, "rawaccountcustomer0@gmail.com", "raw-account-customer0", "AQAAAAEAACcQAAAAEN0iegmBpxySXlB9fMZ/Pkwv7VrHtF0hVnzZjUtPQAG9dka2Hs7T6dx3nAdrmH7M5g==", null, false, "", false, "raw-account-customer0" },
-                    { "10BD711F-9576-45BA-B5B7-F00649BE01DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 722, DateTimeKind.Local).AddTicks(314), "98a4cb9e-322e-40be-a76e-421535237758", "rawaccountcustomer1@gmail.com", true, null, false, null, "rawaccountcustomer1@gmail.com", "raw-account-customer1", "AQAAAAEAACcQAAAAEDtxxa2+eJEEFwAa2b3MWR+DCn+xZUCthDfVDe2R5AKJEyok1yG+iWOwDsOOaUh6JQ==", null, false, "", false, "raw-account-customer1" },
-                    { "10BD711F-9576-45BA-B5B7-F00649BE02DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 730, DateTimeKind.Local).AddTicks(9397), "ae986a93-c32f-48fe-81dc-67d4cc46955b", "rawaccountcustomer2@gmail.com", true, null, false, null, "rawaccountcustomer2@gmail.com", "raw-account-customer2", "AQAAAAEAACcQAAAAEEJjhThBmKR64rYj2vjGJrgP78+EEE97Ii0DJ/hfiI/Mqq+I7Vi5NF7MDhrVqrAMaw==", null, false, "", false, "raw-account-customer2" },
-                    { "10BD711F-9576-45BA-B5B7-F00649BE03DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 741, DateTimeKind.Local).AddTicks(6542), "5d056bf7-63a2-47be-9231-444994c4fad2", "rawaccountcustomer3@gmail.com", true, null, false, null, "rawaccountcustomer3@gmail.com", "raw-account-customer3", "AQAAAAEAACcQAAAAECUjp+UguHpvS1li8PCNGaEhZRmpV8VS+zRaNPtCXzF/Y9sZ+MQ2rg7uLWag655rNg==", null, false, "", false, "raw-account-customer3" },
-                    { "11BD711F-9516-45BA-B5B7-F00649BE01DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 826, DateTimeKind.Local).AddTicks(7523), "0d9f03db-de83-4a33-ba48-b51a2ba5f5b5", "rawaccountstaff1@gmail.com", true, null, false, null, "rawaccountstaff1@gmail.com", "raw-account-staff1", "AQAAAAEAACcQAAAAEHCSnAyG+0zC90VrzMHUliwDRbBtai7aLtkfi1ELYMIquLTg/LeK0prFjzAAFKI7tw==", null, false, "", false, "raw-account-staff1" },
-                    { "10BD711F-9576-45BA-B5B7-F00649BE05DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 763, DateTimeKind.Local).AddTicks(1215), "bcaabbe9-093b-4d3a-bee0-0ec03a61d855", "rawaccountcustomer5@gmail.com", true, null, false, null, "rawaccountcustomer5@gmail.com", "raw-account-customer5", "AQAAAAEAACcQAAAAEOrbSrXgULrO0mzYp65F7iWbhPtO1nnefikX0jxQeaoa6B/JfyqDW2YD8JOd2rZ9tg==", null, false, "", false, "raw-account-customer5" },
-                    { "10BD711F-9576-45BA-B5B7-F00649BE06DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 776, DateTimeKind.Local).AddTicks(761), "6aa537ad-f92e-4224-b42e-c4f57fe679a2", "rawaccountcustomer6@gmail.com", true, null, false, null, "rawaccountcustomer6@gmail.com", "raw-account-customer6", "AQAAAAEAACcQAAAAEE8QEQ8O3ik+PJMHzQsmEhhYX0ewJIsT37EXnT9jBRWZ/FSTBZwRpy8TQlFuZ6aeHg==", null, false, "", false, "raw-account-customer6" },
-                    { "10BD711F-9576-45BA-B5B7-F00649BE07DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 786, DateTimeKind.Local).AddTicks(4399), "4088cc42-f6ed-4940-bbb8-3859a97b9205", "rawaccountcustomer7@gmail.com", true, null, false, null, "rawaccountcustomer7@gmail.com", "raw-account-customer7", "AQAAAAEAACcQAAAAEF6hIbBgeZiRRW9kTUBi/FY2tOhjNKoVSuqc9/e48TdAKpzqw8zKiBPqlPtNItLugQ==", null, false, "", false, "raw-account-customer7" },
-                    { "10BD711F-9576-45BA-B5B7-F00649BE08DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 795, DateTimeKind.Local).AddTicks(5133), "63956bad-2ee4-4661-a201-2d9bc0a690d0", "rawaccountcustomer8@gmail.com", true, null, false, null, "rawaccountcustomer8@gmail.com", "raw-account-customer8", "AQAAAAEAACcQAAAAEKX39DbpCSVdir+ROcTXlz3qgge+8vxxnn+bYevV1SmDEukVBcIz5En3KATxzleo9A==", null, false, "", false, "raw-account-customer8" },
-                    { "10BD711F-9576-45BA-B5B7-F00649BE09DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 806, DateTimeKind.Local).AddTicks(5293), "ad277ead-3097-481e-902b-c15ffd01430d", "rawaccountcustomer9@gmail.com", true, null, false, null, "rawaccountcustomer9@gmail.com", "raw-account-customer9", "AQAAAAEAACcQAAAAEH9j0NH+lNdRbjydAM1O5bBtsfNTnigCaFxN5tv9d1nztLBDKGrWCDzArK6WAbc51w==", null, false, "", false, "raw-account-customer9" },
-                    { "11BD711F-9506-45BA-B5B7-F00649BE00DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 816, DateTimeKind.Local).AddTicks(5258), "4c0ec074-afbb-43a7-8c39-23c9bdc1d52b", "rawaccountstaff0@gmail.com", true, null, false, null, "rawaccountstaff0@gmail.com", "raw-account-staff0", "AQAAAAEAACcQAAAAEPp7QRgomBmVO7xqCjiS0xEf1OeTPWnuXWYR6fB51yxjRUTUF5VJJapDV69wc2fhjQ==", null, false, "", false, "raw-account-staff0" },
-                    { "10BD711F-9576-45BA-B5B7-F00649BE04DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 751, DateTimeKind.Local).AddTicks(8580), "3e22f575-7d69-43db-90a3-68c676cc266e", "rawaccountcustomer4@gmail.com", true, null, false, null, "rawaccountcustomer4@gmail.com", "raw-account-customer4", "AQAAAAEAACcQAAAAENaus2ypU5SDFCRlrRKoCtzDE49qAHWxg9WMa4W4E924ROpNkQuOoOUVoa8SskJz3Q==", null, false, "", false, "raw-account-customer4" },
-                    { "11BD711F-9526-45BA-B5B7-F00649BE02DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 836, DateTimeKind.Local).AddTicks(865), "a9caa91b-1b1d-4523-bae9-7c7c555d3960", "rawaccountstaff2@gmail.com", true, null, false, null, "rawaccountstaff2@gmail.com", "raw-account-staff2", "AQAAAAEAACcQAAAAEPLQPmb+vuEQzjw0ighoQg7c50AuMIllBq6C5pakERTYJd8EfRfQl4C0s9JSFxOE/A==", null, false, "", false, "raw-account-staff2" },
-                    { "11BD711F-9546-45BA-B5B7-F00649BE04DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 855, DateTimeKind.Local).AddTicks(6395), "c8aa490c-6ee4-4995-a052-db3fa5f7450e", "rawaccountstaff4@gmail.com", true, null, false, null, "rawaccountstaff4@gmail.com", "raw-account-staff4", "AQAAAAEAACcQAAAAEPUYOIVoN90+Gisj6ZDWh/jPieuuAnKAgbfkOMhIt9HgZ+V1PZhGzb1BXlscQrJ7qw==", null, false, "", false, "raw-account-staff4" },
-                    { "11BD711F-9556-45BA-B5B7-F00649BE05DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 865, DateTimeKind.Local).AddTicks(1751), "c392571c-2a35-4903-983b-b2975130cc2a", "rawaccountstaff5@gmail.com", true, null, false, null, "rawaccountstaff5@gmail.com", "raw-account-staff5", "AQAAAAEAACcQAAAAEID1o4Y97/1Yr8B3+L3oXIxLGVqjDabB8fNjHJAjvmKPWVjpj0Pf8pAtresijnvoPA==", null, false, "", false, "raw-account-staff5" },
-                    { "11BD711F-9566-45BA-B5B7-F00649BE06DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 875, DateTimeKind.Local).AddTicks(7897), "d750fb1a-f00c-4ef6-89bc-8d390f43ccc4", "rawaccountstaff6@gmail.com", true, null, false, null, "rawaccountstaff6@gmail.com", "raw-account-staff6", "AQAAAAEAACcQAAAAELtWXPT0l/ARU875xXEcwHbgL9QPZpOXN7CF4HdiIkruzjFHDmEDn1Oka+NRJhh7Mg==", null, false, "", false, "raw-account-staff6" },
-                    { "11BD711F-9576-45BA-B5B7-F00649BE07DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 886, DateTimeKind.Local).AddTicks(1818), "a6f6fdcd-ea4a-49e5-b7d8-ced21c3bc0e6", "rawaccountstaff7@gmail.com", true, null, false, null, "rawaccountstaff7@gmail.com", "raw-account-staff7", "AQAAAAEAACcQAAAAEO9DcjUsd89k84EbDISOhHlauf06YNDm7gdr+Na4kiMi4GFuynGM7pMDrPqkB+bg/w==", null, false, "", false, "raw-account-staff7" },
-                    { "11BD711F-9586-45BA-B5B7-F00649BE08DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 897, DateTimeKind.Local).AddTicks(9199), "bec7c878-bb6e-4e9f-b9cb-058b75250332", "rawaccountstaff8@gmail.com", true, null, false, null, "rawaccountstaff8@gmail.com", "raw-account-staff8", "AQAAAAEAACcQAAAAEL18U6qhLFByuaTgr/N6M5enPyjCrXeVpXXPeSUQo8aa2wIvEXaBHK7VdASevSWidg==", null, false, "", false, "raw-account-staff8" },
-                    { "11BD711F-9596-45BA-B5B7-F00649BE09DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 908, DateTimeKind.Local).AddTicks(5117), "460835bd-7745-41ba-a6c2-d50a2b1cf73e", "rawaccountstaff9@gmail.com", true, null, false, null, "rawaccountstaff9@gmail.com", "raw-account-staff9", "AQAAAAEAACcQAAAAEO/Ilmb/t6ID2plkuiH6rEhX9kjMXLVDFtE4Q4vsSBSI0OFUzR2N+S/owQpzGA1Uag==", null, false, "", false, "raw-account-staff9" },
-                    { "69BD714F-9576-45BA-B5B7-F00649BE00DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 916, DateTimeKind.Local).AddTicks(8116), "1a221c53-5418-48db-95f6-161e411505dc", "thangnguyenquyetvlth@gmail.com", true, null, false, null, "thangnguyenquyetvlth@gmail.com", "admin", "AQAAAAEAACcQAAAAED6cJJvSiCPrO71cNluv+3+NxbASlCYnSm3/GgyM+jHX1iDMjjyz5l6brmdF9SCTQg==", null, false, "", false, "Thang-dev" },
-                    { "69BD711F-9576-45BA-B5B7-F00649BE00DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 925, DateTimeKind.Local).AddTicks(8404), "096ce2ea-fb7a-4d08-bc59-aa4ca0f36b0c", "thangnguyenquyetvlth1@gmail.com", true, null, false, null, "thangnguyenquyetvlth1@gmail.com", "raw-account1", "AQAAAAEAACcQAAAAEPxUL5rl4+XjY4f4YAyKUBUEmC4+zCvGGG2w4jDmb6jhcTEeIQedt8piLa+RZtJKKw==", null, false, "", false, "raw-account1" },
-                    { "69BD712F-9576-45BA-B5B7-F00649BE00DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 936, DateTimeKind.Local).AddTicks(4743), "87fb3744-2e28-4b93-b72a-1cec15ad1d94", "thangnguyenquyetvlth2@gmail.com", true, null, false, null, "thangnguyenquyetvlth2@gmail.com", "raw-account2", "AQAAAAEAACcQAAAAEFU73ThhYmb9OM37p2MTSrYjHhhaujKKOH+ocCaFpXFTRzvk/frdAon6u0KCbhcLAg==", null, false, "", false, "raw-account2" },
-                    { "61BD714F-9576-45BA-B5B7-F00649BE00DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 946, DateTimeKind.Local).AddTicks(4084), "c9911ee5-da80-4f4b-a447-7ccb215ee7da", "thangnguyenquyetvlth3@gmail.com", true, null, false, null, "thangnguyenquyetvlth3@gmail.com", "raw-account3", "AQAAAAEAACcQAAAAEFAyVMrUncnxzk9JJxhLyAOq2QRDOseEJLd1XvUb0/NZ0Px3qx2y8mrjqoPuDKrGYQ==", null, false, "", false, "raw-account3" },
-                    { "19BD714F-9576-45BA-B5B7-F00649BE00DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 958, DateTimeKind.Local).AddTicks(4698), "fa47f815-6eb0-4706-9bd7-9f6ced71ec6a", "thangnguyenquyetvlth4@gmail.com", true, null, false, null, "thangnguyenquyetvlth4@gmail.com", "raw-account4", "AQAAAAEAACcQAAAAEHMC152mczLp7ICQE2Oa5VPIzLdWTLmPZMmRfzuutKnnIeoZGEZHr9ESiYV9Cm1J7Q==", null, false, "", false, "raw-account4" },
-                    { "65BD710F-9576-45BA-B5B7-F00649BE00DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 967, DateTimeKind.Local).AddTicks(1270), "9c4b2b30-edfc-4729-858d-9a1436de0d97", "thangnguyenquyetvlth5@gmail.com", true, null, false, null, "thangnguyenquyetvlth5@gmail.com", "raw-account5", "AQAAAAEAACcQAAAAEAucn41oHsZui83lbsCPUpiHYhzmXgpb/2tq6I62KPXnVZEeUCnRssimtIpHbfop5g==", null, false, "", false, "raw-account5" },
-                    { "69BD714F-9576-45BA-B5B6-F00649BE01DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 976, DateTimeKind.Local).AddTicks(5239), "de53b77b-9b6f-43a2-9a5f-a449ccc7927c", "thangnguyenquyetvlth6@gmail.com", true, null, false, null, "thangnguyenquyetvlth6@gmail.com", "raw-account6", "AQAAAAEAACcQAAAAEH78Vvrqxzv/OzlW8Gt6W/o4R8afgYjz2B6dJtq2wc7lVbkfamIguI0tDha2JdkLyQ==", null, false, "", false, "raw-account6" },
-                    { "09BD714F-9576-45BA-B5B7-F00649BE04DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 987, DateTimeKind.Local).AddTicks(6168), "404ed6cb-bf24-4e34-8f46-c2a15208e84f", "thangnguyenquyetvlth7@gmail.com", true, null, false, null, "thangnguyenquyetvlth7@gmail.com", "raw-account7", "AQAAAAEAACcQAAAAEKpXydfWdnnWy1FeEeuxjYR58MDSWCs4MXkSgwsjGFHR/ZNznYxetsr7xgUveUATHw==", null, false, "", false, "raw-account7" },
-                    { "11BD711F-9536-45BA-B5B7-F00649BE03DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 845, DateTimeKind.Local).AddTicks(1226), "cc78db6e-068c-46d2-b517-764f6d8caa11", "rawaccountstaff3@gmail.com", true, null, false, null, "rawaccountstaff3@gmail.com", "raw-account-staff3", "AQAAAAEAACcQAAAAECN2wGZlr3w0n4rYEhhdVkCQbhZFDEXAkRPkun5WUp59z1oqa27yaw09jhkxYbpZcg==", null, false, "", false, "raw-account-staff3" },
-                    { "69BD114F-9576-45BA-B4B7-F00649BE00DE", 0, null, new DateTime(2021, 6, 21, 2, 41, 15, 996, DateTimeKind.Local).AddTicks(7123), "8b07c908-561b-4ab5-bda4-c8c3d22746c3", "thangnguyenquyetvlth8@gmail.com", true, null, false, null, "thangnguyenquyetvlth8@gmail.com", "raw-account8", "AQAAAAEAACcQAAAAEA5ZI/pS5qyyYVzRSirsW7lgYmbt/N5CYDZKsRg7tJOh2nX6ggg7sJ0SqzhVd2Pzsw==", null, false, "", false, "raw-account8" }
+                    { "10BD711F-9576-45BA-B5B7-F00649BE00DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 348, DateTimeKind.Local).AddTicks(2597), "c601ba6e-8e94-4829-80da-69da14932d80", "rawaccountcustomer0@gmail.com", true, null, false, null, "rawaccountcustomer0@gmail.com", "raw-account-customer0", "AQAAAAEAACcQAAAAEMb4CodyKG4ww+Pf4arjsgY7sVXlF0fKwdSBI/OAPzrzb6AAenjbhW5zmXvBWTfeAw==", null, false, "", false, "raw-account-customer0" },
+                    { "10BD711F-9576-45BA-B5B7-F00649BE01DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 356, DateTimeKind.Local).AddTicks(7293), "ada5b5ca-0e38-46c7-8888-7d210d47f29c", "rawaccountcustomer1@gmail.com", true, null, false, null, "rawaccountcustomer1@gmail.com", "raw-account-customer1", "AQAAAAEAACcQAAAAEA66nDqUKMq5LGtzWoNVP0q5PiRfNIm0mg9Rg+y3m+2Cfya3suyQzwHCqb/ws5hsSA==", null, false, "", false, "raw-account-customer1" },
+                    { "10BD711F-9576-45BA-B5B7-F00649BE02DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 365, DateTimeKind.Local).AddTicks(2883), "c9aa7431-74e5-473f-b50b-50ffb0c60a28", "rawaccountcustomer2@gmail.com", true, null, false, null, "rawaccountcustomer2@gmail.com", "raw-account-customer2", "AQAAAAEAACcQAAAAENpwl8xb0TmcW+06eyTb5cXKZ9VWfXfB+w5CAFAaNdak87mr0NhiUY5jQhPyqYnh4g==", null, false, "", false, "raw-account-customer2" },
+                    { "10BD711F-9576-45BA-B5B7-F00649BE03DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 373, DateTimeKind.Local).AddTicks(675), "bc9c29ba-c12d-4b3e-bdf4-f1412a0b77cb", "rawaccountcustomer3@gmail.com", true, null, false, null, "rawaccountcustomer3@gmail.com", "raw-account-customer3", "AQAAAAEAACcQAAAAECBudHS3WSxW9Tzoyhu1VlFvXq3DCnZtVn1WNfSpBgtXcun3CpGKxXN89OUNi3KakQ==", null, false, "", false, "raw-account-customer3" },
+                    { "11BD711F-9516-45BA-B5B7-F00649BE01DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 442, DateTimeKind.Local).AddTicks(943), "c1f707f5-a821-4768-8059-2d32e5d5958a", "rawaccountstaff1@gmail.com", true, null, false, null, "rawaccountstaff1@gmail.com", "raw-account-staff1", "AQAAAAEAACcQAAAAEEk4tWmiFcgnDuOQJ8kN6KfvZwUsD2nZTH9VCEo6xS2JRDBC5Las2buExMSq05jUmw==", null, false, "", false, "raw-account-staff1" },
+                    { "10BD711F-9576-45BA-B5B7-F00649BE05DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 390, DateTimeKind.Local).AddTicks(6210), "39f44c18-af75-4475-a020-d9776d6e22c3", "rawaccountcustomer5@gmail.com", true, null, false, null, "rawaccountcustomer5@gmail.com", "raw-account-customer5", "AQAAAAEAACcQAAAAEKzGu5hb/VPsGOh8sgM1MaKx2BgHXJXGPPilSWa4xkdkP8xHAaDKNUwoKrxaKH0pmg==", null, false, "", false, "raw-account-customer5" },
+                    { "10BD711F-9576-45BA-B5B7-F00649BE06DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 399, DateTimeKind.Local).AddTicks(8143), "efdd367c-f9a6-49bc-a554-2b95b99ee388", "rawaccountcustomer6@gmail.com", true, null, false, null, "rawaccountcustomer6@gmail.com", "raw-account-customer6", "AQAAAAEAACcQAAAAEI9dMWOd96uGTWrLMBOGI2i2rEk0NLQsPjrbdWgdbJprImmnxMIcQH7BzD4vaAqcVQ==", null, false, "", false, "raw-account-customer6" },
+                    { "10BD711F-9576-45BA-B5B7-F00649BE07DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 407, DateTimeKind.Local).AddTicks(8258), "e08286a5-65c3-4e48-9fce-db9028f6937a", "rawaccountcustomer7@gmail.com", true, null, false, null, "rawaccountcustomer7@gmail.com", "raw-account-customer7", "AQAAAAEAACcQAAAAEDMEffsN6ofmEXlumAPvd5oVzfqIX9naP0qQeF90xu7VmnpVdUYWdb1NQbgu6kC3iw==", null, false, "", false, "raw-account-customer7" },
+                    { "10BD711F-9576-45BA-B5B7-F00649BE08DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 416, DateTimeKind.Local).AddTicks(611), "7b5f967a-333f-4c26-b783-ee1bc6d9419d", "rawaccountcustomer8@gmail.com", true, null, false, null, "rawaccountcustomer8@gmail.com", "raw-account-customer8", "AQAAAAEAACcQAAAAECiQUfx9Kz0UD7raCIpkHKRr85R92E5PE23Z2ZwWsHRVz39jAU/YSw9hMKg78ip4rA==", null, false, "", false, "raw-account-customer8" },
+                    { "10BD711F-9576-45BA-B5B7-F00649BE09DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 424, DateTimeKind.Local).AddTicks(7536), "fa21af31-0d05-4dac-8ac9-d9de7f56b88c", "rawaccountcustomer9@gmail.com", true, null, false, null, "rawaccountcustomer9@gmail.com", "raw-account-customer9", "AQAAAAEAACcQAAAAEB4DTCqoTosNTOaMO+QN0Dn3E9hqlYvDhhz+sI7514SV+YBBNRC+G/BUWMqKXsK2cg==", null, false, "", false, "raw-account-customer9" },
+                    { "11BD711F-9506-45BA-B5B7-F00649BE00DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 433, DateTimeKind.Local).AddTicks(2521), "45e8fa30-4ff0-48eb-80c0-5e3e45b1992d", "rawaccountstaff0@gmail.com", true, null, false, null, "rawaccountstaff0@gmail.com", "raw-account-staff0", "AQAAAAEAACcQAAAAENBlFuq8BMYrHndkSzvk+jRlCN4+ggm5heb2kYl16O9azxQ1cny/I/ICZhsuWJ8pNg==", null, false, "", false, "raw-account-staff0" },
+                    { "10BD711F-9576-45BA-B5B7-F00649BE04DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 381, DateTimeKind.Local).AddTicks(9870), "9c328995-980c-413f-876c-62de08371c8e", "rawaccountcustomer4@gmail.com", true, null, false, null, "rawaccountcustomer4@gmail.com", "raw-account-customer4", "AQAAAAEAACcQAAAAEPHrtG24hcz1zxfeJyveywZ+q+Da/BvYG/GJ/pndrX/VgsjNKke5SQYTSTySbHiYcg==", null, false, "", false, "raw-account-customer4" },
+                    { "11BD711F-9526-45BA-B5B7-F00649BE02DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 450, DateTimeKind.Local).AddTicks(1958), "423e5740-3eb7-4ccb-bd0d-0abbc8833a7c", "rawaccountstaff2@gmail.com", true, null, false, null, "rawaccountstaff2@gmail.com", "raw-account-staff2", "AQAAAAEAACcQAAAAEKb0TzS3xFJr8gBBp7r1DByNdbYBjz8j3oSaG/G0TFIepEp9w8NpZ1xtymcIw9dk2Q==", null, false, "", false, "raw-account-staff2" },
+                    { "11BD711F-9546-45BA-B5B7-F00649BE04DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 466, DateTimeKind.Local).AddTicks(5529), "23eba715-7e18-42bb-85a4-56f9475bda80", "rawaccountstaff4@gmail.com", true, null, false, null, "rawaccountstaff4@gmail.com", "raw-account-staff4", "AQAAAAEAACcQAAAAEGi7Tyn12WCeDz6tgGBpX10UeMc5SrEl1FyA1mSn8vEPNCO8ViukrOL9e1SoC6Aq8g==", null, false, "", false, "raw-account-staff4" },
+                    { "11BD711F-9556-45BA-B5B7-F00649BE05DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 475, DateTimeKind.Local).AddTicks(4257), "3f13f668-52fc-4c76-846b-cb8802df6045", "rawaccountstaff5@gmail.com", true, null, false, null, "rawaccountstaff5@gmail.com", "raw-account-staff5", "AQAAAAEAACcQAAAAEHJKtU+9+p+Db4h5Dd7HYHZDIoaFFKcgDWdlrluZb0mXm7OzWAeqaxHDhDoN3EnAYw==", null, false, "", false, "raw-account-staff5" },
+                    { "11BD711F-9566-45BA-B5B7-F00649BE06DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 484, DateTimeKind.Local).AddTicks(2324), "fbcf6feb-3b76-4875-b395-411f870619e9", "rawaccountstaff6@gmail.com", true, null, false, null, "rawaccountstaff6@gmail.com", "raw-account-staff6", "AQAAAAEAACcQAAAAEB3KHRUTQaQKOcJAjuQCEwzIFwS9cEU/MfpwSdqGOv0hdWfrXBxfeUG+us7bclCSGA==", null, false, "", false, "raw-account-staff6" },
+                    { "11BD711F-9576-45BA-B5B7-F00649BE07DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 492, DateTimeKind.Local).AddTicks(8856), "01d49245-52eb-4b02-9430-e7bdfc1a2302", "rawaccountstaff7@gmail.com", true, null, false, null, "rawaccountstaff7@gmail.com", "raw-account-staff7", "AQAAAAEAACcQAAAAEEZ2qoCBhtg5ft+m5vpj3dU4FZSBVYe6doeJ5wFA+sb+0F7GscCCBnGcotPgcSIvYw==", null, false, "", false, "raw-account-staff7" },
+                    { "11BD711F-9586-45BA-B5B7-F00649BE08DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 501, DateTimeKind.Local).AddTicks(6373), "16c0c2e0-86d8-471e-af88-c5cc04256bb8", "rawaccountstaff8@gmail.com", true, null, false, null, "rawaccountstaff8@gmail.com", "raw-account-staff8", "AQAAAAEAACcQAAAAEK0EVqjxyDKWDUzThDn6FQgTsi2iCVt8r8TzTKjUlSZd1UQRCCinxNdK7cxOk2uwTA==", null, false, "", false, "raw-account-staff8" },
+                    { "11BD711F-9596-45BA-B5B7-F00649BE09DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 509, DateTimeKind.Local).AddTicks(8208), "ce9052ae-1c79-4159-bfc3-ea101b563041", "rawaccountstaff9@gmail.com", true, null, false, null, "rawaccountstaff9@gmail.com", "raw-account-staff9", "AQAAAAEAACcQAAAAELHBqgK29njTzvPyCqwiZTADbjkpW5PrPB1ieQzObWLEmCNpswXX99FA98WiIEc+qg==", null, false, "", false, "raw-account-staff9" },
+                    { "69BD714F-9576-45BA-B5B7-F00649BE00DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 518, DateTimeKind.Local).AddTicks(6760), "338becd6-d4e5-42a6-ae1e-aa2ac4f72b0d", "thangnguyenquyetvlth@gmail.com", true, null, false, null, "thangnguyenquyetvlth@gmail.com", "admin", "AQAAAAEAACcQAAAAEJEh4OMYCZ5l5kNyskQ6q8XMauRfhX95mlBV8d+xZ59nMHyodDCAFMGrYRGh+6I3rg==", null, false, "", false, "Thang-dev" },
+                    { "69BD711F-9576-45BA-B5B7-F00649BE00DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 526, DateTimeKind.Local).AddTicks(8825), "926430a3-8129-4a99-ae64-4f7bb22e5a67", "thangnguyenquyetvlth1@gmail.com", true, null, false, null, "thangnguyenquyetvlth1@gmail.com", "raw-account1", "AQAAAAEAACcQAAAAENjL+JJT/bBdf+L/XXSuckMPdarO97agBVdCxWEAXRWE7waZJEks6AVHprlNnRq6rQ==", null, false, "", false, "raw-account1" },
+                    { "69BD712F-9576-45BA-B5B7-F00649BE00DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 535, DateTimeKind.Local).AddTicks(6032), "97e0edae-c2b9-491d-b9cb-ed2eea6ef9c4", "thangnguyenquyetvlth2@gmail.com", true, null, false, null, "thangnguyenquyetvlth2@gmail.com", "raw-account2", "AQAAAAEAACcQAAAAEPjb6wRSpV9bm3Jr4YJBBnDbudGYqRRFu8G5i3Yx/g/JhzlMSSfXgkNZBhBY4mS12A==", null, false, "", false, "raw-account2" },
+                    { "61BD714F-9576-45BA-B5B7-F00649BE00DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 543, DateTimeKind.Local).AddTicks(9442), "d1b67a34-0649-4335-b921-f653d0d74c52", "thangnguyenquyetvlth3@gmail.com", true, null, false, null, "thangnguyenquyetvlth3@gmail.com", "raw-account3", "AQAAAAEAACcQAAAAEPnDn/SZEqOXaFM/TG104LHKEegeHkA+yFR22kPYt7qbOBBQmeZAq8ZqoVdhZt1oQQ==", null, false, "", false, "raw-account3" },
+                    { "19BD714F-9576-45BA-B5B7-F00649BE00DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 552, DateTimeKind.Local).AddTicks(4181), "94acb06f-72d6-4f5f-9a88-be13eecca937", "thangnguyenquyetvlth4@gmail.com", true, null, false, null, "thangnguyenquyetvlth4@gmail.com", "raw-account4", "AQAAAAEAACcQAAAAEE05VP8qLXxiHyd1Z2ybytoemYURYycWZOBXNpXSl8S06XWuPXmkpP3FHYg4T9nbZQ==", null, false, "", false, "raw-account4" },
+                    { "65BD710F-9576-45BA-B5B7-F00649BE00DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 560, DateTimeKind.Local).AddTicks(4650), "751a0546-5fda-4299-86c7-ef0f0aadc9b0", "thangnguyenquyetvlth5@gmail.com", true, null, false, null, "thangnguyenquyetvlth5@gmail.com", "raw-account5", "AQAAAAEAACcQAAAAEG3w0NiDousOcK9AC1PS5hAQbb6aAHZCfVAKZ03NmKGkFSA5Z9iVTdwdIgVlUFXLMQ==", null, false, "", false, "raw-account5" },
+                    { "69BD714F-9576-45BA-B5B6-F00649BE01DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 569, DateTimeKind.Local).AddTicks(5283), "30941e29-ff57-4cd3-885c-a4c61358c9ca", "thangnguyenquyetvlth6@gmail.com", true, null, false, null, "thangnguyenquyetvlth6@gmail.com", "raw-account6", "AQAAAAEAACcQAAAAEBcP1LeX3FKaRg15IV9zjRE4mCQP6Tnrn1qPbFufBP5uw4qQQF9YP4UDMNths5xHKw==", null, false, "", false, "raw-account6" },
+                    { "09BD714F-9576-45BA-B5B7-F00649BE04DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 577, DateTimeKind.Local).AddTicks(8719), "d3af65f9-17f0-40f2-9759-a5dd9f66c789", "thangnguyenquyetvlth7@gmail.com", true, null, false, null, "thangnguyenquyetvlth7@gmail.com", "raw-account7", "AQAAAAEAACcQAAAAEGV5KeVpKMQzPH0TLrwgo8u4zkT0x2fftrxHyoYjFswB0mY55qs3q/kG7IfSjngc8g==", null, false, "", false, "raw-account7" },
+                    { "11BD711F-9536-45BA-B5B7-F00649BE03DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 458, DateTimeKind.Local).AddTicks(2513), "85c0da4c-f8ca-46a3-aa9a-8fd80d77dfe7", "rawaccountstaff3@gmail.com", true, null, false, null, "rawaccountstaff3@gmail.com", "raw-account-staff3", "AQAAAAEAACcQAAAAENVEVdqbGf3cfLWNLXSBb5Y8mdaJLM/kvF1qng8sX/Kh34J1CglpH3ZNsTU8iwhXjw==", null, false, "", false, "raw-account-staff3" },
+                    { "69BD114F-9576-45BA-B4B7-F00649BE00DE", 0, null, new DateTime(2021, 7, 29, 15, 21, 19, 586, DateTimeKind.Local).AddTicks(5156), "9730fc90-aad6-4fd0-9bf2-4c5e7528d317", "thangnguyenquyetvlth8@gmail.com", true, null, false, null, "thangnguyenquyetvlth8@gmail.com", "raw-account8", "AQAAAAEAACcQAAAAEKKb5kIjNQ0xkvMps+1i4PO3CJriLypnOrsrNzJxKaopKmMOwk6Bv4+Yia0OT3Reng==", null, false, "", false, "raw-account8" }
                 });
 
             migrationBuilder.InsertData(
@@ -759,8 +759,8 @@ namespace Project.AdminApp.Migrations
                 columns: new[] { "Id", "ProductId", "UserId", "DateCreated", "LastModify", "Price", "Quantity", "size" },
                 values: new object[,]
                 {
-                    { 1, -1, "11BD711F-9506-45BA-B5B7-F00649BE00DE", new DateTime(2021, 6, 21, 2, 41, 15, 997, DateTimeKind.Local).AddTicks(8572), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 20000m, 2, "M" },
-                    { 1, -2, "11BD711F-9506-45BA-B5B7-F00649BE00DE", new DateTime(2021, 6, 21, 2, 41, 15, 997, DateTimeKind.Local).AddTicks(7648), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 20000m, 2, "M" }
+                    { 1, -1, "11BD711F-9506-45BA-B5B7-F00649BE00DE", new DateTime(2021, 7, 29, 15, 21, 19, 587, DateTimeKind.Local).AddTicks(1678), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 20000m, 2, "M" },
+                    { 1, -2, "11BD711F-9506-45BA-B5B7-F00649BE00DE", new DateTime(2021, 7, 29, 15, 21, 19, 587, DateTimeKind.Local).AddTicks(1099), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 20000m, 2, "M" }
                 });
 
             migrationBuilder.InsertData(
@@ -815,12 +815,12 @@ namespace Project.AdminApp.Migrations
                     { "651", "66", "Huyện Ea Kar" },
                     { "663", "67", "Huyện Đắk Mil" },
                     { "652", "66", "Huyện M'Đrắk" },
-                    { "644", "66", "Thị Xã Buôn Hồ" },
                     { "654", "66", "Huyện Krông Pắc" },
                     { "655", "66", "Huyện Krông A Na" },
                     { "656", "66", "Huyện Lắk" },
                     { "657", "66", "Huyện Cư Kuin" },
-                    { "660", "67", "Thành phố Gia Nghĩa" }
+                    { "660", "67", "Thành phố Gia Nghĩa" },
+                    { "644", "66", "Thị Xã Buôn Hồ" }
                 });
 
             migrationBuilder.InsertData(
@@ -917,8 +917,8 @@ namespace Project.AdminApp.Migrations
                     { "528", "51", "Huyện Tư Nghĩa" },
                     { "516", "49", "Huyện Nam Trà My" },
                     { "529", "51", "Huyện Sơn Hà" },
-                    { "532", "51", "Huyện Nghĩa Hành" },
-                    { "533", "51", "Huyện Mộ Đức" }
+                    { "531", "51", "Huyện Minh Long" },
+                    { "532", "51", "Huyện Nghĩa Hành" }
                 });
 
             migrationBuilder.InsertData(
@@ -926,9 +926,9 @@ namespace Project.AdminApp.Migrations
                 columns: new[] { "Id", "CityId", "Name" },
                 values: new object[,]
                 {
+                    { "533", "51", "Huyện Mộ Đức" },
                     { "534", "51", "Thị xã Đức Phổ" },
                     { "535", "51", "Huyện Ba Tơ" },
-                    { "536", "51", "Huyện Lý Sơn" },
                     { "540", "52", "Thành phố Quy Nhơn" },
                     { "542", "52", "Huyện An Lão" },
                     { "543", "52", "Thị xã Hoài Nhơn" },
@@ -1221,7 +1221,7 @@ namespace Project.AdminApp.Migrations
                 values: new object[,]
                 {
                     { "483", "46", "Huyện Nam Đông" },
-                    { "531", "51", "Huyện Minh Long" },
+                    { "536", "51", "Huyện Lý Sơn" },
                     { "481", "46", "Huyện A Lưới" },
                     { "139", "15", "Huyện Trạm Tấu" },
                     { "140", "15", "Huyện Văn Chấn" },
@@ -1234,12 +1234,12 @@ namespace Project.AdminApp.Migrations
                     { "138", "15", "Huyện Trấn Yên" },
                     { "155", "17", "Huyện Tân Lạc" },
                     { "157", "17", "Huyện Lạc Sơn" },
-                    { "158", "17", "Huyện Yên Thủy" },
+                    { "482", "46", "Huyện Phú Lộc" },
                     { "159", "17", "Huyện Lạc Thủy" },
                     { "164", "19", "Thành phố Thái Nguyên" },
                     { "165", "19", "Thành phố Sông Công" },
                     { "167", "19", "Huyện Định Hóa" },
-                    { "482", "46", "Huyện Phú Lộc" },
+                    { "168", "19", "Huyện Phú Lương" },
                     { "169", "19", "Huyện Đồng Hỷ" },
                     { "156", "17", "Huyện Mai Châu" },
                     { "170", "19", "Huyện Võ Nhai" },
@@ -1426,7 +1426,7 @@ namespace Project.AdminApp.Migrations
                     { "073", "08", "Huyện Chiêm Hóa" },
                     { "234", "25", "Huyện Yên Lập" },
                     { "235", "25", "Huyện Cẩm Khê" },
-                    { "168", "19", "Huyện Phú Lương" },
+                    { "158", "17", "Huyện Yên Thủy" },
                     { "237", "25", "Huyện Lâm Thao" },
                     { "403", "38", "Huyện Như Thanh" },
                     { "404", "38", "Huyện Nông Cống" },
@@ -1502,7 +1502,7 @@ namespace Project.AdminApp.Migrations
                     { "454", "44", "Huyện Quảng Trạch" },
                     { "453", "44", "Huyện Tuyên Hóa" },
                     { "429", "40", "Huyện Nghi Lộc" },
-                    { "236", "25", "Huyện Tam Nông" },
+                    { "430", "40", "Huyện Nam Đàn" },
                     { "431", "40", "Huyện Hưng Nguyên" },
                     { "432", "40", "Thị xã Hoàng Mai" },
                     { "436", "42", "Thành phố Hà Tĩnh" },
@@ -1514,7 +1514,7 @@ namespace Project.AdminApp.Migrations
                 columns: new[] { "Id", "CityId", "Name" },
                 values: new object[,]
                 {
-                    { "439", "42", "Huyện Hương Sơn" },
+                    { "236", "25", "Huyện Tam Nông" },
                     { "440", "42", "Huyện Đức Thọ" },
                     { "441", "42", "Huyện Vũ Quang" },
                     { "442", "42", "Huyện Nghi Xuân" },
@@ -1529,7 +1529,7 @@ namespace Project.AdminApp.Migrations
                     { "452", "44", "Huyện Minh Hóa" },
                     { "377", "37", "Huyện Yên Mô" },
                     { "376", "37", "Huyện Kim Sơn" },
-                    { "430", "40", "Huyện Nam Đàn" },
+                    { "439", "42", "Huyện Hương Sơn" },
                     { "374", "37", "Huyện Hoa Lư" },
                     { "291", "30", "Huyện Nam Sách" },
                     { "292", "30", "Thị xã Kinh Môn" },
@@ -1552,7 +1552,7 @@ namespace Project.AdminApp.Migrations
                     { "300", "30", "Huyện Thanh Miện" },
                     { "312", "31", "Huyện An Dương" },
                     { "288", "30", "Thành phố Hải Dương" },
-                    { "263", "27", "Huyện Gia Bình" },
+                    { "262", "27", "Huyện Thuận Thành" },
                     { "375", "37", "Huyện Yên Khánh" },
                     { "238", "25", "Huyện Thanh Sơn" },
                     { "239", "25", "Huyện Thanh Thuỷ" }
@@ -1567,9 +1567,10 @@ namespace Project.AdminApp.Migrations
                     { "243", "26", "Thành phố Vĩnh Yên" },
                     { "244", "26", "Thành phố Phúc Yên" },
                     { "246", "26", "Huyện Lập Thạch" },
+                    { "247", "26", "Huyện Tam Dương" },
+                    { "263", "27", "Huyện Gia Bình" },
                     { "248", "26", "Huyện Tam Đảo" },
-                    { "264", "27", "Huyện Lương Tài" },
-                    { "249", "26", "Huyện Bình Xuyên" },
+                    { "251", "26", "Huyện Yên Lạc" },
                     { "252", "26", "Huyện Vĩnh Tường" },
                     { "253", "26", "Huyện Sông Lô" },
                     { "256", "27", "Thành phố Bắc Ninh" },
@@ -1577,10 +1578,9 @@ namespace Project.AdminApp.Migrations
                     { "259", "27", "Huyện Quế Võ" },
                     { "260", "27", "Huyện Tiên Du" },
                     { "261", "27", "Thị xã Từ Sơn" },
-                    { "262", "27", "Huyện Thuận Thành" },
-                    { "251", "26", "Huyện Yên Lạc" },
+                    { "249", "26", "Huyện Bình Xuyên" },
                     { "313", "31", "Huyện An Lão" },
-                    { "247", "26", "Huyện Tam Dương" },
+                    { "264", "27", "Huyện Lương Tài" },
                     { "315", "31", "Huyện Tiên Lãng" },
                     { "350", "35", "Huyện Kim Bảng" },
                     { "351", "35", "Huyện Thanh Liêm" },
@@ -1589,22 +1589,22 @@ namespace Project.AdminApp.Migrations
                     { "356", "36", "Thành phố Nam Định" },
                     { "358", "36", "Huyện Mỹ Lộc" },
                     { "359", "36", "Huyện Vụ Bản" },
-                    { "360", "36", "Huyện Ý Yên" },
-                    { "349", "35", "Thị xã Duy Tiên" },
                     { "361", "36", "Huyện Nghĩa Hưng" },
-                    { "363", "36", "Huyện Trực Ninh" },
+                    { "349", "35", "Thị xã Duy Tiên" },
+                    { "362", "36", "Huyện Nam Trực" },
                     { "364", "36", "Huyện Xuân Trường" },
                     { "365", "36", "Huyện Giao Thủy" },
                     { "366", "36", "Huyện Hải Hậu" },
+                    { "369", "37", "Thành phố Ninh Bình" },
                     { "370", "37", "Thành phố Tam Điệp" },
                     { "372", "37", "Huyện Nho Quan" },
-                    { "373", "37", "Huyện Gia Viễn" },
                     { "314", "31", "Huyện Kiến Thuỵ" },
-                    { "362", "36", "Huyện Nam Trực" },
+                    { "373", "37", "Huyện Gia Viễn" },
+                    { "363", "36", "Huyện Trực Ninh" },
                     { "347", "35", "Thành phố Phủ Lý" },
-                    { "369", "37", "Thành phố Ninh Bình" },
-                    { "343", "34", "Huyện Kiến Xương" },
-                    { "316", "31", "Huyện Vĩnh Bảo" }
+                    { "360", "36", "Huyện Ý Yên" },
+                    { "327", "33", "Huyện Yên Mỹ" },
+                    { "318", "31", "Huyện Bạch Long Vĩ" }
                 });
 
             migrationBuilder.InsertData(
@@ -1612,25 +1612,25 @@ namespace Project.AdminApp.Migrations
                 columns: new[] { "Id", "CityId", "Name" },
                 values: new object[,]
                 {
-                    { "344", "34", "Huyện Vũ Thư" },
-                    { "317", "31", "Huyện Cát Hải" },
-                    { "318", "31", "Huyện Bạch Long Vĩ" },
+                    { "323", "33", "Thành phố Hưng Yên" },
                     { "325", "33", "Huyện Văn Lâm" },
                     { "326", "33", "Huyện Văn Giang" },
-                    { "327", "33", "Huyện Yên Mỹ" },
+                    { "316", "31", "Huyện Vĩnh Bảo" },
                     { "328", "33", "Thị xã Mỹ Hào" },
                     { "329", "33", "Huyện Ân Thi" },
-                    { "323", "33", "Thành phố Hưng Yên" },
-                    { "331", "33", "Huyện Kim Động" },
-                    { "340", "34", "Huyện Đông Hưng" },
                     { "330", "33", "Huyện Khoái Châu" },
+                    { "331", "33", "Huyện Kim Động" },
+                    { "344", "34", "Huyện Vũ Thư" },
+                    { "332", "33", "Huyện Tiên Lữ" },
+                    { "333", "33", "Huyện Phù Cừ" },
+                    { "336", "34", "Thành phố Thái Bình" },
                     { "338", "34", "Huyện Quỳnh Phụ" },
                     { "339", "34", "Huyện Hưng Hà" },
-                    { "333", "33", "Huyện Phù Cừ" },
+                    { "340", "34", "Huyện Đông Hưng" },
+                    { "341", "34", "Huyện Thái Thụy" },
                     { "342", "34", "Huyện Tiền Hải" },
-                    { "332", "33", "Huyện Tiên Lữ" },
-                    { "336", "34", "Thành phố Thái Bình" },
-                    { "341", "34", "Huyện Thái Thụy" }
+                    { "343", "34", "Huyện Kiến Xương" },
+                    { "317", "31", "Huyện Cát Hải" }
                 });
 
             migrationBuilder.InsertData(
@@ -1638,40 +1638,40 @@ namespace Project.AdminApp.Migrations
                 columns: new[] { "Id", "Status", "Targetint", "Targetstr", "Type", "UserId", "content", "date" },
                 values: new object[,]
                 {
-                    { 1, 0, 1, null, 1, "11BD711F-9506-45BA-B5B7-F00649BE00DE", "Đơn hàng #1 đã sẵn sàng để giao đến quý khách. Chúng tôi vừa bàn giao đơn hàng của quý khách đến đối tác vận chuyển eShops Team. Đơn hàng sẽ được giao trước 23:59 ngày 18/12/2020", new DateTime(2021, 6, 21, 2, 41, 16, 289, DateTimeKind.Local).AddTicks(5538) },
-                    { 2, 0, 1, null, 0, "11BD711F-9506-45BA-B5B7-F00649BE00DE", "Bạn có một mã giảm giá chưa sử dụng", new DateTime(2021, 6, 21, 2, 41, 16, 289, DateTimeKind.Local).AddTicks(8408) }
+                    { 2, 0, 1, null, 0, "11BD711F-9506-45BA-B5B7-F00649BE00DE", "Bạn có một mã giảm giá chưa sử dụng", new DateTime(2021, 7, 29, 15, 21, 19, 818, DateTimeKind.Local).AddTicks(6805) },
+                    { 1, 0, 1, null, 1, "11BD711F-9506-45BA-B5B7-F00649BE00DE", "Đơn hàng #1 đã sẵn sàng để giao đến quý khách. Chúng tôi vừa bàn giao đơn hàng của quý khách đến đối tác vận chuyển eShops Team. Đơn hàng sẽ được giao trước 23:59 ngày 18/12/2020", new DateTime(2021, 7, 29, 15, 21, 19, 818, DateTimeKind.Local).AddTicks(4590) }
                 });
 
             migrationBuilder.InsertData(
                 table: "Orders",
                 columns: new[] { "Id", "City", "CityId", "CustomerNote", "Districst", "DistricstId", "OrderDate", "ShipAddress", "ShipEmail", "ShipName", "ShipPhoneNumber", "ShippingFee", "StaffNote", "Status", "UserId", "Wards", "WardsId", "cancleReason", "total" },
-                values: new object[] { 1, "Thành phố Hà Nội", "01", null, "Quận Hoàng Mai", "008", new DateTime(2021, 6, 21, 2, 41, 16, 288, DateTimeKind.Local).AddTicks(1805), "353 Đường Tam Trinh", "rawaccountstaff0@gmail.com", "Nguyễn Quyết Thắng", "0328025122", 0m, null, 0, "11BD711F-9506-45BA-B5B7-F00649BE00DE", "Phường Hoàng Văn Thụ", "00322", null, 40000m });
+                values: new object[] { 1, "Thành phố Hà Nội", "01", null, "Quận Hoàng Mai", "008", new DateTime(2021, 7, 29, 15, 21, 19, 817, DateTimeKind.Local).AddTicks(5334), "353 Đường Tam Trinh", "rawaccountstaff0@gmail.com", "Nguyễn Quyết Thắng", "0328025122", 0m, null, 0, "11BD711F-9506-45BA-B5B7-F00649BE00DE", "Phường Hoàng Văn Thụ", "00322", null, 40000m });
 
             migrationBuilder.InsertData(
                 table: "ProductImages",
                 columns: new[] { "Id", "Caption", "DateCreated", "FileSize", "ImagePath", "IsDefault", "ProductId", "SortOrder" },
                 values: new object[,]
                 {
-                    { -33, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5680), 0L, "/user-content/Tshirt/Tshirt12.png", true, -7, 0 },
-                    { -32, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5678), 0L, "/user-content/Tshirt/Tshirt11.png", true, -7, 0 },
-                    { -56, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5740), 0L, "/user-content/Tshirt/Tshirt14.png", true, -11, 0 },
-                    { -31, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5676), 0L, "/user-content/Tshirt/Tshirt14.png", true, -6, 0 },
-                    { -30, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5674), 0L, "/user-content/Tshirt/Tshirt15.png", true, -6, 0 },
-                    { -28, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5671), 0L, "/user-content/Tshirt/Tshirt12.png", true, -6, 0 },
-                    { -27, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5669), 0L, "/user-content/Tshirt/Tshirt11.png", true, -6, 0 },
-                    { -57, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5741), 0L, "/user-content/Tshirt/Tshirt11.png", true, -12, 0 },
-                    { -58, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5743), 0L, "/user-content/Tshirt/Tshirt12.png", true, -12, 0 },
-                    { -59, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5745), 0L, "/user-content/Tshirt/Tshirt13.png", true, -12, 0 },
-                    { -34, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5681), 0L, "/user-content/Tshirt/Tshirt13.png", true, -7, 0 },
-                    { -26, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5666), 0L, "/user-content/Tshirt/Tshirt14.png", true, -5, 0 },
-                    { -29, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5673), 0L, "/user-content/Tshirt/Tshirt13.png", true, -6, 0 },
-                    { -35, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5684), 0L, "/user-content/Tshirt/Tshirt15.png", true, -7, 0 },
-                    { -43, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5714), 0L, "/user-content/Tshirt/Tshirt12.png", true, -9, 0 },
-                    { -55, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5738), 0L, "/user-content/Tshirt/Tshirt15.png", true, -11, 0 },
-                    { -50, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5728), 0L, "/user-content/Tshirt/Tshirt15.png", true, -10, 0 },
-                    { -25, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5665), 0L, "/user-content/Tshirt/Tshirt15.png", true, -5, 0 },
-                    { -49, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5727), 0L, "/user-content/Tshirt/Tshirt13.png", true, -10, 0 },
-                    { -48, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5725), 0L, "/user-content/Tshirt/Tshirt12.png", true, -10, 0 }
+                    { -40, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9552), 0L, "/user-content/tshirt/tshirt15.png", true, -8, 0 },
+                    { -39, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9550), 0L, "/user-content/tshirt/tshirt13.png", true, -8, 0 },
+                    { -38, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9549), 0L, "/user-content/tshirt/tshirt12.png", true, -8, 0 },
+                    { -37, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9547), 0L, "/user-content/tshirt/tshirt11.png", true, -8, 0 },
+                    { -42, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9556), 0L, "/user-content/tshirt/tshirt11.png", true, -9, 0 },
+                    { -36, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9545), 0L, "/user-content/tshirt/tshirt14.png", true, -7, 0 },
+                    { -41, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9554), 0L, "/user-content/tshirt/tshirt14.png", true, -8, 0 },
+                    { -35, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9543), 0L, "/user-content/tshirt/tshirt15.png", true, -7, 0 },
+                    { -27, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9528), 0L, "/user-content/tshirt/tshirt11.png", true, -6, 0 },
+                    { -33, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9540), 0L, "/user-content/tshirt/tshirt12.png", true, -7, 0 },
+                    { -32, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9538), 0L, "/user-content/tshirt/tshirt11.png", true, -7, 0 },
+                    { -31, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9535), 0L, "/user-content/tshirt/tshirt14.png", true, -6, 0 },
+                    { -30, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9534), 0L, "/user-content/tshirt/tshirt15.png", true, -6, 0 },
+                    { -29, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9532), 0L, "/user-content/tshirt/tshirt13.png", true, -6, 0 },
+                    { -28, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9530), 0L, "/user-content/tshirt/tshirt12.png", true, -6, 0 },
+                    { -26, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9527), 0L, "/user-content/tshirt/tshirt14.png", true, -5, 0 },
+                    { -43, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9557), 0L, "/user-content/tshirt/tshirt12.png", true, -9, 0 },
+                    { -34, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9542), 0L, "/user-content/tshirt/tshirt13.png", true, -7, 0 },
+                    { -44, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9559), 0L, "/user-content/tshirt/tshirt13.png", true, -9, 0 },
+                    { -64, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9597), 0L, "/user-content/tshirt/tshirt13.png", true, -13, 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -1679,48 +1679,48 @@ namespace Project.AdminApp.Migrations
                 columns: new[] { "Id", "Caption", "DateCreated", "FileSize", "ImagePath", "IsDefault", "ProductId", "SortOrder" },
                 values: new object[,]
                 {
-                    { -47, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5723), 0L, "/user-content/Tshirt/Tshirt11.png", true, -10, 0 },
-                    { -53, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5734), 0L, "/user-content/Tshirt/Tshirt12.png", true, -11, 0 },
-                    { -46, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5721), 0L, "/user-content/Tshirt/Tshirt14.png", true, -9, 0 },
-                    { -36, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5687), 0L, "/user-content/Tshirt/Tshirt14.png", true, -7, 0 },
-                    { -45, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5718), 0L, "/user-content/Tshirt/Tshirt15.png", true, -9, 0 },
-                    { -42, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5710), 0L, "/user-content/Tshirt/Tshirt11.png", true, -9, 0 },
-                    { -54, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5736), 0L, "/user-content/Tshirt/Tshirt13.png", true, -11, 0 },
-                    { -41, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5708), 0L, "/user-content/Tshirt/Tshirt14.png", true, -8, 0 },
-                    { -40, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5707), 0L, "/user-content/Tshirt/Tshirt15.png", true, -8, 0 },
-                    { -39, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5705), 0L, "/user-content/Tshirt/Tshirt13.png", true, -8, 0 },
-                    { -38, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5703), 0L, "/user-content/Tshirt/Tshirt12.png", true, -8, 0 },
-                    { -37, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5701), 0L, "/user-content/Tshirt/Tshirt11.png", true, -8, 0 },
-                    { -44, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5716), 0L, "/user-content/Tshirt/Tshirt13.png", true, -9, 0 },
-                    { -24, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5663), 0L, "/user-content/Tshirt/Tshirt13.png", true, -5, 0 },
-                    { -6, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5629), 0L, "/user-content/jean/jean6.png", true, -2, 0 },
-                    { -22, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5659), 0L, "/user-content/Tshirt/Tshirt11.png", true, -5, 0 },
-                    { -51, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5730), 0L, "/user-content/Tshirt/Tshirt14.png", true, -10, 0 },
-                    { -66, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5757), 0L, "/user-content/Tshirt/Tshirt14.png", true, -13, 0 },
-                    { -65, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5756), 0L, "/user-content/Tshirt/Tshirt15.png", true, -13, 0 },
-                    { -64, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5754), 0L, "/user-content/Tshirt/Tshirt13.png", true, -13, 0 },
-                    { -1, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(2884), 0L, "/user-content/jean/jean1.png", true, -1, 0 },
-                    { -2, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5614), 0L, "/user-content/jean/jean2.png", true, -1, 0 },
-                    { -3, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5623), 0L, "/user-content/jean/jean3.png", true, -1, 0 },
-                    { -4, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5625), 0L, "/user-content/jean/jean4.png", true, -1, 0 },
-                    { -5, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5627), 0L, "/user-content/jean/jean5.png", true, -1, 0 },
-                    { -63, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5752), 0L, "/user-content/Tshirt/Tshirt12.png", true, -13, 0 },
-                    { -62, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5750), 0L, "/user-content/Tshirt/Tshirt11.png", true, -13, 0 },
-                    { -23, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5661), 0L, "/user-content/Tshirt/Tshirt12.png", true, -5, 0 },
-                    { -8, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5633), 0L, "/user-content/jean/jean8.png", true, -2, 0 },
-                    { -9, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5635), 0L, "/user-content/jean/jean9.png", true, -2, 0 },
-                    { -7, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5631), 0L, "/user-content/jean/jean7.png", true, -2, 0 },
-                    { -61, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5748), 0L, "/user-content/Tshirt/Tshirt14.png", true, -12, 0 },
-                    { -60, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5747), 0L, "/user-content/Tshirt/Tshirt15.png", true, -12, 0 },
-                    { -21, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5657), 0L, "/user-content/Tshirt/Tshirt10.png", true, -4, 0 },
-                    { -20, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5655), 0L, "/user-content/Tshirt/Tshirt9.png", true, -4, 0 },
-                    { -10, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5637), 0L, "/user-content/jean/jean10.png", true, -2, 0 },
-                    { -18, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5651), 0L, "/user-content/Tshirt/Tshirt8.png", true, -4, 0 },
-                    { -17, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5649), 0L, "/user-content/Tshirt/Tshirt7.png", true, -4, 0 },
-                    { -19, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5653), 0L, "/user-content/Tshirt/Tshirt8.png", true, -4, 0 },
-                    { -15, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5646), 0L, "/user-content/Tshirt/Tshirt5.png", true, -3, 0 },
-                    { -14, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5644), 0L, "/user-content/Tshirt/Tshirt4.png", true, -3, 0 },
-                    { -13, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5643), 0L, "/user-content/Tshirt/Tshirt3.png", true, -3, 0 }
+                    { -46, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9563), 0L, "/user-content/tshirt/tshirt14.png", true, -9, 0 },
+                    { -25, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9525), 0L, "/user-content/tshirt/tshirt15.png", true, -5, 0 },
+                    { -66, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9601), 0L, "/user-content/tshirt/tshirt14.png", true, -13, 0 },
+                    { -65, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9599), 0L, "/user-content/tshirt/tshirt15.png", true, -13, 0 },
+                    { -63, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9595), 0L, "/user-content/tshirt/tshirt12.png", true, -13, 0 },
+                    { -62, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9593), 0L, "/user-content/tshirt/tshirt11.png", true, -13, 0 },
+                    { -61, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9591), 0L, "/user-content/tshirt/tshirt14.png", true, -12, 0 },
+                    { -60, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9590), 0L, "/user-content/tshirt/tshirt15.png", true, -12, 0 },
+                    { -59, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9588), 0L, "/user-content/tshirt/tshirt13.png", true, -12, 0 },
+                    { -58, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9586), 0L, "/user-content/tshirt/tshirt12.png", true, -12, 0 },
+                    { -45, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9561), 0L, "/user-content/tshirt/tshirt15.png", true, -9, 0 },
+                    { -57, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9584), 0L, "/user-content/tshirt/tshirt11.png", true, -12, 0 },
+                    { -55, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9580), 0L, "/user-content/tshirt/tshirt15.png", true, -11, 0 },
+                    { -54, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9578), 0L, "/user-content/tshirt/tshirt13.png", true, -11, 0 },
+                    { -53, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9576), 0L, "/user-content/tshirt/tshirt12.png", true, -11, 0 },
+                    { -52, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9574), 0L, "/user-content/tshirt/tshirt11.png", false, -11, 0 },
+                    { -51, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9572), 0L, "/user-content/tshirt/tshirt14.png", true, -10, 0 },
+                    { -50, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9571), 0L, "/user-content/tshirt/tshirt15.png", true, -10, 0 },
+                    { -49, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9569), 0L, "/user-content/tshirt/tshirt13.png", true, -10, 0 },
+                    { -48, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9567), 0L, "/user-content/tshirt/tshirt12.png", true, -10, 0 },
+                    { -47, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9565), 0L, "/user-content/tshirt/tshirt11.png", true, -10, 0 },
+                    { -56, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9583), 0L, "/user-content/tshirt/tshirt14.png", true, -11, 0 },
+                    { -24, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9523), 0L, "/user-content/tshirt/tshirt13.png", true, -5, 0 },
+                    { -72, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9611), 0L, "/user-content/default/product-6.jpg", true, 2, 0 },
+                    { -22, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9518), 0L, "/user-content/tshirt/tshirt11.png", true, -5, 0 },
+                    { -9, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9485), 0L, "/user-content/jean/jean9.png", true, -2, 0 },
+                    { -8, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9483), 0L, "/user-content/jean/jean8.png", true, -2, 0 },
+                    { -7, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9481), 0L, "/user-content/jean/jean7.png", true, -2, 0 },
+                    { -70, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9608), 0L, "/user-content/default/product-4.jpg", true, 1, 0 },
+                    { -6, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9480), 0L, "/user-content/jean/jean6.png", true, -2, 0 },
+                    { -71, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9609), 0L, "/user-content/default/product-5.jpg", true, 1, 0 },
+                    { -10, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9487), 0L, "/user-content/jean/jean10.png", true, -2, 0 },
+                    { -73, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9613), 0L, "/user-content/default/product-7.jpg", true, 2, 0 },
+                    { -4, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9476), 0L, "/user-content/jean/jean4.png", true, -1, 0 },
+                    { -23, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9521), 0L, "/user-content/tshirt/tshirt12.png", true, -5, 0 },
+                    { -3, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9474), 0L, "/user-content/jean/jean3.png", true, -1, 0 },
+                    { -2, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9467), 0L, "/user-content/jean/jean2.png", true, -1, 0 },
+                    { -1, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(6863), 0L, "/user-content/jean/jean1.png", true, -1, 0 },
+                    { -74, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9615), 0L, "/user-content/default/product-8.jpg", true, 2, 0 },
+                    { -5, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9478), 0L, "/user-content/jean/jean5.png", true, -1, 0 },
+                    { -69, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9606), 0L, "/user-content/default/product-3.jpg", true, 1, 0 },
+                    { -68, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9604), 0L, "/user-content/default/product-2.jpg", true, 1, 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -1728,10 +1728,20 @@ namespace Project.AdminApp.Migrations
                 columns: new[] { "Id", "Caption", "DateCreated", "FileSize", "ImagePath", "IsDefault", "ProductId", "SortOrder" },
                 values: new object[,]
                 {
-                    { -12, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5641), 0L, "/user-content/Tshirt/Tshirt2.png", true, -3, 0 },
-                    { -11, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5639), 0L, "/user-content/Tshirt/Tshirt1.png", true, -3, 0 },
-                    { -16, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5648), 0L, "/user-content/Tshirt/Tshirt6.png", true, -4, 0 },
-                    { -52, "Image", new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5732), 0L, "/user-content/Tshirt/Tshirt11.png", false, -11, 0 }
+                    { -11, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9488), 0L, "/user-content/tshirt/tshirt1.png", true, -3, 0 },
+                    { -21, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9516), 0L, "/user-content/tshirt/tshirt10.png", true, -4, 0 },
+                    { -20, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9515), 0L, "/user-content/tshirt/tshirt9.png", true, -4, 0 },
+                    { -19, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9513), 0L, "/user-content/tshirt/tshirt8.png", true, -4, 0 },
+                    { -75, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9617), 0L, "/user-content/default/product-9.jpg", true, 2, 0 },
+                    { -17, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9500), 0L, "/user-content/tshirt/tshirt7.png", true, -4, 0 },
+                    { -18, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9511), 0L, "/user-content/tshirt/tshirt8.png", true, -4, 0 },
+                    { -67, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9603), 0L, "/user-content/default/product-1.jpg", true, 1, 0 },
+                    { -15, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9495), 0L, "/user-content/tshirt/tshirt5.png", true, -3, 0 },
+                    { -14, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9494), 0L, "/user-content/tshirt/tshirt4.png", true, -3, 0 },
+                    { -13, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9492), 0L, "/user-content/tshirt/tshirt3.png", true, -3, 0 },
+                    { -12, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9490), 0L, "/user-content/tshirt/tshirt2.png", true, -3, 0 },
+                    { -16, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9498), 0L, "/user-content/tshirt/tshirt6.png", true, -4, 0 },
+                    { -76, "Image", new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9618), 0L, "/user-content/default/product-10.jpg", true, 2, 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -1755,37 +1765,37 @@ namespace Project.AdminApp.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "8D04DCC2-969A-435D-BBA4-DF3F315983DC", "10BD711F-9576-45BA-B5B7-F00649BE03DE" },
-                    { "8D04DCE2-969A-435D-BBA4-DF3F325983DC", "69BD714F-9576-45BA-B5B7-F00649BE00DE" },
-                    { "8D04DCE3-969A-435D-BBA4-DF3F325983DC", "69BD714F-9576-45BA-B5B7-F00649BE00DE" },
-                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9596-45BA-B5B7-F00649BE09DE" },
-                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9586-45BA-B5B7-F00649BE08DE" },
-                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9576-45BA-B5B7-F00649BE07DE" },
-                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9556-45BA-B5B7-F00649BE05DE" },
-                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9546-45BA-B5B7-F00649BE04DE" },
-                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9536-45BA-B5B7-F00649BE03DE" },
-                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9526-45BA-B5B7-F00649BE02DE" },
-                    { "8D04DCC2-969A-435D-BBA4-DF3F315983DC", "10BD711F-9576-45BA-B5B7-F00649BE00DE" },
-                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9516-45BA-B5B7-F00649BE01DE" },
+                    { "8D04DCC2-969A-435D-BBA4-DF3F315983DC", "10BD711F-9576-45BA-B5B7-F00649BE02DE" },
                     { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9506-45BA-B5B7-F00649BE00DE" },
                     { "8D04DCC2-969A-435D-BBA4-DF3F315983DC", "10BD711F-9576-45BA-B5B7-F00649BE09DE" },
                     { "8D04DCC2-969A-435D-BBA4-DF3F315983DC", "10BD711F-9576-45BA-B5B7-F00649BE08DE" },
                     { "8D04DCC2-969A-435D-BBA4-DF3F315983DC", "10BD711F-9576-45BA-B5B7-F00649BE07DE" },
-                    { "8D04DCC2-969A-435D-BBA4-DF3F315983DC", "10BD711F-9576-45BA-B5B7-F00649BE01DE" },
+                    { "8D04DCE2-969A-435D-BBA4-DF3F325983DC", "69BD714F-9576-45BA-B5B7-F00649BE00DE" },
+                    { "8D04DCE3-969A-435D-BBA4-DF3F325983DC", "69BD714F-9576-45BA-B5B7-F00649BE00DE" },
+                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9596-45BA-B5B7-F00649BE09DE" },
+                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9586-45BA-B5B7-F00649BE08DE" },
                     { "8D04DCC2-969A-435D-BBA4-DF3F315983DC", "10BD711F-9576-45BA-B5B7-F00649BE06DE" },
+                    { "8D04DCC2-969A-435D-BBA4-DF3F315983DC", "10BD711F-9576-45BA-B5B7-F00649BE00DE" },
                     { "8D04DCC2-969A-435D-BBA4-DF3F315983DC", "10BD711F-9576-45BA-B5B7-F00649BE05DE" },
+                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9516-45BA-B5B7-F00649BE01DE" },
                     { "8D04DCC2-969A-435D-BBA4-DF3F315983DC", "10BD711F-9576-45BA-B5B7-F00649BE04DE" },
-                    { "8D04DCC2-969A-435D-BBA4-DF3F315983DC", "10BD711F-9576-45BA-B5B7-F00649BE02DE" },
-                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9566-45BA-B5B7-F00649BE06DE" }
+                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9526-45BA-B5B7-F00649BE02DE" },
+                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9576-45BA-B5B7-F00649BE07DE" },
+                    { "8D04DCC2-969A-435D-BBA4-DF3F315983DC", "10BD711F-9576-45BA-B5B7-F00649BE01DE" },
+                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9536-45BA-B5B7-F00649BE03DE" },
+                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9546-45BA-B5B7-F00649BE04DE" },
+                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9556-45BA-B5B7-F00649BE05DE" },
+                    { "1D04DCC2-969A-435D-BBA4-DF3F315983DC", "11BD711F-9566-45BA-B5B7-F00649BE06DE" },
+                    { "8D04DCC2-969A-435D-BBA4-DF3F315983DC", "10BD711F-9576-45BA-B5B7-F00649BE03DE" }
                 });
 
             migrationBuilder.InsertData(
                 table: "OrderDetails",
-                columns: new[] { "OrderId", "ProductId", "Price", "Quantity", "productName", "size", "total" },
+                columns: new[] { "OrderId", "ProductId", "size", "Price", "Quantity", "productName", "total" },
                 values: new object[,]
                 {
-                    { 1, -2, 20000m, 2, "BOYFRIENDs", "M", 0m },
-                    { 1, -1, 20000m, 2, "TOPS", "M", 0m }
+                    { 1, -2, "M", 20000m, 2, "BOYFRIENDs", 0m },
+                    { 1, -1, "M", 20000m, 2, "TOPS", 0m }
                 });
 
             migrationBuilder.InsertData(

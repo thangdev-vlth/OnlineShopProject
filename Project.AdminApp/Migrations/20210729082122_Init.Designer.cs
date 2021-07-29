@@ -10,8 +10,8 @@ using Project.Data.EF;
 namespace Project.AdminApp.Migrations
 {
     [DbContext(typeof(ProjectDbContext))]
-    [Migration("20210620194119_init")]
-    partial class init
+    [Migration("20210729082122_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -173,28 +173,28 @@ namespace Project.AdminApp.Migrations
                         new
                         {
                             Id = "8D04DCE3-969A-435D-BBA4-DF3F325983DC",
-                            ConcurrencyStamp = "b6c6d301-fd34-4426-af29-6c6323fd3770",
+                            ConcurrencyStamp = "a766fb98-a05d-46a0-b7f7-1e818796932f",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "8D04DCE2-969A-435D-BBA4-DF3F325983DC",
-                            ConcurrencyStamp = "12375434-ad70-482e-8924-7191477c9e51",
+                            ConcurrencyStamp = "7027e98f-8cf2-4672-8354-736ab1826e1f",
                             Name = "editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
                             Id = "8D04DCC2-969A-435D-BBA4-DF3F315983DC",
-                            ConcurrencyStamp = "8827ddba-cf58-410c-9c14-967218c9ad8f",
+                            ConcurrencyStamp = "7810a3ff-ca66-489a-8527-8cb0d3cb423f",
                             Name = "customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
                             Id = "1D04DCC2-969A-435D-BBA4-DF3F315983DC",
-                            ConcurrencyStamp = "6578db15-87b9-4756-b961-f6093e4ed030",
+                            ConcurrencyStamp = "def068a0-37cf-4845-a54c-5c269e8b359c",
                             Name = "staff",
                             NormalizedName = "STAFF"
                         });
@@ -535,7 +535,7 @@ namespace Project.AdminApp.Migrations
                     b.Property<DateTime>("LastSignIn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 6, 21, 2, 41, 15, 634, DateTimeKind.Local).AddTicks(9952));
+                        .HasDefaultValue(new DateTime(2021, 7, 29, 15, 21, 19, 277, DateTimeKind.Local).AddTicks(7834));
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -593,15 +593,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 710, DateTimeKind.Local).AddTicks(6500),
-                            ConcurrencyStamp = "4282f94e-f1b0-4032-9151-a16bbcdb70e8",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 348, DateTimeKind.Local).AddTicks(2597),
+                            ConcurrencyStamp = "c601ba6e-8e94-4829-80da-69da14932d80",
                             Email = "rawaccountcustomer0@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer0@gmail.com",
                             NormalizedUserName = "raw-account-customer0",
-                            PasswordHash = "AQAAAAEAACcQAAAAEN0iegmBpxySXlB9fMZ/Pkwv7VrHtF0hVnzZjUtPQAG9dka2Hs7T6dx3nAdrmH7M5g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMb4CodyKG4ww+Pf4arjsgY7sVXlF0fKwdSBI/OAPzrzb6AAenjbhW5zmXvBWTfeAw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -612,15 +612,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE01DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 722, DateTimeKind.Local).AddTicks(314),
-                            ConcurrencyStamp = "98a4cb9e-322e-40be-a76e-421535237758",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 356, DateTimeKind.Local).AddTicks(7293),
+                            ConcurrencyStamp = "ada5b5ca-0e38-46c7-8888-7d210d47f29c",
                             Email = "rawaccountcustomer1@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer1@gmail.com",
                             NormalizedUserName = "raw-account-customer1",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDtxxa2+eJEEFwAa2b3MWR+DCn+xZUCthDfVDe2R5AKJEyok1yG+iWOwDsOOaUh6JQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEA66nDqUKMq5LGtzWoNVP0q5PiRfNIm0mg9Rg+y3m+2Cfya3suyQzwHCqb/ws5hsSA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -631,15 +631,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE02DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 730, DateTimeKind.Local).AddTicks(9397),
-                            ConcurrencyStamp = "ae986a93-c32f-48fe-81dc-67d4cc46955b",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 365, DateTimeKind.Local).AddTicks(2883),
+                            ConcurrencyStamp = "c9aa7431-74e5-473f-b50b-50ffb0c60a28",
                             Email = "rawaccountcustomer2@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer2@gmail.com",
                             NormalizedUserName = "raw-account-customer2",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEJjhThBmKR64rYj2vjGJrgP78+EEE97Ii0DJ/hfiI/Mqq+I7Vi5NF7MDhrVqrAMaw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENpwl8xb0TmcW+06eyTb5cXKZ9VWfXfB+w5CAFAaNdak87mr0NhiUY5jQhPyqYnh4g==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -650,15 +650,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE03DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 741, DateTimeKind.Local).AddTicks(6542),
-                            ConcurrencyStamp = "5d056bf7-63a2-47be-9231-444994c4fad2",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 373, DateTimeKind.Local).AddTicks(675),
+                            ConcurrencyStamp = "bc9c29ba-c12d-4b3e-bdf4-f1412a0b77cb",
                             Email = "rawaccountcustomer3@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer3@gmail.com",
                             NormalizedUserName = "raw-account-customer3",
-                            PasswordHash = "AQAAAAEAACcQAAAAECUjp+UguHpvS1li8PCNGaEhZRmpV8VS+zRaNPtCXzF/Y9sZ+MQ2rg7uLWag655rNg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECBudHS3WSxW9Tzoyhu1VlFvXq3DCnZtVn1WNfSpBgtXcun3CpGKxXN89OUNi3KakQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -669,15 +669,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE04DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 751, DateTimeKind.Local).AddTicks(8580),
-                            ConcurrencyStamp = "3e22f575-7d69-43db-90a3-68c676cc266e",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 381, DateTimeKind.Local).AddTicks(9870),
+                            ConcurrencyStamp = "9c328995-980c-413f-876c-62de08371c8e",
                             Email = "rawaccountcustomer4@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer4@gmail.com",
                             NormalizedUserName = "raw-account-customer4",
-                            PasswordHash = "AQAAAAEAACcQAAAAENaus2ypU5SDFCRlrRKoCtzDE49qAHWxg9WMa4W4E924ROpNkQuOoOUVoa8SskJz3Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPHrtG24hcz1zxfeJyveywZ+q+Da/BvYG/GJ/pndrX/VgsjNKke5SQYTSTySbHiYcg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -688,15 +688,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE05DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 763, DateTimeKind.Local).AddTicks(1215),
-                            ConcurrencyStamp = "bcaabbe9-093b-4d3a-bee0-0ec03a61d855",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 390, DateTimeKind.Local).AddTicks(6210),
+                            ConcurrencyStamp = "39f44c18-af75-4475-a020-d9776d6e22c3",
                             Email = "rawaccountcustomer5@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer5@gmail.com",
                             NormalizedUserName = "raw-account-customer5",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOrbSrXgULrO0mzYp65F7iWbhPtO1nnefikX0jxQeaoa6B/JfyqDW2YD8JOd2rZ9tg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKzGu5hb/VPsGOh8sgM1MaKx2BgHXJXGPPilSWa4xkdkP8xHAaDKNUwoKrxaKH0pmg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -707,15 +707,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE06DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 776, DateTimeKind.Local).AddTicks(761),
-                            ConcurrencyStamp = "6aa537ad-f92e-4224-b42e-c4f57fe679a2",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 399, DateTimeKind.Local).AddTicks(8143),
+                            ConcurrencyStamp = "efdd367c-f9a6-49bc-a554-2b95b99ee388",
                             Email = "rawaccountcustomer6@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer6@gmail.com",
                             NormalizedUserName = "raw-account-customer6",
-                            PasswordHash = "AQAAAAEAACcQAAAAEE8QEQ8O3ik+PJMHzQsmEhhYX0ewJIsT37EXnT9jBRWZ/FSTBZwRpy8TQlFuZ6aeHg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEI9dMWOd96uGTWrLMBOGI2i2rEk0NLQsPjrbdWgdbJprImmnxMIcQH7BzD4vaAqcVQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -726,15 +726,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE07DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 786, DateTimeKind.Local).AddTicks(4399),
-                            ConcurrencyStamp = "4088cc42-f6ed-4940-bbb8-3859a97b9205",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 407, DateTimeKind.Local).AddTicks(8258),
+                            ConcurrencyStamp = "e08286a5-65c3-4e48-9fce-db9028f6937a",
                             Email = "rawaccountcustomer7@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer7@gmail.com",
                             NormalizedUserName = "raw-account-customer7",
-                            PasswordHash = "AQAAAAEAACcQAAAAEF6hIbBgeZiRRW9kTUBi/FY2tOhjNKoVSuqc9/e48TdAKpzqw8zKiBPqlPtNItLugQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDMEffsN6ofmEXlumAPvd5oVzfqIX9naP0qQeF90xu7VmnpVdUYWdb1NQbgu6kC3iw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -745,15 +745,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE08DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 795, DateTimeKind.Local).AddTicks(5133),
-                            ConcurrencyStamp = "63956bad-2ee4-4661-a201-2d9bc0a690d0",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 416, DateTimeKind.Local).AddTicks(611),
+                            ConcurrencyStamp = "7b5f967a-333f-4c26-b783-ee1bc6d9419d",
                             Email = "rawaccountcustomer8@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer8@gmail.com",
                             NormalizedUserName = "raw-account-customer8",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKX39DbpCSVdir+ROcTXlz3qgge+8vxxnn+bYevV1SmDEukVBcIz5En3KATxzleo9A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECiQUfx9Kz0UD7raCIpkHKRr85R92E5PE23Z2ZwWsHRVz39jAU/YSw9hMKg78ip4rA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -764,15 +764,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "10BD711F-9576-45BA-B5B7-F00649BE09DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 806, DateTimeKind.Local).AddTicks(5293),
-                            ConcurrencyStamp = "ad277ead-3097-481e-902b-c15ffd01430d",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 424, DateTimeKind.Local).AddTicks(7536),
+                            ConcurrencyStamp = "fa21af31-0d05-4dac-8ac9-d9de7f56b88c",
                             Email = "rawaccountcustomer9@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountcustomer9@gmail.com",
                             NormalizedUserName = "raw-account-customer9",
-                            PasswordHash = "AQAAAAEAACcQAAAAEH9j0NH+lNdRbjydAM1O5bBtsfNTnigCaFxN5tv9d1nztLBDKGrWCDzArK6WAbc51w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEB4DTCqoTosNTOaMO+QN0Dn3E9hqlYvDhhz+sI7514SV+YBBNRC+G/BUWMqKXsK2cg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -783,15 +783,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "11BD711F-9506-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 816, DateTimeKind.Local).AddTicks(5258),
-                            ConcurrencyStamp = "4c0ec074-afbb-43a7-8c39-23c9bdc1d52b",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 433, DateTimeKind.Local).AddTicks(2521),
+                            ConcurrencyStamp = "45e8fa30-4ff0-48eb-80c0-5e3e45b1992d",
                             Email = "rawaccountstaff0@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff0@gmail.com",
                             NormalizedUserName = "raw-account-staff0",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPp7QRgomBmVO7xqCjiS0xEf1OeTPWnuXWYR6fB51yxjRUTUF5VJJapDV69wc2fhjQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENBlFuq8BMYrHndkSzvk+jRlCN4+ggm5heb2kYl16O9azxQ1cny/I/ICZhsuWJ8pNg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -802,15 +802,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "11BD711F-9516-45BA-B5B7-F00649BE01DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 826, DateTimeKind.Local).AddTicks(7523),
-                            ConcurrencyStamp = "0d9f03db-de83-4a33-ba48-b51a2ba5f5b5",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 442, DateTimeKind.Local).AddTicks(943),
+                            ConcurrencyStamp = "c1f707f5-a821-4768-8059-2d32e5d5958a",
                             Email = "rawaccountstaff1@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff1@gmail.com",
                             NormalizedUserName = "raw-account-staff1",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHCSnAyG+0zC90VrzMHUliwDRbBtai7aLtkfi1ELYMIquLTg/LeK0prFjzAAFKI7tw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEk4tWmiFcgnDuOQJ8kN6KfvZwUsD2nZTH9VCEo6xS2JRDBC5Las2buExMSq05jUmw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -821,15 +821,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "11BD711F-9526-45BA-B5B7-F00649BE02DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 836, DateTimeKind.Local).AddTicks(865),
-                            ConcurrencyStamp = "a9caa91b-1b1d-4523-bae9-7c7c555d3960",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 450, DateTimeKind.Local).AddTicks(1958),
+                            ConcurrencyStamp = "423e5740-3eb7-4ccb-bd0d-0abbc8833a7c",
                             Email = "rawaccountstaff2@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff2@gmail.com",
                             NormalizedUserName = "raw-account-staff2",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPLQPmb+vuEQzjw0ighoQg7c50AuMIllBq6C5pakERTYJd8EfRfQl4C0s9JSFxOE/A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKb0TzS3xFJr8gBBp7r1DByNdbYBjz8j3oSaG/G0TFIepEp9w8NpZ1xtymcIw9dk2Q==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -840,15 +840,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "11BD711F-9536-45BA-B5B7-F00649BE03DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 845, DateTimeKind.Local).AddTicks(1226),
-                            ConcurrencyStamp = "cc78db6e-068c-46d2-b517-764f6d8caa11",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 458, DateTimeKind.Local).AddTicks(2513),
+                            ConcurrencyStamp = "85c0da4c-f8ca-46a3-aa9a-8fd80d77dfe7",
                             Email = "rawaccountstaff3@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff3@gmail.com",
                             NormalizedUserName = "raw-account-staff3",
-                            PasswordHash = "AQAAAAEAACcQAAAAECN2wGZlr3w0n4rYEhhdVkCQbhZFDEXAkRPkun5WUp59z1oqa27yaw09jhkxYbpZcg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENVEVdqbGf3cfLWNLXSBb5Y8mdaJLM/kvF1qng8sX/Kh34J1CglpH3ZNsTU8iwhXjw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -859,15 +859,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "11BD711F-9546-45BA-B5B7-F00649BE04DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 855, DateTimeKind.Local).AddTicks(6395),
-                            ConcurrencyStamp = "c8aa490c-6ee4-4995-a052-db3fa5f7450e",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 466, DateTimeKind.Local).AddTicks(5529),
+                            ConcurrencyStamp = "23eba715-7e18-42bb-85a4-56f9475bda80",
                             Email = "rawaccountstaff4@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff4@gmail.com",
                             NormalizedUserName = "raw-account-staff4",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPUYOIVoN90+Gisj6ZDWh/jPieuuAnKAgbfkOMhIt9HgZ+V1PZhGzb1BXlscQrJ7qw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGi7Tyn12WCeDz6tgGBpX10UeMc5SrEl1FyA1mSn8vEPNCO8ViukrOL9e1SoC6Aq8g==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -878,15 +878,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "11BD711F-9556-45BA-B5B7-F00649BE05DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 865, DateTimeKind.Local).AddTicks(1751),
-                            ConcurrencyStamp = "c392571c-2a35-4903-983b-b2975130cc2a",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 475, DateTimeKind.Local).AddTicks(4257),
+                            ConcurrencyStamp = "3f13f668-52fc-4c76-846b-cb8802df6045",
                             Email = "rawaccountstaff5@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff5@gmail.com",
                             NormalizedUserName = "raw-account-staff5",
-                            PasswordHash = "AQAAAAEAACcQAAAAEID1o4Y97/1Yr8B3+L3oXIxLGVqjDabB8fNjHJAjvmKPWVjpj0Pf8pAtresijnvoPA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHJKtU+9+p+Db4h5Dd7HYHZDIoaFFKcgDWdlrluZb0mXm7OzWAeqaxHDhDoN3EnAYw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -897,15 +897,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "11BD711F-9566-45BA-B5B7-F00649BE06DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 875, DateTimeKind.Local).AddTicks(7897),
-                            ConcurrencyStamp = "d750fb1a-f00c-4ef6-89bc-8d390f43ccc4",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 484, DateTimeKind.Local).AddTicks(2324),
+                            ConcurrencyStamp = "fbcf6feb-3b76-4875-b395-411f870619e9",
                             Email = "rawaccountstaff6@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff6@gmail.com",
                             NormalizedUserName = "raw-account-staff6",
-                            PasswordHash = "AQAAAAEAACcQAAAAELtWXPT0l/ARU875xXEcwHbgL9QPZpOXN7CF4HdiIkruzjFHDmEDn1Oka+NRJhh7Mg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEB3KHRUTQaQKOcJAjuQCEwzIFwS9cEU/MfpwSdqGOv0hdWfrXBxfeUG+us7bclCSGA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -916,15 +916,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "11BD711F-9576-45BA-B5B7-F00649BE07DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 886, DateTimeKind.Local).AddTicks(1818),
-                            ConcurrencyStamp = "a6f6fdcd-ea4a-49e5-b7d8-ced21c3bc0e6",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 492, DateTimeKind.Local).AddTicks(8856),
+                            ConcurrencyStamp = "01d49245-52eb-4b02-9430-e7bdfc1a2302",
                             Email = "rawaccountstaff7@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff7@gmail.com",
                             NormalizedUserName = "raw-account-staff7",
-                            PasswordHash = "AQAAAAEAACcQAAAAEO9DcjUsd89k84EbDISOhHlauf06YNDm7gdr+Na4kiMi4GFuynGM7pMDrPqkB+bg/w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEZ2qoCBhtg5ft+m5vpj3dU4FZSBVYe6doeJ5wFA+sb+0F7GscCCBnGcotPgcSIvYw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -935,15 +935,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "11BD711F-9586-45BA-B5B7-F00649BE08DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 897, DateTimeKind.Local).AddTicks(9199),
-                            ConcurrencyStamp = "bec7c878-bb6e-4e9f-b9cb-058b75250332",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 501, DateTimeKind.Local).AddTicks(6373),
+                            ConcurrencyStamp = "16c0c2e0-86d8-471e-af88-c5cc04256bb8",
                             Email = "rawaccountstaff8@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff8@gmail.com",
                             NormalizedUserName = "raw-account-staff8",
-                            PasswordHash = "AQAAAAEAACcQAAAAEL18U6qhLFByuaTgr/N6M5enPyjCrXeVpXXPeSUQo8aa2wIvEXaBHK7VdASevSWidg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEK0EVqjxyDKWDUzThDn6FQgTsi2iCVt8r8TzTKjUlSZd1UQRCCinxNdK7cxOk2uwTA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -954,15 +954,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "11BD711F-9596-45BA-B5B7-F00649BE09DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 908, DateTimeKind.Local).AddTicks(5117),
-                            ConcurrencyStamp = "460835bd-7745-41ba-a6c2-d50a2b1cf73e",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 509, DateTimeKind.Local).AddTicks(8208),
+                            ConcurrencyStamp = "ce9052ae-1c79-4159-bfc3-ea101b563041",
                             Email = "rawaccountstaff9@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "rawaccountstaff9@gmail.com",
                             NormalizedUserName = "raw-account-staff9",
-                            PasswordHash = "AQAAAAEAACcQAAAAEO/Ilmb/t6ID2plkuiH6rEhX9kjMXLVDFtE4Q4vsSBSI0OFUzR2N+S/owQpzGA1Uag==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELHBqgK29njTzvPyCqwiZTADbjkpW5PrPB1ieQzObWLEmCNpswXX99FA98WiIEc+qg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -973,15 +973,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "69BD714F-9576-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 916, DateTimeKind.Local).AddTicks(8116),
-                            ConcurrencyStamp = "1a221c53-5418-48db-95f6-161e411505dc",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 518, DateTimeKind.Local).AddTicks(6760),
+                            ConcurrencyStamp = "338becd6-d4e5-42a6-ae1e-aa2ac4f72b0d",
                             Email = "thangnguyenquyetvlth@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "thangnguyenquyetvlth@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAED6cJJvSiCPrO71cNluv+3+NxbASlCYnSm3/GgyM+jHX1iDMjjyz5l6brmdF9SCTQg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJEh4OMYCZ5l5kNyskQ6q8XMauRfhX95mlBV8d+xZ59nMHyodDCAFMGrYRGh+6I3rg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -992,15 +992,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "69BD711F-9576-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 925, DateTimeKind.Local).AddTicks(8404),
-                            ConcurrencyStamp = "096ce2ea-fb7a-4d08-bc59-aa4ca0f36b0c",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 526, DateTimeKind.Local).AddTicks(8825),
+                            ConcurrencyStamp = "926430a3-8129-4a99-ae64-4f7bb22e5a67",
                             Email = "thangnguyenquyetvlth1@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "thangnguyenquyetvlth1@gmail.com",
                             NormalizedUserName = "raw-account1",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPxUL5rl4+XjY4f4YAyKUBUEmC4+zCvGGG2w4jDmb6jhcTEeIQedt8piLa+RZtJKKw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENjL+JJT/bBdf+L/XXSuckMPdarO97agBVdCxWEAXRWE7waZJEks6AVHprlNnRq6rQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -1011,15 +1011,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "69BD712F-9576-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 936, DateTimeKind.Local).AddTicks(4743),
-                            ConcurrencyStamp = "87fb3744-2e28-4b93-b72a-1cec15ad1d94",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 535, DateTimeKind.Local).AddTicks(6032),
+                            ConcurrencyStamp = "97e0edae-c2b9-491d-b9cb-ed2eea6ef9c4",
                             Email = "thangnguyenquyetvlth2@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "thangnguyenquyetvlth2@gmail.com",
                             NormalizedUserName = "raw-account2",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFU73ThhYmb9OM37p2MTSrYjHhhaujKKOH+ocCaFpXFTRzvk/frdAon6u0KCbhcLAg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPjb6wRSpV9bm3Jr4YJBBnDbudGYqRRFu8G5i3Yx/g/JhzlMSSfXgkNZBhBY4mS12A==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -1030,15 +1030,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "61BD714F-9576-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 946, DateTimeKind.Local).AddTicks(4084),
-                            ConcurrencyStamp = "c9911ee5-da80-4f4b-a447-7ccb215ee7da",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 543, DateTimeKind.Local).AddTicks(9442),
+                            ConcurrencyStamp = "d1b67a34-0649-4335-b921-f653d0d74c52",
                             Email = "thangnguyenquyetvlth3@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "thangnguyenquyetvlth3@gmail.com",
                             NormalizedUserName = "raw-account3",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFAyVMrUncnxzk9JJxhLyAOq2QRDOseEJLd1XvUb0/NZ0Px3qx2y8mrjqoPuDKrGYQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPnDn/SZEqOXaFM/TG104LHKEegeHkA+yFR22kPYt7qbOBBQmeZAq8ZqoVdhZt1oQQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -1049,15 +1049,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "19BD714F-9576-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 958, DateTimeKind.Local).AddTicks(4698),
-                            ConcurrencyStamp = "fa47f815-6eb0-4706-9bd7-9f6ced71ec6a",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 552, DateTimeKind.Local).AddTicks(4181),
+                            ConcurrencyStamp = "94acb06f-72d6-4f5f-9a88-be13eecca937",
                             Email = "thangnguyenquyetvlth4@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "thangnguyenquyetvlth4@gmail.com",
                             NormalizedUserName = "raw-account4",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHMC152mczLp7ICQE2Oa5VPIzLdWTLmPZMmRfzuutKnnIeoZGEZHr9ESiYV9Cm1J7Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEE05VP8qLXxiHyd1Z2ybytoemYURYycWZOBXNpXSl8S06XWuPXmkpP3FHYg4T9nbZQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -1068,15 +1068,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "65BD710F-9576-45BA-B5B7-F00649BE00DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 967, DateTimeKind.Local).AddTicks(1270),
-                            ConcurrencyStamp = "9c4b2b30-edfc-4729-858d-9a1436de0d97",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 560, DateTimeKind.Local).AddTicks(4650),
+                            ConcurrencyStamp = "751a0546-5fda-4299-86c7-ef0f0aadc9b0",
                             Email = "thangnguyenquyetvlth5@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "thangnguyenquyetvlth5@gmail.com",
                             NormalizedUserName = "raw-account5",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAucn41oHsZui83lbsCPUpiHYhzmXgpb/2tq6I62KPXnVZEeUCnRssimtIpHbfop5g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEG3w0NiDousOcK9AC1PS5hAQbb6aAHZCfVAKZ03NmKGkFSA5Z9iVTdwdIgVlUFXLMQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -1087,15 +1087,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "69BD714F-9576-45BA-B5B6-F00649BE01DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 976, DateTimeKind.Local).AddTicks(5239),
-                            ConcurrencyStamp = "de53b77b-9b6f-43a2-9a5f-a449ccc7927c",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 569, DateTimeKind.Local).AddTicks(5283),
+                            ConcurrencyStamp = "30941e29-ff57-4cd3-885c-a4c61358c9ca",
                             Email = "thangnguyenquyetvlth6@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "thangnguyenquyetvlth6@gmail.com",
                             NormalizedUserName = "raw-account6",
-                            PasswordHash = "AQAAAAEAACcQAAAAEH78Vvrqxzv/OzlW8Gt6W/o4R8afgYjz2B6dJtq2wc7lVbkfamIguI0tDha2JdkLyQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBcP1LeX3FKaRg15IV9zjRE4mCQP6Tnrn1qPbFufBP5uw4qQQF9YP4UDMNths5xHKw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -1106,15 +1106,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "09BD714F-9576-45BA-B5B7-F00649BE04DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 987, DateTimeKind.Local).AddTicks(6168),
-                            ConcurrencyStamp = "404ed6cb-bf24-4e34-8f46-c2a15208e84f",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 577, DateTimeKind.Local).AddTicks(8719),
+                            ConcurrencyStamp = "d3af65f9-17f0-40f2-9759-a5dd9f66c789",
                             Email = "thangnguyenquyetvlth7@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "thangnguyenquyetvlth7@gmail.com",
                             NormalizedUserName = "raw-account7",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKpXydfWdnnWy1FeEeuxjYR58MDSWCs4MXkSgwsjGFHR/ZNznYxetsr7xgUveUATHw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGV5KeVpKMQzPH0TLrwgo8u4zkT0x2fftrxHyoYjFswB0mY55qs3q/kG7IfSjngc8g==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -1125,15 +1125,15 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = "69BD114F-9576-45BA-B4B7-F00649BE00DE",
                             AccessFailedCount = 0,
-                            Birthday = new DateTime(2021, 6, 21, 2, 41, 15, 996, DateTimeKind.Local).AddTicks(7123),
-                            ConcurrencyStamp = "8b07c908-561b-4ab5-bda4-c8c3d22746c3",
+                            Birthday = new DateTime(2021, 7, 29, 15, 21, 19, 586, DateTimeKind.Local).AddTicks(5156),
+                            ConcurrencyStamp = "9730fc90-aad6-4fd0-9bf2-4c5e7528d317",
                             Email = "thangnguyenquyetvlth8@gmail.com",
                             EmailConfirmed = true,
                             LastSignIn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LockoutEnabled = false,
                             NormalizedEmail = "thangnguyenquyetvlth8@gmail.com",
                             NormalizedUserName = "raw-account8",
-                            PasswordHash = "AQAAAAEAACcQAAAAEA5ZI/pS5qyyYVzRSirsW7lgYmbt/N5CYDZKsRg7tJOh2nX6ggg7sJ0SqzhVd2Pzsw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKKb5kIjNQ0xkvMps+1i4PO3CJriLypnOrsrNzJxKaopKmMOwk6Bv4+Yia0OT3Reng==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -1186,7 +1186,7 @@ namespace Project.AdminApp.Migrations
                             Id = 1,
                             ProductId = -2,
                             UserId = "11BD711F-9506-45BA-B5B7-F00649BE00DE",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 997, DateTimeKind.Local).AddTicks(7648),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 587, DateTimeKind.Local).AddTicks(1099),
                             LastModify = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Price = 20000m,
                             Quantity = 2,
@@ -1197,7 +1197,7 @@ namespace Project.AdminApp.Migrations
                             Id = 1,
                             ProductId = -1,
                             UserId = "11BD711F-9506-45BA-B5B7-F00649BE00DE",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 997, DateTimeKind.Local).AddTicks(8572),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 587, DateTimeKind.Local).AddTicks(1678),
                             LastModify = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Price = 20000m,
                             Quantity = 2,
@@ -5944,7 +5944,7 @@ namespace Project.AdminApp.Migrations
                             Type = 1,
                             UserId = "11BD711F-9506-45BA-B5B7-F00649BE00DE",
                             content = "Đơn hàng #1 đã sẵn sàng để giao đến quý khách. Chúng tôi vừa bàn giao đơn hàng của quý khách đến đối tác vận chuyển eShops Team. Đơn hàng sẽ được giao trước 23:59 ngày 18/12/2020",
-                            date = new DateTime(2021, 6, 21, 2, 41, 16, 289, DateTimeKind.Local).AddTicks(5538)
+                            date = new DateTime(2021, 7, 29, 15, 21, 19, 818, DateTimeKind.Local).AddTicks(4590)
                         },
                         new
                         {
@@ -5954,7 +5954,7 @@ namespace Project.AdminApp.Migrations
                             Type = 0,
                             UserId = "11BD711F-9506-45BA-B5B7-F00649BE00DE",
                             content = "Bạn có một mã giảm giá chưa sử dụng",
-                            date = new DateTime(2021, 6, 21, 2, 41, 16, 289, DateTimeKind.Local).AddTicks(8408)
+                            date = new DateTime(2021, 7, 29, 15, 21, 19, 818, DateTimeKind.Local).AddTicks(6805)
                         });
                 });
 
@@ -6044,7 +6044,7 @@ namespace Project.AdminApp.Migrations
                             CityId = "01",
                             Districst = "Quận Hoàng Mai",
                             DistricstId = "008",
-                            OrderDate = new DateTime(2021, 6, 21, 2, 41, 16, 288, DateTimeKind.Local).AddTicks(1805),
+                            OrderDate = new DateTime(2021, 7, 29, 15, 21, 19, 817, DateTimeKind.Local).AddTicks(5334),
                             ShipAddress = "353 Đường Tam Trinh",
                             ShipEmail = "rawaccountstaff0@gmail.com",
                             ShipName = "Nguyễn Quyết Thắng",
@@ -6066,6 +6066,9 @@ namespace Project.AdminApp.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
+                    b.Property<string>("size")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -6075,13 +6078,10 @@ namespace Project.AdminApp.Migrations
                     b.Property<string>("productName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("size")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<decimal>("total")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("OrderId", "ProductId");
+                    b.HasKey("OrderId", "ProductId", "size");
 
                     b.HasIndex("ProductId");
 
@@ -6092,20 +6092,20 @@ namespace Project.AdminApp.Migrations
                         {
                             OrderId = 1,
                             ProductId = -2,
+                            size = "M",
                             Price = 20000m,
                             Quantity = 2,
                             productName = "BOYFRIENDs",
-                            size = "M",
                             total = 0m
                         },
                         new
                         {
                             OrderId = 1,
                             ProductId = -1,
+                            size = "M",
                             Price = 20000m,
                             Quantity = 2,
                             productName = "TOPS",
-                            size = "M",
                             total = 0m
                         });
                 });
@@ -6170,7 +6170,7 @@ namespace Project.AdminApp.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(553),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 334, DateTimeKind.Local).AddTicks(7093),
                             Description = "99% Cotton, 1% Elastane . Bền Vững Khi Giặt Máy . Skinny Ôm Sát Và Tôn Lên Những Đường Nét Quyến Rũ Của Bạn",
                             IsFeatured = true,
                             Name = "SKINNY",
@@ -6183,7 +6183,7 @@ namespace Project.AdminApp.Migrations
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5518),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1009),
                             Description = "100% Cotton . Sản Phẩm Mang Đậm Phong Cách Cá Tính Và Không Kém Phần Quyến Rũ. Orginal Được Thiết Kế Để Có Thể Ôm Sát Vòng Ba Và Tôn Lên Làn Da Của Bạn",
                             IsFeatured = true,
                             Name = "ORGINAL SHORT",
@@ -6196,7 +6196,7 @@ namespace Project.AdminApp.Migrations
                         new
                         {
                             Id = -1,
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5536),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1018),
                             Description = "100% Cotton . TOPS Với Thiết Kế Cạp Cao Sẽ Mang Lại Cho Bạn Cảm Giác Tự tin , Thích Hợp Để Phối Với Những Dạng Áo ONTOP cá tính",
                             IsFeatured = true,
                             Name = "TOPS",
@@ -6209,7 +6209,7 @@ namespace Project.AdminApp.Migrations
                         new
                         {
                             Id = -2,
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5539),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1020),
                             Description = "Vâng , Đúng Như Cái Tên Của Nó, BoyFriend Sẽ Là Người Bạn Đồng Hành Của Bạn Trong Mọi Thời Điểm Của Cuộc Sống, BOYFRIEND Được Thiết Kết Để Tạo Cho Bạn Cảm Giác Thoải Mái, Sang Trọng Và An Toàn",
                             IsFeatured = true,
                             Name = "BOYFRIEND",
@@ -6222,7 +6222,7 @@ namespace Project.AdminApp.Migrations
                         new
                         {
                             Id = -3,
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5548),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1022),
                             Description = "Chủ nhật là Sunday \n Thứ hai là Monday \n Ngày nào cũng xinh đẹp là Emday",
                             IsFeatured = true,
                             Name = "EmDay",
@@ -6235,7 +6235,7 @@ namespace Project.AdminApp.Migrations
                         new
                         {
                             Id = -4,
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5550),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1024),
                             Description = "Một thoáng hương tình dịu ngọt \n Một chút nhẹ nhàng bay bổng và hết sức yêu kiều \n Một item thật sự gây lưu luyến đó các tình iuuu",
                             IsFeatured = true,
                             Name = "Flash",
@@ -6248,7 +6248,7 @@ namespace Project.AdminApp.Migrations
                         new
                         {
                             Id = -5,
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5552),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1028),
                             Description = "Emwear là thương hiệu quần jean và thời trang Nữ hằng ngày đa dụng . Sử dụng chính chất liệu co dãn cao cấp, thiết kế quyến rũ, sang trọng.",
                             IsFeatured = true,
                             Name = "EmWear",
@@ -6261,7 +6261,7 @@ namespace Project.AdminApp.Migrations
                         new
                         {
                             Id = -6,
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5555),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1030),
                             Description = "Cá tính là yếu tố tạo nên sự cuốn hút của Marid \n Marid sẽ mang lại cho người mặc một cảm giác trẻ trung, tươi mát, năng động",
                             IsFeatured = true,
                             Name = "Marid",
@@ -6274,7 +6274,7 @@ namespace Project.AdminApp.Migrations
                         new
                         {
                             Id = -7,
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5558),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1032),
                             Description = "Vẫn là một sản phẩm của bộ sưu tập jean tháng 7, BELLE sẽ ôm sát và tôn lên những đường cong quyến rũ của bạn. Bằng chất liệu co dãn ,BELLE sẽ không làm bạn bị khó chịu mất tự tin",
                             IsFeatured = true,
                             Name = "BELLE",
@@ -6287,7 +6287,7 @@ namespace Project.AdminApp.Migrations
                         new
                         {
                             Id = -8,
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5560),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1034),
                             Description = "Set đồ được cung cấp từ hãng thời trang nổi tiếng Tartarus, Đây sẽ là set đồ nên xuất hiện trong tủ đồ của bạn",
                             IsFeatured = true,
                             Name = "LIMMA Set",
@@ -6300,7 +6300,7 @@ namespace Project.AdminApp.Migrations
                         new
                         {
                             Id = -9,
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5562),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1035),
                             Description = "Với tông màu trẻ trung, sản phẩm sẽ là người bạn đồng hành của bạn trong những buổi dạo phố cuối tuần",
                             IsFeatured = true,
                             Name = "BNW",
@@ -6313,7 +6313,7 @@ namespace Project.AdminApp.Migrations
                         new
                         {
                             Id = -10,
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5565),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1037),
                             Description = "Đúng như tên gọi của nó, MOON sẽ thu hút mọi ánh nhìn của những người xung quanh bằng sự quyến rũ nhẹ nhàng",
                             IsFeatured = true,
                             Name = "MOON",
@@ -6326,7 +6326,7 @@ namespace Project.AdminApp.Migrations
                         new
                         {
                             Id = -11,
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5567),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1039),
                             Description = "Sự kết hợp hài hòa các màu sắc với nhau, mang nét riêng đậm chất Pháp tạo nên sự rung cảm cho người nhìn",
                             IsFeatured = true,
                             Name = "JAQUAIN",
@@ -6339,7 +6339,7 @@ namespace Project.AdminApp.Migrations
                         new
                         {
                             Id = -12,
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5569),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1041),
                             Description = "Là Một sản phẩm được cung cấp bởi thương hiệu thời trang phụ nữ Tartarus , ELiS vừa mang chất Ý vừa mang chất Việt. Chúng tôi đảm bảo đây sẽ là sản phẩm xu hướng trong tương lai",
                             IsFeatured = true,
                             Name = "ELiS",
@@ -6352,7 +6352,7 @@ namespace Project.AdminApp.Migrations
                         new
                         {
                             Id = -13,
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 696, DateTimeKind.Local).AddTicks(5571),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(1043),
                             Description = "Mượn mà , mang lại cảm giác tươi mát, sản phẩm là lựa chọn hàng đâu cho mùa hè này ",
                             IsFeatured = true,
                             Name = "Smooth",
@@ -6408,7 +6408,7 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -1,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(2884),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(6863),
                             FileSize = 0L,
                             ImagePath = "/user-content/jean/jean1.png",
                             IsDefault = true,
@@ -6419,7 +6419,7 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -2,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5614),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9467),
                             FileSize = 0L,
                             ImagePath = "/user-content/jean/jean2.png",
                             IsDefault = true,
@@ -6430,7 +6430,7 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -3,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5623),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9474),
                             FileSize = 0L,
                             ImagePath = "/user-content/jean/jean3.png",
                             IsDefault = true,
@@ -6441,7 +6441,7 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -4,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5625),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9476),
                             FileSize = 0L,
                             ImagePath = "/user-content/jean/jean4.png",
                             IsDefault = true,
@@ -6452,7 +6452,7 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -5,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5627),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9478),
                             FileSize = 0L,
                             ImagePath = "/user-content/jean/jean5.png",
                             IsDefault = true,
@@ -6463,7 +6463,7 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -6,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5629),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9480),
                             FileSize = 0L,
                             ImagePath = "/user-content/jean/jean6.png",
                             IsDefault = true,
@@ -6474,7 +6474,7 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -7,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5631),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9481),
                             FileSize = 0L,
                             ImagePath = "/user-content/jean/jean7.png",
                             IsDefault = true,
@@ -6485,7 +6485,7 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -8,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5633),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9483),
                             FileSize = 0L,
                             ImagePath = "/user-content/jean/jean8.png",
                             IsDefault = true,
@@ -6496,7 +6496,7 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -9,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5635),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9485),
                             FileSize = 0L,
                             ImagePath = "/user-content/jean/jean9.png",
                             IsDefault = true,
@@ -6507,7 +6507,7 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -10,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5637),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9487),
                             FileSize = 0L,
                             ImagePath = "/user-content/jean/jean10.png",
                             IsDefault = true,
@@ -6518,9 +6518,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -11,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5639),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9488),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt1.png",
+                            ImagePath = "/user-content/tshirt/tshirt1.png",
                             IsDefault = true,
                             ProductId = -3,
                             SortOrder = 0
@@ -6529,9 +6529,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -12,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5641),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9490),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt2.png",
+                            ImagePath = "/user-content/tshirt/tshirt2.png",
                             IsDefault = true,
                             ProductId = -3,
                             SortOrder = 0
@@ -6540,9 +6540,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -13,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5643),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9492),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt3.png",
+                            ImagePath = "/user-content/tshirt/tshirt3.png",
                             IsDefault = true,
                             ProductId = -3,
                             SortOrder = 0
@@ -6551,9 +6551,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -14,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5644),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9494),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt4.png",
+                            ImagePath = "/user-content/tshirt/tshirt4.png",
                             IsDefault = true,
                             ProductId = -3,
                             SortOrder = 0
@@ -6562,9 +6562,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -15,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5646),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9495),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt5.png",
+                            ImagePath = "/user-content/tshirt/tshirt5.png",
                             IsDefault = true,
                             ProductId = -3,
                             SortOrder = 0
@@ -6573,9 +6573,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -16,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5648),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9498),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt6.png",
+                            ImagePath = "/user-content/tshirt/tshirt6.png",
                             IsDefault = true,
                             ProductId = -4,
                             SortOrder = 0
@@ -6584,9 +6584,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -17,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5649),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9500),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt7.png",
+                            ImagePath = "/user-content/tshirt/tshirt7.png",
                             IsDefault = true,
                             ProductId = -4,
                             SortOrder = 0
@@ -6595,9 +6595,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -18,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5651),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9511),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt8.png",
+                            ImagePath = "/user-content/tshirt/tshirt8.png",
                             IsDefault = true,
                             ProductId = -4,
                             SortOrder = 0
@@ -6606,9 +6606,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -19,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5653),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9513),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt8.png",
+                            ImagePath = "/user-content/tshirt/tshirt8.png",
                             IsDefault = true,
                             ProductId = -4,
                             SortOrder = 0
@@ -6617,9 +6617,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -20,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5655),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9515),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt9.png",
+                            ImagePath = "/user-content/tshirt/tshirt9.png",
                             IsDefault = true,
                             ProductId = -4,
                             SortOrder = 0
@@ -6628,9 +6628,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -21,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5657),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9516),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt10.png",
+                            ImagePath = "/user-content/tshirt/tshirt10.png",
                             IsDefault = true,
                             ProductId = -4,
                             SortOrder = 0
@@ -6639,9 +6639,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -22,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5659),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9518),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                            ImagePath = "/user-content/tshirt/tshirt11.png",
                             IsDefault = true,
                             ProductId = -5,
                             SortOrder = 0
@@ -6650,9 +6650,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -23,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5661),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9521),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                            ImagePath = "/user-content/tshirt/tshirt12.png",
                             IsDefault = true,
                             ProductId = -5,
                             SortOrder = 0
@@ -6661,9 +6661,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -24,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5663),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9523),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                            ImagePath = "/user-content/tshirt/tshirt13.png",
                             IsDefault = true,
                             ProductId = -5,
                             SortOrder = 0
@@ -6672,9 +6672,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -25,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5665),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9525),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                            ImagePath = "/user-content/tshirt/tshirt15.png",
                             IsDefault = true,
                             ProductId = -5,
                             SortOrder = 0
@@ -6683,9 +6683,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -26,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5666),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9527),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                            ImagePath = "/user-content/tshirt/tshirt14.png",
                             IsDefault = true,
                             ProductId = -5,
                             SortOrder = 0
@@ -6694,9 +6694,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -27,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5669),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9528),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                            ImagePath = "/user-content/tshirt/tshirt11.png",
                             IsDefault = true,
                             ProductId = -6,
                             SortOrder = 0
@@ -6705,9 +6705,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -28,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5671),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9530),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                            ImagePath = "/user-content/tshirt/tshirt12.png",
                             IsDefault = true,
                             ProductId = -6,
                             SortOrder = 0
@@ -6716,9 +6716,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -29,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5673),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9532),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                            ImagePath = "/user-content/tshirt/tshirt13.png",
                             IsDefault = true,
                             ProductId = -6,
                             SortOrder = 0
@@ -6727,9 +6727,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -30,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5674),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9534),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                            ImagePath = "/user-content/tshirt/tshirt15.png",
                             IsDefault = true,
                             ProductId = -6,
                             SortOrder = 0
@@ -6738,9 +6738,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -31,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5676),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9535),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                            ImagePath = "/user-content/tshirt/tshirt14.png",
                             IsDefault = true,
                             ProductId = -6,
                             SortOrder = 0
@@ -6749,9 +6749,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -32,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5678),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9538),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                            ImagePath = "/user-content/tshirt/tshirt11.png",
                             IsDefault = true,
                             ProductId = -7,
                             SortOrder = 0
@@ -6760,9 +6760,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -33,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5680),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9540),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                            ImagePath = "/user-content/tshirt/tshirt12.png",
                             IsDefault = true,
                             ProductId = -7,
                             SortOrder = 0
@@ -6771,9 +6771,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -34,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5681),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9542),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                            ImagePath = "/user-content/tshirt/tshirt13.png",
                             IsDefault = true,
                             ProductId = -7,
                             SortOrder = 0
@@ -6782,9 +6782,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -35,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5684),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9543),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                            ImagePath = "/user-content/tshirt/tshirt15.png",
                             IsDefault = true,
                             ProductId = -7,
                             SortOrder = 0
@@ -6793,9 +6793,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -36,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5687),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9545),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                            ImagePath = "/user-content/tshirt/tshirt14.png",
                             IsDefault = true,
                             ProductId = -7,
                             SortOrder = 0
@@ -6804,9 +6804,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -37,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5701),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9547),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                            ImagePath = "/user-content/tshirt/tshirt11.png",
                             IsDefault = true,
                             ProductId = -8,
                             SortOrder = 0
@@ -6815,9 +6815,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -38,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5703),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9549),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                            ImagePath = "/user-content/tshirt/tshirt12.png",
                             IsDefault = true,
                             ProductId = -8,
                             SortOrder = 0
@@ -6826,9 +6826,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -39,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5705),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9550),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                            ImagePath = "/user-content/tshirt/tshirt13.png",
                             IsDefault = true,
                             ProductId = -8,
                             SortOrder = 0
@@ -6837,9 +6837,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -40,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5707),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9552),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                            ImagePath = "/user-content/tshirt/tshirt15.png",
                             IsDefault = true,
                             ProductId = -8,
                             SortOrder = 0
@@ -6848,9 +6848,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -41,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5708),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9554),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                            ImagePath = "/user-content/tshirt/tshirt14.png",
                             IsDefault = true,
                             ProductId = -8,
                             SortOrder = 0
@@ -6859,9 +6859,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -42,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5710),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9556),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                            ImagePath = "/user-content/tshirt/tshirt11.png",
                             IsDefault = true,
                             ProductId = -9,
                             SortOrder = 0
@@ -6870,9 +6870,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -43,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5714),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9557),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                            ImagePath = "/user-content/tshirt/tshirt12.png",
                             IsDefault = true,
                             ProductId = -9,
                             SortOrder = 0
@@ -6881,9 +6881,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -44,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5716),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9559),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                            ImagePath = "/user-content/tshirt/tshirt13.png",
                             IsDefault = true,
                             ProductId = -9,
                             SortOrder = 0
@@ -6892,9 +6892,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -45,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5718),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9561),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                            ImagePath = "/user-content/tshirt/tshirt15.png",
                             IsDefault = true,
                             ProductId = -9,
                             SortOrder = 0
@@ -6903,9 +6903,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -46,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5721),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9563),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                            ImagePath = "/user-content/tshirt/tshirt14.png",
                             IsDefault = true,
                             ProductId = -9,
                             SortOrder = 0
@@ -6914,9 +6914,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -47,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5723),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9565),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                            ImagePath = "/user-content/tshirt/tshirt11.png",
                             IsDefault = true,
                             ProductId = -10,
                             SortOrder = 0
@@ -6925,9 +6925,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -48,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5725),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9567),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                            ImagePath = "/user-content/tshirt/tshirt12.png",
                             IsDefault = true,
                             ProductId = -10,
                             SortOrder = 0
@@ -6936,9 +6936,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -49,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5727),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9569),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                            ImagePath = "/user-content/tshirt/tshirt13.png",
                             IsDefault = true,
                             ProductId = -10,
                             SortOrder = 0
@@ -6947,9 +6947,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -50,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5728),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9571),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                            ImagePath = "/user-content/tshirt/tshirt15.png",
                             IsDefault = true,
                             ProductId = -10,
                             SortOrder = 0
@@ -6958,9 +6958,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -51,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5730),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9572),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                            ImagePath = "/user-content/tshirt/tshirt14.png",
                             IsDefault = true,
                             ProductId = -10,
                             SortOrder = 0
@@ -6969,9 +6969,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -52,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5732),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9574),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                            ImagePath = "/user-content/tshirt/tshirt11.png",
                             IsDefault = false,
                             ProductId = -11,
                             SortOrder = 0
@@ -6980,9 +6980,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -53,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5734),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9576),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                            ImagePath = "/user-content/tshirt/tshirt12.png",
                             IsDefault = true,
                             ProductId = -11,
                             SortOrder = 0
@@ -6991,9 +6991,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -54,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5736),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9578),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                            ImagePath = "/user-content/tshirt/tshirt13.png",
                             IsDefault = true,
                             ProductId = -11,
                             SortOrder = 0
@@ -7002,9 +7002,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -55,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5738),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9580),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                            ImagePath = "/user-content/tshirt/tshirt15.png",
                             IsDefault = true,
                             ProductId = -11,
                             SortOrder = 0
@@ -7013,9 +7013,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -56,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5740),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9583),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                            ImagePath = "/user-content/tshirt/tshirt14.png",
                             IsDefault = true,
                             ProductId = -11,
                             SortOrder = 0
@@ -7024,9 +7024,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -57,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5741),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9584),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                            ImagePath = "/user-content/tshirt/tshirt11.png",
                             IsDefault = true,
                             ProductId = -12,
                             SortOrder = 0
@@ -7035,9 +7035,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -58,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5743),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9586),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                            ImagePath = "/user-content/tshirt/tshirt12.png",
                             IsDefault = true,
                             ProductId = -12,
                             SortOrder = 0
@@ -7046,9 +7046,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -59,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5745),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9588),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                            ImagePath = "/user-content/tshirt/tshirt13.png",
                             IsDefault = true,
                             ProductId = -12,
                             SortOrder = 0
@@ -7057,9 +7057,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -60,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5747),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9590),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                            ImagePath = "/user-content/tshirt/tshirt15.png",
                             IsDefault = true,
                             ProductId = -12,
                             SortOrder = 0
@@ -7068,9 +7068,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -61,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5748),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9591),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                            ImagePath = "/user-content/tshirt/tshirt14.png",
                             IsDefault = true,
                             ProductId = -12,
                             SortOrder = 0
@@ -7079,9 +7079,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -62,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5750),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9593),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt11.png",
+                            ImagePath = "/user-content/tshirt/tshirt11.png",
                             IsDefault = true,
                             ProductId = -13,
                             SortOrder = 0
@@ -7090,9 +7090,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -63,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5752),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9595),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt12.png",
+                            ImagePath = "/user-content/tshirt/tshirt12.png",
                             IsDefault = true,
                             ProductId = -13,
                             SortOrder = 0
@@ -7101,9 +7101,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -64,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5754),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9597),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt13.png",
+                            ImagePath = "/user-content/tshirt/tshirt13.png",
                             IsDefault = true,
                             ProductId = -13,
                             SortOrder = 0
@@ -7112,9 +7112,9 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -65,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5756),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9599),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt15.png",
+                            ImagePath = "/user-content/tshirt/tshirt15.png",
                             IsDefault = true,
                             ProductId = -13,
                             SortOrder = 0
@@ -7123,11 +7123,121 @@ namespace Project.AdminApp.Migrations
                         {
                             Id = -66,
                             Caption = "Image",
-                            DateCreated = new DateTime(2021, 6, 21, 2, 41, 15, 697, DateTimeKind.Local).AddTicks(5757),
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9601),
                             FileSize = 0L,
-                            ImagePath = "/user-content/Tshirt/Tshirt14.png",
+                            ImagePath = "/user-content/tshirt/tshirt14.png",
                             IsDefault = true,
                             ProductId = -13,
+                            SortOrder = 0
+                        },
+                        new
+                        {
+                            Id = -67,
+                            Caption = "Image",
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9603),
+                            FileSize = 0L,
+                            ImagePath = "/user-content/default/product-1.jpg",
+                            IsDefault = true,
+                            ProductId = 1,
+                            SortOrder = 0
+                        },
+                        new
+                        {
+                            Id = -68,
+                            Caption = "Image",
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9604),
+                            FileSize = 0L,
+                            ImagePath = "/user-content/default/product-2.jpg",
+                            IsDefault = true,
+                            ProductId = 1,
+                            SortOrder = 0
+                        },
+                        new
+                        {
+                            Id = -69,
+                            Caption = "Image",
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9606),
+                            FileSize = 0L,
+                            ImagePath = "/user-content/default/product-3.jpg",
+                            IsDefault = true,
+                            ProductId = 1,
+                            SortOrder = 0
+                        },
+                        new
+                        {
+                            Id = -70,
+                            Caption = "Image",
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9608),
+                            FileSize = 0L,
+                            ImagePath = "/user-content/default/product-4.jpg",
+                            IsDefault = true,
+                            ProductId = 1,
+                            SortOrder = 0
+                        },
+                        new
+                        {
+                            Id = -71,
+                            Caption = "Image",
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9609),
+                            FileSize = 0L,
+                            ImagePath = "/user-content/default/product-5.jpg",
+                            IsDefault = true,
+                            ProductId = 1,
+                            SortOrder = 0
+                        },
+                        new
+                        {
+                            Id = -72,
+                            Caption = "Image",
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9611),
+                            FileSize = 0L,
+                            ImagePath = "/user-content/default/product-6.jpg",
+                            IsDefault = true,
+                            ProductId = 2,
+                            SortOrder = 0
+                        },
+                        new
+                        {
+                            Id = -73,
+                            Caption = "Image",
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9613),
+                            FileSize = 0L,
+                            ImagePath = "/user-content/default/product-7.jpg",
+                            IsDefault = true,
+                            ProductId = 2,
+                            SortOrder = 0
+                        },
+                        new
+                        {
+                            Id = -74,
+                            Caption = "Image",
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9615),
+                            FileSize = 0L,
+                            ImagePath = "/user-content/default/product-8.jpg",
+                            IsDefault = true,
+                            ProductId = 2,
+                            SortOrder = 0
+                        },
+                        new
+                        {
+                            Id = -75,
+                            Caption = "Image",
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9617),
+                            FileSize = 0L,
+                            ImagePath = "/user-content/default/product-9.jpg",
+                            IsDefault = true,
+                            ProductId = 2,
+                            SortOrder = 0
+                        },
+                        new
+                        {
+                            Id = -76,
+                            Caption = "Image",
+                            DateCreated = new DateTime(2021, 7, 29, 15, 21, 19, 335, DateTimeKind.Local).AddTicks(9618),
+                            FileSize = 0L,
+                            ImagePath = "/user-content/default/product-10.jpg",
+                            IsDefault = true,
+                            ProductId = 2,
                             SortOrder = 0
                         });
                 });
@@ -7258,7 +7368,7 @@ namespace Project.AdminApp.Migrations
                             ApplyForProductIds = false,
                             Description = "Giảm giá 50% giá trị sản phẩm không quá 50.000 vnđ",
                             DiscountPercent = 50,
-                            FromDate = new DateTime(2021, 6, 21, 2, 41, 16, 290, DateTimeKind.Local).AddTicks(7855),
+                            FromDate = new DateTime(2021, 7, 29, 15, 21, 19, 819, DateTimeKind.Local).AddTicks(2159),
                             MaximumDiscountAmountForPecentCoupon = 50000m,
                             Name = "Mã giảm giá 50% cho tất cả các sản phẩm trong cửa hàng",
                             Status = 0,
@@ -7273,7 +7383,7 @@ namespace Project.AdminApp.Migrations
                             ApplyForOrderTotal = false,
                             ApplyForProductIds = false,
                             Description = "Giảm giá 50.000vnđ trên giá trị sản phẩm không quá  25% giá trị sản phẩm",
-                            FromDate = new DateTime(2021, 6, 21, 2, 41, 16, 291, DateTimeKind.Local).AddTicks(2745),
+                            FromDate = new DateTime(2021, 7, 29, 15, 21, 19, 819, DateTimeKind.Local).AddTicks(6869),
                             MaximumDiscountPercentForAmountCoupon = 25,
                             Name = "Mã giảm giá 50.000 cho tất cả các sản phẩm trong cửa hàng",
                             Status = 0,
@@ -7289,7 +7399,7 @@ namespace Project.AdminApp.Migrations
                             ApplyForProductIds = true,
                             Description = "Giảm giá 50% trên giá trị của  sản phẩm có mã hợp lệ không quá  25.000vnđ trên giá trị sản phẩm",
                             DiscountPercent = 50,
-                            FromDate = new DateTime(2021, 6, 21, 2, 41, 16, 291, DateTimeKind.Local).AddTicks(2761),
+                            FromDate = new DateTime(2021, 7, 29, 15, 21, 19, 819, DateTimeKind.Local).AddTicks(6881),
                             MaximumDiscountAmountForPecentCoupon = 25000m,
                             Name = "Mã giảm giá 50% cho  các sản phẩm có mã hợp lệ trong cửa hàng",
                             Status = 0,
@@ -7305,7 +7415,7 @@ namespace Project.AdminApp.Migrations
                             ApplyForProductIds = true,
                             Description = "Giảm giá 50000 trên giá trị của  sản phẩm có mã hợp lệ không quá  25% trên giá trị sản phẩm",
                             DiscountAmount = 50000m,
-                            FromDate = new DateTime(2021, 6, 21, 2, 41, 16, 291, DateTimeKind.Local).AddTicks(3353),
+                            FromDate = new DateTime(2021, 7, 29, 15, 21, 19, 819, DateTimeKind.Local).AddTicks(7555),
                             MaximumDiscountPercentForAmountCoupon = 25,
                             Name = "Mã giảm giá 50000 cho  các sản phẩm có mã hợp lệ trong cửa hàng",
                             Status = 0,
@@ -7321,7 +7431,7 @@ namespace Project.AdminApp.Migrations
                             ApplyForProductIds = false,
                             Description = "Giảm giá 50000 trên giá trị của  sản phẩm thuộc danh mục xxx không quá  10% trên giá trị sản phẩm",
                             DiscountAmount = 50000m,
-                            FromDate = new DateTime(2021, 6, 21, 2, 41, 16, 291, DateTimeKind.Local).AddTicks(3364),
+                            FromDate = new DateTime(2021, 7, 29, 15, 21, 19, 819, DateTimeKind.Local).AddTicks(7564),
                             MaximumDiscountPercentForAmountCoupon = 10,
                             Name = "Mã giảm giá 50000 cho  các sản phẩm thuộc danh mục xxx trong cửa hàng",
                             Status = 0,
@@ -7337,7 +7447,7 @@ namespace Project.AdminApp.Migrations
                             ApplyForProductIds = false,
                             Description = "Giảm giá 50% trên giá trị của  sản phẩm thuộc danh mục xxx không quá  10000 trên giá trị sản phẩm",
                             DiscountPercent = 50,
-                            FromDate = new DateTime(2021, 6, 21, 2, 41, 16, 291, DateTimeKind.Local).AddTicks(3367),
+                            FromDate = new DateTime(2021, 7, 29, 15, 21, 19, 819, DateTimeKind.Local).AddTicks(7566),
                             MaximumDiscountAmountForPecentCoupon = 10000m,
                             Name = "Mã giảm giá 50% cho  các sản phẩm thuộc danh mục xxx trong cửa hàng",
                             Status = 0,
@@ -7353,7 +7463,7 @@ namespace Project.AdminApp.Migrations
                             ApplyForProductIds = false,
                             Description = "Giảm giá 50% trên giá trị của  đơn hàng từ 10.000 không quá 10.000",
                             DiscountPercent = 50,
-                            FromDate = new DateTime(2021, 6, 21, 2, 41, 16, 291, DateTimeKind.Local).AddTicks(3988),
+                            FromDate = new DateTime(2021, 7, 29, 15, 21, 19, 819, DateTimeKind.Local).AddTicks(8146),
                             MaximumDiscountAmountForPecentCoupon = 10000m,
                             MinimumTotalOrder = 10000m,
                             Name = "Mã giảm giá 50% cho  đơn hàng từ 10.000",
@@ -7370,7 +7480,7 @@ namespace Project.AdminApp.Migrations
                             ApplyForProductIds = false,
                             Description = "Giảm giá 10.000vđ trên giá trị của  đơn hàng từ 10.000vnđ ",
                             DiscountAmount = 10000m,
-                            FromDate = new DateTime(2021, 6, 21, 2, 41, 16, 291, DateTimeKind.Local).AddTicks(4001),
+                            FromDate = new DateTime(2021, 7, 29, 15, 21, 19, 819, DateTimeKind.Local).AddTicks(8155),
                             MaximumDiscountPercentForAmountCoupon = 100,
                             MinimumTotalOrder = 10000m,
                             Name = "Mã giảm giá 10.000vnđ cho  đơn hàng từ 10.000vnđ",

@@ -73,12 +73,14 @@
             <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
                 <div>
                     <p>
-                        
+
                         @foreach (var provider in Model.ExternalLogins)
                         {
-                            <button type="submit" value="@provider.Name" name="provider" title="Sử dụng tài khoản @provider.DisplayName của bạn" class=" btn--google__login" disabled><span><i class="tikicon icon-google-white"></i></span>Đăng nhập bằng Google</button>
-                            }
-                        
+                            <button type="submit" value="@provider.Name" name="provider" title="Sử dụng tài khoản facebook của bạn" class=" external--btn btn--facebook__login" disabled><span><i class="tikicon icon-facebook-white"></i></span>Đăng nhập bằng Facebook</button>
+                            <button type="submit" value="@provider.Name" name="provider" title="Sử dụng tài khoản @provider.DisplayName của bạn" class="external--btn btn--google__login" disabled><span><i class="tikicon icon-google-white"></i></span>Đăng nhập bằng Google</button>
+
+                        }
+
                     </p>
                 </div>
             </form> } }
