@@ -46,7 +46,7 @@
                 @foreach (var provider in Model.OtherLogins)
                 {
                     
-                    <button id="@($"link-login-button-{provider.Name}")" type="submit" value="@provider.Name" name="provider" title="Sử dụng tài khoản @provider.DisplayName của bạn" class=" btn--google__login"><span><i class="tikicon icon-google-white"></i></span>Đăng nhập bằng Google</button>
+                    <button id="@($"link-login-button-{provider.Name}")" type="submit" value="@provider.Name" name="provider" title="Sử dụng tài khoản @provider.DisplayName của bạn" class="external--btn btn--google__login" disabled><span><i class="tikicon icon-google-white"></i></span>Đăng nhập bằng Google</button>
                 }
             </p>
         </div>

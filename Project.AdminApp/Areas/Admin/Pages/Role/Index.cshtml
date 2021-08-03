@@ -13,10 +13,10 @@
             <form method="POST" class="my-1 d-inline">
                 <button class="btn btn-primary" asp-page="./Add"
                         asp-page-handler="StartNewRole">
-                    Thêm mới Role
+                    Thêm mới Vị trí
                 </button>
             </form>
-            <a class="btn btn-primary" asp-page="./User">Gán role cho người dùng</a>
+            <a class="btn btn-primary" asp-page="./User">Gán Vị trí cho tài khoản</a>
             <div class="card mb-4 mt-2">
                 <div class="card-header">
                     <i class="fa fa-list mr-1"></i>
@@ -28,7 +28,7 @@
                             <thead>
 
                                 <tr>
-                                    <th>Role ID</th>
+                                    <th>Mã vị trí </th>
                                     <th>Tên</th>
                                     <th>Tác vụ</th>
                                 </tr>
@@ -45,13 +45,13 @@
                             <form method="POST" class="d-inline">
                                 <button name="Input.ID" value="@role.Id" class="btn btn-success btn-sm"
                                         asp-page="./Add" asp-page-handler="StartUpdate">
-                                    Cập nhật Role
+                                    Cập nhật Vị trí
                                 </button>
                             </form>
                             <a name="rolename" class="btn btn-success btn-sm"
                                asp-route-roleid="@role.Id"
                                asp-area="Admin"
-                               asp-page="/RoleClaims/Index">Claims</a>
+                               asp-page="/RoleClaims/Index">Quyền hạn</a>
                             <form method="POST" class="d-inline">
                                 <button name="Input.ID" value="@role.Id" class="btn btn-success btn-sm"
                                         asp-page="./Delete">
