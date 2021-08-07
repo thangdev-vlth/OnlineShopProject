@@ -44,7 +44,7 @@ namespace Project.AdminApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+            //ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
             services.AddControllersWithViews();
             var connectionString = Configuration.GetConnectionString("ProjectOnlineShopDb3");
             services.AddDbContext<ProjectDbContext>(options =>
@@ -178,7 +178,7 @@ namespace Project.AdminApp
                 app.UseHsts();
             }
             app.UseAuthentication();
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
